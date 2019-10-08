@@ -1,0 +1,15 @@
+
+[
+squid:S106("9Replace this use of System.out or System.err by a logger.(Ÿ¯Šúÿÿÿÿ8´í¡üÙ-
+esquid:S1192"GDefine a constant instead of duplicating this literal "franco" 3 times.(ÒŒîÌ8­ÓıÙ-
+[
+squid:S106$"9Replace this use of System.out or System.err by a logger.(Ÿ¯Šúÿÿÿÿ8Ÿ¾¡üÙ-
+dsquid:S1192"FDefine a constant instead of duplicating this literal "alejo" 3 times.(Š¶š–8­ÓıÙ-
+[
+squid:S106&"9Replace this use of System.out or System.err by a logger.(ÛôÉüÿÿÿÿ8´í¡üÙ-
+Lsquid:S2140;")Use "java.util.Random.nextInt()" instead.(£“§øùÿÿÿÿ8ãüÙ-
+\squid:S18546">Remove this useless assignment to local variable "listaNames".(Úªé†8ÿ¶ÎıÙ-
+Gsquid:S1068	")Remove this unused "team2" private field.(¹‡ÿ8ÀùüÙ-
+squid:S1319+"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(½»¢8öÿ•üÙ-
+[
+squid:S106""9Replace this use of System.out or System.err by a logger.(‚…æÑÿÿÿÿÿ8Ÿ¾¡üÙ-
