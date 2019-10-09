@@ -1,10 +1,10 @@
-import modelo.*;
-import modelo.lugarinteres.Biblioteca;
-import modelo.lugarinteres.Club;
-import modelo.lugarinteres.Embajada;
+package main;
 
 import java.util.Arrays;
 import java.util.Scanner;
+
+import modelo.*;
+import modelo.lugarinteres.*;
 
 public class Main {
 
@@ -55,20 +55,6 @@ public class Main {
         carmenSanDiego.setVillano(villano);
         carmenSanDiego.iniciarJuego();
             //Scanner scanner = new Scanner(System.in);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

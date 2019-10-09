@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BaseDatos {
     public ArrayList<Persona> obtenerListaPersonas(){
@@ -68,7 +69,7 @@ public class BaseDatos {
         señasTomas.add("Su comida favorita son los varenikes");
         señasTomas.add("Usa zapatillas de distinto color");
 
-
+        return new ArrayList<Persona>(Arrays.asList(tomas, nicolas, belen, maria));
 
     }
 

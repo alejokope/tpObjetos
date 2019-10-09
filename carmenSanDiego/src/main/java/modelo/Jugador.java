@@ -1,12 +1,7 @@
 package modelo;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Scanner;
 
-@Getter
-@Setter
 public class Jugador {
     private Caso caso;
     private Pais origen;
@@ -38,4 +33,12 @@ public class Jugador {
     private void viajar(Pais pais){
         actual = pais;
     }
+
+	public Pais getActual() {
+		return actual;
+	}
+
+	public void setCarmenSanDiego(CarmenSanDiego carmenSanDiego) {
+		this.carmenSanDiego = carmenSanDiego;
+	}
 }

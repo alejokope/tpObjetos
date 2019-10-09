@@ -1,12 +1,7 @@
 package modelo;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Scanner;
 
-@Getter
-@Setter
 public class CarmenSanDiego {
     private Caso caso;
     private Jugador jugador;
@@ -79,6 +74,18 @@ public class CarmenSanDiego {
 
         }
     }
+
+	public void setCaso(Caso caso) {
+		this.caso = caso;
+	}
+
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+
+	public void setVillano(Villano villano) {
+		this.villano = villano;
+	}
 
 
 

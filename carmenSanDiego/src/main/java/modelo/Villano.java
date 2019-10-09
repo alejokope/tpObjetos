@@ -1,12 +1,8 @@
 package modelo;
 
-import lombok.Getter;
-import lombok.Setter;
 import modelo.lugarinteres.LugarInteres;
-
 import java.util.List;
-@Setter
-@Getter
+
 public class Villano {
     private String nombre;
     private String sexo;
@@ -35,4 +31,49 @@ public class Villano {
         paisActual = getPaisProximo();
         paisActual.ingresoVillano(this);
     }
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+
+	public void setSeñasParticulares(List<String> señasParticulares) {
+		this.señasParticulares = señasParticulares;
+	}
+
+
+	public void setHobbies(List<String> hobbies) {
+		this.hobbies = hobbies;
+	}
+
+
+	public void setPaisActual(Pais paisActual) {
+		this.paisActual = paisActual;
+	}
+
+
+	public void setPlanEscape(List<Pais> planEscape) {
+		this.planEscape = planEscape;
+	}
+
+
+	public List<Pais> getPlanEscape() {
+		return planEscape;
+	}
+
+
+	public List<String> getSeñasParticulares() {
+		return señasParticulares;
+	}
+
+
+	public List<String> getHobbies() {
+		return hobbies;
+	}
 }

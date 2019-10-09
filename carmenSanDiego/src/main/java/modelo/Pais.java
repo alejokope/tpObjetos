@@ -1,12 +1,8 @@
 package modelo;
 
-import lombok.Getter;
-import lombok.Setter;
 import modelo.lugarinteres.LugarInteres;
-
 import java.util.List;
-@Getter
-@Setter
+
 public class Pais {
     private String nombre;
     private List<String> caracteristicas;
@@ -21,6 +17,46 @@ public class Pais {
             lugarInteres.setVillano(villano);
         }
     }
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public void setCaracteristicas(List<String> caracteristicas) {
+		this.caracteristicas = caracteristicas;
+	}
+
+
+	public void setLugaresInteres(List<LugarInteres> lugaresInteres) {
+		this.lugaresInteres = lugaresInteres;
+	}
+
+
+	public void setConexiones(List<Pais> conexiones) {
+		this.conexiones = conexiones;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public List<LugarInteres> getLugaresInteres() {
+		return lugaresInteres;
+	}
+
+
+	public List<Pais> getConexiones() {
+		return conexiones;
+	}
+
+
+	public List<String> getCaracteristicas() {
+		return caracteristicas;
+	}
 
 
 }

@@ -1,11 +1,9 @@
 package modelo.lugarinteres;
 
-import lombok.Setter;
 import modelo.Pais;
 import modelo.Pista;
 import modelo.Villano;
 
-@Setter
 public class Embajada implements LugarInteres{
     private boolean pasoElVillano = false;
     private Villano villano;
