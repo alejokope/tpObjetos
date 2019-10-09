@@ -16,7 +16,6 @@ public class Main {
         villano.setHobbies(Arrays.asList("Juega tenis","Baila tango"));
         villano.setSeñasParticulares(Arrays.asList("Pelo rojo","Maneja un convertible","Posee un collar de rubies","Su comida favorita son los tacos mexicanos"));
 
-
         Pais argentina = new Pais();
         Pais uruguay = new Pais();
         Pais brasil = new Pais();
