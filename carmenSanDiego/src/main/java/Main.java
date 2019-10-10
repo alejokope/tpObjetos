@@ -3,13 +3,14 @@ import modelo.lugarinteres.Biblioteca;
 import modelo.lugarinteres.Club;
 import modelo.lugarinteres.Embajada;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Caso caso = new Caso();
+       /* Caso caso = new Caso();
         Villano villano = new Villano();
         villano.setNombre("Carmen Sandiego");
         villano.setSexo("Femenino");
@@ -55,10 +56,11 @@ public class Main {
         carmenSanDiego.iniciarJuego();
             //Scanner scanner = new Scanner(System.in);
 
-
-
-
-
+*/
+       BaseDatos baseDatos = new BaseDatos();
+       for (Pais pais : baseDatos.obtenerCasoAlAzar()){
+           System.out.println(pais.getNombre());
+       }
 
 
 
