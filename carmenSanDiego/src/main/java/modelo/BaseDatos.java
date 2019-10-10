@@ -114,7 +114,7 @@ public class BaseDatos {
         return listaPersonas;
     }
 
-    public void obtenerVillanoAlAzar (){
+    public Villano obtenerVillanoAlAzar (ArrayList<Pais> planEscape,Pais origen){
         Villano villano = new Villano();
         ArrayList<Persona> listaPersonas = obtenerListaPersonas();
         int numeroAzar = utils.obtenerNumeroAleotorio(listaPersonas.size());
@@ -123,10 +123,13 @@ public class BaseDatos {
         villano.setSexo(listaPersonas.get(numeroAzar).getSexo());
         villano.setSeñasParticulares(listaPersonas.get(numeroAzar).getSeñasParticulares());
         villano.setHobbies(listaPersonas.get(numeroAzar).getHobbies());
-       // villano.setPlanEscape(getPlanEscape());
+        villano.setPlanEscape(planEscape);
+        villano.setPaisActual(origen);
 
-
+        return villano;
     }
+
+
 
     public ArrayList<Pais> obtenerListaPaises (){
 
@@ -145,6 +148,16 @@ public class BaseDatos {
         Pais colombia = new Pais();
         Pais egipto = new Pais();
         Pais india = new Pais();
+
+        argentina.setObjeto(Objetos.OBJETO1);
+        brasil.setObjeto(Objetos.OBJETO2);
+        chile.setObjeto(Objetos.OBJETO3);
+        uruguay.setObjeto(Objetos.OBJETO4);
+        mexico.setObjeto(Objetos.OBJETO5);
+        francia.setObjeto(Objetos.OBJETO6);
+        colombia.setObjeto(Objetos.OBJETO7);
+        egipto.setObjeto(Objetos.OBJETO8);
+        india.setObjeto(Objetos.OBJETO9);
 
         argentina.setNombre("Argentina");
         argentina.setCaracteristicas(Arrays.asList("toman mate","bailan tango"));
@@ -209,11 +222,18 @@ public class BaseDatos {
 
 //todo si la lista de paises es siempre la misma guardarla en un atributo para que no este armandola todo el tiempo y solo la consultemos.
 
-    public ArrayList<Pais> obtenerCasoAlAzar (){
+    public Caso obtenerCasoAlAzar (){
+        Caso caso = new Caso();
         ArrayList<Pais> listaPaises = obtenerListaPaises();
         Pais origen = obtenerPaisOrigen();
+        ArrayList<Pais> planEscape = generarCasos(origen);
+        caso.setPaisOrigen(origen);
+        caso.setPlanEscape(planEscape);
+        caso.setResponsable(obtenerVillanoAlAzar(planEscape,origen));
+        caso.setObjeto(origen.getObjeto());
+        caso.setReporte(obtenerReporte(origen.getObjeto));
         listaPaises.remove(origen);
-        return generarCasos(origen);
+        return caso;
     }
 
     public Pais obtenerPaisOrigen(){

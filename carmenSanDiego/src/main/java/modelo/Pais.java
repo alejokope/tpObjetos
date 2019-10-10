@@ -13,6 +13,7 @@ public class Pais {
     private List<LugarInteres> lugaresInteres;
     //todo puede ser una lista de paises tambien
     private List<Pais> conexiones;
+    private Objetos objeto;
 
 
     public void ingresoVillano(Villano villano){
