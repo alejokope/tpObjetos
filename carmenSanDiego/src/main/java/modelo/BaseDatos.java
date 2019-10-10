@@ -211,10 +211,9 @@ public class BaseDatos {
 
     public ArrayList<Pais> obtenerCasoAlAzar (){
         ArrayList<Pais> listaPaises = obtenerListaPaises();
-        ArrayList<Pais> caso = new ArrayList<Pais>();
         Pais origen = obtenerPaisOrigen();
         listaPaises.remove(origen);
-        return generarCasos(origen,caso);
+        return generarCasos(origen);
     }
 
     public Pais obtenerPaisOrigen(){
@@ -222,10 +221,17 @@ public class BaseDatos {
         return listaPaises.get(utils.obtenerNumeroAleotorio(listaPaises.size()));
     }
 
-    public ArrayList<Pais> generarCasos (Pais pais, ArrayList<Pais> caso){
+    public ArrayList<Pais> generarCasos (Pais pais){
+        ArrayList <Pais> caso = new ArrayList<Pais>();
+        return devolverListaPaisesAzar(pais,caso);
+
+
+    }
+
+    public ArrayList<Pais> devolverListaPaisesAzar (Pais pais, ArrayList<Pais> caso){
         ArrayList <Pais> caso2 = caso;
         Pais proximo = obtenerConexionAleatoria(pais);
-        if(caso.size() == 9 || caso.size() == 8){
+        if(caso.size() == 7){
             return caso2;
         }
         while(caso.contains(proximo)){
@@ -233,7 +239,7 @@ public class BaseDatos {
         }
 
         caso2.add(proximo);
-        generarCasos(proximo,caso2);
+        devolverListaPaisesAzar(proximo,caso2);
         return caso2;
 
     }
