@@ -14,7 +14,6 @@ public class BaseDatosTest {
     @Before
     public void init(){
         baseDatos = new BaseDatos();
-        //paises = baseDatos.obtenerListaPaises();
     }
 
     @Test
