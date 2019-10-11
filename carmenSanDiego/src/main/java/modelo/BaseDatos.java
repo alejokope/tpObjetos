@@ -12,7 +12,25 @@ public class BaseDatos {
         utils = new Utils();
     }
 
-    public ArrayList<Persona> obtenerListaPersonas(){
+
+
+    //todo si la lista de paises es siempre la misma guardarla en un atributo para que no este armandola todo el tiempo y solo la consultemos.
+
+    public Caso obtenerCasoAlAzar (){
+        Caso caso = new Caso();
+        ArrayList<Pais> listaPaises = obtenerListaPaises();
+        Pais origen = obtenerPaisOrigen();
+        ArrayList<Pais> planEscape = generarCasos(origen);
+        caso.setPaisOrigen(origen);
+        caso.setPlanEscape(planEscape);
+        caso.setResponsable(obtenerVillanoAlAzar(planEscape,origen));
+        caso.setObjeto(origen.getObjeto().getValue());
+        caso.setReporte(origen.getReporte().getValue());
+        listaPaises.remove(origen);
+        return caso;
+    }
+
+    private ArrayList<Persona> obtenerListaPersonas(){
         ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
         Persona tomas = new Persona();
         Persona nicolas = new Persona();
@@ -111,7 +129,7 @@ public class BaseDatos {
         return listaPersonas;
     }
 
-    public Villano obtenerVillanoAlAzar (ArrayList<Pais> planEscape,Pais origen){
+    private Villano obtenerVillanoAlAzar (ArrayList<Pais> planEscape,Pais origen){
         Villano villano = new Villano();
         ArrayList<Persona> listaPersonas = obtenerListaPersonas();
         int numeroAzar = utils.obtenerNumeroAleotorio(listaPersonas.size());
@@ -128,8 +146,7 @@ public class BaseDatos {
 
 
 
-    public ArrayList<Pais> obtenerListaPaises (){
-
+    private ArrayList<Pais> obtenerListaPaises (){
         /* private String nombre;
         private List<String> caracteristicas;
         private List<LugarInteres> lugaresInteres; */
@@ -206,14 +223,14 @@ public class BaseDatos {
 
 
         argentina.setConexiones(Arrays.asList(brasil,uruguay,chile,colombia,india,egipto));
-        brasil.setConexiones(Arrays.asList(argentina,uruguay,mexico,egipto));
+        brasil.setConexiones(Arrays.asList(argentina,uruguay,mexico,egipto,francia));
         uruguay.setConexiones(Arrays.asList(argentina,brasil,chile,colombia,egipto));
-        chile.setConexiones(Arrays.asList(argentina,uruguay,india));
-        mexico.setConexiones(Arrays.asList(brasil,chile,colombia,egipto));
-        colombia.setConexiones(Arrays.asList(uruguay,mexico,argentina,india));
+        chile.setConexiones(Arrays.asList(argentina,uruguay,india,mexico,egipto));
+        mexico.setConexiones(Arrays.asList(brasil,chile,colombia,egipto,argentina));
+        colombia.setConexiones(Arrays.asList(uruguay,mexico,argentina,india,francia));
         india.setConexiones(Arrays.asList(india,argentina,chile,egipto,francia));
         egipto.setConexiones(Arrays.asList(india,francia,mexico,uruguay,brasil));
-        francia.setConexiones(Arrays.asList(egipto,argentina,india));
+        francia.setConexiones(Arrays.asList(egipto,argentina,india,brasil,uruguay));
 
         paises.add(argentina);
         paises.add(brasil);
@@ -228,35 +245,20 @@ public class BaseDatos {
         return paises;
     }
 
-//todo si la lista de paises es siempre la misma guardarla en un atributo para que no este armandola todo el tiempo y solo la consultemos.
 
-    public Caso obtenerCasoAlAzar (){
-        Caso caso = new Caso();
-        ArrayList<Pais> listaPaises = obtenerListaPaises();
-        Pais origen = obtenerPaisOrigen();
-        ArrayList<Pais> planEscape = generarCasos(origen);
-        caso.setPaisOrigen(origen);
-        caso.setPlanEscape(planEscape);
-        caso.setResponsable(obtenerVillanoAlAzar(planEscape,origen));
-        caso.setObjeto(origen.getObjeto().getValue());
-        caso.setReporte(origen.getReporte().getValue());
-        listaPaises.remove(origen);
-        return caso;
-    }
-
-    public Pais obtenerPaisOrigen(){
+    private Pais obtenerPaisOrigen(){
         ArrayList<Pais> listaPaises = obtenerListaPaises();
         return listaPaises.get(utils.obtenerNumeroAleotorio(listaPaises.size()));
     }
 
-    public ArrayList<Pais> generarCasos (Pais pais){
+    private ArrayList<Pais> generarCasos (Pais pais){
         ArrayList <Pais> caso = new ArrayList<Pais>();
         return devolverListaPaisesAzar(pais,caso);
 
 
     }
 
-    public ArrayList<Pais> devolverListaPaisesAzar (Pais pais, ArrayList<Pais> caso){
+    private ArrayList<Pais> devolverListaPaisesAzar (Pais pais, ArrayList<Pais> caso){
         ArrayList <Pais> caso2 = caso;
         Pais proximo = obtenerConexionAleatoria(pais);
         if(caso.size() == 7){
@@ -271,21 +273,8 @@ public class BaseDatos {
         return caso2;
 
     }
-    public Pais obtenerConexionAleatoria(Pais pais){
+    private Pais obtenerConexionAleatoria(Pais pais){
         int numAlAzar = utils.obtenerNumeroAleotorio(pais.getConexiones().size());
         return pais.getConexiones().get(numAlAzar);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
