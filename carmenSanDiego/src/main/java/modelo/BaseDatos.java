@@ -1,9 +1,6 @@
 package modelo;
 
-import modelo.lugarinteres.Banco;
-import modelo.lugarinteres.Biblioteca;
-import modelo.lugarinteres.Club;
-import modelo.lugarinteres.Embajada;
+import modelo.lugarinteres.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -159,6 +156,17 @@ public class BaseDatos {
         egipto.setObjeto(Objetos.OBJETO8);
         india.setObjeto(Objetos.OBJETO9);
 
+        argentina.setReporte(Reporte.REPORTE1);
+        brasil.setReporte(Reporte.REPORTE2);
+        chile.setReporte(Reporte.REPORTE3);
+        uruguay.setReporte(Reporte.REPORTE4);
+        mexico.setReporte(Reporte.REPORTE5);
+        francia.setReporte(Reporte.REPORTE6);
+        colombia.setReporte(Reporte.REPORTE7);
+        egipto.setReporte(Reporte.REPORTE8);
+        india.setReporte(Reporte.REPORTE9);
+
+
         argentina.setNombre("Argentina");
         argentina.setCaracteristicas(Arrays.asList("toman mate","bailan tango"));
         argentina.setLugaresInteres(Arrays.asList(new Banco(), new Club()));
@@ -230,8 +238,8 @@ public class BaseDatos {
         caso.setPaisOrigen(origen);
         caso.setPlanEscape(planEscape);
         caso.setResponsable(obtenerVillanoAlAzar(planEscape,origen));
-        caso.setObjeto(origen.getObjeto());
-        caso.setReporte(obtenerReporte(origen.getObjeto));
+        caso.setObjeto(origen.getObjeto().getValue());
+        caso.setReporte(origen.getReporte().getValue());
         listaPaises.remove(origen);
         return caso;
     }

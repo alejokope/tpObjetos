@@ -58,9 +58,16 @@ public class Main {
 
 */
        BaseDatos baseDatos = new BaseDatos();
-       for (Pais pais : baseDatos.obtenerCasoAlAzar()){
-           System.out.println(pais.getNombre());
-       }
+        Caso caso = baseDatos.obtenerCasoAlAzar();
+        System.out.println(caso.getResponsable().getNombre());
+        System.out.println("Se robaron: " + caso.getObjeto());
+        System.out.println("El reporte es: " + caso.getReporte());
+        System.out.println("Pais de origen: " + caso.getPaisOrigen().getNombre());
+        System.out.println("Plan de escape: ");
+        for(Pais pais : caso.getPlanEscape()){
+            System.out.println(pais.getNombre());
+        }
+
 
 
 
