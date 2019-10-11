@@ -1,16 +1,15 @@
 package modelo;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 
 public class BaseDatosTest {
 
     private BaseDatos baseDatos;
-    private ArrayList<Pais> paises;
     @Before
     public void init(){
         baseDatos = new BaseDatos();
