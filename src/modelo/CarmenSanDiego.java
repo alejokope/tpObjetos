@@ -23,21 +23,21 @@ public class CarmenSanDiego {
             System.out.println("GANASTE");
             return;
         }
-        System.out.println("Pais actual: " + jugador.getActual().getNombre());
+        System.out.println("Pais actual: " + jugador.getPaisActual().getNombre());
 
 
 
-        int tope = jugador.getActual().getLugaresInteres().size() + 1;
+        int tope = jugador.getPaisActual().getLugaresInteres().size() + 1;
         int eleccion = -1;
         for (int p = 0; p < villano.getPlanEscape().size(); p++) {
             while (eleccion != tope) {
-                for (int i = 0; i < jugador.getActual().getLugaresInteres().size(); i++) {
-                    System.out.println(i + 1 + ": " + jugador.getActual().getLugaresInteres().get(i).informacion());
+                for (int i = 0; i < jugador.getPaisActual().getLugaresInteres().size(); i++) {
+                    System.out.println(i + 1 + ": " + jugador.getPaisActual().getLugaresInteres().get(i).informacion());
                 }
                 System.out.println(tope + ": VIAJAR");
                 eleccion = scanner.nextInt();
                 if (eleccion < tope)
-                    handlerPistas(jugador.getActual().getLugaresInteres().get(eleccion - 1).darPista());
+                    handlerPistas(jugador.getPaisActual().getLugaresInteres().get(eleccion - 1).darPista());
                 else {
                     System.out.println("A donde deseas viajar? : ");
                     viajar();
@@ -45,7 +45,7 @@ public class CarmenSanDiego {
                         System.out.println("GANASTE");
                         return;
                     }
-                    System.out.println("Pais actual: " + jugador.getActual().getNombre());
+                    System.out.println("Pais actual: " + jugador.getPaisActual().getNombre());
                 }
             }
         }
@@ -53,8 +53,16 @@ public class CarmenSanDiego {
     }
 
     private boolean gano(Villano villano, Jugador jugador){
-        return villano.getPaisActual().equals(jugador.getActual());
+        return estanEnELMismoLugarDeInteres(villano, jugador) && elVillanoCoincideConOrdenDeArresto(villano, jugador);
     }
+
+	private boolean elVillanoCoincideConOrdenDeArresto(Villano villano, Jugador jugador) {
+		return jugador.getOrdenDeArresto().getSospechoso().equals(villano);
+	}
+
+	private boolean estanEnELMismoLugarDeInteres(Villano villano, Jugador jugador) {
+		return villano.getLugarInteresActual().equals(jugador.getLugarInteresActual());
+	}
     private void viajar(){
         jugador.consultaDondeViajar();
         villano.escaparProximoPais();
@@ -66,12 +74,9 @@ public class CarmenSanDiego {
             System.out.println("PISTA 2: " + pista.getPista2());
             System.out.println("PISTA 3: " + pista.getPistaExtra());
         }
-        if(pista.getPista1() != null && pista.getPista2() != null && pista.getPistaExtra() == null){
+        else if(pista.getPista1() != null && pista.getPista2() != null && pista.getPistaExtra() == null){
             System.out.println("PISTA 1: " + pista.getPista1());
             System.out.println("PISTA 2: " + pista.getPista2());
-        }
-        else {
-
         }
     }
 
@@ -86,11 +91,4 @@ public class CarmenSanDiego {
 	public void setVillano(Villano villano) {
 		this.villano = villano;
 	}
-
-
-
-
-
-
-
 }

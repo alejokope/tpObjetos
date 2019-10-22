@@ -1,7 +1,10 @@
 package test;
 
 import modelo.*;
-import modelo.lugarinteres.*;
+import modelo.lugarInteres.Biblioteca;
+import modelo.lugarInteres.Club;
+import modelo.lugarInteres.Embajada;
+import modelo.lugarInteres.*;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -2,20 +2,21 @@ package modelo;
 
 import java.util.Scanner;
 
+import modelo.lugarInteres.LugarInteres;
+
 public class Jugador {
     private Caso caso;
     private Pais origen;
     private CarmenSanDiego carmenSanDiego;
-    private Pais actual;
+    private Pais paisActual;
+    private LugarInteres lugarInteresActual;
     private Scanner scanner = new Scanner(System.in);
-
-
+    private OrdenDeArresto ordenDeArresto;
 
     public Jugador(Caso caso) {
         this.caso = caso;
         this.origen = caso.getPaisOrigen();
-        this.actual = caso.getPaisOrigen();
-
+        this.paisActual = caso.getPaisOrigen();
     }
 
     public void pedirPista(){
@@ -23,22 +24,38 @@ public class Jugador {
     }
 
     public void consultaDondeViajar(){
-        for(int i = 0; i < this.actual.getConexiones().size(); i++){
-            System.out.println(i + 1 + ": " + this.actual.getConexiones().get(i).getNombre());
+        for(int i = 0; i < this.paisActual.getConexiones().size(); i++){
+            System.out.println(i + 1 + ": " + this.paisActual.getConexiones().get(i).getNombre());
         }
 
         int decision = scanner.nextInt();
-        this.viajar(this.actual.getConexiones().get(decision - 1));
+        this.viajar(this.paisActual.getConexiones().get(decision - 1));
     }
     private void viajar(Pais pais){
-        actual = pais;
+        paisActual = pais;
     }
 
-	public Pais getActual() {
-		return actual;
+	public Pais getPaisActual() {
+		return paisActual;
 	}
 
 	public void setCarmenSanDiego(CarmenSanDiego carmenSanDiego) {
 		this.carmenSanDiego = carmenSanDiego;
+	}
+
+	public LugarInteres getLugarInteresActual() {
+		return lugarInteresActual;
+	}
+
+	public void setLugarInteresActual(LugarInteres lugarInteresActual) {
+		this.lugarInteresActual = lugarInteresActual;
+	}
+	
+	public OrdenDeArresto getOrdenDeArresto() {
+		return ordenDeArresto;
+	}
+
+	public void pedirOrdenDeArresto(Persona sospechoso) {
+		ordenDeArresto.emitirOrdenDeArresto(sospechoso);
 	}
 }
