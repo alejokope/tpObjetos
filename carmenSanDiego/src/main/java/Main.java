@@ -3,19 +3,19 @@ import modelo.lugarinteres.Biblioteca;
 import modelo.lugarinteres.Club;
 import modelo.lugarinteres.Embajada;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Caso caso = new Caso();
+       /* Caso caso = new Caso();
         Villano villano = new Villano();
         villano.setNombre("Carmen Sandiego");
         villano.setSexo("Femenino");
         villano.setHobbies(Arrays.asList("Juega tenis","Baila tango"));
         villano.setSeñasParticulares(Arrays.asList("Pelo rojo","Maneja un convertible","Posee un collar de rubies","Su comida favorita son los tacos mexicanos"));
-
 
         Pais argentina = new Pais();
         Pais uruguay = new Pais();
@@ -56,9 +56,17 @@ public class Main {
         carmenSanDiego.iniciarJuego();
             //Scanner scanner = new Scanner(System.in);
 
-
-
-
+*/
+       BaseDatos baseDatos = new BaseDatos();
+        Caso caso = baseDatos.obtenerCasoAlAzar();
+        System.out.println(caso.getResponsable().getNombre());
+        System.out.println("Se robaron: " + caso.getObjeto());
+        System.out.println("El reporte es: " + caso.getReporte());
+        System.out.println("Pais de origen: " + caso.getPaisOrigen().getNombre());
+        System.out.println("Plan de escape: ");
+        for(Pais pais : caso.getPlanEscape()){
+            System.out.println(pais.getNombre());
+        }
 
 
 
