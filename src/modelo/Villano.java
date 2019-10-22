@@ -1,6 +1,5 @@
 package modelo;
 
-import modelo.lugarinteres.LugarInteres;
 import java.util.List;
 
 public class Villano {

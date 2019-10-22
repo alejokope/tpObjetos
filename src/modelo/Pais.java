@@ -1,6 +1,6 @@
 package modelo;
 
-import modelo.lugarinteres.LugarInteres;
+import modelo.lugarinteres.*;
 import java.util.List;
 
 public class Pais {

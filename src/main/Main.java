@@ -1,7 +1,6 @@
-package main;
+package main_;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 import modelo.*;
 import modelo.lugarinteres.*;

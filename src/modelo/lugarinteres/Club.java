@@ -1,7 +1,6 @@
 package modelo.lugarinteres;
 
-import modelo.Pista;
-import modelo.Villano;
+import modelo.*;
 
 public class Club implements LugarInteres{
     private boolean pasoVillano = false;

@@ -1,8 +1,6 @@
 package modelo.lugarinteres;
 
-import modelo.Pais;
-import modelo.Pista;
-import modelo.Villano;
+import modelo.*;
 
 public class Embajada implements LugarInteres{
     private boolean pasoElVillano = false;

@@ -1,5 +1,5 @@
 module moduloNecesarioParaQueEntiendaEclipseLosImports {
-	exports main;
+	exports main_;
 	exports modelo.lugarinteres;
 	exports modelo;
 }
