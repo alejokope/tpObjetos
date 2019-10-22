@@ -24,7 +24,9 @@ hs_err_pid*
 
 # agrego cosas del eclipse/IntelliJ que no son necesarias commitear/pushear
 /bin/
+/target/
 .classpath
 .project
 .settings/
 .idea/
+

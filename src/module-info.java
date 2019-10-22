@@ -1,5 +1,5 @@
 module moduloNecesarioParaQueEntiendaEclipseLosImports {
-	exports main_;
+    requires junit;
 	exports modelo.lugarinteres;
 	exports modelo;
 }
