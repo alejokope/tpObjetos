@@ -40,9 +40,15 @@ public class Caso {
 	public Pais getPaisOrigen() {
 		return paisOrigen;
 	}
-    
-    
 
+
+	public Villano getResponsable() {
+    	return responsable;
+	}
+
+    public List<Pais> getPlanEscape() {
+    	return planEscape;
+    }
 }
 
 
