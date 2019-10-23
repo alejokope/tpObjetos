@@ -12,4 +12,12 @@ public class Persona {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
 }
