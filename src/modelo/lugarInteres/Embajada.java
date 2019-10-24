@@ -34,4 +34,12 @@ public class Embajada implements LugarInteres{
         int numero = (int) (Math.random() * pais.getCaracteristicas().size());
         return pais.getCaracteristicas().get(numero);
     }
+
+    public Villano getVillano() {
+        return villano;
+    }
+
+    public boolean getPasoVillano() {
+        return pasoElVillano;
+    }
 }
