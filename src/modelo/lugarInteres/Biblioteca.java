@@ -52,9 +52,15 @@ public class Biblioteca implements LugarInteres {
 		return "BIBLIOTECA";
 	}
 
-	@Override
 	public void setVillano(Villano villano) {
-		// TODO Auto-generated method stub
-		
+		this.villano = villano;
+	}
+
+	public Villano getVillano() {
+		return villano;
+	}
+
+	public boolean getPasoVillano() {
+		return pasoVillano;
 	}
 }
