@@ -7,7 +7,9 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class modeloTest {
+public class ModeloAgregadoTest {
+    //Comentado para usar coverage en las demas clases que faltan,
+    //Descomentar cuando todas las clases y sus metodos hayan sido probados.
 
 //    @Test
 //    public void casoEjemplo(){
