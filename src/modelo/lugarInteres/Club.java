@@ -52,4 +52,11 @@ public class Club implements LugarInteres{
         return "CLUB";
     }
 
+    public Villano getVillano() {
+        return villano;
+    }
+
+    public boolean getPasoVillano() {
+        return pasoVillano;
+    }
 }
