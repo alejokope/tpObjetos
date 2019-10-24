@@ -58,7 +58,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void obtenerPistaSobrePais_obtengoSeñasParticulares(){
+    public void obtenerPistaSobrePais_obtengoPistaSobrePais(){
         //es privado, ademas no se puede testear facilmente.
     }
 

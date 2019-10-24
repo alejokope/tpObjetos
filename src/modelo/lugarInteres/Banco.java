@@ -42,4 +42,11 @@ public class Banco implements LugarInteres {
 		return "BANCO";
 	}
 
+	public boolean getPasoVillano() {
+		return pasoVillano;
+	}
+
+	public Villano getVillano() {
+		return villano;
+	}
 }

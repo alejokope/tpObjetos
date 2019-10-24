@@ -24,7 +24,7 @@ public class EmbajadaTest {
     }
 
     @Test
-    public void obtenerPistaSobrePais_obtengoPista(){
+    public void obtenerPistaSobrePais_obtengoPistaSobrePais(){
         //es privado, ademas no se puede testear facilmente.
     }
 
@@ -58,7 +58,7 @@ public class EmbajadaTest {
     }
 
     @Test
-    public void darPista_elDetectivePasaPorLaBibliotecaYObtienePistaPorqueElVillanoPasoPorAlli(){
+    public void darPista_elDetectivePasaPorLaEmbajadaYObtienePistaPorqueElVillanoPasoPorAlli(){
         Embajada embajada = new Embajada();
         Pais argentina = mock(Pais.class);
         List<String> señasParticulares = Arrays.asList("Tiene barba");
