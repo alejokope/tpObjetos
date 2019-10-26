@@ -6,7 +6,7 @@ public class Caso {
     private Villano responsable;
     private List<Pais> planEscape;
     private String reporte;
-    private String objeto;
+    private String objetoRobado;
     private Pais paisOrigen;
     
     public void setResponsable(Villano responsable) {
@@ -22,7 +22,7 @@ public class Caso {
 	}
 	
 	public void setObjeto(String objeto) {
-		this.objeto = objeto;
+		this.objetoRobado = objeto;
 	}
 	
 	public void setPaisOrigen(Pais paisOrigen) {
@@ -34,7 +34,7 @@ public class Caso {
 	}
 
 	public String getObjeto() {
-		return objeto;
+		return objetoRobado;
 	}
 
 	public Pais getPaisOrigen() {

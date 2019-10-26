@@ -63,4 +63,8 @@ public class Villano extends Persona{
 	public LugarInteres getLugarInteresActual() {
 		return lugarInteresActual;
 	}
+	
+	public void setLugarInteresActual(LugarInteres lugarInteres) {
+    	this.lugarInteresActual = lugarInteres;
+	}
 }

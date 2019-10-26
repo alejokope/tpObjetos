@@ -7,7 +7,6 @@ public class Pais {
     private String nombre;
     private List<String> caracteristicas;
     private List<LugarInteres> lugaresInteres;
-    //todo puede ser una lista de paises tambien
     private List<Pais> conexiones;
 
 

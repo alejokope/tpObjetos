@@ -9,7 +9,7 @@ public class CarmenSanDiego {
     private Scanner scanner = new Scanner(System.in);
 
 
-    public void iniciarJuego() {
+    public void iniciarJuego(Pais pais) { //Quitaria/modificaria esto urgentemente, no provee ninguna manera buena de testearlo
         System.out.println("Bienvenidos al juego.");
         System.out.println("Hoy tenemos el siguiente caso: \n");
         System.out.println("Se robo " + caso.getObjeto() + " en " + caso.getPaisOrigen().getNombre() + ". \n");
@@ -18,7 +18,7 @@ public class CarmenSanDiego {
 
 
         System.out.println("A donde deseas viajar? : ");
-        viajar();
+        viajar(pais);
         if(gano(villano,jugador)) {
             System.out.println("GANASTE");
             return;
@@ -37,10 +37,10 @@ public class CarmenSanDiego {
                 System.out.println(tope + ": VIAJAR");
                 eleccion = scanner.nextInt();
                 if (eleccion < tope)
-                    handlerPistas(jugador.getPaisActual().getLugaresInteres().get(eleccion - 1).darPista());
+                    obtenerPistas(jugador.getPaisActual().getLugaresInteres().get(eleccion - 1).darPista());
                 else {
                     System.out.println("A donde deseas viajar? : ");
-                    viajar();
+                    viajar(pais);
                     if(gano(villano,jugador)) {
                         System.out.println("GANASTE");
                         return;
@@ -52,23 +52,24 @@ public class CarmenSanDiego {
         System.out.println("PERDISTE");
     }
 
-    private boolean gano(Villano villano, Jugador jugador){
+    public boolean gano(Villano villano, Jugador jugador){
         return estanEnELMismoLugarDeInteres(villano, jugador) && elVillanoCoincideConOrdenDeArresto(villano, jugador);
     }
 
-	private boolean elVillanoCoincideConOrdenDeArresto(Villano villano, Jugador jugador) {
+	public boolean elVillanoCoincideConOrdenDeArresto(Villano villano, Jugador jugador) {
 		return jugador.getOrdenDeArresto().getSospechoso().equals(villano);
 	}
 
-	private boolean estanEnELMismoLugarDeInteres(Villano villano, Jugador jugador) {
+	public boolean estanEnELMismoLugarDeInteres(Villano villano, Jugador jugador) {
 		return villano.getLugarInteresActual().equals(jugador.getLugarInteresActual());
 	}
-    private void viajar(){
-        jugador.consultaDondeViajar();
+	
+	public void viajar(Pais pais){
+        jugador.viajar(pais);
         villano.escaparProximoPais();
-
-    }
-    private void handlerPistas(Pista pista){
+	}
+	
+    public Pista obtenerPistas(Pista pista){
         if(pista.getPista1() != null && pista.getPista2() != null && pista.getPistaExtra() != null){
             System.out.println("PISTA 1: " + pista.getPista1());
             System.out.println("PISTA 2: " + pista.getPista2());
@@ -78,6 +79,7 @@ public class CarmenSanDiego {
             System.out.println("PISTA 1: " + pista.getPista1());
             System.out.println("PISTA 2: " + pista.getPista2());
         }
+        return pista;
     }
 
 	public void setCaso(Caso caso) {
