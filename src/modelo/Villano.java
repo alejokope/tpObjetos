@@ -3,6 +3,7 @@ package modelo;
 import java.util.List;
 
 import excepciones.NoEsPaisProximoException;
+import modelo.lugarInteres.Embajada;
 import modelo.lugarInteres.LugarInteres;
 
 public class Villano extends Persona{
@@ -62,5 +63,9 @@ public class Villano extends Persona{
 	
 	public LugarInteres getLugarInteresActual() {
 		return lugarInteresActual;
+	}
+
+	public void setLugarInteresActual(LugarInteres lugarInteres) {
+    	this.lugarInteresActual = lugarInteres;
 	}
 }

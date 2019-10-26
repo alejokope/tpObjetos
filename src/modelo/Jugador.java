@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.Scanner;
 
+import excepciones.NoEsPaisProximoException;
 import modelo.lugarInteres.LugarInteres;
 
 public class Jugador {
@@ -31,8 +32,15 @@ public class Jugador {
         int decision = scanner.nextInt();
         this.viajar(this.paisActual.getConexiones().get(decision - 1));
     }
-    private void viajar(Pais pais){
-        paisActual = pais;
+
+    public void viajar(Pais pais){
+        if(paisActual.getConexiones().contains(pais)){
+            this.paisActual = pais;
+        }
+        else{
+            throw new NoEsPaisProximoException();
+        }
+
     }
 
 	public Pais getPaisActual() {
@@ -58,4 +66,12 @@ public class Jugador {
 	public void pedirOrdenDeArresto(Persona sospechoso) {
 		ordenDeArresto.emitirOrdenDeArresto(sospechoso);
 	}
+
+    public void setOrdenDeArresto(OrdenDeArresto ordenDeArresto) {
+        this.ordenDeArresto = ordenDeArresto;
+    }
+
+    public void setPaisActual(Pais pais) {
+        this.paisActual = pais;
+    }
 }
