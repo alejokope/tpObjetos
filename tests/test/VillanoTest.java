@@ -1,19 +1,22 @@
 package test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import modelo.Jugador;
+import modelo.lugarInteres.*;
 import org.junit.Test;
 
 import excepciones.NoHayPaisProximoException;
 import modelo.Pais;
 import modelo.Villano;
-import modelo.lugarInteres.Banco;
-import modelo.lugarInteres.Biblioteca;
-import modelo.lugarInteres.LugarInteres;
 
 public class VillanoTest {
 
@@ -88,5 +91,44 @@ public class VillanoTest {
 		villano.setPaisActual(chile);
 		villano.setPlanEscape(planDeEscape);
 		villano.escaparProximoPais();
+	}
+
+	@Test
+	public void obtenerCaracteristicasDelPaisProximo_obtenerListaDeCaracteristicasDelPaisProximo(){
+		Villano villano = new Villano();
+		Pais argentina = mock(Pais.class);
+		Pais peru = mock(Pais.class);
+		villano.setPaisActual(peru);
+		villano.setPlanEscape(Arrays.asList(peru, argentina));
+		List<String> argCaracteristicas = Arrays.asList("Tiene costa", "Bandera roja y blanca");
+
+		when(argentina.getCaracteristicas()).thenReturn(argCaracteristicas);
+
+		assertEquals(villano.obtenerCaracteristicasDelPaisProximo(), argCaracteristicas);
+	}
+
+	@Test
+	public void estoyEnElMismoLugarDeInteresQueJugador_villanoEstaEnElMismoLugarQueElJugador(){
+		Villano villano = new Villano();
+		Embajada embajada = mock(Embajada.class);
+		Jugador jugador = mock(Jugador.class);
+		villano.setLugarInteresActual(embajada);
+
+		when(jugador.getLugarInteresActual()).thenReturn(embajada);
+
+		assertTrue(villano.estoyEnElMismoLugarDeInteresQueJugador(jugador));
+	}
+
+	@Test
+	public void estoyEnElMismoLugarDeInteresQueJugador_villanoNoEstaEnElMismoLugarQueElJugador(){
+		Villano villano = new Villano();
+		Embajada embajada = mock(Embajada.class);
+		Club club = mock(Club.class);
+		Jugador jugador = mock(Jugador.class);
+		villano.setLugarInteresActual(embajada);
+
+		when(jugador.getLugarInteresActual()).thenReturn(club);
+
+		assertFalse(villano.estoyEnElMismoLugarDeInteresQueJugador(jugador));
 	}
 }
