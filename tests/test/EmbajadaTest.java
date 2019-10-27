@@ -47,14 +47,14 @@ public class EmbajadaTest {
         assertTrue(embajada.getPasoVillano());
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorLaEmbajadaPeroElVillanoNoPasoPorAhi(){
         Embajada embajada = new Embajada();
         Villano villano = mock(Villano.class);
 
         embajada.setVillano(villano);
 
-        assertNull(embajada.darPista().getPista1());
+        embajada.darPista().getPista1();
     }
 
     @Test

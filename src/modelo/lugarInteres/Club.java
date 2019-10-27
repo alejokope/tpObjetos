@@ -12,18 +12,11 @@ public class Club implements LugarInteres{
 
     public Pista darPista() {
         Pista pista = new Pista();
-        if(pasoVillano){
-            String pista1 = obtenerSeñasParticulares(villano);
-            String pista2 = obtenerSeñasParticulares(villano);
-            if(porcentajeMayorA70()){
-                String pista3 = obtenerHobbies(villano);
-                pista = new Pista(pista1,pista2,pista3);
-            }else{
-                pista = new Pista(pista1,pista2);
+        if (pasoVillano) {
+            pista.agregarDosPistas(obtenerSeñasParticulares(villano), obtenerSeñasParticulares(villano));
+            if (porcentajeMayorA70()) {
+                pista.agregarUnaPista(obtenerHobbies(villano));
             }
-        }
-        else{
-            System.out.println("No hay información.");
         }
         return pista;
     }

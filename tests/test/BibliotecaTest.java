@@ -62,14 +62,14 @@ public class BibliotecaTest {
         //es privado, ademas no se puede testear facilmente.
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorLaBibliotecaPeroElVillanoNoPasoPorAlli(){
         Biblioteca biblioteca = new Biblioteca();
         Villano villano = mock(Villano.class);
 
         biblioteca.setVillano(villano);
 
-        assertNull(biblioteca.darPista().getPista1());
+        biblioteca.darPista().getPista1();
     }
 
     @Test

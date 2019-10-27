@@ -9,10 +9,7 @@ public class Embajada implements LugarInteres{
     public Pista darPista() {
         Pista pista = new Pista();
         if(pasoElVillano){
-            pista =new Pista(obtenerPistaSobrePais(villano.getPaisProximo()),obtenerPistaSobrePais(villano.getPaisProximo()));
-        }
-        else{
-            System.out.println("No tenemos información.");
+            pista.agregarDosPistas(obtenerPistaSobrePais(villano.getPaisProximo()), obtenerPistaSobrePais(villano.getPaisProximo()));
         }
         return pista;
     }
@@ -28,7 +25,6 @@ public class Embajada implements LugarInteres{
     public String informacion() {
         return "EMBAJADA";
     }
-
 
     private String obtenerPistaSobrePais(Pais pais){
         int numero = (int) (Math.random() * pais.getCaracteristicas().size());

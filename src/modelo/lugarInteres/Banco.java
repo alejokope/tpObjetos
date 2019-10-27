@@ -11,14 +11,9 @@ public class Banco implements LugarInteres {
 	}
 
 	public Pista darPista() {
-		// TODO MEJORAR
 		Pista pista = new Pista();
 		if (pasoVillano) {
-			String pista1 = obtenerPistaSobrePais(villano.getPaisProximo());
-			String pista2 = obtenerSeñasParticulares(villano);
-			pista = new Pista(pista1, pista2);
-		} else {
-			System.out.println("No hay información.");
+			pista.agregarDosPistas(obtenerPistaSobrePais(villano.getPaisProximo()), obtenerSeñasParticulares(villano));
 		}
 		return pista;
 	}

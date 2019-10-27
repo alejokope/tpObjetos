@@ -52,14 +52,14 @@ public class BancoTest {
         //es privado, ademas no se puede testear facilmente.
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorElBancoPeroElVillanoNoPasoPorAlli(){
         Banco banco = new Banco();
         Villano villano = mock(Villano.class);
 
         banco.setVillano(villano);
 
-        assertNull(banco.darPista().getPista1());
+        banco.darPista().getPista1();
     }
 
     @Test

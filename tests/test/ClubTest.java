@@ -57,14 +57,14 @@ public class ClubTest {
         //es privado, ademas no se puede testear facilmente.
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorElClubPeroElVillanoNoPasoPorAlli(){
         Club club = new Club();
         Villano villano = mock(Villano.class);
 
         club.setVillano(villano);
 
-        assertNull(club.darPista().getPista1());
+        club.darPista().getPista1();
     }
 
     @Test

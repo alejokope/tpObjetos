@@ -1,36 +1,43 @@
 package modelo;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pista {
-    private String pista1;
-    private String pista2;
-    private String pistaExtra;
+    private List<String> pistas = new ArrayList<String>();
     
     public Pista() {
 		
 	}
 
-    public Pista(String pista1, String pista2) {
-        this.pista1 = pista1;
-        this.pista2 = pista2;
+    public Pista(List<String> pistas) {
+        this.pistas = pistas;
     }
-    public Pista(String pista1, String pista2, String pistaExtra) {
-        this.pista1 = pista1;
-        this.pista2 = pista2;
-        this.pistaExtra = pistaExtra;
-    }
-    
+
+    public List<String> getPistas(){
+    	return pistas;
+	}
 	
 	public String getPista1() {
-		return pista1;
+		return pistas.get(0);
 	}
 	
 	public String getPista2() {
-		return pista2;
+		return pistas.get(1);
 	}
 	
 	public String getPistaExtra() {
-		return pistaExtra;
+		return pistas.get(2);
+	}
+
+	public void agregarUnaPista(String palabra){
+    	pistas.add(palabra);
+	}
+
+	public void agregarDosPistas(String palabra1, String palabra2){
+    	agregarUnaPista(palabra1);
+		agregarUnaPista(palabra2);
 	}
 
 }
