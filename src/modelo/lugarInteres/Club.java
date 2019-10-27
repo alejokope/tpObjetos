@@ -8,15 +8,15 @@ public class Club extends LugarInteres{
     public static final int PORCENTAJE_EVALUADO = 70;
 
     @Override
-    public Pista darPista() {
-        Pista pista = new Pista();
+    public Ayuda darPista() {
+        Ayuda ayuda = new Ayuda();
         if (pasoElVillano) {
-            pista.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.getSeñasParticulares()));
+            ayuda.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.getSeñasParticulares()));
             if (porcentajeMayorA()) {
-                pista.agregarUnaPista(obtenerPistas(villano.getHobbies()));
+                ayuda.agregarUnaPista(obtenerPistas(villano.getHobbies()));
             }
         }
-        return pista;
+        return ayuda;
     }
 
     @Override

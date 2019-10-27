@@ -1,45 +1,45 @@
 package test;
 
-import modelo.Pista;
+import modelo.Ayuda;
 import org.junit.Test;
 
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-public class PistaTest {
+public class AyudaTest {
 
     @Test
-    public void creoPista_creoPistaConUnParametroYObtengoLaPrimeraPista(){
+    public void creoAyuda_creoAyudaConUnParametroYObtengoLaPrimeraPista(){
         String primeraPista = "tiene barba";
 
-        Pista pista = new Pista(Arrays.asList(primeraPista));
+        Ayuda ayuda = new Ayuda(Arrays.asList(primeraPista));
 
-        String resultado = pista.getPista1();
+        String resultado = ayuda.getPista1();
 
         assertEquals(resultado, primeraPista);
     }
 
     @Test
-    public void creoPista_creoPistaConDosParametrosYObtengoLaSegundaPista(){
+    public void creoAyuda_creoAyudaConDosParametrosYObtengoLaSegundaPista(){
         String primeraPista = "tiene bigote";
         String segundaPista = "le gusta esquiar";
-        Pista pista = new Pista(Arrays.asList(primeraPista, segundaPista));
+        Ayuda ayuda = new Ayuda(Arrays.asList(primeraPista, segundaPista));
 
-        String resultado = pista.getPista2();
+        String resultado = ayuda.getPista2();
 
         assertEquals(resultado, segundaPista);
     }
 
     @Test
-    public void creoPista_creoPistaConTresParametrosYObtengoLaPistaExtra(){
+    public void creoAyuda_creoAyudaConTresParametrosYObtengoLaPistaExtra(){
         String primeraPista = "tiene ferrari";
         String segundaPista = "le gusta el futbol";
         String pistaExtra = "vive cerca de la embajada";
 
-        Pista pista = new Pista(Arrays.asList(primeraPista, segundaPista, pistaExtra));
+        Ayuda ayuda = new Ayuda(Arrays.asList(primeraPista, segundaPista, pistaExtra));
 
-        String resultado = pista.getPistaExtra();
+        String resultado = ayuda.getPistaExtra();
 
         assertEquals(resultado, pistaExtra);
     }
@@ -47,22 +47,22 @@ public class PistaTest {
     @Test
     public void agregarUnaPista_agregoUnaPistaALaListaDePistas(){
         String primeraPista = "vivio en italia";
-        Pista pista = new Pista();
+        Ayuda ayuda = new Ayuda();
 
-        pista.agregarUnaPista(primeraPista);
+        ayuda.agregarUnaPista(primeraPista);
 
-        assertEquals(pista.getPistas().size(), 1);
+        assertEquals(ayuda.getPistas().size(), 1);
     }
 
     @Test
     public void agregarDosPistas_agregoDosPistasALaListaDePistas(){
         String primeraPista = "vivio en italia";
         String segundaPista = "estudia en japon";
-        Pista pista = new Pista();
+        Ayuda ayuda = new Ayuda();
 
-        pista.agregarDosPistas(primeraPista, segundaPista);
+        ayuda.agregarDosPistas(primeraPista, segundaPista);
 
-        assertEquals(pista.getPistas().size(), 2);
+        assertEquals(ayuda.getPistas().size(), 2);
     }
 
 

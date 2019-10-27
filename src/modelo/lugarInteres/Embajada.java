@@ -5,12 +5,12 @@ import modelo.*;
 public class Embajada extends LugarInteres{
 
     @Override
-    public Pista darPista() {
-        Pista pista = new Pista();
+    public Ayuda darPista() {
+        Ayuda ayuda = new Ayuda();
         if(pasoElVillano){
-            pista.agregarDosPistas(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()), obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
+            ayuda.agregarDosPistas(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()), obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
         }
-        return pista;
+        return ayuda;
     }
 
     @Override

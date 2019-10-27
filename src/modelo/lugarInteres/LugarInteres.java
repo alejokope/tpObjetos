@@ -9,11 +9,9 @@ public abstract class LugarInteres {
     protected boolean pasoElVillano = false;
     protected Villano villano;
 
-    abstract public Pista darPista();
+    abstract public Ayuda darPista();
 
-    public String informacion(){
-        return "";
-    }
+    abstract public String informacion();
 
     public void setVillano(Villano villano) {
         this.villano = villano;

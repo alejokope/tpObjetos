@@ -4,14 +4,14 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pista {
+public class Ayuda {
     private List<String> pistas = new ArrayList<String>();
     
-    public Pista() {
+    public Ayuda() {
 		
 	}
 
-    public Pista(List<String> pistas) {
+    public Ayuda(List<String> pistas) {
         this.pistas = pistas;
     }
 
