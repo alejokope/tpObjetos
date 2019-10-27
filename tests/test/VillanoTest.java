@@ -3,6 +3,7 @@ package test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -19,15 +20,11 @@ public class VillanoTest {
 	@Test
 	public void getPaisProximo_ElVillanoObtieneElPaisProximoSegunElPlanDeEscape() {
 		Villano villano = new Villano();
-		List<Pais> planDeEscape = new ArrayList<Pais>();
 		Pais argentina = new Pais();
 		Pais chile = new Pais();
 		Pais brasil = new Pais();
-		
-		planDeEscape.add(argentina);
-		planDeEscape.add(brasil);
-		planDeEscape.add(chile);
-		
+		List<Pais> planDeEscape = Arrays.asList(argentina, brasil, chile);
+
 		villano.setPaisActual(argentina);
 		villano.setPlanEscape(planDeEscape);
 		
@@ -37,14 +34,10 @@ public class VillanoTest {
 	@Test(expected = NoHayPaisProximoException.class)
 	public void getPaisProximo_ElVillanoNoTieneUnPaisProximoSegunElPlanDeEscape() {
 		Villano villano = new Villano();
-		List<Pais> planDeEscape = new ArrayList<Pais>();
 		Pais argentina = new Pais();
 		Pais chile = new Pais();
 		Pais brasil = new Pais();
-		
-		planDeEscape.add(argentina);
-		planDeEscape.add(brasil);
-		planDeEscape.add(chile);
+		List<Pais> planDeEscape = Arrays.asList(argentina, brasil, chile);
 		
 		villano.setPaisActual(chile);
 		villano.setPlanEscape(planDeEscape);

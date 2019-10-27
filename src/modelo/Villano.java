@@ -6,25 +6,33 @@ import excepciones.NoHayPaisProximoException;
 import modelo.lugarInteres.LugarInteres;
 
 public class Villano extends Persona{
-    private List<String> señasParticulares;
+	public static final int OBTENER_ULTIMO_INDICE = 1;
+	public static final int OBTENER_PROXIMO_INDICE = 1;
+
+	private List<String> señasParticulares;
     private List<String> hobbies;
     private Pais paisActual;
     private LugarInteres lugarInteresActual;
    	private List<Pais> planEscape;
 
     public Pais getPaisProximo(){
-    	int cantidadPaises = planEscape.size();
-    	
-        for(int i = 0; i < cantidadPaises; i++){
-            if(planEscape.get(i).equals(paisActual) && i != cantidadPaises - 1){
-                return planEscape.get(i+1);
-            }
-        }
-        
-        throw new NoHayPaisProximoException();
+    	return planEscape.get(obtenerSiguientePaisDeMiPlanDeEscape());
     }
 
-    public void escaparProximoPais(){
+	public int obtenerSiguientePaisDeMiPlanDeEscape() {
+    	if(miPlanDeEscapeContieneAMiPaisActualYPuedoSeguirMiPlanDeEscape()){
+			return planEscape.indexOf(paisActual) + OBTENER_PROXIMO_INDICE;
+		}
+		else{
+			throw new NoHayPaisProximoException();
+		}
+	}
+
+	public boolean miPlanDeEscapeContieneAMiPaisActualYPuedoSeguirMiPlanDeEscape() {
+		return planEscape.contains(paisActual) && planEscape.indexOf(paisActual) < planEscape.size() - OBTENER_ULTIMO_INDICE;
+	}
+
+	public void escaparProximoPais(){
         paisActual = getPaisProximo();
         paisActual.ingresoVillano(this);
     }
