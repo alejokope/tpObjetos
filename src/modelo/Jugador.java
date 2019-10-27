@@ -39,7 +39,7 @@ public class Jugador {
     }
     
     public void viajar(Pais pais){
-        if(paisActual.getConexiones().contains(pais)){
+        if(estaEstePaisConectadoAMiPaisActual(pais)){
             this.paisActual = pais;
         }
         else{
@@ -47,7 +47,11 @@ public class Jugador {
         }
     }
 
-	public Pais getPaisActual() {
+    public boolean estaEstePaisConectadoAMiPaisActual(Pais pais) {
+        return paisActual.getConexiones().contains(pais);
+    }
+
+    public Pais getPaisActual() {
 		return paisActual;
 	}
 
@@ -73,5 +77,9 @@ public class Jugador {
 
     public void setPaisActual(Pais pais) {
         this.paisActual = pais;
+    }
+
+    public boolean esLaOrdenDeArrestoCorrecta(Villano villano){
+        return ordenDeArresto.getSospechoso() == villano;
     }
 }

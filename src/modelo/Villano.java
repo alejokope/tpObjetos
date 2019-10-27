@@ -36,6 +36,10 @@ public class Villano extends Persona{
 		return planEscape.contains(paisActual) && planEscape.indexOf(paisActual) < planEscape.size() - OBTENER_ULTIMO_INDICE;
 	}
 
+	public boolean estoyEnElMismoLugarDeInteresQueJugador(Jugador jugador){
+   		return lugarInteresActual == jugador.getLugarInteresActual();
+	}
+
 	public void escaparProximoPais(){
         paisActual = getPaisProximo();
         paisActual.ingresoVillano(this);

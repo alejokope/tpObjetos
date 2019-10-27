@@ -2,8 +2,6 @@ package test;
 
 import excepciones.NoEsPaisProximoException;
 import modelo.*;
-import modelo.lugarInteres.Club;
-import modelo.lugarInteres.Embajada;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -19,13 +17,9 @@ public class CarmenSanDiegoTest {
         CarmenSanDiego carmen = new CarmenSanDiego();
         Villano villano = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
-        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
-        Embajada embajada = mock(Embajada.class);
 
-        when(jugador.getOrdenDeArresto()).thenReturn(ordenDeArresto);
-        when(ordenDeArresto.getSospechoso()).thenReturn(villano);
-        when(villano.getLugarInteresActual()).thenReturn(embajada);
-        when(jugador.getLugarInteresActual()).thenReturn(embajada);
+        when(jugador.esLaOrdenDeArrestoCorrecta(villano)).thenReturn(true);
+        when(villano.estoyEnElMismoLugarDeInteresQueJugador(jugador)).thenReturn(true);
 
         assertTrue(carmen.gano(villano,jugador));
     }
@@ -35,14 +29,9 @@ public class CarmenSanDiegoTest {
         CarmenSanDiego carmen = new CarmenSanDiego();
         Villano villano = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
-        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
-        Embajada embajada = mock(Embajada.class);
-        Embajada embajada2 = mock(Embajada.class);
 
-        when(jugador.getOrdenDeArresto()).thenReturn(ordenDeArresto);
-        when(ordenDeArresto.getSospechoso()).thenReturn(villano);
-        when(villano.getLugarInteresActual()).thenReturn(embajada);
-        when(jugador.getLugarInteresActual()).thenReturn(embajada2);
+        when(villano.estoyEnElMismoLugarDeInteresQueJugador(jugador)).thenReturn(false);
+        when(jugador.esLaOrdenDeArrestoCorrecta(villano)).thenReturn(true);
 
         assertFalse(carmen.gano(villano,jugador));
     }
@@ -51,71 +40,24 @@ public class CarmenSanDiegoTest {
     public void gano_elJugadorNoGanoAunqueEstabaEnElMismoLugarDeInteresPorqueLaOrdenDeArrestoEraIncorrecta(){
         CarmenSanDiego carmen = new CarmenSanDiego();
         Villano villano = mock(Villano.class);
-        Villano villano2 = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
-        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
-        Embajada embajada = mock(Embajada.class);
 
-        when(jugador.getOrdenDeArresto()).thenReturn(ordenDeArresto);
-        when(ordenDeArresto.getSospechoso()).thenReturn(villano2);
-        when(villano.getLugarInteresActual()).thenReturn(embajada);
-        when(jugador.getLugarInteresActual()).thenReturn(embajada);
+        when(villano.estoyEnElMismoLugarDeInteresQueJugador(jugador)).thenReturn(true);
+        when(jugador.esLaOrdenDeArrestoCorrecta(villano)).thenReturn(false);
 
         assertFalse(carmen.gano(villano,jugador));
     }
 
     @Test
-    public void elVillanoCoincideConOrdenDeArresto_elVillanoQueApareceEnLaOrdenDeArrestoEsElResponsableDelCrimen(){
+    public void gano_elJugadorNoGanoPorqueNoEstabaEnElMismoLugarDeInteresYLaOrdenDeArrestoEraIncorrecta(){
         CarmenSanDiego carmen = new CarmenSanDiego();
         Villano villano = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
-        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
 
-        when(jugador.getOrdenDeArresto()).thenReturn(ordenDeArresto);
-        when(ordenDeArresto.getSospechoso()).thenReturn(villano);
+        when(villano.estoyEnElMismoLugarDeInteresQueJugador(jugador)).thenReturn(false);
+        when(jugador.esLaOrdenDeArrestoCorrecta(villano)).thenReturn(false);
 
-        assertTrue(carmen.elVillanoCoincideConOrdenDeArresto(villano, jugador));
-    }
-
-    @Test
-    public void elVillanoCoincideConOrdenDeArresto_elVillanoQueApareceEnLaOrdenDeArrestoNoEsElResponsableDelCrimen(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
-        Villano villano = mock(Villano.class);
-        Villano villano2 = mock(Villano.class);
-        Jugador jugador = mock(Jugador.class);
-        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
-
-        when(jugador.getOrdenDeArresto()).thenReturn(ordenDeArresto);
-        when(ordenDeArresto.getSospechoso()).thenReturn(villano2);
-
-        assertFalse(carmen.elVillanoCoincideConOrdenDeArresto(villano, jugador));
-    }
-
-    @Test
-    public void estanEnElMismoLugarDeInteres_elVillanoYElJugadorEstanEnElMismoLugarDeInteres(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
-        Embajada embajada = mock(Embajada.class);
-        Villano villano = mock(Villano.class);
-        Jugador jugador = mock(Jugador.class);
-
-        when(villano.getLugarInteresActual()).thenReturn(embajada);
-        when(jugador.getLugarInteresActual()).thenReturn(embajada);
-
-        assertTrue(carmen.estanEnELMismoLugarDeInteres(villano,jugador));
-    }
-
-    @Test
-    public void estanEnElMismoLugarDeInteres_elVillanoYElJugadorNoEstanEnElMismoLugarDeInteres(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
-        Embajada embajada = mock(Embajada.class);
-        Club club = mock(Club.class);
-        Villano villano = mock(Villano.class);
-        Jugador jugador = mock(Jugador.class);
-
-        when(villano.getLugarInteresActual()).thenReturn(embajada);
-        when(jugador.getLugarInteresActual()).thenReturn(club);
-
-        assertFalse(carmen.estanEnELMismoLugarDeInteres(villano,jugador));
+        assertFalse(carmen.gano(villano,jugador));
     }
 
     @Test
@@ -169,42 +111,7 @@ public class CarmenSanDiegoTest {
         carmen.viajar(paisDeLasMaravillas);
     }
 
-    @Test
-    public void handlerPistas_manejara2PistasYLasMostraraSiNoEstanNull(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
-        Pista pista = mock(Pista.class);
-
-        when(pista.getPista1()).thenReturn("Tiene bigote");
-        when(pista.getPista2()).thenReturn("Tiene bote");
-
-        assertNotNull(carmen.obtenerPistas(pista));
-    }
-
-    @Test
-    public void handlerPistas_manejara3PistasYLasMostraraSiNoEstanNull(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
-        Pista pista = mock(Pista.class);
-
-        when(pista.getPista1()).thenReturn("Tiene bigote");
-        when(pista.getPista2()).thenReturn("Tiene bote");
-        when(pista.getPistaExtra()).thenReturn("Viaja en subte");
-
-        assertNotNull(carmen.obtenerPistas(pista));
-    }
-
     //Bueno si no quieren testear getters y setters, no va haber 100% coverage...
 
-    @Test
-    public void iniciarJuego_elJugadorGanaElJuego(){
-//        CarmenSanDiego juego = new CarmenSanDiego();
-//        Caso caso = mock(Caso.class);
-//
-//        when(caso.getObjeto()).thenReturn("Ataud de Oro");
-//        when(caso.getPaisOrigen().getNombre()).thenReturn("Alemania");
-//        when(caso.getReporte()).thenReturn("Detengan al delincuente de articulos historicos");
-//        when(jugador.)
-        //Recomiendo borrar/modificar este metodo "iniciarJuego".
-
-    }
 
 }
