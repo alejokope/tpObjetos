@@ -1,56 +1,9 @@
 package modelo;
 
-import java.util.Scanner;
-
 public class CarmenSanDiego {
     private Caso caso;
     private Jugador jugador;
     private Villano villano;
-    private Scanner scanner = new Scanner(System.in);
-
-
-    public void iniciarJuego(Pais pais) { //Quitaria/modificaria esto urgentemente, no provee ninguna manera buena de testearlo
-        System.out.println("Bienvenidos al juego.");
-        System.out.println("Hoy tenemos el siguiente caso: \n");
-        System.out.println("Se robo " + caso.getObjeto() + " en " + caso.getPaisOrigen().getNombre() + ". \n");
-        System.out.println("El reporte policial es: \n");
-        System.out.println(caso.getReporte());
-
-
-        System.out.println("A donde deseas viajar? : ");
-        viajar(pais);
-        if(gano(villano,jugador)) {
-            System.out.println("GANASTE");
-            return;
-        }
-        System.out.println("Pais actual: " + jugador.getPaisActual().getNombre());
-
-
-
-        int tope = jugador.getPaisActual().getLugaresInteres().size() + 1;
-        int eleccion = -1;
-        for (int p = 0; p < villano.getPlanEscape().size(); p++) {
-            while (eleccion != tope) {
-                for (int i = 0; i < jugador.getPaisActual().getLugaresInteres().size(); i++) {
-                    System.out.println(i + 1 + ": " + jugador.getPaisActual().getLugaresInteres().get(i).informacion());
-                }
-                System.out.println(tope + ": VIAJAR");
-                eleccion = scanner.nextInt();
-                if (eleccion < tope)
-                    obtenerPistas(jugador.getPaisActual().getLugaresInteres().get(eleccion - 1).darPista());
-                else {
-                    System.out.println("A donde deseas viajar? : ");
-                    viajar(pais);
-                    if(gano(villano,jugador)) {
-                        System.out.println("GANASTE");
-                        return;
-                    }
-                    System.out.println("Pais actual: " + jugador.getPaisActual().getNombre());
-                }
-            }
-        }
-        System.out.println("PERDISTE");
-    }
 
     public boolean gano(Villano villano, Jugador jugador){
         return estanEnELMismoLugarDeInteres(villano, jugador) && elVillanoCoincideConOrdenDeArresto(villano, jugador);
