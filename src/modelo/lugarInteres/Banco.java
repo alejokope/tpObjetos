@@ -8,7 +8,7 @@ public class Banco extends LugarInteres {
 	public Pista darPista() {
 		Pista pista = new Pista();
 		if (pasoElVillano) {
-			pista.agregarDosPistas(obtenerPistaSobrePais(villano.getPaisProximo()), obtenerSeñasParticulares(villano));
+			pista.agregarDosPistas(obtenerPistas(villano.getPaisProximo().getCaracteristicas()), obtenerPistas(villano.getSeñasParticulares()));
 		}
 		return pista;
 	}

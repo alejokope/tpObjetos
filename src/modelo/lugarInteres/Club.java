@@ -11,9 +11,9 @@ public class Club extends LugarInteres{
     public Pista darPista() {
         Pista pista = new Pista();
         if (pasoElVillano) {
-            pista.agregarDosPistas(obtenerSeñasParticulares(villano), obtenerSeñasParticulares(villano));
+            pista.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.getSeñasParticulares()));
             if (porcentajeMayorA()) {
-                pista.agregarUnaPista(obtenerHobbies(villano));
+                pista.agregarUnaPista(obtenerPistas(villano.getHobbies()));
             }
         }
         return pista;

@@ -2,6 +2,8 @@ package modelo.lugarInteres;
 
 import modelo.*;
 
+import java.util.List;
+
 public abstract class LugarInteres {
 
     protected boolean pasoElVillano = false;
@@ -29,19 +31,12 @@ public abstract class LugarInteres {
         pasoElVillano = pasoVillano;
     }
 
-    protected String obtenerPistaSobrePais(Pais pais) {
-        int numero = (int) (Math.random() * pais.getCaracteristicas().size());
-        return pais.obtenerCaracteristica(numero);
+    protected String obtenerPistas(List<String> pistas){
+        return pistas.get(obtenerNumeroRandom(pistas));
     }
 
-    protected String obtenerSeñasParticulares(Villano villano) {
-        int numero = (int) (Math.random() * villano.getSeñasParticulares().size());
-        return villano.getSeñasParticulares().get(numero);
-    }
-
-    protected String obtenerHobbies(Villano villano) {
-        int numero = (int) (Math.random() * villano.getHobbies().size());
-        return villano.getHobbies().get(numero);
+    protected int obtenerNumeroRandom(List<String> pistas){
+        return (int) (Math.random() * pistas.size());
     }
 
     protected boolean porcentajeMayorA(){
