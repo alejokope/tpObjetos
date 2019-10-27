@@ -2,17 +2,15 @@ package test;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.*;
 import org.junit.Test;
 
 import excepciones.NoEsPaisProximoException;
-import modelo.Caso;
-import modelo.Jugador;
-import modelo.Pais;
-import modelo.Persona;
 
 public class JugadorTest {
 
@@ -69,5 +67,32 @@ public class JugadorTest {
         
         jugador.viajar(ecuador);        
 	}
+
+    @Test
+    public void esLaOrdenDeArrestoCorrecta_laOrdenDeArrestoEsCorrecta(){
+	    Caso caso = mock(Caso.class);
+	    Villano villano = mock(Villano.class);
+        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
+	    Jugador jugador = new Jugador(caso);
+	    jugador.setOrdenDeArresto(ordenDeArresto);
+
+	    when(ordenDeArresto.getSospechoso()).thenReturn(villano);
+
+	    assertTrue(jugador.esLaOrdenDeArrestoCorrecta(villano));
+    }
+
+    @Test
+    public void esLaOrdenDeArrestoCorrecta_laOrdenDeArrestoNoEsCorrecta(){
+        Caso caso = mock(Caso.class);
+        Villano villano = mock(Villano.class);
+        Villano villano2 = mock(Villano.class);
+        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
+        Jugador jugador = new Jugador(caso);
+        jugador.setOrdenDeArresto(ordenDeArresto);
+
+        when(ordenDeArresto.getSospechoso()).thenReturn(villano2);
+
+        assertFalse(jugador.esLaOrdenDeArrestoCorrecta(villano));
+    }
 
 }

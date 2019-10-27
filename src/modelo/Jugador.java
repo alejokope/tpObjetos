@@ -61,4 +61,8 @@ public class Jugador {
     public boolean esLaOrdenDeArrestoCorrecta(Villano villano){
         return ordenDeArresto.getSospechoso() == villano;
     }
+
+    public void setOrdenDeArresto(OrdenDeArresto ordenDeArresto) {
+        this.ordenDeArresto = ordenDeArresto;
+    }
 }
