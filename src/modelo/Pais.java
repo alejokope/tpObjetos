@@ -56,9 +56,5 @@ public class Pais {
 		return caracteristicas;
 	}
 
-	public String obtenerCaracteristica(int numero){
-    	return this.getCaracteristicas().get(numero);
-	}
-
 
 }
