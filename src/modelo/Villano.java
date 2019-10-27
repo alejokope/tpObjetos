@@ -15,6 +15,10 @@ public class Villano extends Persona{
     private LugarInteres lugarInteresActual;
    	private List<Pais> planEscape;
 
+   	public List<String> obtenerCaracteristicasDelPaisProximo(){
+   		return getPaisProximo().getCaracteristicas();
+	}
+
     public Pais getPaisProximo(){
     	return planEscape.get(obtenerSiguientePaisDeMiPlanDeEscape());
     }

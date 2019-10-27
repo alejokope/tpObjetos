@@ -11,7 +11,7 @@ public class Biblioteca extends LugarInteres {
 	public Pista darPista() {
 		Pista pista = new Pista();
 		if (pasoElVillano) {
-			pista.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.getPaisProximo().getCaracteristicas()));
+			pista.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
 			if (porcentajeMayorA()) {
 				pista.agregarUnaPista(obtenerPistas(villano.getHobbies()));
 			}

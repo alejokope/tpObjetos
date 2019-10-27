@@ -65,18 +65,14 @@ public class BancoTest {
     @Test
     public void darPista_elDetectivePasaPorElBancoYObtienePistaPorqueElVillanoPasoPorAlli(){
         Banco banco = new Banco();
-        Pais argentina = new Pais();
         List<String> señasParticulares = Arrays.asList("Tiene barba");
-        List<String> hobbies = Arrays.asList("Le gusta el basquet");
-        List<String> argCaracteristicas = Arrays.asList("bandera celeste y blanca", "sol");
+        List<String> caracteristicasPais = Arrays.asList("bandera celeste y blanca", "sol");
         Villano villano = mock(Villano.class);
         banco.setVillano(villano);
         banco.setPasoVillano(true);
-        argentina.setCaracteristicas(argCaracteristicas);
 
         when(villano.getSeñasParticulares()).thenReturn(señasParticulares);
-        when(villano.getPaisProximo()).thenReturn(argentina);
-        when(villano.getHobbies()).thenReturn(hobbies);
+        when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 
         assertNotNull(banco.darPista().getPista1());
         //coverage va variar porque usa random y a veces no entra a ciertas condiciones.

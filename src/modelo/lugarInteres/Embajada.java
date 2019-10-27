@@ -8,7 +8,7 @@ public class Embajada extends LugarInteres{
     public Pista darPista() {
         Pista pista = new Pista();
         if(pasoElVillano){
-            pista.agregarDosPistas(obtenerPistas(villano.getPaisProximo().getCaracteristicas()), obtenerPistas(villano.getPaisProximo().getCaracteristicas()));
+            pista.agregarDosPistas(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()), obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
         }
         return pista;
     }
