@@ -21,7 +21,7 @@ public class Banco implements LugarInteres {
 	// todo o utils o herencia repite mucho codigo
 	private String obtenerPistaSobrePais(Pais pais) {
 		int numero = (int) (Math.random() * pais.getCaracteristicas().size());
-		return pais.getCaracteristicas().get(numero);
+		return pais.obtenerCaracteristica(numero);
 	}
 
 	private String obtenerSeñasParticulares(Villano villano) {

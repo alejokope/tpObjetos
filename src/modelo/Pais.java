@@ -17,7 +17,6 @@ public class Pais {
         }
     }
 
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -55,6 +54,10 @@ public class Pais {
 
 	public List<String> getCaracteristicas() {
 		return caracteristicas;
+	}
+
+	public String obtenerCaracteristica(int numero){
+    	return this.getCaracteristicas().get(numero);
 	}
 
 

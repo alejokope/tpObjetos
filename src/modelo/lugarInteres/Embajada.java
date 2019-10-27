@@ -28,7 +28,7 @@ public class Embajada implements LugarInteres{
 
     private String obtenerPistaSobrePais(Pais pais){
         int numero = (int) (Math.random() * pais.getCaracteristicas().size());
-        return pais.getCaracteristicas().get(numero);
+        return pais.obtenerCaracteristica(numero);
     }
 
     public Villano getVillano() {
