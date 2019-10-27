@@ -2,54 +2,31 @@ package modelo.lugarInteres;
 
 import modelo.*;
 
-public class Club implements LugarInteres{
-    private boolean pasoVillano = false;
-    private Villano villano;
+public class Club extends LugarInteres{
 
-    public void setVillano(Villano villano) {
-        this.villano = villano;
-    }
+    public static final int MAXIMO_NUMERO_RANDOM = 100;
+    public static final int PORCENTAJE_EVALUADO = 70;
 
+    @Override
     public Pista darPista() {
         Pista pista = new Pista();
-        if (pasoVillano) {
+        if (pasoElVillano) {
             pista.agregarDosPistas(obtenerSeñasParticulares(villano), obtenerSeñasParticulares(villano));
-            if (porcentajeMayorA70()) {
+            if (porcentajeMayorA()) {
                 pista.agregarUnaPista(obtenerHobbies(villano));
             }
         }
         return pista;
     }
 
-    //todo o utils o herencia repite mucho codigo
-    private String obtenerHobbies(Villano villano){
-        int numero = (int) (Math.random() * villano.getHobbies().size());
-        return villano.getHobbies().get(numero);
-    }
-
-    private boolean porcentajeMayorA70(){
-        int numeroAlAzar = (int) (Math.random() * 100 + 1);
-        return numeroAlAzar >= 70;
-    }
-
-    private String obtenerSeñasParticulares(Villano villano){
-        int numero = (int) (Math.random() * villano.getSeñasParticulares().size());
-        return villano.getSeñasParticulares().get(numero);
-    }
-
-    public void setPasoVillano(boolean pasoVillano) {
-        this.pasoVillano = pasoVillano;
-    }
-
+    @Override
     public String informacion() {
         return "CLUB";
     }
 
-    public Villano getVillano() {
-        return villano;
+    @Override
+    protected boolean porcentajeMayorA() {
+        return (Math.random() * MAXIMO_NUMERO_RANDOM) >= PORCENTAJE_EVALUADO;
     }
 
-    public boolean getPasoVillano() {
-        return pasoVillano;
-    }
 }
