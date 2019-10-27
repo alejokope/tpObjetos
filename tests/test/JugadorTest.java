@@ -15,32 +15,7 @@ import modelo.Pais;
 import modelo.Persona;
 
 public class JugadorTest {
-	
-	@Test
-	public void consultaDondeViajar_ElJugadorCosultaLosDestinosPosiblesYObtieneLosAdecuados() {
-		Caso caso = new Caso();		
-        Pais argentina = new Pais();
-        Pais ecuador = new Pais();
-        Pais chile = new Pais();
-        List<Pais> conexiones = new ArrayList<Pais>();
-        
-        argentina.setNombre("Argentina");
-        ecuador.setNombre("Ecuador");
-        chile.setNombre("Chile");
-        
-        conexiones.add(chile);
-        conexiones.add(ecuador);
-        argentina.setConexiones(conexiones);
-        
-        caso.setPaisOrigen(argentina);
 
-		Jugador jugador = new Jugador(caso);
-		
-		String destinos = jugador.consultaDondeViajar();
-		
-		assertEquals("1: Chile"+'\n'+"2: Ecuador"+'\n', destinos);		
-	}
-	
 	@Test
 	public void pedirOrdenDeArresto_SePideUnaOrdenDeArrestoANombreDePepeYEstaEsObtenidaASuNombre() {
 		Persona ramon = new Persona();

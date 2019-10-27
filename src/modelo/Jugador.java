@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Scanner;
-
 import excepciones.NoEsPaisProximoException;
 import modelo.lugarInteres.LugarInteres;
 
@@ -11,31 +9,12 @@ public class Jugador {
     private CarmenSanDiego carmenSanDiego;
     private Pais paisActual;
     private LugarInteres lugarInteresActual;
-    private Scanner scanner = new Scanner(System.in);
     private OrdenDeArresto ordenDeArresto = new OrdenDeArresto();
 
     public Jugador(Caso caso) {
         this.caso = caso;
         this.paisOrigen = caso.getPaisOrigen();
         this.paisActual = caso.getPaisOrigen();
-    }
-
-    public void pedirPista(){
-
-    }
-
-    public String consultaDondeViajar(){
-    	String destinosPosibles = "";
-    	
-        for(int i = 0; i < this.paisActual.getConexiones().size(); i++){
-            destinosPosibles = destinosPosibles + (i + 1 + ": " + this.paisActual.getConexiones().get(i).getNombre() + '\n');
-        }
-        
-        //No se entiendo que hace esto pero me congela el test asi que lo comento
-        /*int decision = scanner.nextInt();
-        this.viajar(this.paisActual.getConexiones().get(decision - 1));*/
-        
-        return destinosPosibles;
     }
     
     public void viajar(Pais pais){
