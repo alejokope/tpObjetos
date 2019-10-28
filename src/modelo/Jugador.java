@@ -6,7 +6,7 @@ import modelo.lugarInteres.LugarInteres;
 public class Jugador {
     private Caso caso;
     private Pais paisOrigen;
-    private CarmenSanDiego carmenSanDiego;
+    private CarmenSanDiegoMaster carmenSanDiego;
     private Pais paisActual;
     private LugarInteres lugarInteresActual;
     private OrdenDeArresto ordenDeArresto = new OrdenDeArresto();
@@ -34,7 +34,7 @@ public class Jugador {
 		return paisActual;
 	}
 
-	public void setCarmenSanDiego(CarmenSanDiego carmenSanDiego) {
+	public void setCarmenSanDiego(CarmenSanDiegoMaster carmenSanDiego) {
 		this.carmenSanDiego = carmenSanDiego;
 	}
 

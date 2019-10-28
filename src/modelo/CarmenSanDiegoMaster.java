@@ -1,6 +1,6 @@
 package modelo;
 
-public class CarmenSanDiego {
+public class CarmenSanDiegoMaster {
     private Caso caso;
     private Jugador jugador;
     private Villano villano;

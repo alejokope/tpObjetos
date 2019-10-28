@@ -38,7 +38,7 @@ public class JugadorTest {
         chile.setNombre("Chile");
         
         conexiones.add(chile);
-        argentina.setConexiones(conexiones);
+        argentina.agregarConexiones(conexiones);
         
         jugador.setPaisActual(argentina);
         
@@ -61,7 +61,7 @@ public class JugadorTest {
         chile.setNombre("Chile");
         
         conexiones.add(chile);
-        argentina.setConexiones(conexiones);
+        argentina.agregarConexiones(conexiones);
         
         jugador.setPaisActual(argentina);
         

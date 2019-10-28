@@ -10,11 +10,11 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class CarmenSanDiegoTest {
+public class CarmenSanDiegoMasterTest {
 
     @Test
     public void gano_elJugadorGanoPorqueEstabaEnElMismoLugarDeInteresYLaOrdenDeArrestoEraCorrecta(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
+        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
         Villano villano = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
 
@@ -26,7 +26,7 @@ public class CarmenSanDiegoTest {
 
     @Test
     public void gano_elJugadorNoGanoPorqueNoEstabaEnElMismoLugarDeInteresPeroSiLaOrdenDeArrestoEraCorrecta(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
+        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
         Villano villano = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
 
@@ -38,7 +38,7 @@ public class CarmenSanDiegoTest {
 
     @Test
     public void gano_elJugadorNoGanoAunqueEstabaEnElMismoLugarDeInteresPorqueLaOrdenDeArrestoEraIncorrecta(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
+        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
         Villano villano = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
 
@@ -50,7 +50,7 @@ public class CarmenSanDiegoTest {
 
     @Test
     public void gano_elJugadorNoGanoPorqueNoEstabaEnElMismoLugarDeInteresYLaOrdenDeArrestoEraIncorrecta(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
+        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
         Villano villano = mock(Villano.class);
         Jugador jugador = mock(Jugador.class);
 
@@ -62,7 +62,7 @@ public class CarmenSanDiegoTest {
 
     @Test
     public void viajar_elJugadorYElVillanoViajanMuyCerca(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
+        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
         Pais argentina = new Pais();
         Pais brasil = mock(Pais.class);
         Pais chile = mock(Pais.class);
@@ -71,7 +71,7 @@ public class CarmenSanDiegoTest {
         Pais paraguay = mock(Pais.class);
         List<Pais> planEscapeVillano = Arrays.asList(argentina, brasil);
         List<Pais> argConexiones = Arrays.asList(brasil, chile, uruguay, bolivia, paraguay);
-        argentina.setConexiones(argConexiones);
+        argentina.agregarConexiones(argConexiones);
         Caso caso = new Caso();
         caso.setPaisOrigen(argentina);
         Jugador jugador = new Jugador(caso);
@@ -88,7 +88,7 @@ public class CarmenSanDiegoTest {
 
     @Test(expected = NoEsPaisProximoException.class)
     public void viajar_elJugadorYElVillanoNoPuedenViajarAUnPaisDesconectadoDelResto(){
-        CarmenSanDiego carmen = new CarmenSanDiego();
+        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
         Pais argentina = new Pais();
         Pais brasil = mock(Pais.class);
         Pais chile = mock(Pais.class);
@@ -98,7 +98,7 @@ public class CarmenSanDiegoTest {
         Pais paisDeLasMaravillas = mock(Pais.class);
         List<Pais> planEscapeVillano = Arrays.asList(argentina, brasil);
         List<Pais> argConexiones = Arrays.asList(brasil, chile, uruguay, bolivia, paraguay);
-        argentina.setConexiones(argConexiones);
+        argentina.agregarConexiones(argConexiones);
         Caso caso = new Caso();
         caso.setPaisOrigen(argentina);
         Jugador jugador = new Jugador(caso);
@@ -110,8 +110,4 @@ public class CarmenSanDiegoTest {
         carmen.setVillano(villano);
         carmen.viajar(paisDeLasMaravillas);
     }
-
-    //Bueno si no quieren testear getters y setters, no va haber 100% coverage...
-
-
 }
