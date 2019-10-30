@@ -64,7 +64,4 @@ public class AyudaTest {
 
         assertEquals(ayuda.getPistas().size(), 2);
     }
-
-
-
 }

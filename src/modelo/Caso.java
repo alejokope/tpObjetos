@@ -41,7 +41,6 @@ public class Caso {
 		return paisOrigen;
 	}
 
-
 	public Villano getResponsable() {
     	return responsable;
 	}
@@ -50,5 +49,3 @@ public class Caso {
     	return planEscape;
     }
 }
-
-

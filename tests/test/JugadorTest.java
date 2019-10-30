@@ -21,7 +21,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador(caso);
 
         jugador.pedirOrdenDeArresto(ramon);        
-        Persona sospechoso = jugador.getOrdenDeArresto().getSospechoso();
+        Persona sospechoso = jugador.getSospechoso();
 
         assertEquals(sospechoso, ramon);
 	}
@@ -72,11 +72,8 @@ public class JugadorTest {
     public void esLaOrdenDeArrestoCorrecta_laOrdenDeArrestoEsCorrecta(){
 	    Caso caso = mock(Caso.class);
 	    Villano villano = mock(Villano.class);
-        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
 	    Jugador jugador = new Jugador(caso);
-	    jugador.setOrdenDeArresto(ordenDeArresto);
-
-	    when(ordenDeArresto.getSospechoso()).thenReturn(villano);
+	    jugador.pedirOrdenDeArresto(villano);
 
 	    assertTrue(jugador.esLaOrdenDeArrestoCorrecta(villano));
     }
@@ -86,11 +83,8 @@ public class JugadorTest {
         Caso caso = mock(Caso.class);
         Villano villano = mock(Villano.class);
         Villano villano2 = mock(Villano.class);
-        OrdenDeArresto ordenDeArresto = mock(OrdenDeArresto.class);
         Jugador jugador = new Jugador(caso);
-        jugador.setOrdenDeArresto(ordenDeArresto);
-
-        when(ordenDeArresto.getSospechoso()).thenReturn(villano2);
+        jugador.pedirOrdenDeArresto(villano2);
 
         assertFalse(jugador.esLaOrdenDeArrestoCorrecta(villano));
     }

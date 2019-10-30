@@ -42,16 +42,6 @@ public class BancoTest {
         assertTrue(banco.getPasoVillano());
     }
 
-    @Test
-    public void obtenerSeñasParticulares_obtengoSeñasParticulares(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
-    @Test
-    public void obtenerPistaSobrePais_obtengoPistaSobrePais(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
     @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorElBancoPeroElVillanoNoPasoPorAlli(){
         Banco banco = new Banco();
@@ -77,6 +67,4 @@ public class BancoTest {
         assertNotNull(banco.darPista().getPista1());
         //coverage va variar porque usa random y a veces no entra a ciertas condiciones.
     }
-
-
 }

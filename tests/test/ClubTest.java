@@ -3,6 +3,8 @@ package test;
 import modelo.Pais;
 import modelo.Villano;
 import modelo.lugarInteres.Club;
+import modelo.lugarInteres.LugarInteres;
+
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -16,7 +18,7 @@ public class ClubTest {
 
     @Test
     public void informacion_obtengoElNombreDeEsteLugar(){
-        Club club = new Club();
+        LugarInteres club = new Club();
 
         String nombreClub = "CLUB";
 
@@ -25,7 +27,7 @@ public class ClubTest {
 
     @Test
     public void setVillano_seteoVillanoYObtengoUnVillanoTambien(){
-        Club club = new Club();
+        LugarInteres club = new Club();
         Villano villano = new Villano();
 
         club.setVillano(villano);
@@ -35,7 +37,7 @@ public class ClubTest {
 
     @Test
     public void setPasoVillano_elVillanoPasoPorElClubEntoncesEstoCambiaATrue(){
-        Club club = new Club();
+        LugarInteres club = new Club();
 
         club.setPasoVillano(true);
 
@@ -59,7 +61,7 @@ public class ClubTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorElClubPeroElVillanoNoPasoPorAlli(){
-        Club club = new Club();
+        LugarInteres club = new Club();
         Villano villano = mock(Villano.class);
 
         club.setVillano(villano);
@@ -69,7 +71,7 @@ public class ClubTest {
 
     @Test
     public void darPista_elDetectivePasaPorElClubYObtienePistaPorqueElVillanoPasoPorAlli(){
-        Club banco = new Club();
+        LugarInteres banco = new Club();
         List<String> señasParticulares = Arrays.asList("Tiene barba", "mide mas de 150cm");
         List<String> hobbies = Arrays.asList("Le gusta el basquet");
         Villano villano = mock(Villano.class);

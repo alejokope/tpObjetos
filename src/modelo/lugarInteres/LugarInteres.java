@@ -37,8 +37,18 @@ public abstract class LugarInteres {
         return (int) (Math.random() * pistas.size());
     }
 
-    protected boolean porcentajeMayorA(){
-        return false;
+    protected boolean Calculo(){
+        //return sarlanga * metodoa() / metodob();
+    	//corregir esto para usar template method
+    	return (Math.random() * MAXIMO_NUMERO_RANDOM) >= PORCENTAJE_EVALUADO;
     }
+
+	protected boolean MetodoBDelPorcentaje() {
+	    return false;
+	}
+	
+	protected boolean MetodoADelPorcentaje() {
+	    return false;
+	}
 
 }

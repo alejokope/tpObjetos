@@ -123,7 +123,7 @@ public class VillanoTest {
 	public void estoyEnElMismoLugarDeInteresQueJugador_villanoNoEstaEnElMismoLugarQueElJugador(){
 		Villano villano = new Villano();
 		Embajada embajada = mock(Embajada.class);
-		Club club = mock(Club.class);
+		LugarInteres club = mock(Club.class);
 		Jugador jugador = mock(Jugador.class);
 		villano.setLugarInteresActual(embajada);
 

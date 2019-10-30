@@ -9,7 +9,7 @@ public class Jugador {
     private CarmenSanDiegoMaster carmenSanDiego;
     private Pais paisActual;
     private LugarInteres lugarInteresActual;
-    private OrdenDeArresto ordenDeArresto = new OrdenDeArresto();
+    private Persona sospechoso = new Persona();
 
     public Jugador(Caso caso) {
         this.caso = caso;
@@ -46,23 +46,20 @@ public class Jugador {
 		this.lugarInteresActual = lugarInteresActual;
 	}
 	
-	public OrdenDeArresto getOrdenDeArresto() {
-		return ordenDeArresto;
+	public Persona getSospechoso() {
+		return sospechoso;
 	}
 
-	public void pedirOrdenDeArresto(Persona sospechoso) {
-		ordenDeArresto.emitirOrdenDeArresto(sospechoso);
+	public void pedirOrdenDeArresto(Persona persona) {
+		sospechoso = persona;
 	}
-
+	
     public void setPaisActual(Pais pais) {
         this.paisActual = pais;
     }
 
-    public boolean esLaOrdenDeArrestoCorrecta(Villano villano){
-        return ordenDeArresto.getSospechoso() == villano;
+    public boolean esLaOrdenDeArrestoCorrecta(Persona villano){
+        return sospechoso == villano;
     }
 
-    public void setOrdenDeArresto(OrdenDeArresto ordenDeArresto) {
-        this.ordenDeArresto = ordenDeArresto;
-    }
 }

@@ -28,7 +28,7 @@ public class ModeloAgregadoTest {
         argentina.setCaracteristicas(argentinaCaracteristicas);
         Embajada embajadaArg = new Embajada();
         Biblioteca bibliotecaArg = new Biblioteca();
-        Club clubArg = new Club();
+        LugarInteres clubArg = new Club();
         List<LugarInteres> argentinaLugaresDeInteres = Arrays.asList(embajadaArg, bibliotecaArg, clubArg);
         argentina.setLugaresInteres(argentinaLugaresDeInteres);
         List<Pais> argentinaConexiones = Arrays.asList(peru);
@@ -38,7 +38,7 @@ public class ModeloAgregadoTest {
         peru.setCaracteristicas(peruCaracteristicas);
         Embajada embajadaPer = new Embajada();
         Biblioteca bibliotecaPer = new Biblioteca();
-        Club clubPer = new Club();
+        LugarInteres clubPer = new Club();
         List<LugarInteres> peruLugaresDeInteres = Arrays.asList(embajadaPer, bibliotecaPer, clubPer);
         peru.setLugaresInteres(peruLugaresDeInteres);
         List<Pais> peruConexiones = Arrays.asList(ecuador, mexico);
@@ -48,7 +48,7 @@ public class ModeloAgregadoTest {
         ecuador.setCaracteristicas(ecuadorCaracteristicas);
         Embajada embajadaEcu = new Embajada();
         Biblioteca bibliotecaEcu = new Biblioteca();
-        Club clubEcu = new Club();
+        LugarInteres clubEcu = new Club();
         List<LugarInteres> ecuadorLugaresDeInteres = Arrays.asList(embajadaEcu, bibliotecaEcu, clubEcu);
         ecuador.setLugaresInteres(ecuadorLugaresDeInteres);
         List<Pais> ecuadorConexiones = Arrays.asList(panama);
@@ -58,7 +58,7 @@ public class ModeloAgregadoTest {
         panama.setCaracteristicas(panamaCaracteristicas);
         Embajada embajadaPan = new Embajada();
         Biblioteca bibliotecaPan = new Biblioteca();
-        Club clubPan = new Club();
+        LugarInteres clubPan = new Club();
         List<LugarInteres> panamaLugaresDeInteres = Arrays.asList(embajadaPan, bibliotecaPan, clubPan);
         panama.setLugaresInteres(panamaLugaresDeInteres);
         List<Pais> panamaConexiones = Arrays.asList(mexico);
@@ -68,7 +68,7 @@ public class ModeloAgregadoTest {
         mexico.setCaracteristicas(mexicoCaracteristicas);
         Embajada embajadaMex = new Embajada();
         Biblioteca bibliotecaMex = new Biblioteca();
-        Club clubMex = new Club();
+        LugarInteres clubMex = new Club();
         List<LugarInteres> mexicoLugaresDeInteres = Arrays.asList(embajadaMex, bibliotecaMex, clubMex);
         mexico.setLugaresInteres(mexicoLugaresDeInteres);
         List<Pais> mexicoConexiones = Arrays.asList();
