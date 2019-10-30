@@ -3,7 +3,6 @@ package modelo;
 import java.util.List;
 
 import excepciones.NoHayPaisProximoException;
-import modelo.lugarInteres.LugarInteres;
 
 public class Villano extends Persona {
 	public static final int OBTENER_ULTIMO_INDICE = 1;
@@ -11,8 +10,6 @@ public class Villano extends Persona {
 
 	private List<String> señasParticulares;
 	private List<String> hobbies;
-	private Pais paisActual;
-	private LugarInteres lugarInteresActual;
 	private List<Pais> planEscape;
 
 	public Villano() {
@@ -61,14 +58,6 @@ public class Villano extends Persona {
 		this.hobbies = hobbies;
 	}
 
-	public void setPaisActual(Pais paisActual) {
-		this.paisActual = paisActual;
-	}
-
-	public Pais getPaisActual() {
-		return paisActual;
-	}
-
 	public void setPlanEscape(List<Pais> planEscape) {
 		this.planEscape = planEscape;
 	}
@@ -85,11 +74,5 @@ public class Villano extends Persona {
 		return hobbies;
 	}
 
-	public LugarInteres getLugarInteresActual() {
-		return lugarInteresActual;
-	}
 
-	public void setLugarInteresActual(LugarInteres lugarInteres) {
-		this.lugarInteresActual = lugarInteres;
-	}
 }

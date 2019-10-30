@@ -1,6 +1,9 @@
 package modelo;
 
+import excepciones.NoHayLugarDeInteresEnEstePais;
 import modelo.lugarInteres.LugarInteres;
+
+import java.util.List;
 
 public class CarmenSanDiegoMaster {
     private Caso caso;
@@ -38,11 +41,16 @@ public class CarmenSanDiegoMaster {
 		this.villano = villano;
 	}
 
-	public void ubicacionDelJugador(LugarInteres lugarInteres) {
-    	jugador.setLugarInteresActual(lugarInteres);
+	public void ubicacionDeJugadorOVillano(LugarInteres lugarInteres, Persona persona) {
+		if(obtenerLugaresDeInteresDeUnaPersona(persona).contains(lugarInteres)){
+			persona.setLugarInteresActual(lugarInteres);
+		}
+		else{
+			throw new NoHayLugarDeInteresEnEstePais();
+		}
 	}
 
-	public void ubicacionDelVillano(LugarInteres lugarInteres) {
-    	villano.setLugarInteresActual(lugarInteres);
+	public List<LugarInteres> obtenerLugaresDeInteresDeUnaPersona(Persona persona) {
+		return persona.obtenerLugaresDeInteresDelPaisActual();
 	}
 }

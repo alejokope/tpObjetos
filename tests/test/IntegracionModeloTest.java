@@ -75,8 +75,8 @@ public class IntegracionModeloTest {
     	CarmenSanDiegoMaster carmenSanDiego = new CarmenSanDiegoMaster(caso, jugador, villano);
     	
     	carmenSanDiego.viajar(mexico);
-    	carmenSanDiego.ubicacionDelJugador(embajadaMex);
-    	carmenSanDiego.ubicacionDelVillano(embajadaMex);
+    	carmenSanDiego.ubicacionDeJugadorOVillano(embajadaMex, jugador);
+    	carmenSanDiego.ubicacionDeJugadorOVillano(embajadaMex, villano);
     	
     	jugador.pedirOrdenDeArresto(villano);
         
@@ -146,8 +146,8 @@ public class IntegracionModeloTest {
         CarmenSanDiegoMaster carmenSanDiego = new CarmenSanDiegoMaster(caso, jugador, villano);
 
         carmenSanDiego.viajar(ecuador);
-        carmenSanDiego.ubicacionDelJugador(clubEcu);
-        carmenSanDiego.ubicacionDelVillano(embajadaMex);
+        carmenSanDiego.ubicacionDeJugadorOVillano(clubEcu, jugador);
+        carmenSanDiego.ubicacionDeJugadorOVillano(embajadaMex, villano);
 
         jugador.pedirOrdenDeArresto(villano);
 

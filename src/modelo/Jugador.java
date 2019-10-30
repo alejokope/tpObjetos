@@ -1,16 +1,12 @@
 package modelo;
 
 import excepciones.NoEsPaisProximoException;
-import modelo.lugarInteres.LugarInteres;
 
 import java.util.List;
 
-public class Jugador {
+public class Jugador extends Persona{
     private Caso caso;
     private Pais paisOrigen;
-    private CarmenSanDiegoMaster carmenSanDiego;
-    private Pais paisActual;
-    private LugarInteres lugarInteresActual;
     private Persona sospechoso;
 
     public Jugador(Caso caso) {
@@ -36,22 +32,6 @@ public class Jugador {
         return paisActual.getConexiones();
     }
 
-    public Pais getPaisActual() {
-		return paisActual;
-	}
-
-	public void setCarmenSanDiego(CarmenSanDiegoMaster carmenSanDiego) {
-		this.carmenSanDiego = carmenSanDiego;
-	}
-
-	public LugarInteres getLugarInteresActual() {
-		return lugarInteresActual;
-	}
-
-	public void setLugarInteresActual(LugarInteres lugarInteresActual) {
-		this.lugarInteresActual = lugarInteresActual;
-	}
-	
 	public Persona getSospechoso() {
 		return sospechoso;
 	}
@@ -59,10 +39,6 @@ public class Jugador {
 	public void pedirOrdenDeArresto(Persona persona) {
 		sospechoso = persona;
 	}
-	
-    public void setPaisActual(Pais pais) {
-        this.paisActual = pais;
-    }
 
     public boolean esLaOrdenDeArrestoCorrecta(Persona villano){
         return sospechoso == villano;
