@@ -12,7 +12,7 @@ public class Club extends LugarInteres{
         Ayuda ayuda = new Ayuda();
         if (pasoElVillano) {
             ayuda.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.getSeñasParticulares()));
-            if (esPorcentajeMayorAPorcentajeEvaluado()) {
+            if (chanceDeObtenerPistaExtra()) {
                 ayuda.agregarUnaPista(obtenerPistas(villano.getHobbies()));
             }
         }

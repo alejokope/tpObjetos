@@ -37,7 +37,7 @@ public abstract class LugarInteres {
         return (int) (Math.random() * pistas.size());
     }
 
-    protected boolean esPorcentajeMayorAPorcentajeEvaluado(){
+    protected boolean chanceDeObtenerPistaExtra(){
     	return (Math.random() * maximoNumeroRandom()) >= porcentajeEvaluado();
     }
 
