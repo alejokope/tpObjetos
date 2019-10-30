@@ -8,8 +8,20 @@ public class Caso {
     private String reporte;
     private String objetoRobado;
     private Pais paisOrigen;
-    
-    public void setResponsable(Villano responsable) {
+
+	public Caso() {
+
+	}
+
+	public Caso(Villano responsable, List<Pais> planEscape, String reporte, String objetoRobado, Pais paisOrigen) {
+		this.responsable = responsable;
+		this.planEscape = planEscape;
+		this.reporte = reporte;
+		this.objetoRobado = objetoRobado;
+		this.paisOrigen = paisOrigen;
+	}
+
+	public void setResponsable(Villano responsable) {
 		this.responsable = responsable;
 	}
     

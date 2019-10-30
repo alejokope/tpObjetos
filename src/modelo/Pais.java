@@ -11,6 +11,16 @@ public class Pais {
 	private List<LugarInteres> lugaresInteres;
 	private List<Pais> conexiones = new ArrayList<Pais>();
 
+	public Pais(){
+
+	}
+
+	public Pais(String nombre, List<String> caracteristicas, List<LugarInteres> lugaresInteres) {
+		this.nombre = nombre;
+		this.caracteristicas = caracteristicas;
+		this.lugaresInteres = lugaresInteres;
+	}
+
 	public void ingresoVillano(Villano villano) {
 		for (LugarInteres lugarInteres : lugaresInteres) {
 			lugarInteres.setPasoVillano(true);
