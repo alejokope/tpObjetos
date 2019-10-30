@@ -2,8 +2,10 @@ package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -13,6 +15,7 @@ import modelo.Villano;
 import modelo.lugarInteres.Banco;
 import modelo.lugarInteres.Biblioteca;
 import modelo.lugarInteres.LugarInteres;
+import org.mockito.ArgumentCaptor;
 
 public class PaisTest {
 	
@@ -49,6 +52,51 @@ public class PaisTest {
 		argentina.ingresoVillano(pepe);
 		
 		assertFalse(argentina.getLugaresInteres().get(0).getVillano() == monrroe);
+	}
+
+	@Test
+	public void agregarConexiones_agregoUnaListaDeConexionesAlPais(){
+		Pais argentina = mock(Pais.class);
+		Pais chile = mock(Pais.class);
+		Pais uruguay = mock(Pais.class);
+		Pais brasil = mock(Pais.class);
+		List<Pais> paises = Arrays.asList(chile, uruguay, brasil);
+		ArgumentCaptor valorACapturar = ArgumentCaptor.forClass(List.class);
+		doNothing().when(argentina).agregarConexiones((List<Pais>) valorACapturar.capture());
+
+		argentina.agregarConexiones(paises);
+
+		assertEquals(paises, valorACapturar.getValue());
+
+	}
+
+	@Test
+	public void agregarUnaConexion_agregoUnPaisAMisConexiones(){
+		Pais argentina = mock(Pais.class);
+		Pais chile = mock(Pais.class);
+		ArgumentCaptor valorACapturar = ArgumentCaptor.forClass(List.class);
+		doNothing().when(argentina).agregarUnaConexion((Pais) valorACapturar.capture());
+
+		argentina.agregarUnaConexion(chile);
+
+		assertEquals(chile, valorACapturar.getValue());
+
+	}
+
+	@Test
+	public void enlazarConexiones_enlazoConexionesConMisConexionesYViceversa(){
+		Pais argentina = mock(Pais.class);
+		Pais chile = mock(Pais.class);
+		Pais uruguay = mock(Pais.class);
+		Pais brasil = mock(Pais.class);
+		List<Pais> paises = Arrays.asList(chile, uruguay, brasil);
+		ArgumentCaptor valorACapturar = ArgumentCaptor.forClass(List.class);
+		doNothing().when(argentina).enlazarConexiones((List<Pais>) valorACapturar.capture());
+
+		argentina.enlazarConexiones(paises);
+
+		assertEquals(paises, valorACapturar.getValue());
+
 	}
 
 }

@@ -3,7 +3,6 @@ package modelo;
 import modelo.lugarInteres.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Pais {
