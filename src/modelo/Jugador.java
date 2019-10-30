@@ -3,6 +3,8 @@ package modelo;
 import excepciones.NoEsPaisProximoException;
 import modelo.lugarInteres.LugarInteres;
 
+import java.util.List;
+
 public class Jugador {
     private Caso caso;
     private Pais paisOrigen;
@@ -27,7 +29,11 @@ public class Jugador {
     }
 
     public boolean estaEstePaisConectadoAMiPaisActual(Pais pais) {
-        return paisActual.getConexiones().contains(pais);
+        return obtenerConexionesDeMiPaisActual().contains(pais);
+    }
+
+    public List<Pais> obtenerConexionesDeMiPaisActual() {
+        return paisActual.getConexiones();
     }
 
     public Pais getPaisActual() {
