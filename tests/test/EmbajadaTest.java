@@ -1,6 +1,5 @@
 package test;
 
-import modelo.Pais;
 import modelo.Villano;
 import modelo.lugarInteres.Embajada;
 import org.junit.Test;
@@ -21,11 +20,6 @@ public class EmbajadaTest {
         String nombreEmbajada = "EMBAJADA";
 
         assertEquals(embajada.informacion(), nombreEmbajada);
-    }
-
-    @Test
-    public void obtenerPistaSobrePais_obtengoPistaSobrePais(){
-        //es privado, ademas no se puede testear facilmente.
     }
 
     @Test
@@ -68,6 +62,5 @@ public class EmbajadaTest {
         when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 
         assertNotNull(embajada.darPista().getPista1());
-        //coverage va variar porque usa random y a veces no entra a ciertas condiciones.
     }
 }

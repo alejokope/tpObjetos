@@ -1,6 +1,5 @@
 package test;
 
-import modelo.Pais;
 import modelo.Villano;
 import modelo.lugarInteres.Banco;
 import org.junit.Test;
@@ -65,6 +64,5 @@ public class BancoTest {
         when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 
         assertNotNull(banco.darPista().getPista1());
-        //coverage va variar porque usa random y a veces no entra a ciertas condiciones.
     }
 }
