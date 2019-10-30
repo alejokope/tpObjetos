@@ -1,6 +1,5 @@
 package test;
 
-import modelo.Pais;
 import modelo.Villano;
 import modelo.lugarInteres.Biblioteca;
 import org.junit.Test;
@@ -42,26 +41,6 @@ public class BibliotecaTest {
         assertTrue(biblioteca.getPasoVillano());
     }
 
-    @Test
-    public void porcentajeMayorA50_obtengoUnPorcentajeMayorA50(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
-    @Test
-    public void obtenerHobbies_obtengoHobbies(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
-    @Test
-    public void obtenerSeñasParticulares_obtengoSeñasParticulares(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
-    @Test
-    public void obtenerPistaSobrePais_obtengoPistaSobrePais(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
     @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorLaBibliotecaPeroElVillanoNoPasoPorAlli(){
         Biblioteca biblioteca = new Biblioteca();
@@ -87,6 +66,5 @@ public class BibliotecaTest {
         when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 
         assertNotNull(biblioteca.darPista().getPista1());
-        //coverage va variar porque usa random y a veces no entra a ciertas condiciones.
     }
 }

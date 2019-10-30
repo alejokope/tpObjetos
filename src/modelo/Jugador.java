@@ -9,7 +9,7 @@ public class Jugador {
     private CarmenSanDiegoMaster carmenSanDiego;
     private Pais paisActual;
     private LugarInteres lugarInteresActual;
-    private Persona sospechoso = new Persona();
+    private Persona sospechoso;
 
     public Jugador(Caso caso) {
         this.caso = caso;

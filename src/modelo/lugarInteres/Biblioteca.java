@@ -12,7 +12,7 @@ public class Biblioteca extends LugarInteres {
 		Ayuda ayuda = new Ayuda();
 		if (pasoElVillano) {
 			ayuda.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
-			if (MetodoBDelPorcentaje()) {
+			if (esPorcentajeMayorAPorcentajeEvaluado()) {
 				ayuda.agregarUnaPista(obtenerPistas(villano.getHobbies()));
 			}
 		}
@@ -25,7 +25,12 @@ public class Biblioteca extends LugarInteres {
 	}
 
 	@Override
-	protected boolean MetodoBDelPorcentaje() {
-		return (Math.random() * MAXIMO_NUMERO_RANDOM) >= PORCENTAJE_EVALUADO;
+	protected int maximoNumeroRandom() {
+		return MAXIMO_NUMERO_RANDOM;
+	}
+
+	@Override
+	protected int porcentajeEvaluado() {
+		return PORCENTAJE_EVALUADO;
 	}
 }

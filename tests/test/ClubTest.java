@@ -1,6 +1,5 @@
 package test;
 
-import modelo.Pais;
 import modelo.Villano;
 import modelo.lugarInteres.Club;
 import modelo.lugarInteres.LugarInteres;
@@ -44,21 +43,6 @@ public class ClubTest {
         assertTrue(club.getPasoVillano());
     }
 
-    @Test
-    public void obtenerSeñasParticulares_obtengoSeñasParticulares(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
-    @Test
-    public void obtenerHobbies_obtengoHobbies(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
-    @Test
-    public void porcentajeMayorA70_obtengoUnPorcentajeMayorA70(){
-        //es privado, ademas no se puede testear facilmente.
-    }
-
     @Test(expected = IndexOutOfBoundsException.class)
     public void darPista_elDetectivePasaPorElClubPeroElVillanoNoPasoPorAlli(){
         LugarInteres club = new Club();
@@ -82,6 +66,5 @@ public class ClubTest {
         when(villano.getHobbies()).thenReturn(hobbies);
 
         assertNotNull(banco.darPista().getPista1());
-        //coverage va variar porque usa random y a veces no entra a ciertas condiciones.
     }
 }

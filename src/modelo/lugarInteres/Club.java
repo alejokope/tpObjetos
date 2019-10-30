@@ -12,7 +12,7 @@ public class Club extends LugarInteres{
         Ayuda ayuda = new Ayuda();
         if (pasoElVillano) {
             ayuda.agregarDosPistas(obtenerPistas(villano.getSeñasParticulares()), obtenerPistas(villano.getSeñasParticulares()));
-            if (MetodoBDelPorcentaje()) {
+            if (esPorcentajeMayorAPorcentajeEvaluado()) {
                 ayuda.agregarUnaPista(obtenerPistas(villano.getHobbies()));
             }
         }
@@ -23,11 +23,16 @@ public class Club extends LugarInteres{
     public String informacion() {
         return "CLUB";
     }
-    
+
     @Override
-	protected boolean MetodoBDelPorcentaje() {
-		return (Math.random() * MAXIMO_NUMERO_RANDOM) >= PORCENTAJE_EVALUADO;
+	protected int maximoNumeroRandom() {
+		return MAXIMO_NUMERO_RANDOM;
 	}
-    
+
+	@Override
+    protected int porcentajeEvaluado() {
+        return PORCENTAJE_EVALUADO;
+    }
+
 
 }

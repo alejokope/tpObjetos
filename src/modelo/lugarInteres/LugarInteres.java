@@ -30,25 +30,22 @@ public abstract class LugarInteres {
     }
 
     protected String obtenerPistas(List<String> pistas){
-        return pistas.get(obtenerNumeroRandom(pistas));
+        return pistas.get(obtenerPosicionAleatoria(pistas));
     }
 
-    protected int obtenerNumeroRandom(List<String> pistas){
+    protected int obtenerPosicionAleatoria(List<String> pistas){
         return (int) (Math.random() * pistas.size());
     }
 
-    protected boolean Calculo(){
-        //return sarlanga * metodoa() / metodob();
-    	//corregir esto para usar template method
-    	return (Math.random() * MAXIMO_NUMERO_RANDOM) >= PORCENTAJE_EVALUADO;
+    protected boolean esPorcentajeMayorAPorcentajeEvaluado(){
+    	return (Math.random() * maximoNumeroRandom()) >= porcentajeEvaluado();
     }
 
-	protected boolean MetodoBDelPorcentaje() {
-	    return false;
-	}
-	
-	protected boolean MetodoADelPorcentaje() {
-	    return false;
-	}
+    protected int maximoNumeroRandom(){
+        return 0;
+    };
 
+    protected int porcentajeEvaluado(){
+        return 0;
+    }
 }
