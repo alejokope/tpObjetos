@@ -8,11 +8,28 @@ public class Persona {
 
 	private String nombre;
 	private String sexo;
-
+    private List<String> hobbies;
+    private List<String> señasParticulares;
 	protected Pais paisActual;
 	protected LugarInteres lugarInteresActual;
 
-	public void setNombre(String nombre) {
+    public void setSeñasParticulares(List<String> señasParticulares) {
+        this.señasParticulares = señasParticulares;
+    }
+
+    public List<String> getSeñasParticulares() {
+        return señasParticulares;
+    }
+
+    public List<String> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<String> hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 

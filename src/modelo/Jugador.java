@@ -8,10 +8,12 @@ public class Jugador extends Persona{
     private Caso caso;
     private Pais paisOrigen;
     private Persona sospechoso;
+    private boolean fuePedida;
 
     public Jugador(Caso caso) {
         this.caso = caso;
         this.paisOrigen = caso.getPaisOrigen();
+        fuePedida = false;
         this.paisActual = caso.getPaisOrigen();
     }
     
@@ -36,7 +38,16 @@ public class Jugador extends Persona{
 		return sospechoso;
 	}
 
-	public void pedirOrdenDeArresto(Persona persona) {
+    public boolean isFuePedida() {
+        return fuePedida;
+    }
+
+    public void setFuePedida(boolean fuePedida) {
+        this.fuePedida = fuePedida;
+    }
+
+    public void pedirOrdenDeArresto(Persona persona) {
+        fuePedida = true;
 		sospechoso = persona;
 	}
 

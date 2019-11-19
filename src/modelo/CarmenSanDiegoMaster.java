@@ -23,7 +23,8 @@ public class CarmenSanDiegoMaster {
 	public boolean gano(Villano villano, Jugador jugador){
         return jugador.esLaOrdenDeArrestoCorrecta(villano) && villano.estoyEnElMismoLugarDeInteresQueJugador(jugador);
     }
-	
+
+
 	public void viajar(Pais pais){
         jugador.viajar(pais);
         villano.escaparProximoPais();

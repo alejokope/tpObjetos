@@ -3,13 +3,13 @@ package modelo;
 import java.util.List;
 
 import excepciones.NoHayPaisProximoException;
+import modelo.lugarInteres.LugarInteres;
 
 public class Villano extends Persona {
 	public static final int OBTENER_ULTIMO_INDICE = 1;
 	public static final int OBTENER_PROXIMO_INDICE = 1;
+	private Utils utils;
 
-	private List<String> señasParticulares;
-	private List<String> hobbies;
 	private List<Pais> planEscape;
 
 	public Villano() {
@@ -48,15 +48,12 @@ public class Villano extends Persona {
 	public void escaparProximoPais() {
 		paisActual = getPaisProximo();
 		paisActual.ingresoVillano(this);
+		lugarInteresActual = obtenerLugarDeInteresPaisProximo(this);
 	}
 
-	public void setSeñasParticulares(List<String> señasParticulares) {
-		this.señasParticulares = señasParticulares;
-	}
-
-	public void setHobbies(List<String> hobbies) {
-		this.hobbies = hobbies;
-	}
+    private LugarInteres obtenerLugarDeInteresPaisProximo(Villano villano){
+        return villano.getPaisProximo().getLugaresInteres().get(utils.obtenerNumeroAleotorio(villano.getPaisProximo().getLugaresInteres().size()));
+    }
 
 	public void setPlanEscape(List<Pais> planEscape) {
 		this.planEscape = planEscape;
@@ -64,14 +61,6 @@ public class Villano extends Persona {
 
 	public List<Pais> getPlanEscape() {
 		return planEscape;
-	}
-
-	public List<String> getSeñasParticulares() {
-		return señasParticulares;
-	}
-
-	public List<String> getHobbies() {
-		return hobbies;
 	}
 
 

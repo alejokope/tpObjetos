@@ -11,6 +11,10 @@ public class Pais {
 	private List<LugarInteres> lugaresInteres;
 	private List<Pais> conexiones = new ArrayList<Pais>();
 
+	private Reporte reporte;
+	private Objetos objeto;
+
+
 	public Pais(){
 
 	}
@@ -70,4 +74,24 @@ public class Pais {
 	public List<String> getCaracteristicas() {
 		return caracteristicas;
 	}
+
+    public void setConexiones(List<Pais> conexiones) {
+        this.conexiones = conexiones;
+    }
+
+    public Reporte getReporte() {
+        return reporte;
+    }
+
+    public void setReporte(Reporte reporte) {
+        this.reporte = reporte;
+    }
+
+    public Objetos getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(Objetos objetos) {
+        this.objeto = objetos;
+    }
 }
