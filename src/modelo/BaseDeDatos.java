@@ -22,7 +22,8 @@ public class BaseDeDatos {
         Pais origen = obtenerPaisOrigen();
         ArrayList<Pais> planEscape = generarCasos(origen);
         caso.setPaisOrigen(origen);
-        caso.setPlanEscape(planEscape);
+       // caso.setPlanEscape(planEscape);
+        caso.setPlanEscape(listaPaises);
         caso.setResponsable(obtenerVillanoAlAzar(planEscape,origen));
         caso.setObjeto(origen.getObjeto().getValue());
         caso.setReporte(origen.getReporte().getValue());

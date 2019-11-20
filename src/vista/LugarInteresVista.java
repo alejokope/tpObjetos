@@ -1,9 +1,6 @@
 package vista;
 
-import modelo.Ayuda;
-import modelo.Caso;
-import modelo.Jugador;
-import modelo.Villano;
+import modelo.*;
 import modelo.lugarInteres.LugarInteres;
 
 import javax.swing.*;
@@ -17,9 +14,13 @@ import java.util.List;
 public class LugarInteresVista extends JFrame {
     private JPanel contentPane;
     private Caso caso;
+    private Villano villano;
+    private Jugador jugador;
 
-    public LugarInteresVista(LugarInteres lugarInteresVisitado, final Caso caso, Villano villano, Jugador jugador){
-        this.caso = caso;
+    public LugarInteresVista(LugarInteres lugarInteresVisitado, CarmenSanDiegoMaster carmenSanDiegoMaster){
+        this.caso = carmenSanDiegoMaster.getCaso();
+        this.villano = carmenSanDiegoMaster.getVillano();
+        this.jugador = carmenSanDiegoMaster.getJugador();
         setTitle(caso.getObjeto());
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
         setBounds(500, 500, 700, 400);
@@ -78,7 +79,7 @@ public class LugarInteresVista extends JFrame {
 
         continuar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(caso);
+                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(carmenSanDiegoMaster);
                 setVisible(false);
                 resolviendoCaso.setVisible(true);
             }

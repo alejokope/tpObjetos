@@ -22,10 +22,15 @@ public class ResolviendoCaso extends JFrame {
 
 
 
-    public ResolviendoCaso(final Caso caso){
-        this.caso = caso;
-        this.villano = caso.getResponsable();
-        this.jugador = new Jugador(caso);
+    public ResolviendoCaso(CarmenSanDiegoMaster carmenSanDiegoMaster){
+        armarVista(carmenSanDiegoMaster);
+
+    }
+
+    public void armarVista(CarmenSanDiegoMaster carmenSanDiegoMaster){
+        this.caso = carmenSanDiegoMaster.getCaso();
+        this.villano = carmenSanDiegoMaster.getVillano();
+        this.jugador = carmenSanDiegoMaster.getJugador();
         this.carmenSanDiegoMaster = new CarmenSanDiegoMaster(caso,jugador,villano);
         setTitle(this.obtenerTitulo());
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
@@ -40,7 +45,7 @@ public class ResolviendoCaso extends JFrame {
         estasEn.setBounds(20, 20, 70, 22);
         contentPane.add(estasEn);
 
-        Label paisOrigen = new Label(caso.getPaisOrigen().getNombre().toUpperCase());
+        Label paisOrigen = new Label(carmenSanDiegoMaster.getJugador().getPaisActual().getNombre().toUpperCase());
         paisOrigen.setFont(new Font("Arial",Font.BOLD, 14));
         paisOrigen.setBounds(100, 20, 100, 22);
         contentPane.add(paisOrigen);
@@ -63,7 +68,7 @@ public class ResolviendoCaso extends JFrame {
             _lugarInteres.setVerticalAlignment(SwingConstants.CENTER);
             _lugarInteres.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    LugarInteresVista lugarInteresVista = new LugarInteresVista(lugarInteres,caso,villano,jugador);
+                    LugarInteresVista lugarInteresVista = new LugarInteresVista(lugarInteres,carmenSanDiegoMaster);
                     setVisible(false);
                     lugarInteresVista.setVisible(true);
                 }
@@ -73,7 +78,6 @@ public class ResolviendoCaso extends JFrame {
         }
 
         this.agregarAcciones();
-
     }
     public void agregarAcciones(){
         JButton ordenArresto = new JButton("ORDEN DE ARRESTO");
@@ -103,7 +107,7 @@ public class ResolviendoCaso extends JFrame {
         viajar.setVerticalAlignment(SwingConstants.CENTER);
             viajar.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    ViajarVista viajarVista = new ViajarVista(carmenSanDiegoMaster,carmenSanDiegoMaster.getJugador().getPaisActual().getConexiones().stream().map(pais->pais.getNombre()).collect(Collectors.toList()),caso);
+                    ViajarVista viajarVista = new ViajarVista(carmenSanDiegoMaster,carmenSanDiegoMaster.getJugador().getPaisActual().getConexiones().stream().map(pais->pais.getNombre()).collect(Collectors.toList()));
                     setVisible(false);
                     viajarVista.setVisible(true);
                 }

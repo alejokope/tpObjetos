@@ -27,7 +27,7 @@ public class Villano extends Persona {
 
 	public Pais getPaisProximo() {
 	    for(int i = 0; i < planEscape.size(); i++){
-	        if(planEscape.get(i).getNombre().equalsIgnoreCase(paisActual.getNombre()) && i++ < planEscape.size()){
+	        if(planEscape.get(i).getNombre().equalsIgnoreCase(paisActual.getNombre())){
 	            return planEscape.get(i++);
             }
 	    }
@@ -41,11 +41,11 @@ public class Villano extends Persona {
 	public void escaparProximoPais() {
 		paisActual = getPaisProximo();
 		paisActual.ingresoVillano(this);
-		lugarInteresActual = obtenerLugarDeInteresPaisProximo(this);
+		//lugarInteresActual = obtenerLugarDeInteresPaisProximo();
 	}
 
-    private LugarInteres obtenerLugarDeInteresPaisProximo(Villano villano){
-        return villano.getPaisProximo().getLugaresInteres().get(utils.obtenerNumeroAleotorio(villano.getPaisProximo().getLugaresInteres().size()));
+    private LugarInteres obtenerLugarDeInteresPaisProximo(){
+        return this.getPaisActual().getLugaresInteres().get(utils.obtenerNumeroAleotorio(this.getPaisActual().getLugaresInteres().size()));
     }
 
 	public void setPlanEscape(List<Pais> planEscape) {

@@ -1,7 +1,9 @@
 package vista;
 
 import modelo.BaseDeDatos;
+import modelo.CarmenSanDiegoMaster;
 import modelo.Caso;
+import modelo.Jugador;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -13,12 +15,16 @@ public class PresentacionCaso extends JFrame {
     private JPanel contentPane;
     private BaseDeDatos baseDeDatos;
     private Caso caso;
+    private CarmenSanDiegoMaster carmenSanDiegoMaster;
 
 
     public PresentacionCaso (){
         baseDeDatos = new BaseDeDatos();
         caso = baseDeDatos.obtenerCasoAlAzar();
-
+        carmenSanDiegoMaster = new CarmenSanDiegoMaster();
+        carmenSanDiegoMaster.setJugador(new Jugador(caso));
+        carmenSanDiegoMaster.setVillano(caso.getResponsable());
+        carmenSanDiegoMaster.setCaso(caso);
         setTitle(caso.getObjeto());
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
         setBounds(500, 500, 700, 400);
@@ -63,7 +69,7 @@ public class PresentacionCaso extends JFrame {
         aceptarCaso.setVerticalAlignment(SwingConstants.CENTER);
         aceptarCaso.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(caso);
+                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(carmenSanDiegoMaster);
                 setVisible(false);
                 resolviendoCaso.setVisible(true);
             }

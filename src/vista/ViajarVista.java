@@ -1,22 +1,18 @@
 package vista;
 
 import modelo.CarmenSanDiegoMaster;
-import modelo.Caso;
-import modelo.Jugador;
-import modelo.Pais;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 import java.util.List;
 
 public class ViajarVista extends JFrame {
     private JPanel contentPane;
     private JComboBox comboBox;
-    public ViajarVista(final CarmenSanDiegoMaster carmenSanDiegoMaster, List<String> nombres, final Caso caso){
+    public ViajarVista(final CarmenSanDiegoMaster carmenSanDiegoMaster, List<String> nombres){
         setTitle("Viajar");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
         setBounds(500, 500, 700, 400);
@@ -30,7 +26,7 @@ public class ViajarVista extends JFrame {
         estasEn.setBounds(20, 20, 70, 22);
         contentPane.add(estasEn);
 
-        Label paisOrigen = new Label(caso.getPaisOrigen().getNombre().toUpperCase());
+        Label paisOrigen = new Label(carmenSanDiegoMaster.getJugador().getPaisActual().getNombre().toUpperCase());
         paisOrigen.setFont(new Font("Arial",Font.BOLD, 14));
         paisOrigen.setBounds(100, 20, 100, 22);
         contentPane.add(paisOrigen);
@@ -51,7 +47,8 @@ public class ViajarVista extends JFrame {
         viajar.setVerticalAlignment(SwingConstants.CENTER);
         viajar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ConfirmarViaje confirmarViaje = new ConfirmarViaje(carmenSanDiegoMaster,caso, comboBox.getSelectedItem().toString());
+                ConfirmarViaje confirmarViaje = new ConfirmarViaje(carmenSanDiegoMaster, comboBox.getSelectedItem().toString());
+                setVisible(false);
                 confirmarViaje.setVisible(true);
             }
         });
@@ -65,7 +62,7 @@ public class ViajarVista extends JFrame {
         cancelar.setVerticalAlignment(SwingConstants.CENTER);
         cancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(caso);
+                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(carmenSanDiegoMaster);
                 setVisible(false);
                 resolviendoCaso.setVisible(true);
             }

@@ -17,8 +17,8 @@ public class ConfirmarViaje extends JFrame {
     private Utils utils;
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
 
-    public ConfirmarViaje(final CarmenSanDiegoMaster carmenSanDiegoMaster, final Caso caso, final String paisProximo){
-        this.caso = caso;
+    public ConfirmarViaje(final CarmenSanDiegoMaster carmenSanDiegoMaster, final String paisProximo){
+        this.caso = carmenSanDiegoMaster.getCaso();
         utils = new Utils();
         setTitle("CONFIRMAR VIAJE");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
@@ -35,10 +35,10 @@ public class ConfirmarViaje extends JFrame {
         viajar.setVerticalAlignment(SwingConstants.CENTER);
         viajar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               ResolviendoCaso resolviendoCaso = new ResolviendoCaso(caso) ;
-               carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
-               setVisible(false);
-               resolviendoCaso.setVisible(true);
+                carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
+                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(carmenSanDiegoMaster) ;
+                setVisible(false);
+                resolviendoCaso.setVisible(true);
             }
         });
         contentPane.add(viajar);

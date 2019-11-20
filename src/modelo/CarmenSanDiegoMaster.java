@@ -24,6 +24,10 @@ public class CarmenSanDiegoMaster {
         return jugador.esLaOrdenDeArrestoCorrecta(villano) && villano.estoyEnElMismoLugarDeInteresQueJugador(jugador);
     }
 
+    public Caso getCaso() {
+        return caso;
+    }
+
     public Jugador getJugador() {
         return jugador;
     }
