@@ -65,4 +65,12 @@ public class Persona {
 		return paisActual;
 	}
 
+	public boolean estaEstePaisConectadoAMiPaisActual(List<Pais> paises, Pais pais){
+        for(Pais _pais : paises){
+            if(_pais.getNombre().equalsIgnoreCase(pais.getNombre())){
+                return true;
+            }
+        }
+        return false;
+    }
 }

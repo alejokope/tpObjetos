@@ -13,6 +13,7 @@ public class Villano extends Persona {
 	private List<Pais> planEscape;
 
 	public Villano() {
+	    utils = new Utils();
 	}
 
 	public Villano(Pais paisActual, List<Pais> planEscape) {
@@ -25,20 +26,12 @@ public class Villano extends Persona {
 	}
 
 	public Pais getPaisProximo() {
-		return planEscape.get(obtenerSiguientePaisDeMiPlanDeEscape());
-	}
-
-	public int obtenerSiguientePaisDeMiPlanDeEscape() {
-		if (miPlanDeEscapeContieneAMiPaisActualYPuedoSeguirMiPlanDeEscape()) {
-			return planEscape.indexOf(paisActual) + OBTENER_PROXIMO_INDICE;
-		} else {
-			throw new NoHayPaisProximoException();
-		}
-	}
-
-	public boolean miPlanDeEscapeContieneAMiPaisActualYPuedoSeguirMiPlanDeEscape() {
-		return planEscape.contains(paisActual)
-				&& planEscape.indexOf(paisActual) < planEscape.size() - OBTENER_ULTIMO_INDICE;
+	    for(int i = 0; i < planEscape.size(); i++){
+	        if(planEscape.get(i).getNombre().equalsIgnoreCase(paisActual.getNombre()) && i++ < planEscape.size()){
+	            return planEscape.get(i++);
+            }
+	    }
+	    throw new NoHayPaisProximoException();
 	}
 
 	public boolean estoyEnElMismoLugarDeInteresQueJugador(Jugador jugador) {

@@ -18,7 +18,7 @@ public class Jugador extends Persona{
     }
     
     public void viajar(Pais pais){
-        if(estaEstePaisConectadoAMiPaisActual(pais)){
+        if(estaEstePaisConectadoAMiPaisActual(paisActual.getConexiones(),pais)){
             this.paisActual = pais;
         }
         else{
@@ -26,9 +26,6 @@ public class Jugador extends Persona{
         }
     }
 
-    public boolean estaEstePaisConectadoAMiPaisActual(Pais pais) {
-        return obtenerConexionesDeMiPaisActual().contains(pais);
-    }
 
     public List<Pais> obtenerConexionesDeMiPaisActual() {
         return paisActual.getConexiones();

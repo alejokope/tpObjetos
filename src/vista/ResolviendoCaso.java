@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.stream.Collectors;
 
 public class ResolviendoCaso extends JFrame {
     private JPanel contentPane;
@@ -102,7 +103,7 @@ public class ResolviendoCaso extends JFrame {
         viajar.setVerticalAlignment(SwingConstants.CENTER);
             viajar.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    ViajarVista viajarVista = new ViajarVista();
+                    ViajarVista viajarVista = new ViajarVista(carmenSanDiegoMaster,carmenSanDiegoMaster.getJugador().getPaisActual().getConexiones().stream().map(pais->pais.getNombre()).collect(Collectors.toList()),caso);
                     setVisible(false);
                     viajarVista.setVisible(true);
                 }

@@ -24,8 +24,15 @@ public class CarmenSanDiegoMaster {
         return jugador.esLaOrdenDeArrestoCorrecta(villano) && villano.estoyEnElMismoLugarDeInteresQueJugador(jugador);
     }
 
+    public Jugador getJugador() {
+        return jugador;
+    }
 
-	public void viajar(Pais pais){
+    public Villano getVillano() {
+        return villano;
+    }
+
+    public void viajar(Pais pais){
         jugador.viajar(pais);
         villano.escaparProximoPais();
 	}

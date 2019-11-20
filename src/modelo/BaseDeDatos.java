@@ -151,7 +151,7 @@ public class BaseDeDatos {
 
 
 
-    private ArrayList<Pais> obtenerListaPaises (){
+    public ArrayList<Pais> obtenerListaPaises (){
         ArrayList<Pais> paises = new ArrayList<Pais>();
 
         Pais argentina = new Pais();
