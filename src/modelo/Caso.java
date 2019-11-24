@@ -5,6 +5,7 @@ import java.util.List;
 public class Caso {
     private Villano responsable;
     private List<Pais> planEscape;
+    private String titulo;
     private String reporte;
     private String objetoRobado;
     private Pais paisOrigen;
@@ -60,4 +61,12 @@ public class Caso {
     public List<Pais> getPlanEscape() {
     	return planEscape;
     }
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 }

@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Persona {
 
+	protected List<String> señasParticulares;
+	protected List<String> hobbies;
 	private String nombre;
 	private String sexo;
 
@@ -48,4 +50,19 @@ public class Persona {
 		return paisActual;
 	}
 
+	public void setSeñasParticulares(List<String> señasParticulares) {
+		this.señasParticulares = señasParticulares;
+	}
+
+	public void setHobbies(List<String> hobbies) {
+		this.hobbies = hobbies;
+	}
+
+	public List<String> getSeñasParticulares() {
+		return señasParticulares;
+	}
+
+	public List<String> getHobbies() {
+		return hobbies;
+	}
 }

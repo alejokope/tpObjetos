@@ -8,8 +8,6 @@ public class Villano extends Persona {
 	public static final int OBTENER_ULTIMO_INDICE = 1;
 	public static final int OBTENER_PROXIMO_INDICE = 1;
 
-	private List<String> señasParticulares;
-	private List<String> hobbies;
 	private List<Pais> planEscape;
 
 	public Villano() {
@@ -50,28 +48,12 @@ public class Villano extends Persona {
 		paisActual.ingresoVillano(this);
 	}
 
-	public void setSeñasParticulares(List<String> señasParticulares) {
-		this.señasParticulares = señasParticulares;
-	}
-
-	public void setHobbies(List<String> hobbies) {
-		this.hobbies = hobbies;
-	}
-
 	public void setPlanEscape(List<Pais> planEscape) {
 		this.planEscape = planEscape;
 	}
 
 	public List<Pais> getPlanEscape() {
 		return planEscape;
-	}
-
-	public List<String> getSeñasParticulares() {
-		return señasParticulares;
-	}
-
-	public List<String> getHobbies() {
-		return hobbies;
 	}
 
 
