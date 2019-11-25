@@ -56,13 +56,13 @@ public class ClubTest {
     @Test
     public void darPista_elDetectivePasaPorElClubYObtienePistaPorqueElVillanoPasoPorAlli(){
         LugarInteres banco = new Club();
-        List<String> señasParticulares = Arrays.asList("Tiene barba", "mide mas de 150cm");
+        List<String> seniasParticulares = Arrays.asList("Tiene barba", "mide mas de 150cm");
         List<String> hobbies = Arrays.asList("Le gusta el basquet");
         Villano villano = mock(Villano.class);
         banco.setVillano(villano);
         banco.setPasoVillano(true);
 
-        when(villano.getSeñasParticulares()).thenReturn(señasParticulares);
+        when(villano.getSeniasParticulares()).thenReturn(seniasParticulares);
         when(villano.getHobbies()).thenReturn(hobbies);
 
         assertNotNull(banco.darPista().getPista1());

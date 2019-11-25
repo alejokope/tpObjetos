@@ -43,10 +43,10 @@ public class BaseDeDatos {
         ArrayList<String> hobbiesMaria = new ArrayList<String>();
         ArrayList<String> hobbiesBelen = new ArrayList<String>();
 
-        ArrayList<String> señasNicolas = new ArrayList<String>();
-        ArrayList<String> señasTomas = new ArrayList<String>();
-        ArrayList<String> señasMaria = new ArrayList<String>();
-        ArrayList<String> señasBelen = new ArrayList<String>();
+        ArrayList<String> seniasNicolas = new ArrayList<String>();
+        ArrayList<String> seniasTomas = new ArrayList<String>();
+        ArrayList<String> seniasMaria = new ArrayList<String>();
+        ArrayList<String> seniasBelen = new ArrayList<String>();
 
         hobbiesTomas.add("Juega al rugby.");
         hobbiesTomas.add("Toca el charango.");
@@ -79,48 +79,48 @@ public class BaseDeDatos {
         hobbiesBelen.add("Le gusta las fiestas electrónicas.");
         hobbiesBelen.add("Le gusta salir a bailar.");
 
-        señasTomas.add("Tiene pelo rubio.");
-        señasTomas.add("Lleva consigo una pulsera de oro blanco.");
-        señasTomas.add("Su comida favorita son los varenikes.");
-        señasTomas.add("Usa zapatillas de distinto color.");
-        señasTomas.add("Tiene anteojos.");
-        señasTomas.add("Tiene aritos en la oreja.");
+        seniasTomas.add("Tiene pelo rubio.");
+        seniasTomas.add("Lleva consigo una pulsera de oro blanco.");
+        seniasTomas.add("Su comida favorita son los varenikes.");
+        seniasTomas.add("Usa zapatillas de distinto color.");
+        seniasTomas.add("Tiene anteojos.");
+        seniasTomas.add("Tiene aritos en la oreja.");
 
-        señasBelen.add("Tiene pelo rubio.");
-        señasBelen.add("Tiene anteojos.");
-        señasBelen.add("Su color favorito es el negro.");
-        señasBelen.add("Su comida favorita son las pastas.");
+        seniasBelen.add("Tiene pelo rubio.");
+        seniasBelen.add("Tiene anteojos.");
+        seniasBelen.add("Su color favorito es el negro.");
+        seniasBelen.add("Su comida favorita son las pastas.");
 
-        señasMaria.add("Tiene pelo negro.");
-        señasMaria.add("Su color favorito es el negro.");
-        señasMaria.add("Tiene anteojos.");
-        señasMaria.add("Su comida favorita son los varenikes.");
-        señasMaria.add("Tiene aritos en la oreja.");
+        seniasMaria.add("Tiene pelo negro.");
+        seniasMaria.add("Su color favorito es el negro.");
+        seniasMaria.add("Tiene anteojos.");
+        seniasMaria.add("Su comida favorita son los varenikes.");
+        seniasMaria.add("Tiene aritos en la oreja.");
 
-        señasNicolas.add("Tiene pelo negro.");
-        señasNicolas.add("Su comida favorita son las pastas.");
-        señasNicolas.add("Tiene aritos en la oreja.");
-        señasNicolas.add("Su color favorito es el violeta.");
+        seniasNicolas.add("Tiene pelo negro.");
+        seniasNicolas.add("Su comida favorita son las pastas.");
+        seniasNicolas.add("Tiene aritos en la oreja.");
+        seniasNicolas.add("Su color favorito es el violeta.");
 
         tomas.setNombre("Tomas");
         tomas.setSexo("Masculino");
         tomas.setHobbies(hobbiesTomas);
-        tomas.setSeñasParticulares(señasTomas);
+        tomas.setSeniasParticulares(seniasTomas);
 
         nicolas.setNombre("Nicolas");
         nicolas.setSexo("Masculino");
         nicolas.setHobbies(hobbiesNicolas);
-        nicolas.setSeñasParticulares(señasNicolas);
+        nicolas.setSeniasParticulares(seniasNicolas);
 
         belen.setNombre("Belen");
         belen.setSexo("Femenino");
         belen.setHobbies(hobbiesBelen);
-        belen.setSeñasParticulares(señasBelen);
+        belen.setSeniasParticulares(seniasBelen);
 
         maria.setNombre("Maria");
         maria.setSexo("Femenino");
         maria.setHobbies(hobbiesMaria);
-        maria.setSeñasParticulares(señasMaria);
+        maria.setSeniasParticulares(seniasMaria);
 
         listaPersonas.add(tomas);
         listaPersonas.add(belen);
@@ -137,7 +137,7 @@ public class BaseDeDatos {
 
         villano.setNombre(listaPersonas.get(numeroAzar).getNombre());
         villano.setSexo(listaPersonas.get(numeroAzar).getSexo());
-        villano.setSeñasParticulares(listaPersonas.get(numeroAzar).getSeñasParticulares());
+        villano.setSeniasParticulares(listaPersonas.get(numeroAzar).getSeniasParticulares());
         villano.setHobbies(listaPersonas.get(numeroAzar).getHobbies());
         villano.setPlanEscape(planEscape);
         villano.setPaisActual(origen);

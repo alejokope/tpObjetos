@@ -9,16 +9,16 @@ public class Persona {
 	private String nombre;
 	private String sexo;
     private List<String> hobbies;
-    private List<String> señasParticulares;
+    private List<String> seniasParticulares;
 	protected Pais paisActual;
 	protected LugarInteres lugarInteresActual;
 
-    public void setSeñasParticulares(List<String> señasParticulares) {
-        this.señasParticulares = señasParticulares;
+    public void setSeniasParticulares(List<String> seniasParticulares) {
+        this.seniasParticulares = seniasParticulares;
     }
 
-    public List<String> getSeñasParticulares() {
-        return señasParticulares;
+    public List<String> getSeniasParticulares() {
+        return seniasParticulares;
     }
 
     public List<String> getHobbies() {

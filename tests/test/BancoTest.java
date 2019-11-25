@@ -54,13 +54,13 @@ public class BancoTest {
     @Test
     public void darPista_elDetectivePasaPorElBancoYObtienePistaPorqueElVillanoPasoPorAlli(){
         Banco banco = new Banco();
-        List<String> señasParticulares = Arrays.asList("Tiene barba");
+        List<String> seniasParticulares = Arrays.asList("Tiene barba");
         List<String> caracteristicasPais = Arrays.asList("bandera celeste y blanca", "sol");
         Villano villano = mock(Villano.class);
         banco.setVillano(villano);
         banco.setPasoVillano(true);
 
-        when(villano.getSeñasParticulares()).thenReturn(señasParticulares);
+        when(villano.getSeniasParticulares()).thenReturn(seniasParticulares);
         when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 
         assertNotNull(banco.darPista().getPista1());

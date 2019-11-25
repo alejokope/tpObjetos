@@ -18,29 +18,35 @@ public class ConfirmarViaje extends JFrame {
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
 
     public ConfirmarViaje(final CarmenSanDiegoMaster carmenSanDiegoMaster, final String paisProximo){
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(PresentacionCaso.class.getResource("/imagenes/iconosombrero.png")));
+    	setResizable(false);
         this.caso = carmenSanDiegoMaster.getCaso();
         utils = new Utils();
         setTitle("CONFIRMAR VIAJE");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
-        setBounds(500, 500, 200, 200);
+        setBounds(500, 500, 383, 310);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-        contentPane.setLayout(null);
-
-        JButton viajar = new JButton("ACEPTAR");
-        viajar.setBounds(200, 140,80,50);
-        viajar.setFont(new Font("Arial",Font.BOLD,12));
-        viajar.setHorizontalAlignment(SwingConstants.CENTER);
-        viajar.setVerticalAlignment(SwingConstants.CENTER);
-        viajar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
-                ResolviendoCaso resolviendoCaso = new ResolviendoCaso(carmenSanDiegoMaster) ;
-                setVisible(false);
-                resolviendoCaso.setVisible(true);
-            }
+        contentPane.setLayout(new BorderLayout(0, 0));
+        
+        JPanel panel = new JPanel();
+        contentPane.add(panel, BorderLayout.CENTER);
+        panel.setLayout(null);
+        
+        
+        
+        JButton bAceptar = new JButton("New button");
+        bAceptar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
         });
-        contentPane.add(viajar);
+        bAceptar.setBounds(129, 61, 97, 25);
+        panel.add(bAceptar);
+        
+        JLabel lfondo = new JLabel("");
+        lfondo.setBounds(0, 0, 481, 397);
+        lfondo.setIcon(new ImageIcon(ConfirmarViaje.class.getResource("/imagenes/fondo4.png")));
+        panel.add(lfondo);
     }
 }

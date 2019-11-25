@@ -54,14 +54,14 @@ public class BibliotecaTest {
     @Test
     public void darPista_elDetectivePasaPorLaBibliotecaYObtienePistaPorqueElVillanoPasoPorAlli(){
         Biblioteca biblioteca = new Biblioteca();
-        List<String> señasParticulares = Arrays.asList("Tiene barba");
+        List<String> seniasParticulares = Arrays.asList("Tiene barba");
         List<String> hobbies = Arrays.asList("Le gusta el basquet");
         List<String> caracteristicasPais = Arrays.asList("bandera celeste y blanca", "sol");
         Villano villano = mock(Villano.class);
         biblioteca.setVillano(villano);
         biblioteca.setPasoVillano(true);
 
-        when(villano.getSeñasParticulares()).thenReturn(señasParticulares);
+        when(villano.getSeniasParticulares()).thenReturn(seniasParticulares);
         when(villano.getHobbies()).thenReturn(hobbies);
         when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 
