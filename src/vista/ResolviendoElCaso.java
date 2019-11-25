@@ -1,9 +1,6 @@
 package vista;
 
-import modelo.CarmenSanDiegoMaster;
-import modelo.Caso;
-import modelo.DataDummy;
-import modelo.Jugador;
+import modelo.*;
 import modelo.lugarInteres.*;
 import viewmodel.ResolviendoElCasoViewModel;
 
@@ -38,18 +35,28 @@ public class ResolviendoElCaso extends JFrame{
 
     private ResolviendoElCasoViewModel modelo;
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
+    private Caso caso;
+    private Jugador jugador;
+    private Villano villano;
+    private LugarInteres lugarInteres;
+    private Pais pais;
 
     private void crearModelo(DataDummy dataDummy) {
         modelo = new ResolviendoElCasoViewModel();
 
-        carmenSanDiegoMaster = new CarmenSanDiegoMaster(dataDummy.getCasoAsignado(), dataDummy.getJugadorAsignado(), dataDummy.getVillanoAsignado());
+        caso = dataDummy.getCasoAsignado();
+        jugador = dataDummy.getJugadorAsignado();
+        villano = dataDummy.getVillanoAsignado();
+
+        carmenSanDiegoMaster = new CarmenSanDiegoMaster(caso, jugador, villano);
         modelo.setCarmenSanDiegoMaster(carmenSanDiegoMaster);
     }
 
-    private void chequearExistenciaDeLugarInteres(LugarInteres lugarInteres) {
-        if(modelo.existeLugarDeInteres(lugarInteres)){
+    private void chequearExistenciaDeLugarInteres(LugarInteres otroLugarInteres) {
+        lugarInteres = modelo.obtenerLugarDeInteres(otroLugarInteres);
+        if(lugarInteres.informacion() == otroLugarInteres.informacion()){
             modelo.jugadorIngresarA(lugarInteres);
-            VisitandoLugar visitandoLugar = new VisitandoLugar(modelo);
+            VisitandoLugar visitandoLugar = new VisitandoLugar(caso.getTitulo(), lugarInteres);
         }
         else{
             JOptionPane.showMessageDialog(resolviendoElCasoPanel,"Este Lugar de interes no existe en este pais. Intenta otro!");

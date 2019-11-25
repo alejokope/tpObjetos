@@ -1,6 +1,7 @@
 package vista;
 
-import viewmodel.ResolviendoElCasoViewModel;
+import modelo.Caso;
+import modelo.lugarInteres.LugarInteres;
 
 import javax.swing.*;
 
@@ -13,14 +14,15 @@ public class VisitandoLugar extends JDialog{
     private JPanel visitandoPanel;
     private JLabel visitandoLabel;
 
-    public VisitandoLugar(ResolviendoElCasoViewModel resolviendoElCasoViewModel) {
+    public VisitandoLugar(String tituloDelCaso, LugarInteres lugarInteres) {
         setContentPane(visitandoLugarPanel);
         setLocation(350,150);
         setSize(650,600);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setVisible(true);
 
-        setTitle("Resolviendo: " + resolviendoElCasoViewModel.obtenerTituloDelCaso());
-        pistasTextArea.setText(resolviendoElCasoViewModel.obtenerAyuda().toString());
+        setTitle("Resolviendo: " + tituloDelCaso);
+        visitandoLabel.setText("Estás visitando: " + lugarInteres.informacion());
+        pistasTextArea.setText("nada");
     }
 }

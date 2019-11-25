@@ -4,14 +4,18 @@ import modelo.*;
 
 import java.util.List;
 
-public abstract class LugarInteres {
+public class LugarInteres {
 
     protected boolean pasoElVillano = false;
     protected Villano villano;
 
-    abstract public Ayuda darPista();
+    public Ayuda darPista(){
+        return new Ayuda();
+    };
 
-    abstract public String informacion();
+    public String informacion(){
+        return "LUGARINTERES";
+    };
 
     public void setVillano(Villano villano) {
         this.villano = villano;
