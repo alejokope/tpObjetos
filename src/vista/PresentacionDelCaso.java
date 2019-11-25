@@ -16,8 +16,8 @@ public class PresentacionDelCaso extends JDialog{
     private JPanel saludoPanel;
     private JPanel botonesPanel;
 
-    public PresentacionDelCaso(DataDummy dataDummy, JTextField nombreIngresadoTextField){
-        recargarCaso(dataDummy, nombreIngresadoTextField);
+    public PresentacionDelCaso(DataDummy dataDummy){
+        recargarCaso(dataDummy);
         setContentPane(presentacionDelCasoPanel);
         setLocation(350,150);
         setSize(650,600);
@@ -28,7 +28,7 @@ public class PresentacionDelCaso extends JDialog{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 refrescar();
-                recargarCaso(dataDummy, nombreIngresadoTextField);
+                recargarCaso(dataDummy);
             }
 
         });
@@ -40,9 +40,9 @@ public class PresentacionDelCaso extends JDialog{
         });
     }
 
-    private void recargarCaso(DataDummy dataDummy, JTextField nombreIngresadoTextField) {
+    private void recargarCaso(DataDummy dataDummy) {
         setTitle(dataDummy.obtenerCasoAlAzar().getTitulo());
-        saludoLabel.setText("Detective " + nombreIngresadoTextField.getText() + ", tenemos un caso para usted!");
+        saludoLabel.setText("Detective " + dataDummy.obtenerNombreDelJugadorAsignado() + ", tenemos un caso para usted!");
         reporteTextArea.setText(dataDummy.obtenerCasoAlAzar().getReporte());
         reporteTextArea.setEditable(false);
     }

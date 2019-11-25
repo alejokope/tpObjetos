@@ -9,6 +9,10 @@ public class Jugador extends Persona{
     private Pais paisOrigen;
     private Persona sospechoso;
 
+    public Jugador(String nombre){
+        this.nombre = nombre;
+    }
+
     public Jugador(Caso caso) {
         this.caso = caso;
         this.paisOrigen = caso.getPaisOrigen();

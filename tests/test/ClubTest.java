@@ -62,7 +62,7 @@ public class ClubTest {
         banco.setVillano(villano);
         banco.setPasoVillano(true);
 
-        when(villano.getSeñasParticulares()).thenReturn(señasParticulares);
+        when(villano.getSeniasParticulares()).thenReturn(señasParticulares);
         when(villano.getHobbies()).thenReturn(hobbies);
 
         assertNotNull(banco.darPista().getPista1());

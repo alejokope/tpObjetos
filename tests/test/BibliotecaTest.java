@@ -61,7 +61,7 @@ public class BibliotecaTest {
         biblioteca.setVillano(villano);
         biblioteca.setPasoVillano(true);
 
-        when(villano.getSeñasParticulares()).thenReturn(señasParticulares);
+        when(villano.getSeniasParticulares()).thenReturn(señasParticulares);
         when(villano.getHobbies()).thenReturn(hobbies);
         when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 

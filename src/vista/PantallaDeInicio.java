@@ -12,7 +12,7 @@ public class PantallaDeInicio extends JDialog{
     private JButton resolverMisterioButton;
     private JButton expedientesButton;
 
-    public PantallaDeInicio(DataDummy dataDummy, JTextField nombreIngresadoTextField){
+    public PantallaDeInicio(DataDummy dataDummy){
         setTitle("¿Dónde está Carmen Sandiego?");
         setContentPane(pantallaDeInicioPanel);
         setLocation(400,400);
@@ -22,7 +22,7 @@ public class PantallaDeInicio extends JDialog{
         resolverMisterioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                PresentacionDelCaso presentacionDelCaso = new PresentacionDelCaso(dataDummy, nombreIngresadoTextField);
+                PresentacionDelCaso presentacionDelCaso = new PresentacionDelCaso(dataDummy);
             }
         });
     }

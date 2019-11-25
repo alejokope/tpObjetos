@@ -60,7 +60,7 @@ public class BancoTest {
         banco.setVillano(villano);
         banco.setPasoVillano(true);
 
-        when(villano.getSeñasParticulares()).thenReturn(señasParticulares);
+        when(villano.getSeniasParticulares()).thenReturn(señasParticulares);
         when(villano.obtenerCaracteristicasDelPaisProximo()).thenReturn(caracteristicasPais);
 
         assertNotNull(banco.darPista().getPista1());

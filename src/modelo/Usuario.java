@@ -1,35 +1,35 @@
 package modelo;
 
 import javax.swing.*;
-import java.util.Arrays;
 
 public class Usuario {
 
-    private String nombre;
+    private Jugador jugador;
     private String contrasenia;
 
-    public Usuario(String nombre, String contrasenia) {
-        this.nombre = nombre;
+    public Usuario(Jugador jugador, String contrasenia) {
+        this.jugador = jugador;
         this.contrasenia = contrasenia;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public Jugador getJugador() {
+        return jugador;
     }
 
     public String getContrasenia() {
         return contrasenia;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
 
     public boolean esElMismoUsuario(JTextField nombreIngresadoTextField, JPasswordField contraseniaIngresadaTextField) {
-        return nombreIngresadoTextField.getText().equals(nombre) && new String(contraseniaIngresadaTextField.getPassword()).equals(contrasenia);
+        return esElMismoNombre(nombreIngresadoTextField) && esLaMismaContraseña(contraseniaIngresadaTextField);
+    }
+
+    public boolean esLaMismaContraseña(JPasswordField contraseniaIngresadaTextField) {
+        return new String(contraseniaIngresadaTextField.getPassword()).equals(contrasenia);
+    }
+
+    public boolean esElMismoNombre(JTextField nombreIngresadoTextField) {
+        return nombreIngresadoTextField.getText().equals(jugador.getNombre());
     }
 }

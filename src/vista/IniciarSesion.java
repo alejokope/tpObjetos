@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.DataDummy;
+import modelo.Usuario;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -29,7 +30,8 @@ public class IniciarSesion extends JFrame {
         aceptarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(dataDummy.esUnUsuarioValido(nombreIngresadoTextField, contraseniaIngresadaTextField)){
-                    PantallaDeInicio pantallaDeInicio = new PantallaDeInicio(dataDummy, nombreIngresadoTextField);
+                    dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(nombreIngresadoTextField));
+                    PantallaDeInicio pantallaDeInicio = new PantallaDeInicio(dataDummy);
                     dispose();
                 }
                 else{
