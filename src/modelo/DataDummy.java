@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DataDummy {
+    private Villano villanoAsignado;
     private Caso casoAsignado;
     private Jugador jugadorAsignado;
 
@@ -51,12 +52,36 @@ public class DataDummy {
         return jugadorAsignado.getNombre();
     }
 
-    public Caso obtenerCasoAsignado(){
+    public Caso getCasoAsignado(){
         return casoAsignado;
     }
 
-    public void setearCasoAsignado(Caso casoAsignado){
+    public void setCasoAsignado(Caso casoAsignado){
         this.casoAsignado = casoAsignado;
+    }
+
+    public String obtenerTituloDelCasoAsignado(){
+        return casoAsignado.getTitulo();
+    }
+
+    public void setearCasoAsignadoAJugadorAsignado(){
+        jugadorAsignado.setPaisActual(casoAsignado.getPaisOrigen());
+    }
+
+    public String obtenerNombreDelPaisActualDelJugadorAsignado(){
+        return jugadorAsignado.getPaisActual().getNombre();
+    }
+
+    public String obtenerReporteDelCasoAsignado() {
+        return casoAsignado.getReporte();
+    }
+
+    public Villano getVillanoAsignado() {
+        return villanoAsignado;
+    }
+
+    public void setVillanoAsignado(Villano villanoAsignado) {
+        this.villanoAsignado = villanoAsignado;
     }
 
     //todo si la lista de paises es siempre la misma guardarla en un atributo para que no este armandola todo el tiempo y solo la consultemos.
@@ -74,7 +99,7 @@ public class DataDummy {
             caso.setReporte(origen.getReporte().getValue());
             caso.setTitulo(origen.getTitulo().getValue());
             listaPaises.remove(origen);
-            setearCasoAsignado(caso);
+            setCasoAsignado(caso);
             return caso;
         }
 
@@ -189,6 +214,7 @@ public class DataDummy {
             villano.setPlanEscape(planEscape);
             villano.setPaisActual(origen);
             villano.setLugarInteresActual(obtenerLugarDeInteresOrigen(villano));
+            setVillanoAsignado(villano);
 
             return villano;
         }
@@ -241,7 +267,6 @@ public class DataDummy {
             colombia.setTitulo(Titulo.TITULO7);
             egipto.setTitulo(Titulo.TITULO8);
             india.setTitulo(Titulo.TITULO9);
-
 
             argentina.setNombre("Argentina");
             argentina.setCaracteristicas(Arrays.asList("toman mate","bailan tango"));
@@ -336,5 +361,7 @@ public class DataDummy {
             int numAlAzar = obtenerNumeroAleatorio(pais.getConexiones().size());
             return pais.getConexiones().get(numAlAzar);
         }
+
+
 }
 

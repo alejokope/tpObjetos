@@ -1,6 +1,6 @@
 package vista;
 
-import modelo.DataDummy;
+import modelo.Jugador;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ public class PantallaDeInicio extends JDialog{
     private JButton resolverMisterioButton;
     private JButton expedientesButton;
 
-    public PantallaDeInicio(DataDummy dataDummy){
+    public PantallaDeInicio(Jugador jugador){
         setTitle("¿Dónde está Carmen Sandiego?");
         setContentPane(pantallaDeInicioPanel);
         setLocation(400,400);
@@ -22,7 +22,7 @@ public class PantallaDeInicio extends JDialog{
         resolverMisterioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                PresentacionDelCaso presentacionDelCaso = new PresentacionDelCaso(dataDummy);
+                PresentacionDelCaso presentacionDelCaso = new PresentacionDelCaso(jugador);
             }
         });
     }

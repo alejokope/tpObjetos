@@ -1,12 +1,14 @@
 package vista;
 
 import modelo.DataDummy;
+import modelo.Jugador;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PresentacionDelCaso extends JDialog{
+    private DataDummy dataDummy;
     private JPanel presentacionDelCasoPanel;
     private JButton elegirOtroButton;
     private JButton aceptarElCasoButton;
@@ -16,8 +18,8 @@ public class PresentacionDelCaso extends JDialog{
     private JPanel saludoPanel;
     private JPanel botonesPanel;
 
-    public PresentacionDelCaso(DataDummy dataDummy){
-        recargarCaso(dataDummy);
+    public PresentacionDelCaso(Jugador jugador){
+        recargarCaso(jugador);
         setContentPane(presentacionDelCasoPanel);
         setLocation(350,150);
         setSize(650,600);
@@ -28,22 +30,25 @@ public class PresentacionDelCaso extends JDialog{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 refrescar();
-                recargarCaso(dataDummy);
+                recargarCaso(jugador);
             }
 
         });
         aceptarElCasoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ResolviendoElCaso resolviendoElCaso = new ResolviendoElCaso(dataDummy.obtenerCasoAsignado());
+                ResolviendoElCaso resolviendoElCaso = new ResolviendoElCaso(dataDummy);
             }
         });
     }
 
-    private void recargarCaso(DataDummy dataDummy) {
-        setTitle(dataDummy.obtenerCasoAlAzar().getTitulo());
-        saludoLabel.setText("Detective " + dataDummy.obtenerNombreDelJugadorAsignado() + ", tenemos un caso para usted!");
-        reporteTextArea.setText(dataDummy.obtenerCasoAlAzar().getReporte());
+    private void recargarCaso(Jugador jugador) {
+        dataDummy = new DataDummy();
+        dataDummy.setJugadorAsignado(jugador);
+        dataDummy.obtenerCasoAlAzar();
+        setTitle(dataDummy.obtenerTituloDelCasoAsignado());
+        saludoLabel.setText("Detective " + jugador.getNombre() + ", tenemos un caso para usted!");
+        reporteTextArea.setText(dataDummy.obtenerReporteDelCasoAsignado());
         reporteTextArea.setEditable(false);
     }
 

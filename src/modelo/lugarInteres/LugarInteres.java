@@ -29,6 +29,10 @@ public abstract class LugarInteres {
         pasoElVillano = pasoVillano;
     }
 
+    public boolean esElMismoLugarInteres(LugarInteres lugarInteres){
+        return this.informacion() == lugarInteres.informacion();
+    }
+
     protected String obtenerPistas(List<String> pistas){
         return pistas.get(obtenerPosicionAleatoria(pistas));
     }

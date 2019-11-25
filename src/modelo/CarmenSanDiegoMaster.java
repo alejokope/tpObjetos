@@ -53,4 +53,16 @@ public class CarmenSanDiegoMaster {
 	public List<LugarInteres> obtenerLugaresDeInteresDeUnaPersona(Persona persona) {
 		return persona.obtenerLugaresDeInteresDelPaisActual();
 	}
+
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+	public Caso getCaso() {
+		return caso;
+	}
+
+	public Villano getVillano() {
+		return villano;
+	}
 }

@@ -39,4 +39,8 @@ public class Ayuda {
 		agregarUnaPista(palabra2);
 	}
 
+	public String mostrarPistas(){
+    	return pistas.toString();
+	}
+
 }
