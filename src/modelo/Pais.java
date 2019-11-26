@@ -25,12 +25,6 @@ public class Pais {
 		this.lugaresInteres = lugaresInteres;
 	}
 
-	public void verificacionDeIngresoDelVillano(Villano villano){
-		if(elVillanoPasoPorEstePais(villano)){
-			ingresoVillano(villano);
-		}
-	}
-
 	public boolean elVillanoPasoPorEstePais(Villano villano) {
 		return villano.getPlanEscape().stream().anyMatch(pais -> pais.equals(this));
 	}

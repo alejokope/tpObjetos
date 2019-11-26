@@ -1,7 +1,5 @@
 package modelo;
 
-import excepciones.NoHayPaisProximoException;
-
 import java.util.List;
 
 public class Caso {
@@ -70,6 +68,12 @@ public class Caso {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public void pasarVillanoPorPaises(){
+		for (Pais pais : planEscape){
+			pais.ingresoVillano(responsable);
+		}
 	}
 
 }

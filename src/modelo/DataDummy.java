@@ -94,13 +94,13 @@ public class DataDummy {
             caso.setPaisOrigen(origen);
             caso.setPlanEscape(planEscape);
             //caso.setPlanEscape(listaPaises);
-            caso.setResponsable(obtenerVillanoAlAzar(planEscape,origen));
+            caso.setResponsable(obtenerVillanoAlAzar(planEscape));
             caso.setObjeto(origen.getObjeto().getValue());
             caso.setReporte(origen.getReporte().getValue());
             caso.setTitulo(origen.getTitulo().getValue());
+            caso.pasarVillanoPorPaises();
             listaPaises.remove(origen);
             setCasoAsignado(caso);
-            caso.setPlanEscape(caso.getResponsable().getPlanEscape());
 
             return caso;
         }
@@ -204,7 +204,7 @@ public class DataDummy {
             return listaPersonas;
         }
 
-        private Villano obtenerVillanoAlAzar (ArrayList<Pais> planEscape,Pais origen){
+        private Villano obtenerVillanoAlAzar (ArrayList<Pais> planEscape){
             Villano villano = new Villano();
             ArrayList<Persona> listaPersonas = obtenerListaPersonas();
             int numeroAzar = obtenerNumeroAleatorio(listaPersonas.size());
