@@ -38,8 +38,8 @@ public class ResolviendoElCaso extends JFrame{
     private Caso caso;
     private Jugador jugador;
     private Villano villano;
-    private LugarInteres lugarInteres;
-    private Pais pais;
+    private LugarInteres lugarInteresActual;
+    private Pais paisActual;
 
     private void crearModelo(DataDummy dataDummy) {
         modelo = new ResolviendoElCasoViewModel();
@@ -53,10 +53,10 @@ public class ResolviendoElCaso extends JFrame{
     }
 
     private void chequearExistenciaDeLugarInteres(LugarInteres otroLugarInteres) {
-        lugarInteres = modelo.obtenerLugarDeInteres(otroLugarInteres);
-        if(lugarInteres.informacion() == otroLugarInteres.informacion()){
-            modelo.jugadorIngresarA(lugarInteres);
-            VisitandoLugar visitandoLugar = new VisitandoLugar(caso.getTitulo(), lugarInteres);
+        lugarInteresActual = modelo.obtenerLugarDeInteres(otroLugarInteres);
+        if(lugarInteresActual.informacion() == otroLugarInteres.informacion()){
+            modelo.jugadorIngresarA(lugarInteresActual);
+            VisitandoLugar visitandoLugar = new VisitandoLugar(carmenSanDiegoMaster, lugarInteresActual);
         }
         else{
             JOptionPane.showMessageDialog(resolviendoElCasoPanel,"Este Lugar de interes no existe en este pais. Intenta otro!");

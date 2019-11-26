@@ -8,10 +8,11 @@ public class LugarInteres {
 
     protected boolean pasoElVillano = false;
     protected Villano villano;
+    protected Ayuda ayuda = new Ayuda();
 
-    public Ayuda darPista(){
-        return new Ayuda();
-    };
+    public void darPista() {
+
+    }
 
     public String informacion(){
         return "LUGARINTERES";
@@ -55,5 +56,13 @@ public class LugarInteres {
 
     protected int porcentajeEvaluado(){
         return 0;
+    }
+
+    public Ayuda getAyuda() {
+        return ayuda;
+    }
+
+    public void setAyuda(Ayuda ayuda) {
+        this.ayuda = ayuda;
     }
 }

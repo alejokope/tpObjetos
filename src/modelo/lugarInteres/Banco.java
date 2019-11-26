@@ -1,16 +1,13 @@
 package modelo.lugarInteres;
 
-import modelo.*;
-
 public class Banco extends LugarInteres {
 
 	@Override
-	public Ayuda darPista() {
-		Ayuda ayuda = new Ayuda();
+	public void darPista() {
 		if (pasoElVillano) {
-			ayuda.agregarDosPistas(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()), obtenerPistas(villano.getSeniasParticulares()));
+			ayuda.setPista(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()) + "\n" +
+							obtenerPistas(villano.getSeniasParticulares()));
 		}
-		return ayuda;
 	}
 
 	@Override

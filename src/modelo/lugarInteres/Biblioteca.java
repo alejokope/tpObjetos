@@ -1,22 +1,21 @@
 package modelo.lugarInteres;
 
-import modelo.*;
-
 public class Biblioteca extends LugarInteres {
 
 	public static final int MAXIMO_NUMERO_RANDOM = 100;
 	public static final int PORCENTAJE_EVALUADO = 50;
 
 	@Override
-	public Ayuda darPista() {
-		Ayuda ayuda = new Ayuda();
-		if (pasoElVillano) {
-			ayuda.agregarDosPistas(obtenerPistas(villano.getSeniasParticulares()), obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
-			if (chanceDeObtenerPistaExtra()) {
-				ayuda.agregarUnaPista(obtenerPistas(villano.getHobbies()));
-			}
+	public void darPista() {
+		if (pasoElVillano && chanceDeObtenerPistaExtra()) {
+			ayuda.setPista(obtenerPistas(villano.getHobbies()) + "\n" +
+							obtenerPistas(villano.getSeniasParticulares()) + "\n" +
+							obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
 		}
-		return ayuda;
+		else if(pasoElVillano){
+			ayuda.setPista(obtenerPistas(villano.getSeniasParticulares()) + "\n" +
+							obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
+		}
 	}
 
 	@Override

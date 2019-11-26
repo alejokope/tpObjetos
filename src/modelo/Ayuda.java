@@ -1,46 +1,38 @@
 package modelo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Ayuda {
-    private List<String> pistas = new ArrayList<String>();
-    
-    public Ayuda() {
-		
+
+	private String pista;
+
+	public Ayuda (){
+
 	}
 
-    public Ayuda(List<String> pistas) {
-        this.pistas = pistas;
-    }
-
-    public List<String> getPistas(){
-    	return pistas;
-	}
-	
-	public String getPista1() {
-		return pistas.get(0);
-	}
-	
-	public String getPista2() {
-		return pistas.get(1);
-	}
-	
-	public String getPistaExtra() {
-		return pistas.get(2);
+	public Ayuda(String pista) {
+		this.pista = pista;
 	}
 
-	public void agregarUnaPista(String palabra){
-    	pistas.add(palabra);
+	public String darPistaMensaje(){
+    	return pista;
 	}
 
-	public void agregarDosPistas(String palabra1, String palabra2){
-    	agregarUnaPista(palabra1);
-		agregarUnaPista(palabra2);
+	public void setPista(String pista) {
+		this.pista = pista;
 	}
 
-	public String mostrarPistas(){
-    	return pistas.toString();
+	public String noPasoPorEstePaisMensaje() {
+    	return "Lo siento, creo que se ha equivocado de \n" +
+				"Ciudad, no hay nadie con esas caracteristicas";
+	}
+
+	public String mismoPaisMensaje() {
+		return "CUIDADO DETECTIVE!! Ha estado a punto de \n" +
+				"caer en una trampa... La persona que busca \n" +
+				"esta en la ciudad!";
+	}
+
+	public String gameOverMensaje(Villano villano) {
+		return "ALTO!!! Detengase: " + villano.getNombre();
 	}
 
 }

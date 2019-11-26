@@ -215,6 +215,7 @@ public class DataDummy {
             villano.setPaisActual(origen);
             villano.setLugarInteresActual(obtenerLugarDeInteresOrigen(villano));
             setVillanoAsignado(villano);
+            villano.escaparmeLejosYEnAlgunLugar();
 
             return villano;
         }

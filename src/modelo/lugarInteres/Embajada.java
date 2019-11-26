@@ -1,16 +1,13 @@
 package modelo.lugarInteres;
 
-import modelo.*;
-
 public class Embajada extends LugarInteres{
 
     @Override
-    public Ayuda darPista() {
-        Ayuda ayuda = new Ayuda();
+    public void darPista() {
         if(pasoElVillano){
-            ayuda.agregarDosPistas(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()), obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
+            ayuda.setPista(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()) + "\n" +
+                            obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo()));
         }
-        return ayuda;
     }
 
     @Override
