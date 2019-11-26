@@ -85,9 +85,10 @@ public class PresentacionCaso extends JFrame {
         JLabel lFondo= new JLabel("");
         lFondo.setPreferredSize(new Dimension(1000, 1000));
         lFondo.setSize(new Dimension(1000, 1000));
-        lFondo.setBounds(0, 0,684,343);
+        lFondo.setBounds(0, -13,827,450);
         pReporte.add(lFondo);
-        lFondo.setIcon(new ImageIcon(PresentacionCaso.class.getResource("/imagenes/fondo6.png")));
+        //lFondo.setIcon(new ImageIcon(PresentacionCaso.class.getResource("/imagenes/CARMENInicio.png")));
+        lFondo.setIcon(new ImageIcon(PresentacionCaso.class.getResource("/imagenes/fondos8.png")));
         
         JPanel pPie = new JPanel();
         pPie.setBounds(5, 317, 672, 33);
