@@ -11,7 +11,7 @@ public class Pais {
 	private List<LugarInteres> lugaresInteres;
 	private List<Pais> conexiones = new ArrayList<Pais>();
 
-	private Objetos objeto;
+	private Objeto objeto;
 	private Reporte reporte;
 	private Titulo titulo;
 
@@ -84,11 +84,11 @@ public class Pais {
 		this.conexiones = conexiones;
 	}
 
-	public Objetos getObjeto() {
+	public Objeto getObjeto() {
 		return objeto;
 	}
 
-	public void setObjeto(Objetos objeto) {
+	public void setObjeto(Objeto objeto) {
 		this.objeto = objeto;
 	}
 
