@@ -22,10 +22,10 @@ public class Usuario {
 
 
     public boolean esElMismoUsuario(JTextField nombreIngresadoTextField, JPasswordField contraseniaIngresadaTextField) {
-        return esElMismoNombre(nombreIngresadoTextField) && esLaMismaContraseña(contraseniaIngresadaTextField);
+        return esElMismoNombre(nombreIngresadoTextField) && esLaMismaContrasenia(contraseniaIngresadaTextField);
     }
 
-    public boolean esLaMismaContraseña(JPasswordField contraseniaIngresadaTextField) {
+    public boolean esLaMismaContrasenia(JPasswordField contraseniaIngresadaTextField) {
         return new String(contraseniaIngresadaTextField.getPassword()).equals(contrasenia);
     }
 

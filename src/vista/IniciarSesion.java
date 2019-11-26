@@ -21,6 +21,7 @@ public class IniciarSesion extends JFrame {
     }
 
     public IniciarSesion(){
+    	setResizable(false);
         setTitle("Ingrese sus datos, detective.");
         setContentPane(iniciarSesionPanel);
         setLocation(400,300);
