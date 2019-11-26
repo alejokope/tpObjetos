@@ -92,8 +92,8 @@ public class DataDummy {
             Pais origen = obtenerPaisOrigen();
             ArrayList<Pais> planEscape = generarCasos(origen);
             caso.setPaisOrigen(origen);
-            // caso.setPlanEscape(planEscape);
-            caso.setPlanEscape(listaPaises);
+            caso.setPlanEscape(planEscape);
+            //caso.setPlanEscape(listaPaises);
             caso.setResponsable(obtenerVillanoAlAzar(planEscape,origen));
             caso.setObjeto(origen.getObjeto().getValue());
             caso.setReporte(origen.getReporte().getValue());
@@ -214,10 +214,8 @@ public class DataDummy {
             villano.setSeniasParticulares(listaPersonas.get(numeroAzar).getSeniasParticulares());
             villano.setHobbies(listaPersonas.get(numeroAzar).getHobbies());
             villano.setPlanEscape(planEscape);
-            villano.setPaisActual(origen);
-            villano.setLugarInteresActual(obtenerLugarDeInteresOrigen(villano));
+            villano.escaparmeAlUltimoPaisYEnAlgunLugar();
             setVillanoAsignado(villano);
-            villano.escaparmeLejosYEnAlgunLugar();
 
             return villano;
         }
@@ -347,8 +345,9 @@ public class DataDummy {
 
         private ArrayList<Pais> devolverListaPaisesAzar (Pais pais, ArrayList<Pais> caso){
             ArrayList <Pais> caso2 = caso;
+            caso2.add(pais); //el pais de origen tambien se debe incluir en el plan de escape!!!!!!
             Pais proximo = obtenerConexionAleatoria(pais);
-            if(caso.size() == 6){
+            if(caso.size() == 7){ //aumento la cantidad de paises en la lista despues de la modificacion de arriba
                 return caso2;
             }
             while(caso.contains(proximo)){

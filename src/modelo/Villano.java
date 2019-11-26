@@ -28,7 +28,7 @@ public class Villano extends Persona {
 		return (int) (Math.random() * pais.getLugaresInteres().size());
 	}
 
-	public void escaparmeLejosYEnAlgunLugar(){
+	public void escaparmeAlUltimoPaisYEnAlgunLugar(){
 		this.paisActual = planEscape.get(ultimoPaisDelPlanDeEscape());
 		this.lugarInteresActual = obtenerLugarInteresAleatorio(paisActual);
 	}
