@@ -152,12 +152,13 @@ public class IniciarSecion extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(dataDummy.esUnUsuarioValido(textUsuario,textContrasenia)) {
                     dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(textUsuario));
-                    PantallaDeInicio pantallaDeInicio = new PantallaDeInicio(dataDummy.getJugadorAsignado());
+                    PantallaDeInicio pantallaDeInicios= new PantallaDeInicio(dataDummy.getJugadorAsignado());
                     dispose();
 				}
 				else {
 					 JOptionPane.showMessageDialog(contentPane,"Debe ingresar un usuario valido!");
 				}
+				
 				
 				
 			}
