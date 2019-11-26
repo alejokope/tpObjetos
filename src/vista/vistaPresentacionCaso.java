@@ -40,7 +40,7 @@ public class vistaPresentacionCaso extends JFrame {
 	 */
 	public vistaPresentacionCaso() {
 		setTitle("\u00BFDonde esta CarmenSanDiego?");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 599,353);

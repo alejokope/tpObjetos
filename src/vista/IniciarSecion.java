@@ -59,7 +59,7 @@ public class IniciarSecion extends JFrame {
 	public IniciarSecion() {
 		setResizable(false);
 		setTitle("Bienvenid@");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
@@ -144,7 +144,7 @@ public class IniciarSecion extends JFrame {
 		JButton btnJugar = new JButton("");
 		btnJugar.setBorder(new EmptyBorder(10, 10, 10, 10));
 		btnJugar.setBounds(225, 5, 184, 82);
-		btnJugar.setIcon(new ImageIcon(IniciarSesion.class.getResource("/imagenes/botonJugarGrande.png")));
+		btnJugar.setIcon(new ImageIcon(IniciarSecion.class.getResource("/imagenes/botonJugarGrande.png")));
 		panel.add(btnJugar);
 		btnJugar.addActionListener(new ActionListener() {
 			
