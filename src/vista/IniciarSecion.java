@@ -3,13 +3,20 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+
+import modelo.DataDummy;
 
 import java.awt.Dimension;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
@@ -22,12 +29,18 @@ public class IniciarSecion extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textUsuario;
-	private JTextField textContrasenia;
+	private JPasswordField textContrasenia;
+	private DataDummy dataDummy = new DataDummy();
+	
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -117,7 +130,7 @@ public class IniciarSecion extends JFrame {
 		pCentral.add(pContraseniR);
 		pContraseniR.setLayout(null);
 		
-		textContrasenia = new JTextField();
+		textContrasenia = new JPasswordField();
 		textContrasenia.setBounds(32, 60, 259, 44);
 		textContrasenia.setColumns(10);
 		textContrasenia.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -130,8 +143,27 @@ public class IniciarSecion extends JFrame {
 		
 		JButton btnJugar = new JButton("");
 		btnJugar.setBorder(new EmptyBorder(10, 10, 10, 10));
-		btnJugar.setBounds(225, 5, 185, 95);
+		btnJugar.setBounds(225, 5, 184, 82);
 		btnJugar.setIcon(new ImageIcon(IniciarSesion.class.getResource("/imagenes/botonJugarGrande.png")));
 		panel.add(btnJugar);
+		btnJugar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(dataDummy.esUnUsuarioValido(textUsuario,textContrasenia)) {
+                    dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(textUsuario));
+                    PantallaDeInicio pantallaDeInicio = new PantallaDeInicio(dataDummy.getJugadorAsignado());
+                    dispose();
+				}
+				else {
+					 JOptionPane.showMessageDialog(contentPane,"Debe ingresar un usuario valido!");
+				}
+				
+				
+			}
+		});
+		
+		
+		
 	}
 }

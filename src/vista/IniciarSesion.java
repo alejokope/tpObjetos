@@ -39,7 +39,7 @@ public class IniciarSesion extends JFrame {
         setSize(750,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-       /*JPanel pBienvenido = new JPanel();
+       JPanel pBienvenido = new JPanel();
         pBienvenido.setPreferredSize(new Dimension(100, 100));
         getContentPane().add(pBienvenido, BorderLayout.NORTH);
         pBienvenido.setLayout(null);
@@ -87,6 +87,6 @@ public class IniciarSesion extends JFrame {
                     JOptionPane.showMessageDialog(iniciarSesionPanel,"Debe ingresar un usuario valido!");
                 }
             }
-        });*/
+        });
     }
 }
