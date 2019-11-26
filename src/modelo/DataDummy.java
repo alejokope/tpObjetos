@@ -100,6 +100,8 @@ public class DataDummy {
             caso.setTitulo(origen.getTitulo().getValue());
             listaPaises.remove(origen);
             setCasoAsignado(caso);
+            caso.setPlanEscape(caso.getResponsable().getPlanEscape());
+
             return caso;
         }
 

@@ -33,37 +33,6 @@ public class Villano extends Persona {
 		this.lugarInteresActual = obtenerLugarInteresAleatorio(paisActual);
 	}
 
-	public List<String> obtenerCaracteristicasDelPaisProximo() {
-		return getPaisProximo().getCaracteristicas();
-	}
-
-	public Pais getPaisProximo() {
-		return planEscape.get(obtenerSiguientePaisDeMiPlanDeEscape());
-	}
-
-	public int obtenerSiguientePaisDeMiPlanDeEscape() {
-		if (miPlanDeEscapeContieneAMiPaisActualYPuedoSeguirMiPlanDeEscape()) {
-			return planEscape.indexOf(paisActual) + OBTENER_PROXIMO_INDICE;
-		} else {
-			throw new NoHayPaisProximoException();
-		}
-	}
-
-	public boolean miPlanDeEscapeContieneAMiPaisActualYPuedoSeguirMiPlanDeEscape() {
-		return planEscape.contains(paisActual)
-				&& planEscape.indexOf(paisActual) < planEscape.size() - OBTENER_ULTIMO_INDICE;
-	}
-
-	//se usa en carmensandiegomaster...
-	public boolean estoyEnElMismoLugarDeInteresQueJugador(Jugador jugador) {
-		return lugarInteresActual == jugador.getLugarInteresActual();
-	}
-
-	public void escaparProximoPais() {
-		paisActual = getPaisProximo();
-		//paisActual.ingresoVillanoFinal(this); borrar?
-	}
-
 	public void setPlanEscape(List<Pais> planEscape) {
 		this.planEscape = planEscape;
 	}
@@ -73,12 +42,41 @@ public class Villano extends Persona {
 	}
 
 	public void setPaisActual(Pais paisActual){
-		this.paisActual = planEscape.get(ultimoPaisDelPlanDeEscape());
+		this.paisActual = paisActual;
 	}
 
 	public int ultimoPaisDelPlanDeEscape() {
 		return planEscape.size() - OBTENER_ULTIMO_INDICE;
 	}
 
+	public List<String> obtenerCaracteristicasDelPaisProximo(Jugador jugador) {
+		return getPaisProximo(jugador).getCaracteristicas();
+	}
+
+	public Pais getPaisProximo(Jugador jugador) {
+		return planEscape.get(obtenerSiguientePaisDeMiPlanDeEscape(jugador));
+	}
+
+	public int obtenerSiguientePaisDeMiPlanDeEscape(Jugador jugador) {
+		if (miPlanDeEscapeContieneAlPaisActualDelJugadorYNoEsElUltimoPais(jugador)) {
+			return planEscape.indexOf(jugador.getPaisActual()) + OBTENER_PROXIMO_INDICE;
+		}
+		else if(miPlanDeEscapeContieneAlPaisActualDelJugadorYEsElUltimoPais(jugador)){
+			return planEscape.indexOf(jugador.getPaisActual());
+		}
+		else {
+			throw new NoHayPaisProximoException();
+		}
+	}
+
+	public boolean miPlanDeEscapeContieneAlPaisActualDelJugadorYNoEsElUltimoPais(Jugador jugador) {
+		return planEscape.contains(jugador.getPaisActual())
+				&& planEscape.indexOf(jugador.getPaisActual()) < planEscape.size() - OBTENER_ULTIMO_INDICE;
+	}
+
+	public boolean miPlanDeEscapeContieneAlPaisActualDelJugadorYEsElUltimoPais(Jugador jugador) {
+		return planEscape.contains(jugador.getPaisActual())
+				&& planEscape.indexOf(jugador.getPaisActual()) == planEscape.size() - OBTENER_ULTIMO_INDICE;
+	}
 
 }

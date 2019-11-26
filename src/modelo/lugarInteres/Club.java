@@ -1,20 +1,22 @@
 package modelo.lugarInteres;
 
+import modelo.Jugador;
+
 public class Club extends LugarInteres{
 
     public static final int MAXIMO_NUMERO_RANDOM = 100;
     public static final int PORCENTAJE_EVALUADO = 70;
 
     @Override
-    public void darPista() {
+    public void darPista(Jugador jugador) {
         if (pasoElVillano && chanceDeObtenerPistaExtra()) {
             ayuda.setPista(obtenerPistas(villano.getHobbies()) + "\n" +
-                            obtenerPistas(villano.getSeniasParticulares()) + "\n" +
-                            obtenerPistas(villano.getSeniasParticulares()));
+                           obtenerPistas(villano.getSeniasParticulares()) + "\n" +
+                           obtenerPistas(villano.getSeniasParticulares()));
         }
         else if (pasoElVillano) {
             ayuda.setPista(obtenerPistas(villano.getSeniasParticulares()) + "\n" +
-                            obtenerPistas(villano.getSeniasParticulares()));
+                           obtenerPistas(villano.getSeniasParticulares()));
         }
     }
 

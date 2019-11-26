@@ -48,4 +48,8 @@ public class Jugador extends Persona{
         return sospechoso == villano;
     }
 
+    public void asignarPaisDelCaso(Caso caso) {
+        this.paisOrigen = caso.getPaisOrigen();
+        this.paisActual = caso.getPaisOrigen();
+    }
 }

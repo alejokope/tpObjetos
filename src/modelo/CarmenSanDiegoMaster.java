@@ -40,7 +40,6 @@ public class CarmenSanDiegoMaster {
 	
 	public void viajar(Pais pais){
         jugador.viajar(pais);
-        villano.escaparProximoPais();
 	}
 
 	public void setCaso(Caso caso) {
@@ -95,4 +94,5 @@ public class CarmenSanDiegoMaster {
 	public boolean pasoPorElPais(){
 		return this.getJugador().getPaisActual().elVillanoPasoPorEstePais(villano);
 	}
+
 }

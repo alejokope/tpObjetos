@@ -8,11 +8,11 @@ public class MismoPaisMensaje implements EstadoDeMensaje {
             carmenSanDiegoMaster.setEstadoDeMensaje(new GameOverMensaje());
         }
 
-        if(!carmenSanDiegoMaster.estanEnElMismoPais() && carmenSanDiegoMaster.pasoPorElPais()){
+        else if(!carmenSanDiegoMaster.estanEnElMismoPais() && carmenSanDiegoMaster.pasoPorElPais()){
             carmenSanDiegoMaster.setEstadoDeMensaje(new DarPistaMensaje());
         }
 
-        if(!carmenSanDiegoMaster.pasoPorElPais()){
+        else if(!carmenSanDiegoMaster.pasoPorElPais()){
             carmenSanDiegoMaster.setEstadoDeMensaje(new NoPasoPorEstePaisMensaje());
         }
     }

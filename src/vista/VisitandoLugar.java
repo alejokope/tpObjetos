@@ -25,14 +25,14 @@ public class VisitandoLugar extends JDialog{
         Villano villano = carmenSanDiegoMaster.getVillano();
         Jugador jugador = carmenSanDiegoMaster.getJugador();
         Pais paisActual = jugador.getPaisActual();
-        EstadoDeMensaje estadoDeMensaje = carmenSanDiegoMaster.getEstadoDeMensaje();
         paisActual.verificacionDeIngresoDelVillano(villano); //<- esto setea el paso del villano, si su plandeescape incluia este pais importante!!!
 
         carmenSanDiegoMaster.actualizarEstadoDeMensaje();
+        lugarInteres.darPista(jugador);
 
         setTitle("Resolviendo: " + caso.getTitulo());
         visitandoLabel.setText("Estás visitando: " + lugarInteres.informacion());
-        pistasTextArea.setText(estadoDeMensaje.mostrarMensaje(carmenSanDiegoMaster,lugarInteres.getAyuda()));
+        pistasTextArea.setText(carmenSanDiegoMaster.getEstadoDeMensaje().mostrarMensaje(carmenSanDiegoMaster,lugarInteres.getAyuda()));
         pistasTextArea.setEditable(false);
     }
 }

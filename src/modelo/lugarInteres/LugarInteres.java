@@ -10,7 +10,7 @@ public class LugarInteres {
     protected Villano villano;
     protected Ayuda ayuda = new Ayuda();
 
-    public void darPista() {
+    public void darPista(Jugador jugador) {
 
     }
 

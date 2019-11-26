@@ -48,6 +48,8 @@ public class ResolviendoElCaso extends JFrame{
         jugador = dataDummy.getJugadorAsignado();
         villano = dataDummy.getVillanoAsignado();
 
+        jugador.asignarPaisDelCaso(caso);
+
         carmenSanDiegoMaster = new CarmenSanDiegoMaster(caso, jugador, villano);
         modelo.setCarmenSanDiegoMaster(carmenSanDiegoMaster);
     }
