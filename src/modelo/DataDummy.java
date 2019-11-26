@@ -239,15 +239,15 @@ public class DataDummy {
             Pais egipto = new Pais();
             Pais india = new Pais();
 
-            argentina.setObjeto(Objeto.OBJETO1);
-            brasil.setObjeto(Objeto.OBJETO2);
-            chile.setObjeto(Objeto.OBJETO3);
-            uruguay.setObjeto(Objeto.OBJETO4);
-            mexico.setObjeto(Objeto.OBJETO5);
-            francia.setObjeto(Objeto.OBJETO6);
-            colombia.setObjeto(Objeto.OBJETO7);
-            egipto.setObjeto(Objeto.OBJETO8);
-            india.setObjeto(Objeto.OBJETO9);
+            argentina.setObjeto(Objetos.OBJETO1);
+            brasil.setObjeto(Objetos.OBJETO2);
+            chile.setObjeto(Objetos.OBJETO3);
+            uruguay.setObjeto(Objetos.OBJETO4);
+            mexico.setObjeto(Objetos.OBJETO5);
+            francia.setObjeto(Objetos.OBJETO6);
+            colombia.setObjeto(Objetos.OBJETO7);
+            egipto.setObjeto(Objetos.OBJETO8);
+            india.setObjeto(Objetos.OBJETO9);
 
             argentina.setReporte(Reporte.REPORTE1);
             brasil.setReporte(Reporte.REPORTE2);
