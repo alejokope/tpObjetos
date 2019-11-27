@@ -15,12 +15,18 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import controllers.ExpedientesController;
+import modelo.Persona;
+import modelo.Villano;
+
 import java.awt.Color;
 import javax.swing.JButton;
 
-public class expedientes extends JFrame {
+public class Expedientes extends JFrame {
 
 	private JPanel contentPane;
+	private ExpedientesViewModel modelo;
 
 	/**
 	 * Launch the application.
@@ -29,7 +35,7 @@ public class expedientes extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					expedientes frame = new expedientes();
+					Expedientes frame = new Expedientes();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +47,8 @@ public class expedientes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public expedientes() {
+	public Expedientes() {
+		modelo = new ExpedientesViewModel();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1080, 720);
@@ -53,12 +60,25 @@ public class expedientes extends JFrame {
 		JPanel pLista = new JPanel();
 		contentPane.add(pLista);
 		pLista.setLayout(null);
+		/*
+		 * 
+		 * 
+		 * SE TIENE QUE CAMBIAR EN VES DE PERSONA POR VILLANO
+		 * 
+		 * */
+		 
+		JList<Persona> listVillano = new JList<Persona>();
+		listVillano.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		listVillano.setBounds(0, 46, 354, 629);
+		listVillano.setPreferredSize(new Dimension(200, 200));
+		pLista.add(listVillano);
+		listVillano.setModel(new ExpedientesController(modelo).getVillanos());
 		
-		JList list = new JList();
-		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		list.setBounds(0, 0, 354, 675);
-		list.setPreferredSize(new Dimension(200, 200));
-		pLista.add(list);
+		JLabel lblVillanos = new JLabel("Villanos");
+		lblVillanos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVillanos.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblVillanos.setBounds(89, 0, 132, 33);
+		pLista.add(lblVillanos);
 		
 		JPanel pfoto = new JPanel();
 		contentPane.add(pfoto);
@@ -98,21 +118,21 @@ public class expedientes extends JFrame {
 		pDatos.add(pSeñalParticulares);
 		pSeñalParticulares.setLayout(null);
 		
-		JList list_1 = new JList();
-		list_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		list_1.setBounds(0, 13, 354, 311);
-		list_1.setPreferredSize(new Dimension(200, 200));
-		pSeñalParticulares.add(list_1);
+		JList listsenia = new JList();
+		listsenia.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		listsenia.setBounds(0, 13, 342, 311);
+		listsenia.setPreferredSize(new Dimension(200, 200));
+		pSeñalParticulares.add(listsenia);
 		
 		JPanel pHobbies = new JPanel();
 		pDatos.add(pHobbies);
 		pHobbies.setLayout(null);
 		
-		JList list_2 = new JList();
-		list_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		list_2.setPreferredSize(new Dimension(200, 200));
-		list_2.setBounds(0, 13, 342, 279);
-		pHobbies.add(list_2);
+		JList listhobbies = new JList();
+		listhobbies.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		listhobbies.setPreferredSize(new Dimension(200, 200));
+		listhobbies.setBounds(0, 13, 342, 279);
+		pHobbies.add(listhobbies);
 		
 		JButton btnAtras = new JButton("atras");
 		btnAtras.setBounds(209, 305, 97, 25);

@@ -105,12 +105,13 @@ public class DataDummy {
             return caso;
         }
 
-        private ArrayList<Persona> obtenerListaPersonas(){
-            ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
+        public ArrayList<Persona> obtenerVillanos(){
+            ArrayList<Persona> villanos = new ArrayList<Persona>();
             Persona tomas = new Persona();
             Persona nicolas = new Persona();
             Persona belen = new Persona();
             Persona maria = new Persona();
+            
 
             ArrayList<String> hobbiesNicolas = new ArrayList<String>();
             ArrayList<String> hobbiesTomas = new ArrayList<String>();
@@ -196,17 +197,17 @@ public class DataDummy {
             maria.setHobbies(hobbiesMaria);
             maria.setSeniasParticulares(seniasMaria);
 
-            listaPersonas.add(tomas);
-            listaPersonas.add(belen);
-            listaPersonas.add(maria);
-            listaPersonas.add(nicolas);
+            villanos.add(tomas);
+            villanos.add(belen);
+            villanos.add(maria);
+            villanos.add(nicolas);
 
-            return listaPersonas;
+            return villanos;
         }
 
         private Villano obtenerVillanoAlAzar (ArrayList<Pais> planEscape){
             Villano villano = new Villano();
-            ArrayList<Persona> listaPersonas = obtenerListaPersonas();
+            ArrayList<Persona> listaPersonas = obtenerVillanos();
             int numeroAzar = obtenerNumeroAleatorio(listaPersonas.size());
 
             villano.setNombre(listaPersonas.get(numeroAzar).getNombre());
