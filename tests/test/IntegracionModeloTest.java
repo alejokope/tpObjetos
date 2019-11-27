@@ -21,7 +21,7 @@ public class IntegracionModeloTest {
         LugarInteres clubArg = new Club();
         List<LugarInteres> argentinaLugaresDeInteres = Arrays.asList(embajadaArg, bibliotecaArg, clubArg);
 
-        List<String> peruCaracteristicas = Arrays.asList("bandera roja y blanca", "montañosa", "incas", "cebiche");
+        List<String> peruCaracteristicas = Arrays.asList("bandera roja y blanca", "montaniosa", "incas", "cebiche");
         Embajada embajadaPer = new Embajada();
         Biblioteca bibliotecaPer = new Biblioteca();
         LugarInteres clubPer = new Club();
@@ -92,7 +92,7 @@ public class IntegracionModeloTest {
         LugarInteres clubArg = new Club();
         List<LugarInteres> argentinaLugaresDeInteres = Arrays.asList(embajadaArg, bibliotecaArg, clubArg);
 
-        List<String> peruCaracteristicas = Arrays.asList("bandera roja y blanca", "montañosa", "incas", "cebiche");
+        List<String> peruCaracteristicas = Arrays.asList("bandera roja y blanca", "montaniosa", "incas", "cebiche");
         Embajada embajadaPer = new Embajada();
         Biblioteca bibliotecaPer = new Biblioteca();
         LugarInteres clubPer = new Club();

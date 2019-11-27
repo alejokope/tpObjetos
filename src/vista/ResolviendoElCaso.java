@@ -75,7 +75,7 @@ public class ResolviendoElCaso extends JFrame{
 
         setTitle("Resolviendo: " + dataDummy.obtenerTituloDelCasoAsignado());
         dataDummy.setearCasoAsignadoAJugadorAsignado();
-        paisActualLabel.setText("Estás en: " + dataDummy.obtenerNombreDelPaisActualDelJugadorAsignado());
+        paisActualLabel.setText("Estas en: " + dataDummy.obtenerNombreDelPaisActualDelJugadorAsignado());
 
         bibliotecaButton.addActionListener(new ActionListener() {
             @Override

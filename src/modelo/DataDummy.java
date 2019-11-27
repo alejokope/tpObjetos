@@ -124,7 +124,7 @@ public class DataDummy {
 
             hobbiesTomas.add("Juega al rugby.");
             hobbiesTomas.add("Toca el charango.");
-            hobbiesTomas.add("Le gusta las fiestas electrónicas.");
+            hobbiesTomas.add("Le gusta las fiestas electronicas.");
             hobbiesTomas.add("Anda skate.");
             hobbiesTomas.add("Le gusta viajar.");
             hobbiesTomas.add("Le gusta salir a bailar.");
@@ -138,19 +138,19 @@ public class DataDummy {
             hobbiesNicolas.add("Juega al rugby.");
 
             hobbiesBelen.add("Toca el acordeon.");
-            hobbiesBelen.add("Hace danza clásica.");
-            hobbiesBelen.add("Hace natación.");
+            hobbiesBelen.add("Hace danza clasica.");
+            hobbiesBelen.add("Hace natacion.");
             hobbiesBelen.add("Le gusta salir a bailar.");
             hobbiesBelen.add("Le gusta viajar.");
             hobbiesBelen.add("Anda skate.");
-            hobbiesBelen.add("Le gusta las fiestas electrónicas.");
+            hobbiesBelen.add("Le gusta las fiestas electronicas.");
 
             hobbiesMaria.add("Le gusta nadar.");
             hobbiesMaria.add("Anda en rollers.");
             hobbiesMaria.add("Le gusta viajar.");
             hobbiesMaria.add("Toca la guitarra.");
             hobbiesMaria.add("Toca el acordeon.");
-            hobbiesBelen.add("Le gusta las fiestas electrónicas.");
+            hobbiesBelen.add("Le gusta las fiestas electronicas.");
             hobbiesBelen.add("Le gusta salir a bailar.");
 
             seniasTomas.add("Tiene pelo rubio.");

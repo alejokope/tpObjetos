@@ -13,7 +13,7 @@ public class PantallaDeInicio extends JDialog{
     private JButton expedientesButton;
 
     public PantallaDeInicio(Jugador jugador){
-        setTitle("¿Dónde está Carmen Sandiego?");
+        setTitle("¿Donde esta Carmen Sandiego?");
         setContentPane(pantallaDeInicioPanel);
         setLocation(400,400);
         setSize(500,255);

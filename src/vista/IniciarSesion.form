@@ -53,7 +53,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="Contraseña:"/>
+              <text value="Contrasenia:"/>
             </properties>
           </component>
           <component id="25cf0" class="javax.swing.JPasswordField" binding="contraseniaIngresadaTextField">

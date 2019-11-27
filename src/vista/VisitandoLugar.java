@@ -30,7 +30,7 @@ public class VisitandoLugar extends JDialog{
         lugarInteres.darPista(jugador);
 
         setTitle("Resolviendo: " + caso.getTitulo());
-        visitandoLabel.setText("Estás visitando: " + lugarInteres.informacion());
+        visitandoLabel.setText("Estas visitando: " + lugarInteres.informacion());
         pistasTextArea.setText(carmenSanDiegoMaster.getEstadoDeMensaje().mostrarMensaje(carmenSanDiegoMaster,lugarInteres.getAyuda()));
         pistasTextArea.setEditable(false);
     }
