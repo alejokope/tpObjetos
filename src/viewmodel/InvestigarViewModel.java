@@ -2,7 +2,7 @@ package viewmodel;
 
 import modelo.Caso;
 
-public class InvestigarOXxpedientesViewModel {
+public class InvestigarViewModel {
 	
 	private Caso caso;
 	

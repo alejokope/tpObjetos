@@ -10,7 +10,7 @@ import javax.swing.border.EmptyBorder;
 import modelo.CarmenSanDiegoMaster;
 import modelo.DataDummy;
 import modelo.Jugador;
-import viewmodel.InvestigarOXxpedientesViewModel;
+import viewmodel.InvestigarViewModel;
 
 import javax.swing.JLabel;
 import java.awt.Dimension;
@@ -25,7 +25,7 @@ public class PresentacionDelCasoONuevoCaso extends JFrame {
 	private DataDummy dataDummy;
 	private CarmenSanDiegoMaster carmenSanDiegoMaster;
 	private JLabel lCaso;
-	private InvestigarOXxpedientesViewModel modelo;
+	private InvestigarViewModel modelo;
 
 	/**
 	 * Launch the application.
@@ -49,11 +49,8 @@ public class PresentacionDelCasoONuevoCaso extends JFrame {
 	 */
 	public PresentacionDelCasoONuevoCaso() {
 		
-		modelo= new InvestigarOXxpedientesViewModel();
+		modelo= new InvestigarViewModel();
 		
-		
-		
-
 		setTitle(modelo.getTituloDummy());
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

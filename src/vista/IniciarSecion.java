@@ -32,6 +32,7 @@ public class IniciarSecion extends JFrame {
 	private JTextField textUsuario;
 	private JPasswordField textContrasenia;
 	private DataDummy dataDummy = new DataDummy();
+	private String nombreDetective;
 	
 
 	/**
@@ -147,25 +148,22 @@ public class IniciarSecion extends JFrame {
 		btnJugar.setBounds(225, 5, 184, 82);
 		btnJugar.setIcon(new ImageIcon(IniciarSecion.class.getResource("/imagenes/botonJugarGrande.png")));
 		panel.add(btnJugar);
-		btnJugar.addActionListener(new ActionListener() {
-			
+		btnJugar.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(dataDummy.esUnUsuarioValido(textUsuario,textContrasenia)) {
+					nombreDetective = textUsuario.getText().toString();
                     dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(textUsuario));
-                    PantallaDeInicio pantallaDeInicios= new PantallaDeInicio(dataDummy.getJugadorAsignado());
+                    PaginaDeInicio pantallaDeInicio = new PaginaDeInicio();
+                    pantallaDeInicio.setVisible(true);
+                    pantallaDeInicio.setNombreJugador(nombreDetective);
+                    setVisible(false);
                     dispose();
 				}
 				else {
-					 JOptionPane.showMessageDialog(contentPane,"Debe ingresar un usuario valido!");
-				}
-				
-				
-				
+					JOptionPane.showMessageDialog(contentPane,"Debe ingresar un usuario valido!");
+				}				
 			}
-		});
-		
-		
-		
+		});		
 	}
 }

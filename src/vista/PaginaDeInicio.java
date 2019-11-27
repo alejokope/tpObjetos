@@ -15,9 +15,14 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class InvestigarOExpedientes extends JFrame {
+public class PaginaDeInicio extends JFrame {
 
 	private JPanel contentPane;
+	private String nombreJugador;
+	
+	public void setNombreJugador(String nombreDetective) {
+		nombreJugador = nombreDetective;
+	}
 
 	/**
 	 * Launch the application.
@@ -26,7 +31,7 @@ public class InvestigarOExpedientes extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InvestigarOExpedientes frame = new InvestigarOExpedientes();
+					PaginaDeInicio frame = new PaginaDeInicio();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +43,7 @@ public class InvestigarOExpedientes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public InvestigarOExpedientes() {
+	public PaginaDeInicio() {
 		setTitle("\u00BFDonde esta CarmenSanDiego?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
 		setResizable(false);
@@ -53,7 +58,7 @@ public class InvestigarOExpedientes extends JFrame {
 		panel.setPreferredSize(new Dimension(100, 50));
 		contentPane.add(panel, BorderLayout.NORTH);
 		
-		JLabel lEncabezado = new JLabel("¿Que haremos hoy detective?");
+		JLabel lEncabezado = new JLabel("¿Que haremos hoy detective"+nombreJugador+"?");
 		lEncabezado.setHorizontalAlignment(SwingConstants.CENTER);
 		lEncabezado.setHorizontalTextPosition(SwingConstants.CENTER);
 		lEncabezado.setFont(new Font("Tahoma", Font.PLAIN, 23));
@@ -65,7 +70,7 @@ public class InvestigarOExpedientes extends JFrame {
 		
 		JButton btnInvertigar = new JButton("");
 		btnInvertigar.setBounds(12, 60, 233, 143);
-		btnInvertigar.setIcon(new ImageIcon(InvestigarOExpedientes.class.getResource("/imagenes/botonInvestigar.png")));
+		btnInvertigar.setIcon(new ImageIcon(PaginaDeInicio.class.getResource("/imagenes/botonInvestigar.png")));
 		
 		panel_1.add(btnInvertigar);
 		
@@ -75,7 +80,7 @@ public class InvestigarOExpedientes extends JFrame {
 		*/
 		JButton btnExpedientes = new JButton("");
 		btnExpedientes.setBounds(312, 60, 233, 143);
-		btnExpedientes.setIcon(new ImageIcon(InvestigarOExpedientes.class.getResource("/imagenes/botonexpedientes.png")));
+		btnExpedientes.setIcon(new ImageIcon(PaginaDeInicio.class.getResource("/imagenes/botonexpedientes.png")));
 		panel_1.add(btnExpedientes);
 	}
 }
