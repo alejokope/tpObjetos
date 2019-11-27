@@ -106,8 +106,9 @@ public class Expedientes extends JFrame {
 			lblAquiNombre.setText(villano.getNombre());
 			lblAquiSexo.setText(villano.getSexo());
 			//ENTONCES DEL VILLANO SELECCIONADO TENGO QUE SACAR LOS HOBBIES Y LAS SENIAS
-			//listSenia.setModel(new VillanosController(modelo).getCaracteristicasVillanoSeleccionado());
-			//listSenia.setCellRenderer(new VillanosCell());
+			
+			listSenia.setModel(new VillanosController(modelo).getCaracteristicasVillanoSeleccionado());
+			list
 			
 			
 		}

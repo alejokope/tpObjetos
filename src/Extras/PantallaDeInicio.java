@@ -1,4 +1,4 @@
-package vista;
+package Extras;
 
 import modelo.Jugador;
 

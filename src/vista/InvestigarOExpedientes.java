@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class vistaPresentacionCaso extends JFrame {
+public class InvestigarOExpedientes extends JFrame {
 
 	private JPanel contentPane;
 
@@ -26,7 +26,7 @@ public class vistaPresentacionCaso extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					vistaPresentacionCaso frame = new vistaPresentacionCaso();
+					InvestigarOExpedientes frame = new InvestigarOExpedientes();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class vistaPresentacionCaso extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public vistaPresentacionCaso() {
+	public InvestigarOExpedientes() {
 		setTitle("\u00BFDonde esta CarmenSanDiego?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
 		setResizable(false);
@@ -65,7 +65,7 @@ public class vistaPresentacionCaso extends JFrame {
 		
 		JButton btnInvertigar = new JButton("");
 		btnInvertigar.setBounds(12, 60, 233, 143);
-		btnInvertigar.setIcon(new ImageIcon(vistaPresentacionCaso.class.getResource("/imagenes/botonInvestigar.png")));
+		btnInvertigar.setIcon(new ImageIcon(InvestigarOExpedientes.class.getResource("/imagenes/botonInvestigar.png")));
 		
 		panel_1.add(btnInvertigar);
 		
@@ -75,7 +75,7 @@ public class vistaPresentacionCaso extends JFrame {
 		*/
 		JButton btnExpedientes = new JButton("");
 		btnExpedientes.setBounds(312, 60, 233, 143);
-		btnExpedientes.setIcon(new ImageIcon(vistaPresentacionCaso.class.getResource("/imagenes/botonexpedientes.png")));
+		btnExpedientes.setIcon(new ImageIcon(InvestigarOExpedientes.class.getResource("/imagenes/botonexpedientes.png")));
 		panel_1.add(btnExpedientes);
 	}
 }
