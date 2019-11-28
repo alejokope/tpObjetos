@@ -40,8 +40,8 @@ public class ConfirmarViaje extends JFrame {
         JButton bAceptar = new JButton("New button");
         bAceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                SingletonDataDummy.getInstance().getJugadorAsignado().setPaisActual(utils.obtenerPais(paisProximo));
                 carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
+                SingletonDataDummy.getInstance().getJugadorAsignado().setPaisActual(utils.obtenerPais(paisProximo));
                JugandoCaso jugandoCaso = new JugandoCaso();
                setVisible(false);
                jugandoCaso.setVisible(true);

@@ -29,9 +29,12 @@ public class Jugador extends Persona{
     }
 
     public boolean estaEstePaisConectadoAMiPaisActual(Pais pais) {
+        System.out.println(pais.getNombre());
+        System.out.println("------------------------------");
         for(Pais pais1: obtenerConexionesDeMiPaisActual()){
             System.out.println(pais1.getNombre());
         }
+        System.out.println("------------------------------");
         for(Pais pais1: obtenerConexionesDeMiPaisActual()){
             if(pais1.getNombre().equalsIgnoreCase(pais.getNombre())){
                 return true;

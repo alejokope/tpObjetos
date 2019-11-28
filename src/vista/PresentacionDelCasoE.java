@@ -122,10 +122,10 @@ public class PresentacionDelCasoE extends JDialog {
                         CarmenSanDiegoMaster carmenSanDiegoMaster = new CarmenSanDiegoMaster();
                         carmenSanDiegoMaster.setCaso(casoActual);
                         carmenSanDiegoMaster.setVillano(casoActual.getResponsable());
+                        SingletonDataDummy.getInstance().setearPaisJugadorAsignado(casoActual.getPaisOrigen());
                         carmenSanDiegoMaster.setJugador(SingletonDataDummy.getInstance().getJugadorAsignado());
 
                         SingletonDataDummy.getInstance().setearCarmenSanDiego(carmenSanDiegoMaster);
-                        SingletonDataDummy.getInstance().setearPaisJugadorAsignado(casoActual.getPaisOrigen());
                         JugandoCaso siguienteVista= new JugandoCaso();
                         siguienteVista.setVisible(true);
                         siguienteVista.agregarCasoAlmodelo(casoActual);
