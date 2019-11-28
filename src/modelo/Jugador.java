@@ -22,10 +22,15 @@ public class Jugador extends Persona{
     public void viajar(Pais pais){
         if(estaEstePaisConectadoAMiPaisActual(pais)){
             this.paisActual = pais;
+            pais.setPasoElJugador(true);
         }
         else{
             throw new NoEsPaisProximoException();
         }
+    }
+    
+    public boolean esPaisFallido() {
+    	return paisActual.estoyFallido();
     }
 
     public boolean estaEstePaisConectadoAMiPaisActual(Pais pais) {

@@ -28,6 +28,7 @@ import modelo.lugarInteres.Embajada;
 import modelo.lugarInteres.LugarInteres;
 import viewmodel.ResolviendoElCasoViewModel;
 import java.awt.GridLayout;
+import javax.swing.SwingConstants;
 
 public class ResolviendoElCaso extends JFrame {
 
@@ -41,18 +42,6 @@ public class ResolviendoElCaso extends JFrame {
     private LugarInteres lugarInteresActual;
     private Pais paisActual;
     
-    private void crearModelo(DataDummy dataDummy) {
-        modelo = new ResolviendoElCasoViewModel();
-
-        caso = dataDummy.getCasoAsignado();
-        jugador = dataDummy.getJugadorAsignado();
-        villano = dataDummy.getVillanoAsignado();
-
-        jugador.asignarPaisDelCaso(caso);
-
-        carmenSanDiegoMaster = new CarmenSanDiegoMaster(caso, jugador, villano);
-        modelo.setCarmenSanDiegoMaster(carmenSanDiegoMaster);
-    }
 
     private void chequearExistenciaDeLugarInteres(LugarInteres otroLugarInteres) {
         lugarInteresActual = modelo.obtenerLugarDeInteres(otroLugarInteres);
@@ -65,8 +54,7 @@ public class ResolviendoElCaso extends JFrame {
         }
     }
 
-	public ResolviendoElCaso(DataDummy dataDummy) {
-		crearModelo(dataDummy);
+	public ResolviendoElCaso(ResolviendoElCasoViewModel modelo) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(350,150);
         setSize(650,600);
@@ -79,7 +67,7 @@ public class ResolviendoElCaso extends JFrame {
 		resolviendoElCasoPanel.add(paisActualPanel);
 		paisActualPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel paisActualLabel = new JLabel("Estas en: " + dataDummy.obtenerNombreDelPaisActualDelJugadorAsignado());
+		JLabel paisActualLabel = new JLabel("Estas en: " + modelo.getJugador().getPaisActual());
 		paisActualPanel.add(paisActualLabel);
 		
 		JPanel opcionesPanel = new JPanel();
@@ -90,6 +78,7 @@ public class ResolviendoElCaso extends JFrame {
 		opcionesPanel.add(lugaresLabel);
 		
 		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
 		opcionesPanel.add(separator);
 		
 		JLabel accionesLabel = new JLabel("Acciones");
@@ -99,6 +88,7 @@ public class ResolviendoElCaso extends JFrame {
 		opcionesPanel.add(bibliotecaButton);
 		
 		JSeparator separator_1 = new JSeparator();
+		separator_1.setOrientation(SwingConstants.VERTICAL);
 		opcionesPanel.add(separator_1);
 		
 		JButton ordenDeArrestoButton = new JButton("Orden de Arresto");
@@ -108,6 +98,7 @@ public class ResolviendoElCaso extends JFrame {
 		opcionesPanel.add(bancoButton);
 		
 		JSeparator separator_2 = new JSeparator();
+		separator_2.setOrientation(SwingConstants.VERTICAL);
 		opcionesPanel.add(separator_2);
 		
 		JLabel ordenDeArrestoLabel = new JLabel("");
@@ -117,15 +108,22 @@ public class ResolviendoElCaso extends JFrame {
 		opcionesPanel.add(clubButton);
 		
 		JSeparator separator_3 = new JSeparator();
+		separator_3.setOrientation(SwingConstants.VERTICAL);
 		opcionesPanel.add(separator_3);
 		
 		JButton viajarButton = new JButton("Viajar");
+		viajarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Viajar viajar = new Viajar(modelo);
+			}
+		});
 		opcionesPanel.add(viajarButton);
 		
 		JButton embajadaButton = new JButton("Embajada");
 		opcionesPanel.add(embajadaButton);
 		
 		JSeparator separator_4 = new JSeparator();
+		separator_4.setOrientation(SwingConstants.VERTICAL);
 		opcionesPanel.add(separator_4);
 		
 		JButton expedientesButton = new JButton("Expedientes");
@@ -133,6 +131,9 @@ public class ResolviendoElCaso extends JFrame {
 		
 		JPanel separadorHorizontalPanel = new JPanel();
 		resolviendoElCasoPanel.add(separadorHorizontalPanel);
+		
+		JSeparator separator_5 = new JSeparator();
+		separadorHorizontalPanel.add(separator_5);
 		
 		JPanel viajesPanel = new JPanel();
 		resolviendoElCasoPanel.add(viajesPanel);
@@ -145,8 +146,7 @@ public class ResolviendoElCaso extends JFrame {
 		viajesPanel.add(destinoFallidosList);
 		setVisible(true);
 		
-		setTitle("Resolviendo: " + dataDummy.obtenerTituloDelCasoAsignado());
-        dataDummy.setearCasoAsignadoAJugadorAsignado();
+		setTitle("Resolviendo: " + modelo.getCaso().getTitulo());
 
         bibliotecaButton.addActionListener(new ActionListener() {
             @Override

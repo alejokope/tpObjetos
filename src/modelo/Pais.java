@@ -7,6 +7,9 @@ import java.util.List;
 
 public class Pais {
 	private String nombre;
+	private Villano villano;
+	private boolean pasoElJugador = false;
+	private boolean estoyFallido = true;
 	private List<String> caracteristicas;
 	private List<LugarInteres> lugaresInteres;
 	private List<Pais> conexiones = new ArrayList<Pais>();
@@ -25,12 +28,10 @@ public class Pais {
 		this.lugaresInteres = lugaresInteres;
 	}
 
-	public boolean elVillanoPasoPorEstePais(Villano villano) {
-		return villano.getPlanEscape().stream().anyMatch(pais -> pais.equals(this));
-	}
-
 
 	public void ingresoVillano(Villano villano) {
+		this.setPasoVillano(villano);
+		this.setEstoyFallido(false);
 		for (LugarInteres lugarInteres : lugaresInteres) {
 			lugarInteres.setVillano(villano);
 			lugarInteres.setPasoVillano(true);
@@ -107,4 +108,32 @@ public class Pais {
 	public void setTitulo(Titulo titulo) {
 		this.titulo = titulo;
 	}
+	
+	public boolean pasoElJugador() {
+		return pasoElJugador;
+	}
+
+	public void setPasoElJugador(boolean b) {
+		this.pasoElJugador = b;	
+	}
+
+	public boolean estoyFallido() {
+		return estoyFallido;
+	}
+
+	public void setEstoyFallido(boolean estoyFallido) {
+		this.estoyFallido = estoyFallido;
+	}
+
+	public Villano getVillano() {
+		return villano;
+	}
+
+	public void setPasoVillano(Villano villano) {
+		this.villano = villano;
+	}
+	
+	
+	
+	
 }

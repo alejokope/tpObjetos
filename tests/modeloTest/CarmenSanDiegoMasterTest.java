@@ -19,57 +19,6 @@ import static org.mockito.Mockito.*;
 public class CarmenSanDiegoMasterTest {
 
     @Test
-    public void viajar_elJugadorYElVillanoViajanMuyCerca(){
-        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
-        Pais argentina = new Pais();
-        Pais brasil = mock(Pais.class);
-        Pais chile = mock(Pais.class);
-        Pais uruguay = mock(Pais.class);
-        Pais bolivia = mock(Pais.class);
-        Pais paraguay = mock(Pais.class);
-        List<Pais> planEscapeVillano = Arrays.asList(argentina, brasil);
-        List<Pais> argConexiones = Arrays.asList(brasil, chile, uruguay, bolivia, paraguay);
-        argentina.agregarConexiones(argConexiones);
-        Caso caso = new Caso();
-        caso.setPaisOrigen(argentina);
-        Jugador jugador = new Jugador(caso);
-        Villano villano = new Villano();
-        villano.setPaisActual(argentina);
-        villano.setPlanEscape(planEscapeVillano);
-
-        carmen.setJugador(jugador);
-        carmen.setVillano(villano);
-        carmen.viajar(brasil);
-
-        assertEquals(villano.getPaisActual(), jugador.getPaisActual());
-    }
-
-    @Test(expected = NoEsPaisProximoException.class)
-    public void viajar_elJugadorYElVillanoNoPuedenViajarAUnPaisDesconectadoDelResto(){
-        CarmenSanDiegoMaster carmen = new CarmenSanDiegoMaster();
-        Pais argentina = new Pais();
-        Pais brasil = mock(Pais.class);
-        Pais chile = mock(Pais.class);
-        Pais uruguay = mock(Pais.class);
-        Pais bolivia = mock(Pais.class);
-        Pais paraguay = mock(Pais.class);
-        Pais paisDeLasMaravillas = mock(Pais.class);
-        List<Pais> planEscapeVillano = Arrays.asList(argentina, brasil);
-        List<Pais> argConexiones = Arrays.asList(brasil, chile, uruguay, bolivia, paraguay);
-        argentina.agregarConexiones(argConexiones);
-        Caso caso = new Caso();
-        caso.setPaisOrigen(argentina);
-        Jugador jugador = new Jugador(caso);
-        Villano villano = new Villano();
-        villano.setPaisActual(argentina);
-        villano.setPlanEscape(planEscapeVillano);
-
-        carmen.setJugador(jugador);
-        carmen.setVillano(villano);
-        carmen.viajar(paisDeLasMaravillas);
-    }
-
-    @Test
     public void ubicacionDeJugadorOVillano_seSeteaUnLugarDeInteresAUnaPersonaPorqueExisteEnElPais(){
         CarmenSanDiegoMaster carmenSanDiegoMaster = new CarmenSanDiegoMaster();
         Caso caso = new Caso();

@@ -12,7 +12,7 @@ public class DarPistaMensaje implements EstadoDeMensaje {
             carmenSanDiegoMaster.setEstadoDeMensaje(new MismoPaisMensaje());
         }
 
-        else if(!carmenSanDiegoMaster.pasoPorElPais()){
+        else if(!carmenSanDiegoMaster.pasoPorElPaisElVillano()){
             carmenSanDiegoMaster.setEstadoDeMensaje(new NoPasoPorEstePaisMensaje());
         }
 

@@ -8,10 +8,17 @@ import java.util.List;
 
 public class ResolviendoElCasoViewModel {
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
+    private Pais paisSeleccionado;
+    
+    //me parece que estos dos ya no van...
     private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
     private List<Pais> paisesDondeNoPasoElCriminal = new ArrayList<Pais>();
 
-    public Jugador getJugador() {
+    public ResolviendoElCasoViewModel(CarmenSanDiegoMaster carmenSanDiegoMaster) {
+		this.carmenSanDiegoMaster = carmenSanDiegoMaster;
+	}
+
+	public Jugador getJugador() {
         return carmenSanDiegoMaster.getJugador();
     }
 
@@ -28,7 +35,7 @@ public class ResolviendoElCasoViewModel {
     }
 
     public List<Pais> getConexiones() {
-        return getPaisDeInicio().getConexiones();
+        return getJugador().obtenerConexionesDeMiPaisActual();
     }
 
     public List<LugarInteres> getLugaresInteres() {
@@ -57,4 +64,18 @@ public class ResolviendoElCasoViewModel {
     public void setCarmenSanDiegoMaster(CarmenSanDiegoMaster carmenSanDiegoMaster) {
         this.carmenSanDiegoMaster = carmenSanDiegoMaster;
     }
+
+	public Pais getPaisSeleccionado() {
+		return paisSeleccionado;
+	}
+
+	public void setPaisSeleccionado(Pais paisSeleccionado) {
+		this.paisSeleccionado = paisSeleccionado;
+	}
+	
+	public void jugadorViajoAPaisSeleccionado() {
+		carmenSanDiegoMaster.getJugador().viajar(paisSeleccionado);;
+	}
+    
+    
 }

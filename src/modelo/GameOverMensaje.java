@@ -8,11 +8,11 @@ public class GameOverMensaje implements EstadoDeMensaje {
             carmenSanDiegoMaster.setEstadoDeMensaje(new MismoPaisMensaje());
         }
 
-        else if(!carmenSanDiegoMaster.estanEnElMismoPais() && carmenSanDiegoMaster.pasoPorElPais()){
+        else if(!carmenSanDiegoMaster.estanEnElMismoPais() && carmenSanDiegoMaster.pasoPorElPaisElVillano()){
             carmenSanDiegoMaster.setEstadoDeMensaje(new DarPistaMensaje());
         }
 
-        else if(!carmenSanDiegoMaster.pasoPorElPais()){
+        else if(!carmenSanDiegoMaster.pasoPorElPaisElVillano()){
             carmenSanDiegoMaster.setEstadoDeMensaje(new NoPasoPorEstePaisMensaje());
         }
     }

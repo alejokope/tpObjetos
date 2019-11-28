@@ -37,10 +37,6 @@ public class CarmenSanDiegoMaster {
 	public boolean gano(){
         return jugador.esLaOrdenDeArrestoCorrecta(villano) && seEncuentranAmbos();
     }
-	
-	public void viajar(Pais pais){
-        jugador.viajar(pais);
-	}
 
 	public void setCaso(Caso caso) {
 		this.caso = caso;
@@ -91,8 +87,8 @@ public class CarmenSanDiegoMaster {
 		estadoDeMensaje.actualizarEstadoDeMensaje(this);
 	}
 
-	public boolean pasoPorElPais(){
-		return this.getJugador().getPaisActual().elVillanoPasoPorEstePais(villano);
+	public boolean pasoPorElPaisElVillano(){
+		return getJugador().getPaisActual().estoyFallido() == false;
 	}
 
 }

@@ -14,8 +14,11 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
+import modelo.CarmenSanDiegoMaster;
 import modelo.DataDummy;
 import modelo.Jugador;
+import viewmodel.ResolviendoElCasoViewModel;
+
 import java.awt.GridLayout;
 
 public class PresentacionDelCaso extends JFrame {
@@ -70,8 +73,15 @@ public class PresentacionDelCaso extends JFrame {
         aceptarElCasoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ResolviendoElCaso resolviendoElCaso = new ResolviendoElCaso(dataDummy);
+            	crearModelo();
             }
+
+			private void crearModelo() {
+				CarmenSanDiegoMaster carmenSanDiegoMaster = 
+            			new CarmenSanDiegoMaster(dataDummy.getCasoAsignado(), dataDummy.getJugadorAsignado(), dataDummy.getVillanoAsignado());
+            	ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel(carmenSanDiegoMaster);
+                ResolviendoElCaso resolviendoElCaso = new ResolviendoElCaso(modelo);
+			}
         });
         
         
@@ -81,6 +91,7 @@ public class PresentacionDelCaso extends JFrame {
         dataDummy = new DataDummy();
         dataDummy.setJugadorAsignado(jugador);
         dataDummy.obtenerCasoAlAzar();
+        jugador.viajar(dataDummy.getCasoAsignado().getPaisOrigen());
         setTitle(dataDummy.obtenerTituloDelCasoAsignado());
         saludoLabel.setText("Detective " + jugador.getNombre() + ", tenemos un caso para usted!");
         reporteTextArea.setText(dataDummy.obtenerReporteDelCasoAsignado());
