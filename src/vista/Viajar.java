@@ -32,6 +32,7 @@ public class Viajar extends JFrame {
 	
 	
 	public Viajar(ResolviendoElCasoViewModel modelo) {
+		setVisible(true);
 		setTitle("Viajar");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

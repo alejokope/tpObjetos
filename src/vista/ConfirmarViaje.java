@@ -19,6 +19,7 @@ public class ConfirmarViaje extends JFrame {
 	private JPanel confirmarViajePanel;
 
 	public ConfirmarViaje(ResolviendoElCasoViewModel modelo) {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		confirmarViajePanel = new JPanel();
