@@ -178,6 +178,15 @@ public class JugandoCaso extends JFrame {
 		
 		JScrollPane spRecorrido = new JScrollPane();
 		spRecorrido.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		if(SingletonDataDummy.getInstance().obtenerListaPaisesCaso().size() != 0){
+            System.out.println(SingletonDataDummy.getInstance().obtenerListaPaisesCaso());
+		    for(String pais: SingletonDataDummy.getInstance().obtenerListaPaisesCaso()){
+		        Label _pais = new Label(pais);
+                _pais.setFont(new Font("Arial",Font.PLAIN, 14));
+                _pais.setBounds(20, 20, 70, 22);
+		        spRecorrido.add(_pais);
+            }
+        }
 		panel.add(spRecorrido);
 		
 		JList lstRecorridoAcertado = new JList();
