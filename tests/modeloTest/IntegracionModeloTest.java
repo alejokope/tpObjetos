@@ -79,8 +79,9 @@ public class IntegracionModeloTest {
     	carmenSanDiego.ubicacionDeJugadorOVillano(embajadaMex, villano);
     	
     	jugador.pedirOrdenDeArresto(villano);
+    	carmenSanDiego.setVillano(villano);
         
-        assertTrue(carmenSanDiego.gano(villano, jugador));
+        assertTrue(carmenSanDiego.gano());
     }
 
     @Test
@@ -150,8 +151,9 @@ public class IntegracionModeloTest {
         carmenSanDiego.ubicacionDeJugadorOVillano(embajadaMex, villano);
 
         jugador.pedirOrdenDeArresto(villano);
+        carmenSanDiego.setVillano(villano);
 
-        assertFalse(carmenSanDiego.gano(villano, jugador));
+        assertFalse(carmenSanDiego.gano());
     }
 
 }

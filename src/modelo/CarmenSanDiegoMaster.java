@@ -34,7 +34,7 @@ public class CarmenSanDiegoMaster {
 		return estanEnElMismoPais() && estanEnElMismoLugar();
 	}
 
-	public boolean gano(Villano villano, Jugador jugador){
+	public boolean gano(){
         return jugador.esLaOrdenDeArrestoCorrecta(villano) && seEncuentranAmbos();
     }
 	
