@@ -163,6 +163,8 @@ public class IniciarSecion extends JFrame {
 				}
 				else {
 					JOptionPane.showMessageDialog(contentPane,"Debe ingresar un usuario valido!");
+					
+					//
 				}				
 			}
 		});
