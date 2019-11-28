@@ -16,6 +16,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import java.awt.FlowLayout;
 import javax.swing.border.TitledBorder;
+
+import Extras.ResolviendoElCaso;
+import modelo.Caso;
+import viewmodel.ResolviendoElCasoViewModel;
+
 import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.border.CompoundBorder;
@@ -28,6 +33,15 @@ import javax.swing.JScrollBar;
 public class JugandoCaso extends JFrame {
 
 	private JPanel contentPane;
+	private Caso caso;
+	private ResolviendoElCasoViewModel modelo;
+	
+	
+	public void setCaso(Caso caso) {
+		this.caso=caso;
+	}
+	
+	
 
 	/**
 	 * Launch the application.
@@ -49,6 +63,8 @@ public class JugandoCaso extends JFrame {
 	 * Create the frame.
 	 */
 	public JugandoCaso() {
+		modelo=new ResolviendoElCasoViewModel();
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 634);
@@ -103,6 +119,7 @@ public class JugandoCaso extends JFrame {
 		pAcionesArealizar.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Acciones para realizar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pCentro.add(pAcionesArealizar);
 		pAcionesArealizar.setLayout(new BorderLayout(0, 0));
+		
 		
 		JPanel pbotoneraAcciones = new JPanel();
 		pbotoneraAcciones.setBorder(new EmptyBorder(30, 30, 30, 30));

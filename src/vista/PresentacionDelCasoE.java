@@ -116,8 +116,19 @@ public class PresentacionDelCasoE extends JDialog {
 			}
 			{
 				JButton aceptarElCasoButton = new JButton("Aceptar el caso");
+				aceptarElCasoButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JugandoCaso siguienteVista= new JugandoCaso();
+						siguienteVista.setCaso(casoActual);
+						siguienteVista.setVisible(true);
+						setVisible(false);
+						dispose();
+					}
+				});
 				aceptarElCasoButton.setActionCommand("OK");
 				buttonPane.add(aceptarElCasoButton);
+				
+					
 			}
 		}
 	}
