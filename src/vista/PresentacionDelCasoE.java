@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import modelo.CarmenSanDiegoMaster;
 import modelo.Caso;
 import modelo.DataDummy;
 import modelo.Jugador;
@@ -117,6 +118,12 @@ public class PresentacionDelCasoE extends JDialog {
 				JButton aceptarElCasoButton = new JButton("Aceptar el caso");
 				aceptarElCasoButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+					    //TODO CAMBIAR ESTO, LO HICE PARA ZAFAR
+                        CarmenSanDiegoMaster carmenSanDiegoMaster = new CarmenSanDiegoMaster();
+                        carmenSanDiegoMaster.setCaso(casoActual);
+                        carmenSanDiegoMaster.setVillano(casoActual.getResponsable());
+                        carmenSanDiegoMaster.setJugador(SingletonDataDummy.getInstance().getJugadorAsignado());
+                        SingletonDataDummy.getInstance().setearCarmenSanDiego(carmenSanDiegoMaster);
                         SingletonDataDummy.getInstance().setearPaisJugadorAsignado(casoActual.getPaisOrigen());
                         JugandoCaso siguienteVista= new JugandoCaso();
                         siguienteVista.setVisible(true);

@@ -13,6 +13,7 @@ public class DataDummy {
     private Villano villanoAsignado;
     private Caso casoAsignado;
     private Jugador jugadorAsignado;
+    private CarmenSanDiegoMaster carmenSanDiegoMaster;
 
     private Jugador jugadorA = new Jugador("cosme fulanito");
     private Jugador jugadorB = new Jugador("perez garcia");
@@ -28,6 +29,9 @@ public class DataDummy {
         return (int) (Math.random() * maximo);
     }
 
+    public void setearCarmenSanDiego(CarmenSanDiegoMaster carmenSanDiegoMaster){
+        this.carmenSanDiegoMaster = carmenSanDiegoMaster;
+    }
     public boolean esUnUsuarioValido(JTextField nombreIngresadoTextField, JPasswordField contraseniaIngresadaTextField) {
         return usuarios.stream()
                 .anyMatch(usuario -> usuario.esElMismoUsuario(nombreIngresadoTextField, contraseniaIngresadaTextField));

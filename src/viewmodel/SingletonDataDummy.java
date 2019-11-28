@@ -7,6 +7,16 @@ import modelo.DataDummy;
 import modelo.Persona;
 
 public class SingletonDataDummy {
+    //ARREGLAR ESTE SINGLETON --> POSIBLE SOLUCION
+    /*
+    private static DataDummy instaciaDataDummy = null;
+    public static DataDummy getInstance() {
+        if(instanciaDataDummy == null){
+            instanciaDataDummy = new DataDummy();
+        }
+		return instaciaDataDummy;
+	}
+     */
 	private static final DataDummy instaciaDataDummy = new DataDummy();
 	
 	private SingletonDataDummy() {
@@ -19,8 +29,5 @@ public class SingletonDataDummy {
 	public ArrayList<Persona> getVillanos() {
 		return instaciaDataDummy.obtenerVillanos();
 	}
-/*	public Caso getCaso() {
-		return instaciaDataDummy.obtenerCasoAlAzar();
-	}
-*/
+
 }
