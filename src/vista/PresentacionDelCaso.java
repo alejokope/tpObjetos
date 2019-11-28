@@ -91,7 +91,7 @@ public class PresentacionDelCaso extends JFrame {
         dataDummy = new DataDummy();
         dataDummy.setJugadorAsignado(jugador);
         dataDummy.obtenerCasoAlAzar();
-        jugador.viajar(dataDummy.getCasoAsignado().getPaisOrigen());
+        jugador.setPaisActual(dataDummy.getCasoAsignado().getPaisOrigen());
         setTitle(dataDummy.obtenerTituloDelCasoAsignado());
         saludoLabel.setText("Detective " + jugador.getNombre() + ", tenemos un caso para usted!");
         reporteTextArea.setText(dataDummy.obtenerReporteDelCasoAsignado());

@@ -37,6 +37,10 @@ public class PantallaDeInicio extends JFrame {
 		botonesPanel.add(resolverElMisterioButton);
 		
 		JButton expedientesButton = new JButton("Expedientes");
+		expedientesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		botonesPanel.add(expedientesButton);
 		setLocation(400,400);
         setSize(500,255);

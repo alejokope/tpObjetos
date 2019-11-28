@@ -86,7 +86,7 @@ public class IniciarSesion extends JFrame {
 		aceptarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(dataDummy.esUnUsuarioValido(nombreIngresadoTextField, contraseniaIngresadaTextField)){
-                    dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(contraseniaIngresadaTextField));
+                    dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(nombreIngresadoTextField));
                     PantallaDeInicio pantallaDeInicio = new PantallaDeInicio(dataDummy.getJugadorAsignado());
                     dispose();
                 }
