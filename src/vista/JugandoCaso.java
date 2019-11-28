@@ -81,7 +81,11 @@ public class JugandoCaso extends JFrame {
 		JLabel lblEstasEn = new JLabel("Estas En :");
 		pArriba.add(lblEstasEn);
 		
-		JLabel lblPais = new JLabel("PAIS");
+		JLabel lblPais = new JLabel();
+		/*
+		 * lblPais.setText(caso.getReporte()); aca explota
+		 * 
+		 * */
 		pArriba.add(lblPais);
 		
 		JPanel pCentro = new JPanel();
@@ -150,8 +154,8 @@ public class JugandoCaso extends JFrame {
 		spRecorrido.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		panel.add(spRecorrido);
 		
-		JList list = new JList();
-		spRecorrido.setRowHeaderView(list);
+		JList lstRecorridoAcertado = new JList();
+		spRecorrido.setRowHeaderView(lstRecorridoAcertado);
 		
 		JScrollBar scrollBar = new JScrollBar();
 		spRecorrido.setViewportView(scrollBar);
@@ -160,8 +164,8 @@ public class JugandoCaso extends JFrame {
 		scrollPane.setBorder(new TitledBorder(null, "Recorrido incorrecto", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		panel.add(scrollPane);
 		
-		JList list_1 = new JList();
-		scrollPane.setRowHeaderView(list_1);
+		JList listRecorridoErroneo = new JList();
+		scrollPane.setRowHeaderView(listRecorridoErroneo);
 		
 		JScrollBar scrollBar_1 = new JScrollBar();
 		scrollPane.setViewportView(scrollBar_1);

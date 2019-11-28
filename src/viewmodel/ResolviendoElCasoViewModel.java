@@ -19,23 +19,23 @@ public class ResolviendoElCasoViewModel {
     
 
     public Pais getPaisDeOrigen() {
-    	return dataDummy.getInstance().getPaisActual();
+    	return SingletonDataDummy.getInstance().getPaisActual();
     }
     public List<LugarInteres> getLugaresDeInteres(){
-    	return dataDummy.getInstance().getPaisActual().getLugaresInteres();
+    	return SingletonDataDummy.getInstance().getPaisActual().getLugaresInteres();
     }
     
 
     public Jugador getJugador() {
-        return dataDummy.getInstance().getJugadorAsignado();
+        return SingletonDataDummy.getInstance().getJugadorAsignado();
     }
 
     public Caso getCaso() {
-        return dataDummy.getInstance().getCasoAsignado();
+        return SingletonDataDummy.getInstance().getCasoAsignado();
     }
 
     public Villano getVillano() {
-        return dataDummy.getInstance().getVillanoAsignado();
+        return SingletonDataDummy.getInstance().getVillanoAsignado();
     }
 
     public Pais getPaisDeInicio() {
