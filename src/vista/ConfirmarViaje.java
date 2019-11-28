@@ -5,7 +5,6 @@ import modelo.Caso;
 import modelo.Utils;
 import viewmodel.SingletonDataDummy;
 
-import javax.rmi.CORBA.Util;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -60,7 +59,7 @@ public class ConfirmarViaje extends JFrame {
 
         JLabel lfondo = new JLabel("");
         lfondo.setBounds(0, 0, 481, 397);
-        lfondo.setIcon(new ImageIcon(ConfirmarViaje.class.getResource("/imagenes/fondo4.png")));
+        //lfondo.setIcon(new ImageIcon(ConfirmarViaje.class.getResource("/imagenes/fondo4.png")));
         panel.add(lfondo);
     }
 }

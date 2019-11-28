@@ -67,7 +67,7 @@ public class ResolviendoElCasoViewModel {
         List<String> listaDevolver = new ArrayList<>();
 
         for(String pais: paisesJugador){
-            if(!paisesCaso.contains(pais)){
+            if(!paisesCaso.contains(pais) && !listaDevolver.contains(pais)){
                 listaDevolver.add(pais);
             }
         }
