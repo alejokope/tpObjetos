@@ -71,7 +71,7 @@ public class Expedientes extends JFrame {
 		modelo = new ExpedientesViewModel();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 747, 560);
+		setBounds(100, 100, 778, 599);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -158,7 +158,7 @@ public class Expedientes extends JFrame {
 		pSenialParticulares.setLayout(null);
 
 		listSenia.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Senia", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		listSenia.setBounds(0, 13, 231, 217);
+		listSenia.setBounds(0, 13, 256, 252);
 		listSenia.setPreferredSize(new Dimension(200, 200));
 		pSenialParticulares.add(listSenia);
 		
@@ -169,7 +169,7 @@ public class Expedientes extends JFrame {
 		listHobbies = new JList();
 		listHobbies.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Hobbies", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		listHobbies.setPreferredSize(new Dimension(200, 200));
-		listHobbies.setBounds(0, 29, 231, 200);
+		listHobbies.setBounds(0, 0, 244, 223);
 		pHobbies.add(listHobbies);
 		
 		JButton btnAtras = new JButton("Atras");
@@ -182,7 +182,7 @@ public class Expedientes extends JFrame {
                 dispose();
 			}
 		});
-		btnAtras.setBounds(209, 305, 97, 25);
+		btnAtras.setBounds(75, 231, 97, 25);
 		pHobbies.add(btnAtras);
 	}
 }
