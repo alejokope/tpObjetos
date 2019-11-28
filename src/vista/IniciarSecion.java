@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
-import Extras.PantallaDeInicio;
 import modelo.DataDummy;
 import viewmodel.SingletonDataDummy;
 

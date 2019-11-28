@@ -9,7 +9,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import Extras.ResolviendoElCaso;
 import modelo.Caso;
 import modelo.DataDummy;
 import modelo.lugarInteres.LugarInteres;

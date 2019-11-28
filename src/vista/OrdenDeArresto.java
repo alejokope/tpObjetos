@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Extras.ResolviendoElCaso;
 import controllers.ExpedientesController;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import modelo.DataDummy;import modelo.EstadoDeMensaje;

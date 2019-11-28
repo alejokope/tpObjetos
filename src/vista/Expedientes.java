@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 import java.awt.GridLayout;
 import javax.swing.JList;
 import java.awt.Dimension;
@@ -28,6 +30,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.TitledBorder;
 
 public class Expedientes extends JFrame {
 
@@ -68,7 +71,7 @@ public class Expedientes extends JFrame {
 		modelo = new ExpedientesViewModel();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1080, 720);
+		setBounds(100, 100, 747, 560);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -85,19 +88,12 @@ public class Expedientes extends JFrame {
 		 * */
 		 
 		JList<Persona> listVillano = new JList<Persona>();
-		listVillano.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		listVillano.setBounds(0, 46, 354, 629);
+		listVillano.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "villanos", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLACK));
+		listVillano.setBounds(0, 0, 243, 515);
 		listVillano.setPreferredSize(new Dimension(200, 200));
 		listVillano.setModel(new ExpedientesController(modelo).getVillanos());
 		listVillano.setCellRenderer(new VillanosCell());
 		pLista.add(listVillano);
-		
-		
-		JLabel lblVillanos = new JLabel("Villanos");
-		lblVillanos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVillanos.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblVillanos.setBounds(89, 0, 132, 33);
-		pLista.add(lblVillanos);
 		
 		listVillano.addListSelectionListener(new ListSelectionListener() {
 			
@@ -127,6 +123,7 @@ public class Expedientes extends JFrame {
 		pfoto.setLayout(new GridLayout(2, 0, 0, 0));
 		
 		JPanel pFotoVillano = new JPanel();
+	
 		pfoto.add(pFotoVillano);
 		
 		JPanel pNombreSexo = new JPanel();
@@ -160,23 +157,19 @@ public class Expedientes extends JFrame {
 		pDatos.add(pSenialParticulares);
 		pSenialParticulares.setLayout(null);
 
-		listSenia.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		listSenia.setBounds(0, 71, 342, 253);
+		listSenia.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Senia", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		listSenia.setBounds(0, 13, 231, 217);
 		listSenia.setPreferredSize(new Dimension(200, 200));
 		pSenialParticulares.add(listSenia);
-		
-		JLabel lblSenias = new JLabel("New label");
-		lblSenias.setBounds(27, 13, 56, 16);
-		pSenialParticulares.add(lblSenias);
 		
 		JPanel pHobbies = new JPanel();
 		pDatos.add(pHobbies);
 		pHobbies.setLayout(null);
 		
 		listHobbies = new JList();
-		listHobbies.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		listHobbies.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Hobbies", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		listHobbies.setPreferredSize(new Dimension(200, 200));
-		listHobbies.setBounds(0, 55, 342, 237);
+		listHobbies.setBounds(0, 29, 231, 200);
 		pHobbies.add(listHobbies);
 		
 		JButton btnAtras = new JButton("Atras");
@@ -191,9 +184,5 @@ public class Expedientes extends JFrame {
 		});
 		btnAtras.setBounds(209, 305, 97, 25);
 		pHobbies.add(btnAtras);
-		
-		JLabel lHobbies = new JLabel("New label");
-		lHobbies.setBounds(49, 26, 56, 16);
-		pHobbies.add(lHobbies);
 	}
 }
