@@ -115,28 +115,6 @@ public class JugandoCaso extends JFrame {
         }
 
 
-
-
-
-
-
-
-        /*JButton btnLugar = new JButton("Lugar1");
-		btnLugar.setBorder(new EmptyBorder(10, 10, 10, 10));
-		pBotonera.add(btnLugar);
-		
-		JLabel label = new JLabel("");
-		pBotonera.add(label);
-		
-		JButton btnLugar_1 = new JButton("Lugar2");
-		pBotonera.add(btnLugar_1);
-		
-		JLabel lblNewLabel = new JLabel("\r\n");
-		pBotonera.add(lblNewLabel);
-		
-		JButton btnLugar_2 = new JButton("lugar3");
-		pBotonera.add(btnLugar_2);
-		*/
 		JPanel pAcionesArealizar = new JPanel();
 		pAcionesArealizar.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Acciones para realizar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pCentro.add(pAcionesArealizar);
@@ -186,6 +164,13 @@ public class JugandoCaso extends JFrame {
 		pbotoneraAcciones.add(lblNewLabel_1);
 		
 		JButton btnExpedientes = new JButton("Expedientes");
+		btnExpedientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Expedientes siguienteVentana= new Expedientes();
+				siguienteVentana.setVisible(true);
+				setVisible(false);
+			}
+		});
 		pbotoneraAcciones.add(btnExpedientes);
 		
 		JPanel panel = new JPanel();
