@@ -18,6 +18,12 @@ import java.awt.FlowLayout;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Color;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.JScrollBar;
 
 public class JugandoCaso extends JFrame {
 
@@ -68,7 +74,7 @@ public class JugandoCaso extends JFrame {
 		pCentro.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel pLugares = new JPanel();
-		pLugares.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Lugares para visitar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pLugares.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Lugares a visitar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pCentro.add(pLugares);
 		pLugares.setLayout(new BorderLayout(0, 0));
 		
@@ -92,5 +98,55 @@ public class JugandoCaso extends JFrame {
 		
 		JButton btnLugar_2 = new JButton("lugar3");
 		pBotonera.add(btnLugar_2);
+		
+		JPanel pAcionesArealizar = new JPanel();
+		pAcionesArealizar.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Acciones para realizar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pCentro.add(pAcionesArealizar);
+		pAcionesArealizar.setLayout(new BorderLayout(0, 0));
+		
+		JPanel pbotoneraAcciones = new JPanel();
+		pbotoneraAcciones.setBorder(new EmptyBorder(30, 30, 30, 30));
+		pAcionesArealizar.add(pbotoneraAcciones);
+		pbotoneraAcciones.setLayout(new GridLayout(5, 0, 0, 3));
+		
+		JButton btnEmitirOrdenArresto = new JButton("Emitir Orden Arresto");
+		pbotoneraAcciones.add(btnEmitirOrdenArresto);
+		
+		JLabel lOrdenDeArresto = new JLabel("");
+		pbotoneraAcciones.add(lOrdenDeArresto);
+		
+		JButton btnViajar = new JButton("Viajar");
+		pbotoneraAcciones.add(btnViajar);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		pbotoneraAcciones.add(lblNewLabel_1);
+		
+		JButton btnExpedientes = new JButton("Expedientes");
+		pbotoneraAcciones.add(btnExpedientes);
+		
+		JPanel panel = new JPanel();
+		panel.setPreferredSize(new Dimension(600, 125));
+		contentPane.add(panel);
+		panel.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JScrollPane spRecorrido = new JScrollPane();
+		spRecorrido.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		panel.add(spRecorrido);
+		
+		JList list = new JList();
+		spRecorrido.setRowHeaderView(list);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		spRecorrido.setViewportView(scrollBar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBorder(new TitledBorder(null, "Recorrido incorrecto", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		panel.add(scrollPane);
+		
+		JList list_1 = new JList();
+		scrollPane.setRowHeaderView(list_1);
+		
+		JScrollBar scrollBar_1 = new JScrollBar();
+		scrollPane.setViewportView(scrollBar_1);
 	}
 }
