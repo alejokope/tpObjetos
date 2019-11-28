@@ -1,37 +1,37 @@
 package vista;
 
-import modelo.*;
-import modelo.lugarInteres.*;
-import viewmodel.ResolviendoElCasoViewModel;
-
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ResolviendoElCaso extends JFrame{
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
-    private JPanel resolviendoElCasoPanel;
-    private JButton bibliotecaButton;
-    private JButton clubButton;
-    private JButton embajadaButton;
-    private JButton ordenDeArrestoButton;
-    private JButton viajarButton;
-    private JButton expedientesButton;
-    private JList recorridoCriminalList;
-    private JList destinosFallidosList;
-    private JLabel paisActualLabel;
-    private JPanel paisActualPanel;
-    private JPanel viajesPanel;
-    private JPanel separadorHorizontalPanel;
-    private JPanel opcionesPanel;
-    private JPanel lugaresPanel;
-    private JPanel separadorVerticalPanel;
-    private JPanel accionesPanel;
-    private JLabel lugaresLabel;
-    private JLabel ordenDeArrestoLabel;
-    private JSeparator separadorHorizontalSeparator;
-    private JSeparator separadorVerticalSeparator;
-    private JButton bancoButton;
+import modelo.CarmenSanDiegoMaster;
+import modelo.Caso;
+import modelo.DataDummy;
+import modelo.Jugador;
+import modelo.Pais;
+import modelo.Villano;
+import modelo.lugarInteres.Banco;
+import modelo.lugarInteres.Biblioteca;
+import modelo.lugarInteres.Club;
+import modelo.lugarInteres.Embajada;
+import modelo.lugarInteres.LugarInteres;
+import viewmodel.ResolviendoElCasoViewModel;
+import java.awt.GridLayout;
+
+public class ResolviendoElCaso extends JFrame {
+
+	private JPanel resolviendoElCasoPanel;
 
     private ResolviendoElCasoViewModel modelo;
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
@@ -40,7 +40,7 @@ public class ResolviendoElCaso extends JFrame{
     private Villano villano;
     private LugarInteres lugarInteresActual;
     private Pais paisActual;
-
+    
     private void crearModelo(DataDummy dataDummy) {
         modelo = new ResolviendoElCasoViewModel();
 
@@ -65,17 +65,88 @@ public class ResolviendoElCaso extends JFrame{
         }
     }
 
-    public ResolviendoElCaso(DataDummy dataDummy){
-        crearModelo(dataDummy);
-        setContentPane(resolviendoElCasoPanel);
-        setLocation(350,150);
+	public ResolviendoElCaso(DataDummy dataDummy) {
+		crearModelo(dataDummy);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocation(350,150);
         setSize(650,600);
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        setVisible(true);
-
-        setTitle("Resolviendo: " + dataDummy.obtenerTituloDelCasoAsignado());
+		resolviendoElCasoPanel = new JPanel();
+		resolviendoElCasoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(resolviendoElCasoPanel);
+		resolviendoElCasoPanel.setLayout(new GridLayout(4, 0, 0, 0));
+		
+		JPanel paisActualPanel = new JPanel();
+		resolviendoElCasoPanel.add(paisActualPanel);
+		paisActualPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JLabel paisActualLabel = new JLabel("Estas en: " + dataDummy.obtenerNombreDelPaisActualDelJugadorAsignado());
+		paisActualPanel.add(paisActualLabel);
+		
+		JPanel opcionesPanel = new JPanel();
+		resolviendoElCasoPanel.add(opcionesPanel);
+		opcionesPanel.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JLabel lugaresLabel = new JLabel("Lugares");
+		opcionesPanel.add(lugaresLabel);
+		
+		JSeparator separator = new JSeparator();
+		opcionesPanel.add(separator);
+		
+		JLabel accionesLabel = new JLabel("Acciones");
+		opcionesPanel.add(accionesLabel);
+		
+		JButton bibliotecaButton = new JButton("Biblioteca");
+		opcionesPanel.add(bibliotecaButton);
+		
+		JSeparator separator_1 = new JSeparator();
+		opcionesPanel.add(separator_1);
+		
+		JButton ordenDeArrestoButton = new JButton("Orden de Arresto");
+		opcionesPanel.add(ordenDeArrestoButton);
+		
+		JButton bancoButton = new JButton("Banco");
+		opcionesPanel.add(bancoButton);
+		
+		JSeparator separator_2 = new JSeparator();
+		opcionesPanel.add(separator_2);
+		
+		JLabel ordenDeArrestoLabel = new JLabel("");
+		opcionesPanel.add(ordenDeArrestoLabel);
+		
+		JButton clubButton = new JButton("Club");
+		opcionesPanel.add(clubButton);
+		
+		JSeparator separator_3 = new JSeparator();
+		opcionesPanel.add(separator_3);
+		
+		JButton viajarButton = new JButton("Viajar");
+		opcionesPanel.add(viajarButton);
+		
+		JButton embajadaButton = new JButton("Embajada");
+		opcionesPanel.add(embajadaButton);
+		
+		JSeparator separator_4 = new JSeparator();
+		opcionesPanel.add(separator_4);
+		
+		JButton expedientesButton = new JButton("Expedientes");
+		opcionesPanel.add(expedientesButton);
+		
+		JPanel separadorHorizontalPanel = new JPanel();
+		resolviendoElCasoPanel.add(separadorHorizontalPanel);
+		
+		JPanel viajesPanel = new JPanel();
+		resolviendoElCasoPanel.add(viajesPanel);
+		viajesPanel.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JList recorridoCriminalList = new JList();
+		viajesPanel.add(recorridoCriminalList);
+		
+		JList destinoFallidosList = new JList();
+		viajesPanel.add(destinoFallidosList);
+		setVisible(true);
+		
+		setTitle("Resolviendo: " + dataDummy.obtenerTituloDelCasoAsignado());
         dataDummy.setearCasoAsignadoAJugadorAsignado();
-        paisActualLabel.setText("Estas en: " + dataDummy.obtenerNombreDelPaisActualDelJugadorAsignado());
 
         bibliotecaButton.addActionListener(new ActionListener() {
             @Override
@@ -107,8 +178,8 @@ public class ResolviendoElCaso extends JFrame{
             }
         });
     }
-
-
-
-
 }
+	
+    
+
+

@@ -1,32 +1,65 @@
 package vista;
 
-import modelo.DataDummy;
-import modelo.Jugador;
-
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PresentacionDelCaso extends JDialog{
-    private DataDummy dataDummy;
-    private JPanel presentacionDelCasoPanel;
-    private JButton elegirOtroButton;
-    private JButton aceptarElCasoButton;
-    private JLabel saludoLabel;
-    private JPanel reportePanel;
-    private JTextArea reporteTextArea;
-    private JPanel saludoPanel;
-    private JPanel botonesPanel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+import javax.swing.border.EmptyBorder;
 
-    public PresentacionDelCaso(Jugador jugador){
-        recargarCaso(jugador);
-        setContentPane(presentacionDelCasoPanel);
-        setLocation(350,150);
+import modelo.DataDummy;
+import modelo.Jugador;
+import java.awt.GridLayout;
+
+public class PresentacionDelCaso extends JFrame {
+
+	private JPanel presentacionDelCasoPanel = new JPanel();
+	JLabel saludoLabel = new JLabel();
+	JTextArea reporteTextArea = new JTextArea();
+	
+	private DataDummy dataDummy;
+    
+
+	public PresentacionDelCaso(Jugador jugador) {
+		recargarCaso(jugador);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocation(350,150);
         setSize(650,600);
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        setVisible(true);
-
-        elegirOtroButton.addActionListener(new ActionListener() {
+        presentacionDelCasoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(presentacionDelCasoPanel);
+		presentacionDelCasoPanel.setLayout(new GridLayout(3, 0, 0, 0));
+		
+		JPanel saludoPanel = new JPanel();
+		presentacionDelCasoPanel.add(saludoPanel);
+		saludoPanel.setLayout(new BorderLayout(0, 0));
+		
+		saludoLabel.setText("Detective " + jugador.getNombre() + "tenemos un caso para usted!");
+		saludoPanel.add(saludoLabel);
+		
+		JPanel reportePanel = new JPanel();
+		presentacionDelCasoPanel.add(reportePanel);
+		
+		reportePanel.add(reporteTextArea);
+		
+		JPanel botonesPanel = new JPanel();
+		presentacionDelCasoPanel.add(botonesPanel);
+		botonesPanel.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JButton elegirOtroButton = new JButton("Elegir otro");
+		botonesPanel.add(elegirOtroButton);
+		
+		JButton aceptarElCasoButton = new JButton("Aceptar el caso");
+		botonesPanel.add(aceptarElCasoButton);
+		setVisible(true);
+		
+		elegirOtroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 refrescar();
@@ -40,9 +73,11 @@ public class PresentacionDelCaso extends JDialog{
                 ResolviendoElCaso resolviendoElCaso = new ResolviendoElCaso(dataDummy);
             }
         });
+        
+        
     }
-
-    private void recargarCaso(Jugador jugador) {
+	
+	private void recargarCaso(Jugador jugador) {
         dataDummy = new DataDummy();
         dataDummy.setJugadorAsignado(jugador);
         dataDummy.obtenerCasoAlAzar();
@@ -55,6 +90,16 @@ public class PresentacionDelCaso extends JDialog{
     private void refrescar(){
          SwingUtilities.updateComponentTreeUI(presentacionDelCasoPanel);
     }
-
-
+	
+	
+	
 }
+	
+	
+
+
+        
+
+    
+
+

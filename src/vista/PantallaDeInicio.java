@@ -1,29 +1,53 @@
 package vista;
 
-import modelo.Jugador;
-
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PantallaDeInicio extends JDialog{
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-    private JPanel pantallaDeInicioPanel;
-    private JButton resolverMisterioButton;
-    private JButton expedientesButton;
+import modelo.Jugador;
+import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
 
-    public PantallaDeInicio(Jugador jugador){
-        setTitle("¿Donde esta Carmen Sandiego?");
-        setContentPane(pantallaDeInicioPanel);
-        setLocation(400,400);
+public class PantallaDeInicio extends JFrame {
+
+	private final JPanel pantallaDeInicioPanel = new JPanel();
+
+	public PantallaDeInicio(Jugador jugador) {
+		setTitle("¿Donde esta Carmen Sandiego?");
+		setContentPane(pantallaDeInicioPanel);
+		pantallaDeInicioPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		pantallaDeInicioPanel.setLayout(new GridLayout(2, 0, 0, 0));
+		
+		JLabel bienvenidaLabel = new JLabel("Que haremos ahora detective?");
+		pantallaDeInicioPanel.add(bienvenidaLabel);
+		
+		JPanel botonesPanel = new JPanel();
+		pantallaDeInicioPanel.add(botonesPanel);
+		botonesPanel.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JButton resolverElMisterioButton = new JButton("Resolver el misterio");
+		botonesPanel.add(resolverElMisterioButton);
+		
+		JButton expedientesButton = new JButton("Expedientes");
+		botonesPanel.add(expedientesButton);
+		setLocation(400,400);
         setSize(500,255);
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setVisible(true);
-        resolverMisterioButton.addActionListener(new ActionListener() {
+        resolverElMisterioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 PresentacionDelCaso presentacionDelCaso = new PresentacionDelCaso(jugador);
             }
         });
-    }
+		
+	}
 }
+
