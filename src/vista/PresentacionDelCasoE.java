@@ -8,10 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import modelo.CarmenSanDiegoMaster;
-import modelo.Caso;
-import modelo.DataDummy;
-import modelo.Jugador;
+import modelo.*;
 import viewmodel.SingletonDataDummy;
 
 import javax.swing.JTextPane;
@@ -71,6 +68,7 @@ public class PresentacionDelCasoE extends JDialog {
 	 * Create the dialog.
 	 */
 	public PresentacionDelCasoE() {
+        System.out.println("----------------------------------");
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -126,11 +124,24 @@ public class PresentacionDelCasoE extends JDialog {
                         carmenSanDiegoMaster.setJugador(SingletonDataDummy.getInstance().getJugadorAsignado());
 
                         SingletonDataDummy.getInstance().setearCarmenSanDiego(carmenSanDiegoMaster);
+
+
+                        System.out.println("----------------------------------");
+                        for(Pais pais: casoActual.getPlanEscape()){
+                            System.out.println(pais.getNombre());
+                        }
+
+                        System.out.println(casoActual.getResponsable().getNombre());;
+                        System.out.println("----------------------------------");
+
+
+
                         JugandoCaso siguienteVista= new JugandoCaso();
                         siguienteVista.setVisible(true);
                         siguienteVista.agregarCasoAlmodelo(casoActual);
 						setVisible(false);
 						dispose();
+
 					}
 				});
 				aceptarElCasoButton.setActionCommand("OK");

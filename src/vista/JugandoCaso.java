@@ -105,9 +105,9 @@ public class JugandoCaso extends JFrame {
             _lugarInteres.setVerticalAlignment(SwingConstants.CENTER);
             _lugarInteres.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                  //  LugarInteresVista lugarInteresVista = new LugarInteresVista(lugarInteres,carmenSanDiegoMaster);
-                    //setVisible(false);
-                    //lugarInteresVista.setVisible(true);
+                    LugaresInteresVista lugarInteresVista = new LugaresInteresVista(lugarInteres);
+                    setVisible(false);
+                    lugarInteresVista.setVisible(true);
                 }
             });
            pBotonera.add(_lugarInteres);

@@ -237,6 +237,7 @@ public class DataDummy {
             villano.setHobbies(listaPersonas.get(numeroAzar).getHobbies());
             villano.setPlanEscape(planEscape);
             villano.setPaisActual(planEscape.get(0));
+            villano.setearLugarInteresActual();
             setVillanoAsignado(villano);
 
             return villano;

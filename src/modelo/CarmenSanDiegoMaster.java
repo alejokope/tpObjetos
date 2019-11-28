@@ -35,11 +35,12 @@ public class CarmenSanDiegoMaster {
 	}
 
 	public boolean estanEnElMismoPais(){
-		return villano.getPaisActual() == jugador.getPaisActual();
+		return villano.getPaisActual().getNombre().equalsIgnoreCase(jugador.getPaisActual().getNombre());
 	}
 
 	public boolean estanEnElMismoLugar(){
-		return villano.getLugarInteresActual() == jugador.getLugarInteresActual();
+		return villano.getLugarInteresActual().informacion().equalsIgnoreCase(
+		        jugador.getLugarInteresActual().informacion());
 	}
 
 	public boolean seEncuentranAmbos(){

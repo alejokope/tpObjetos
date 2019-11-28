@@ -18,7 +18,6 @@ public class ConfirmarViaje extends JFrame {
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
 
     public ConfirmarViaje(final String paisProximo){
-        System.out.println(SingletonDataDummy.getInstance().obtenerListaPaisesCaso());
         //setIconImage(Toolkit.getDefaultToolkit().getImage(PresentacionCaso.class.getResource("/imagenes/iconosombrero.png")));
         setResizable(false);
         utils = new Utils();

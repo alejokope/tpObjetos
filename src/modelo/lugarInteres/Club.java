@@ -34,6 +34,4 @@ public class Club extends LugarInteres{
     protected int porcentajeEvaluado() {
         return PORCENTAJE_EVALUADO;
     }
-
-
 }
