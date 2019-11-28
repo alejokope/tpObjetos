@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class PantallaDeInicio extends JDialog{
 
-    private JPanel pantallaDeInicioPanel;
+/*    private JPanel pantallaDeInicioPanel;
     private JButton resolverMisterioButton;
     private JButton expedientesButton;
 
@@ -25,5 +25,5 @@ public class PantallaDeInicio extends JDialog{
                 PresentacionDelCaso presentacionDelCaso = new PresentacionDelCaso(jugador);
             }
         });
-    }
+    }*/
 }

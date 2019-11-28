@@ -6,12 +6,24 @@ import modelo.lugarInteres.LugarInteres;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 public class ResolviendoElCasoViewModel {
-    private CarmenSanDiegoMaster carmenSanDiegoMaster;
+   
     private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
     private List<Pais> paisesDondeNoPasoElCriminal = new ArrayList<Pais>();
+    private List<LugarInteres> lugaresDeInteres= new ArrayList<LugarInteres>();
+    
 
-    public Jugador getJugador() {
+    public Pais getPaisDeOrigen() {
+    	return SingletonDataDummy.getInstance().getPaisActual();
+    }
+    public List<LugarInteres> getLugaresDeInteres(){
+    	return SingletonDataDummy.getInstance().getPaisActual().getLugaresInteres();
+    }
+    
+
+   /* public Jugador getJugador() {
         return carmenSanDiegoMaster.getJugador();
     }
 
@@ -56,5 +68,5 @@ public class ResolviendoElCasoViewModel {
 
     public void setCarmenSanDiegoMaster(CarmenSanDiegoMaster carmenSanDiegoMaster) {
         this.carmenSanDiegoMaster = carmenSanDiegoMaster;
-    }
+    }*/
 }

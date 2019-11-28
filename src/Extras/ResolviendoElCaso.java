@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ResolviendoElCaso extends JFrame{
-
+/*
     private JPanel resolviendoElCasoPanel;
     private JButton bibliotecaButton;
     private JButton clubButton;
@@ -106,7 +106,7 @@ public class ResolviendoElCaso extends JFrame{
                 chequearExistenciaDeLugarInteres(new Banco());
             }
         });
-    }
+    }*/
 
 
 

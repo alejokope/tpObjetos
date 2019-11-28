@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.lugarInteres.*;
+import viewmodel.ResolviendoElCasoViewModel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -364,6 +365,10 @@ public class DataDummy {
             int numAlAzar = obtenerNumeroAleatorio(pais.getConexiones().size());
             return pais.getConexiones().get(numAlAzar);
         }
+
+		public Pais getPaisActual() {
+			return jugadorAsignado.getPaisActual();
+		}
 
 
 }

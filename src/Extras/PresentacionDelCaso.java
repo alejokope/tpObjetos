@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PresentacionDelCaso extends JDialog{
-    private DataDummy dataDummy;
+/*    private DataDummy dataDummy;
     private JPanel presentacionDelCasoPanel;
     private JButton elegirOtroButton;
     private JButton aceptarElCasoButton;
@@ -56,5 +56,5 @@ public class PresentacionDelCaso extends JDialog{
          SwingUtilities.updateComponentTreeUI(presentacionDelCasoPanel);
     }
 
-
+*/
 }
