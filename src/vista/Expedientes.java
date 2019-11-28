@@ -34,7 +34,8 @@ public class Expedientes extends JFrame {
 	private JLabel lblAquiSexo ;
 	private JLabel lblAquiNombre ;
 	private JList<String> listSenia= new JList<String>();
-	private JList listHobbies= new JList<String>();
+	private JList<String> listHobbies= new JList<String>();
+	private JPanel pfoto;
 	
 
 	/**
@@ -105,17 +106,16 @@ public class Expedientes extends JFrame {
 			modelo.setVillanoSeleccionado(villano);
 			lblAquiNombre.setText(villano.getNombre());
 			lblAquiSexo.setText(villano.getSexo());
-			//ENTONCES DEL VILLANO SELECCIONADO TENGO QUE SACAR LOS HOBBIES Y LAS SENIAS
-			
 			listSenia.setModel(new VillanosController(modelo).getCaracteristicasVillanoSeleccionado());
-			list
+			listHobbies.setModel(new VillanosController(modelo).getHobbiessVillanoSeleccionado());
+			//pfoto.set
 			
 			
 		}
 		});
 		
 
-		JPanel pfoto = new JPanel();
+		pfoto = new JPanel();
 		contentPane.add(pfoto);
 		pfoto.setLayout(new GridLayout(2, 0, 0, 0));
 		

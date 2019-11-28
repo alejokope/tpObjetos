@@ -14,11 +14,14 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class PaginaDeInicio extends JFrame {
 
 	private JPanel contentPane;
 	private String nombreJugador;
+	private JLabel jEnc= new JLabel();
 	
 	public void setNombreJugador(String nombreDetective) {
 		nombreJugador = nombreDetective;
@@ -44,6 +47,16 @@ public class PaginaDeInicio extends JFrame {
 	 * Create the frame.
 	 */
 	public PaginaDeInicio() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				
+				jEnc.setText("¿Que haremos hoy detective "+nombreJugador+"?");
+				
+			}
+			
+			
+		});
 		setTitle("\u00BFDonde esta CarmenSanDiego?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
 		setResizable(false);
@@ -58,11 +71,10 @@ public class PaginaDeInicio extends JFrame {
 		panel.setPreferredSize(new Dimension(100, 50));
 		contentPane.add(panel, BorderLayout.NORTH);
 		
-		JLabel lEncabezado = new JLabel("¿Que haremos hoy detective"+nombreJugador+"?");
-		lEncabezado.setHorizontalAlignment(SwingConstants.CENTER);
-		lEncabezado.setHorizontalTextPosition(SwingConstants.CENTER);
-		lEncabezado.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		panel.add(lEncabezado);
+		jEnc.setHorizontalAlignment(SwingConstants.CENTER);
+		jEnc.setHorizontalTextPosition(SwingConstants.CENTER);
+		jEnc.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		panel.add(jEnc);
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.CENTER);
