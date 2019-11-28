@@ -62,6 +62,29 @@ public class ConfirmarViaje extends JFrame {
         lfondo.setBounds(0, 0, 481, 397);
         lfondo.setIcon(new ImageIcon(ConfirmarViaje.class.getResource("/imagenes/fondo4.png")));
         panel.add(lfondo);
+        panel.setLayout(new BorderLayout(0, 0));
+
+        JLabel lblUstedAViajado = new JLabel("USTED A VIAJADO!!!");
+        lblUstedAViajado.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.add(lblUstedAViajado, BorderLayout.CENTER);
+
+                JPanel panel_1 = new JPanel();
+                panel_1.setPreferredSize(new Dimension(50, 50));
+                panel.add(panel_1, BorderLayout.SOUTH);
+
+
+
+                        JButton bAceptar = new JButton("Aceptar");
+                        panel_1.add(bAceptar);
+                bAceptar.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent arg0) {
+                        carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
+                        SingletonDataDummy.getInstance().getJugadorAsignado().setPaisActual(utils.obtenerPais(paisProximo));
+                        JugandoCaso jugandoCaso = new JugandoCaso();
+                        setVisible(false);
+                        jugandoCaso.setVisible(true);
+                    }
+                });
     }
 
 

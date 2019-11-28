@@ -9,7 +9,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import Extras.ResolviendoElCaso;
 import modelo.Caso;
 import modelo.DataDummy;
 import modelo.lugarInteres.LugarInteres;
@@ -217,9 +216,6 @@ public class JugandoCaso extends JFrame {
 		JList lstRecorridoAcertado = new JList();
 		spRecorrido.setRowHeaderView(lstRecorridoAcertado);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		spRecorrido.setViewportView(scrollBar);
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBorder(new TitledBorder(null, "Recorrido incorrecto", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 //TODO AGREGAR BIEN
@@ -239,8 +235,5 @@ public class JugandoCaso extends JFrame {
 		
 		JList listRecorridoErroneo = new JList();
 		scrollPane.setRowHeaderView(listRecorridoErroneo);
-		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollPane.setViewportView(scrollBar_1);
 	}
 }
