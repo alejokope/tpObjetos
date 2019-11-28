@@ -133,13 +133,13 @@ public class IniciarSecion extends JFrame {
 		pCentral.add(pContraseniR);
 		pContraseniR.setLayout(null);
 		
-		textContrasenia = new JPasswordField();
+		textContrasenia = new JPasswordField();//sadlj
 		textContrasenia.setBounds(32, 60, 259, 44);
 		textContrasenia.setColumns(10);
 		textContrasenia.setBorder(new EmptyBorder(10, 10, 10, 10));
 		pContraseniR.add(textContrasenia);
 		
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel();//DKJLDASJ
 		panel.setPreferredSize(new Dimension(100, 100));
 		contentPane.add(panel, BorderLayout.SOUTH);
 		panel.setLayout(null);
