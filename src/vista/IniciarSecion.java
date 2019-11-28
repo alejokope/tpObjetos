@@ -153,17 +153,17 @@ public class IniciarSecion extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(dataDummy.esUnUsuarioValido(textUsuario,textContrasenia)) {
 					nombreDetective = textUsuario.getText().toString();
-                    dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(textUsuario));
-                    PaginaDeInicio pantallaDeInicio = new PaginaDeInicio();
-                    pantallaDeInicio.setVisible(true);
-                    pantallaDeInicio.setNombreJugador(nombreDetective);
-                    setVisible(false);
-                    dispose();
+	                dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(textUsuario));
+	                PaginaDeInicio pantallaDeInicio = new PaginaDeInicio();
+	                pantallaDeInicio.setVisible(true);
+	                pantallaDeInicio.setNombreJugador(nombreDetective);
+	                setVisible(false);
+	                dispose();
 				}
 				else {
 					JOptionPane.showMessageDialog(contentPane,"Debe ingresar un usuario valido!");
 				}				
 			}
-		});		
+		});
 	}
 }
