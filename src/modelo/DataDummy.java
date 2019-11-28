@@ -41,6 +41,10 @@ public class DataDummy {
                 .getJugador();
     }
 
+
+    public void setearPaisJugadorAsignado(Pais pais){
+        jugadorAsignado.setPaisActual(pais);
+    }
     public Jugador getJugadorAsignado() {
         return jugadorAsignado;
     }

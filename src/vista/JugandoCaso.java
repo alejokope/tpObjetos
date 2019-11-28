@@ -1,34 +1,25 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import javax.swing.JSplitPane;
-import java.awt.Dimension;
-import javax.swing.JLabel;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JList;
-import java.awt.FlowLayout;
 import javax.swing.border.TitledBorder;
 
 import Extras.ResolviendoElCaso;
 import modelo.Caso;
+import modelo.DataDummy;
+import modelo.lugarInteres.LugarInteres;
 import viewmodel.ResolviendoElCasoViewModel;
+import viewmodel.SingletonDataDummy;
 
-import javax.swing.UIManager;
-import java.awt.Color;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
-import javax.swing.JScrollBar;
 
 public class JugandoCaso extends JFrame {
 
@@ -100,8 +91,37 @@ public class JugandoCaso extends JFrame {
 		pBotonera.setBorder(new EmptyBorder(30, 30, 30, 30));
 		pLugares.add(pBotonera, BorderLayout.CENTER);
 		pBotonera.setLayout(new GridLayout(5, 0, 0, 3));
-		
-		JButton btnLugar = new JButton("Lugar1");
+
+
+
+
+
+        int y = 70;
+        for(final LugarInteres lugarInteres : SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getLugaresInteres()){
+            final JButton _lugarInteres = new JButton(lugarInteres.informacion().toUpperCase());
+            _lugarInteres.setBounds(20, y,120,50);
+            _lugarInteres.setFont(new Font("Arial",Font.BOLD,12));
+            _lugarInteres.setHorizontalAlignment(SwingConstants.CENTER);
+            _lugarInteres.setVerticalAlignment(SwingConstants.CENTER);
+            _lugarInteres.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                  //  LugarInteresVista lugarInteresVista = new LugarInteresVista(lugarInteres,carmenSanDiegoMaster);
+                    //setVisible(false);
+                    //lugarInteresVista.setVisible(true);
+                }
+            });
+           pBotonera.add(_lugarInteres);
+            y += 70;
+        }
+
+
+
+
+
+
+
+
+        /*JButton btnLugar = new JButton("Lugar1");
 		btnLugar.setBorder(new EmptyBorder(10, 10, 10, 10));
 		pBotonera.add(btnLugar);
 		
@@ -116,7 +136,7 @@ public class JugandoCaso extends JFrame {
 		
 		JButton btnLugar_2 = new JButton("lugar3");
 		pBotonera.add(btnLugar_2);
-		
+		*/
 		JPanel pAcionesArealizar = new JPanel();
 		pAcionesArealizar.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Acciones para realizar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pCentro.add(pAcionesArealizar);

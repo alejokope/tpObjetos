@@ -17,8 +17,12 @@ public class ResolviendoElCasoViewModel {
     private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
     private List<Pais> paisesDondeNoPasoElCriminal = new ArrayList<Pais>();
     private List<LugarInteres> lugaresDeInteres= new ArrayList<LugarInteres>();
-    private SingletonDataDummy dataDummy;
-    
+    private DataDummy dataDummy = SingletonDataDummy.getInstance();
+
+
+    public DataDummy getDataDummy() {
+        return dataDummy;
+    }
 
     public Pais getPaisDeOrigen() {
     	return SingletonDataDummy.getInstance().obtenerPaisOrigen();
@@ -26,7 +30,17 @@ public class ResolviendoElCasoViewModel {
     public List<LugarInteres> getLugaresDeInteres(){
     	return SingletonDataDummy.getInstance().getPaisActual().getLugaresInteres();
     }
-    
+
+
+    public List<Pais> getPaisesDondePasoElCriminal() {
+        return paisesDondePasoElCriminal;
+    }
+
+    public List<Pais> getPaisesDondeNoPasoElCriminal() {
+        return paisesDondeNoPasoElCriminal;
+    }
+
+
 
     public Jugador getJugador() {
         return SingletonDataDummy.getInstance().getJugadorAsignado();
@@ -71,9 +85,6 @@ public class ResolviendoElCasoViewModel {
     }
 
 
-    public void setCarmenSanDiegoMaster(SingletonDataDummy dataDummy) {
-        this.dataDummy = dataDummy;
-    }
 	public void setCaso(Caso caso) {
 		this.caso=caso;
 		

@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import Extras.PantallaDeInicio;
 import modelo.DataDummy;
+import viewmodel.SingletonDataDummy;
 
 import java.awt.Dimension;
 import javax.swing.JLabel;
@@ -31,7 +32,7 @@ public class IniciarSecion extends JFrame {
 	private JPanel contentPane;
 	private JTextField textUsuario;
 	private JPasswordField textContrasenia;
-	private DataDummy dataDummy = new DataDummy();
+	private DataDummy dataDummy = SingletonDataDummy.getInstance();
 	private String nombreDetective;
 	
 
