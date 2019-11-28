@@ -175,9 +175,6 @@ public class Expedientes extends JFrame {
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PaginaDeInicio pantallaDeInicio = new PaginaDeInicio();
-                pantallaDeInicio.setVisible(true);
-                pantallaDeInicio.setNombreJugador(nombreDetective);
                 setVisible(false);
                 dispose();
 			}

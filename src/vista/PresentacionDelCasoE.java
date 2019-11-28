@@ -36,7 +36,8 @@ public class PresentacionDelCasoE extends JDialog {
 	
 	private Caso casoActual;
 	private String nombreDetective;
-		
+	
+	
 	public void iniciarPresentacionDelCaso(String nombreDetective) {
 		this.nombreDetective = nombreDetective;
     	mostrarCaso();
