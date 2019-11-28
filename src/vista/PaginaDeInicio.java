@@ -77,7 +77,7 @@ public class PaginaDeInicio extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PresentacionDelCasoE pantallaPresentacionCaso= new PresentacionDelCasoE();
-				pantallaPresentacionCaso.setVisible(true);
+				pantallaPresentacionCaso.iniciarPresentacionDelCaso(nombreJugador);
 				setVisible(false);
 				dispose();
 			}
