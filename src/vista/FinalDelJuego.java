@@ -28,6 +28,7 @@ public class FinalDelJuego extends JFrame {
 	JButton victoriaODerrotaButton = new JButton("");
 
 	public FinalDelJuego(CarmenSanDiegoMaster carmenSanDiegoMaster) {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		finalDelJuegoPanel = new JPanel();
