@@ -73,7 +73,7 @@ public class JugandoCaso extends JFrame {
 		pArriba.add(lblEstasEn);
 		
 		JLabel lblPais = new JLabel();
-		lblPais.setText(modelo.getPaisDeOrigen().getNombre());
+		lblPais.setText(SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getNombre());
 		
 		pArriba.add(lblPais);
 		
@@ -155,6 +155,14 @@ public class JugandoCaso extends JFrame {
 		pbotoneraAcciones.add(lOrdenDeArresto);
 		
 		JButton btnViajar = new JButton("Viajar");
+        btnViajar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViajarVista viajarVista = new ViajarVista();
+                viajarVista.setVisible(true);
+                setVisible(false);
+            }
+        });
 		pbotoneraAcciones.add(btnViajar);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

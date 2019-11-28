@@ -46,6 +46,10 @@ public class DataDummy {
     }
 
 
+    public CarmenSanDiegoMaster getCarmenSanDiegoMaster() {
+        return carmenSanDiegoMaster;
+    }
+
     public void setearPaisJugadorAsignado(Pais pais){
         jugadorAsignado.setPaisActual(pais);
     }
