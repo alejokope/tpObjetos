@@ -1,4 +1,4 @@
-package test;
+package modeloTest;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;

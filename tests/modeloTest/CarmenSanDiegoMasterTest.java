@@ -1,4 +1,4 @@
-package test;
+package modeloTest;
 
 import excepciones.NoEsPaisProximoException;
 import excepciones.NoHayLugarDeInteresEnEstePais;

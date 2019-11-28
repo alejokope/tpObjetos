@@ -1,4 +1,4 @@
-package test;
+package modeloTest;
 
 import modelo.*;
 import org.junit.Test;

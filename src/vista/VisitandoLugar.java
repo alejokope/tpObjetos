@@ -7,12 +7,16 @@ import javax.swing.*;
 
 public class VisitandoLugar extends JDialog{
     private JPanel visitandoLugarPanel;
-    private JTextArea pistasTextArea;
+    private JTextArea pistasTextArea = new JTextArea();
     private JButton continuarButton;
     private JPanel continuarPanel;
     private JPanel pistasPanel;
     private JPanel visitandoPanel;
     private JLabel visitandoLabel;
+
+    public String obtenerPista(){
+        return pistasTextArea.getText();
+    }
 
     public VisitandoLugar(CarmenSanDiegoMaster carmenSanDiegoMaster, LugarInteres lugarInteres) {
         setContentPane(visitandoLugarPanel);
@@ -29,7 +33,7 @@ public class VisitandoLugar extends JDialog{
         carmenSanDiegoMaster.actualizarEstadoDeMensaje();
         lugarInteres.darPista(jugador);
 
-        setTitle("Resolviendo: " + caso.getTitulo());
+        setTitle("Resolviendo: " + carmenSanDiegoMaster.getCaso().getTitulo());
         visitandoLabel.setText("Estas visitando: " + lugarInteres.informacion());
         pistasTextArea.setText(carmenSanDiegoMaster.getEstadoDeMensaje().mostrarMensaje(carmenSanDiegoMaster,lugarInteres.getAyuda()));
         pistasTextArea.setEditable(false);
