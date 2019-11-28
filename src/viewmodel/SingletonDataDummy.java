@@ -19,8 +19,8 @@ public class SingletonDataDummy {
 	public ArrayList<Persona> getVillanos() {
 		return instaciaDataDummy.obtenerVillanos();
 	}
-/*	public Caso getCaso() {
+	public Caso getCaso() {
 		return instaciaDataDummy.obtenerCasoAlAzar();
 	}
-*/
+
 }

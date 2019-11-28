@@ -32,8 +32,7 @@ public class PresentacionDelCasoE extends JDialog {
 	private final JPanel detalleDelCasoPanel = new JPanel();
 	private JTextArea relatoText;
 	private JLabel SaludoLabel;
-	
-	private SingletonDataDummy dataDummy;
+	//private SingletonDataDummy dataDummy;
 	private Caso casoActual;
 	private String nombreDetective;
 		
@@ -44,7 +43,8 @@ public class PresentacionDelCasoE extends JDialog {
 	}
 	
 	private void mostrarCaso() {
-    	casoActual = dataDummy.getInstance().obtenerCasoAlAzar();
+    	casoActual = SingletonDataDummy.getInstance().obtenerCasoAlAzar();
+    	
     	this.relatoText.setText(casoActual.getReporte());
     	this.setTitle(casoActual.getTitulo());
     	this.SaludoLabel.setText("Detective " + nombreDetective + ", tenemos unos casos para ti.");
@@ -95,6 +95,7 @@ public class PresentacionDelCasoE extends JDialog {
 		panel.setLayout(null);
 		
 		relatoText = new JTextArea();
+		relatoText.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		relatoText.setBounds(0, 0, 434, 349);
 		panel.add(relatoText);
 		relatoText.setColumns(10);

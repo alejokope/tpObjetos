@@ -156,18 +156,18 @@ public class Expedientes extends JFrame {
 		contentPane.add(pDatos);
 		pDatos.setLayout(new GridLayout(2, 0, 0, 0));
 		
-		JPanel pSeñalParticulares = new JPanel();
-		pDatos.add(pSeñalParticulares);
-		pSeñalParticulares.setLayout(null);
+		JPanel pSenialParticulares = new JPanel();
+		pDatos.add(pSenialParticulares);
+		pSenialParticulares.setLayout(null);
 
 		listSenia.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		listSenia.setBounds(0, 71, 342, 253);
 		listSenia.setPreferredSize(new Dimension(200, 200));
-		pSeñalParticulares.add(listSenia);
+		pSenialParticulares.add(listSenia);
 		
 		JLabel lblSenias = new JLabel("New label");
 		lblSenias.setBounds(27, 13, 56, 16);
-		pSeñalParticulares.add(lblSenias);
+		pSenialParticulares.add(lblSenias);
 		
 		JPanel pHobbies = new JPanel();
 		pDatos.add(pHobbies);
