@@ -26,21 +26,28 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JTextArea;
 
 public class PresentacionDelCasoE extends JDialog {
 	private final JPanel detalleDelCasoPanel = new JPanel();
-	private JTextField textRelato;
-	private JLabel SaludoLabel;
+	private JTextArea relatoText;
+	private JLabel SaludoLabel = new JLabel();
 	
 	private SingletonDataDummy dataDummy;
-	private Jugador jugador;
 	private Caso casoActual;
+	private String nombreDetective;
+		
+	public void iniciarPresentacionDelCaso(String nombreDetective) {
+		this.nombreDetective = nombreDetective;
+    	mostrarCaso();
+    	this.setVisible(true);
+	}
 	
 	private void mostrarCaso() {
     	casoActual = dataDummy.getInstance().obtenerCasoAlAzar();
-    	this.textRelato.setText(casoActual.getReporte());
+    	this.relatoText.setText(casoActual.getReporte());
     	this.setTitle(casoActual.getTitulo());
-    	this.SaludoLabel.setText("Detective " + jugador.getNombre() + ", tenemos unos casos para ti.");
+    	this.SaludoLabel.setText("Detective " + nombreDetective + ", tenemos unos casos para ti.");
 	}
 
 	/**
@@ -64,6 +71,12 @@ public class PresentacionDelCasoE extends JDialog {
 	 * Create the dialog.
 	 */
 	public PresentacionDelCasoE() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				mostrarCaso();
+			}
+		});
 		setResizable(false);
 		setBounds(100, 100, 500, 500);
 		getContentPane().setLayout(new BorderLayout());
@@ -76,18 +89,20 @@ public class PresentacionDelCasoE extends JDialog {
 		detalleDelCasoPanel.add(panel);
 		panel.setLayout(null);
 		
-		textRelato = new JTextField();
-		textRelato.setEditable(false);
-		textRelato.setBounds(0, 0, 434, 349);
-		panel.add(textRelato);
-		textRelato.setColumns(10);
+		relatoText = new JTextArea();
+		relatoText.setBounds(0, 0, 434, 349);
+		panel.add(relatoText);
+		relatoText.setColumns(10);
+		{
+			SaludoLabel.setBounds(28, 11, 434, 34);
+			detalleDelCasoPanel.add(SaludoLabel);
+		}
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton elegirOtroButton = new JButton("Elegir otro");
-				elegirOtroButton.setActionCommand("OK");
 				elegirOtroButton.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -105,18 +120,4 @@ public class PresentacionDelCasoE extends JDialog {
 			}
 		}
 	}
-	
-	/*
-	 * private void recargarCaso(Jugador jugador) { dataDummy = new DataDummy();
-	 * dataDummy.setJugadorAsignado(jugador); dataDummy.obtenerCasoAlAzar();
-	 * setTitle(dataDummy.obtenerTituloDelCasoAsignado());
-	 * 
-	 * JLabel SaludoLabel = new JLabel("Detective " + jugador.getNombre() +
-	 * ", tenemos un caso para usted!"); SaludoLabel.setFont(new Font("Tahoma",
-	 * Font.PLAIN, 16)); SaludoLabel.setBounds(28, 11, 364, 14);
-	 * detalleDelCasoPanel.add(SaludoLabel); }
-	 * 
-	 * private void refrescar(){
-	 * SwingUtilities.updateComponentTreeUI(detalleDelCasoPanel); }
-	 */
 }

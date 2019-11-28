@@ -16,10 +16,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import java.awt.FlowLayout;
 import javax.swing.border.TitledBorder;
-
-import Extras.ResolviendoElCaso;
-import viewmodel.ResolviendoElCasoViewModel;
-
 import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.border.CompoundBorder;
@@ -32,7 +28,6 @@ import javax.swing.JScrollBar;
 public class JugandoCaso extends JFrame {
 
 	private JPanel contentPane;
-	private ResolviendoElCasoViewModel modelo;
 
 	/**
 	 * Launch the application.
@@ -54,8 +49,6 @@ public class JugandoCaso extends JFrame {
 	 * Create the frame.
 	 */
 	public JugandoCaso() {
-		modelo= new ResolviendoElCasoViewModel();
-		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 634);
@@ -72,8 +65,7 @@ public class JugandoCaso extends JFrame {
 		JLabel lblEstasEn = new JLabel("Estas En :");
 		pArriba.add(lblEstasEn);
 		
-		JLabel lblPais = new JLabel("");
-		lblPais.setText(modelo.getPaisDeOrigen().toString());
+		JLabel lblPais = new JLabel("PAIS");
 		pArriba.add(lblPais);
 		
 		JPanel pCentro = new JPanel();
