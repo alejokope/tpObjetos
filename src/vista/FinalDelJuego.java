@@ -77,7 +77,7 @@ public class FinalDelJuego extends JFrame {
     private void textoDeDerrota(CarmenSanDiegoMaster carmenSanDiegoMaster) {
         primeraOracionLabel.setForeground(Color.RED);
         primeraOracionLabel.setText("Malas noticias.....");
-        segundaOracionLabel.setText("Ha detenido a " + carmenSanDiegoMaster.getVillano().getNombre() + ", pero usted tenia una orden contra "+ carmenSanDiegoMaster.getJugador().getSospechoso());
+        segundaOracionLabel.setText("Ha detenido a " + carmenSanDiegoMaster.getVillano().getNombre() + ", pero usted tenia una orden contra "+ carmenSanDiegoMaster.getJugador().getSospechoso().getNombre());
         terceraOracionLabel.setText("Lamentablemente este crimen quedara impune");
         victoriaODerrotaButton.setText("Aceptar");
     }
