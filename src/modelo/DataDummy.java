@@ -333,7 +333,7 @@ public class DataDummy {
         }
 
 
-        private Pais obtenerPaisOrigen(){
+        public Pais obtenerPaisOrigen(){
             ArrayList<Pais> listaPaises = obtenerListaPaises();
             return listaPaises.get(obtenerNumeroAleatorio(listaPaises.size()));
         }

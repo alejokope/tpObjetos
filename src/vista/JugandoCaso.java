@@ -82,10 +82,8 @@ public class JugandoCaso extends JFrame {
 		pArriba.add(lblEstasEn);
 		
 		JLabel lblPais = new JLabel();
-		/*
-		 * lblPais.setText(caso.getReporte()); aca explota
-		 * 
-		 * */
+		lblPais.setText(modelo.getPaisDeOrigen().getNombre());
+		
 		pArriba.add(lblPais);
 		
 		JPanel pCentro = new JPanel();

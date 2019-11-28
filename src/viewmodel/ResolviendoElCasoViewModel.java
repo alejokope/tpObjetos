@@ -19,7 +19,7 @@ public class ResolviendoElCasoViewModel {
     
 
     public Pais getPaisDeOrigen() {
-    	return SingletonDataDummy.getInstance().getPaisActual();
+    	return SingletonDataDummy.getInstance().obtenerPaisOrigen();
     }
     public List<LugarInteres> getLugaresDeInteres(){
     	return SingletonDataDummy.getInstance().getPaisActual().getLugaresInteres();
