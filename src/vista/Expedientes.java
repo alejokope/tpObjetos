@@ -28,6 +28,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.TitledBorder;
+import java.awt.FlowLayout;
 
 public class Expedientes extends JFrame {
 
@@ -75,29 +77,22 @@ public class Expedientes extends JFrame {
 		contentPane.setLayout(new GridLayout(0, 3, 0, 0));
 		
 		JPanel pLista = new JPanel();
+		pLista.setBorder(new EmptyBorder(10, 10, 10, 10));
 		contentPane.add(pLista);
-		pLista.setLayout(null);
 		/*
 		 * 
 		 * 
 		 * SE TIENE QUE CAMBIAR EN VES DE PERSONA POR VILLANO
 		 * 
 		 * */
+		pLista.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		 
 		JList<Persona> listVillano = new JList<Persona>();
-		listVillano.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		listVillano.setBounds(0, 46, 354, 629);
-		listVillano.setPreferredSize(new Dimension(200, 200));
+		listVillano.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Villanos", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		listVillano.setPreferredSize(new Dimension(340, 650));
 		listVillano.setModel(new ExpedientesController(modelo).getVillanos());
 		listVillano.setCellRenderer(new VillanosCell());
 		pLista.add(listVillano);
-		
-		
-		JLabel lblVillanos = new JLabel("Villanos");
-		lblVillanos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVillanos.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblVillanos.setBounds(89, 0, 132, 33);
-		pLista.add(lblVillanos);
 		
 		listVillano.addListSelectionListener(new ListSelectionListener() {
 			
@@ -158,16 +153,11 @@ public class Expedientes extends JFrame {
 		
 		JPanel pSenialParticulares = new JPanel();
 		pDatos.add(pSenialParticulares);
-		pSenialParticulares.setLayout(null);
+		pSenialParticulares.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		listSenia.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		listSenia.setBounds(0, 71, 342, 253);
-		listSenia.setPreferredSize(new Dimension(200, 200));
+		listSenia.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Senias Particulares", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		listSenia.setPreferredSize(new Dimension(340, 320));
 		pSenialParticulares.add(listSenia);
-		
-		JLabel lblSenias = new JLabel("New label");
-		lblSenias.setBounds(27, 13, 56, 16);
-		pSenialParticulares.add(lblSenias);
 		
 		JPanel pHobbies = new JPanel();
 		pDatos.add(pHobbies);
@@ -191,9 +181,5 @@ public class Expedientes extends JFrame {
 		});
 		btnAtras.setBounds(209, 305, 97, 25);
 		pHobbies.add(btnAtras);
-		
-		JLabel lHobbies = new JLabel("New label");
-		lHobbies.setBounds(49, 26, 56, 16);
-		pHobbies.add(lHobbies);
 	}
 }
