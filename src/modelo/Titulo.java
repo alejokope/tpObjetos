@@ -1,15 +1,15 @@
 package modelo;
 
 public enum Titulo {
-    TITULO1("titulo1"),
-    TITULO2("titulo2"),
-    TITULO3("titulo3"),
-    TITULO4("titulo4"),
-    TITULO5("titulo5"),
-    TITULO6("titulo6"),
-    TITULO7("titulo7"),
-    TITULO8("titulo8"),
-    TITULO9("titulo9");
+    TITULO1("Collar de perlas"),
+    TITULO2("Telas finas"),
+    TITULO3("Orquidias chinas"),
+    TITULO4("Medallas y trofeos"),
+    TITULO5("Contrabando de organos"),
+    TITULO6("Muñequitas suiza"),
+    TITULO7("Llave egipcia"),
+    TITULO8("Fuentes electricas"),
+    TITULO9("Pic magico");
 
     private String value;
 
