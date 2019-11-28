@@ -236,7 +236,7 @@ public class DataDummy {
             villano.setSeniasParticulares(listaPersonas.get(numeroAzar).getSeniasParticulares());
             villano.setHobbies(listaPersonas.get(numeroAzar).getHobbies());
             villano.setPlanEscape(planEscape);
-            villano.escaparmeAlUltimoPaisYEnAlgunLugar();
+            villano.setPaisActual(planEscape.get(0));
             setVillanoAsignado(villano);
 
             return villano;

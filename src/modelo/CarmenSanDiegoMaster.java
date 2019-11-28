@@ -12,6 +12,16 @@ public class CarmenSanDiegoMaster {
     private Villano villano;
     private EstadoDeMensaje estadoDeMensaje;
     private List<String> paisesCorrectos;
+    private boolean termino = false;
+
+
+    public boolean isTermino() {
+        return termino;
+    }
+
+    public void setTermino(boolean termino) {
+        this.termino = termino;
+    }
 	public CarmenSanDiegoMaster() {
 		this.estadoDeMensaje = new NoPasoPorEstePaisMensaje();
 		paisesCorrectos = new ArrayList<>();
@@ -41,7 +51,13 @@ public class CarmenSanDiegoMaster {
     }
 	
 	public void viajar(Pais pais){
-        jugador.viajar(pais);
+        if(villano.tienePaisProximo()){
+            villano.viajar();
+            jugador.viajar(pais);
+        }
+        else{
+           termino = true;
+        }
 	}
 
 	public void setCaso(Caso caso) {
@@ -96,5 +112,4 @@ public class CarmenSanDiegoMaster {
 	public boolean pasoPorElPais(){
 		return this.getJugador().getPaisActual().elVillanoPasoPorEstePais(villano);
 	}
-
 }

@@ -19,6 +19,7 @@ public class ConfirmarViaje extends JFrame {
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
 
     public ConfirmarViaje(final String paisProximo){
+        System.out.println(SingletonDataDummy.getInstance().obtenerListaPaisesCaso());
         //setIconImage(Toolkit.getDefaultToolkit().getImage(PresentacionCaso.class.getResource("/imagenes/iconosombrero.png")));
         setResizable(false);
         utils = new Utils();
@@ -42,9 +43,16 @@ public class ConfirmarViaje extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
                 SingletonDataDummy.getInstance().getJugadorAsignado().setPaisActual(utils.obtenerPais(paisProximo));
-                JugandoCaso jugandoCaso = new JugandoCaso();
-                setVisible(false);
-                jugandoCaso.setVisible(true);
+                if(carmenSanDiegoMaster.isTermino()){
+                    FinalDelJuego finalDelJuego = new FinalDelJuego(carmenSanDiegoMaster);
+                    setVisible(false);
+                    finalDelJuego.setVisible(true);
+                }
+                else{
+                    JugandoCaso jugandoCaso = new JugandoCaso();
+                    setVisible(false);
+                    jugandoCaso.setVisible(true);
+                }
             }
         });
         bAceptar.setBounds(129, 61, 97, 25);
@@ -55,4 +63,7 @@ public class ConfirmarViaje extends JFrame {
         lfondo.setIcon(new ImageIcon(ConfirmarViaje.class.getResource("/imagenes/fondo4.png")));
         panel.add(lfondo);
     }
+
+
+
 }

@@ -1,6 +1,5 @@
 package vista;
 
-
 import modelo.CarmenSanDiegoMaster;
 import modelo.Pais;
 import viewmodel.SingletonDataDummy;
