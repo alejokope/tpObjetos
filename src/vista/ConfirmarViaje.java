@@ -49,7 +49,7 @@ public class ConfirmarViaje extends JFrame {
                 panel_2.setBorder(new EmptyBorder(50, 0, 0, 0));
                 panel.add(panel_2, BorderLayout.CENTER);
                 
-                JLabel lblSeHaViajado = new JLabel("Se ha viajado a un nuevo destino");
+                JLabel lblSeHaViajado = new JLabel("Viajar a un nuevo destino");
                 panel_2.add(lblSeHaViajado);
                 bAceptar.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent arg0) {
