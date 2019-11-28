@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import modelo.Caso;
 import modelo.DataDummy;
 import modelo.Jugador;
+import viewmodel.SingletonDataDummy;
 
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
@@ -27,11 +28,20 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class PresentacionDelCasoE extends JDialog {
-	
-	private DataDummy dataDummy;
 	private final JPanel detalleDelCasoPanel = new JPanel();
-	private Jugador jugador;
 	private JTextField textRelato;
+	private JLabel SaludoLabel;
+	
+	private SingletonDataDummy dataDummy;
+	private Jugador jugador;
+	private Caso casoActual;
+	
+	private void mostrarCaso() {
+    	casoActual = dataDummy.getInstance().obtenerCasoAlAzar();
+    	this.textRelato.setText(casoActual.getReporte());
+    	this.setTitle(casoActual.getTitulo());
+    	this.SaludoLabel.setText("Detective " + jugador.getNombre() + ", tenemos unos casos para ti.");
+	}
 
 	/**
 	 * Launch the application.
@@ -54,13 +64,6 @@ public class PresentacionDelCasoE extends JDialog {
 	 * Create the dialog.
 	 */
 	public PresentacionDelCasoE() {
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowActivated(WindowEvent arg0) {
-				Caso caso = dataDummy.obtenerCasoAlAzar();
-				textRelato.setText(caso.getReporte());
-			}
-		});
 		setResizable(false);
 		setBounds(100, 100, 500, 500);
 		getContentPane().setLayout(new BorderLayout());
@@ -86,15 +89,14 @@ public class PresentacionDelCasoE extends JDialog {
 				JButton elegirOtroButton = new JButton("Elegir otro");
 				elegirOtroButton.setActionCommand("OK");
 				elegirOtroButton.addActionListener(new ActionListener() {
-		            @Override
-		            public void actionPerformed(ActionEvent actionEvent) {
-		            	Caso otroCaso = dataDummy.obtenerCasoAlAzar();
-		            	textRelato.setText(otroCaso.getReporte());
-		            }
-
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						mostrarCaso();
+					}
 		        });
 				buttonPane.add(elegirOtroButton);
 				getRootPane().setDefaultButton(elegirOtroButton);
+				
 			}
 			{
 				JButton aceptarElCasoButton = new JButton("Aceptar el caso");
