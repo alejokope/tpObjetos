@@ -168,7 +168,6 @@ public class JugandoCaso extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				Expedientes siguienteVentana= new Expedientes();
 				siguienteVentana.setVisible(true);
-				setVisible(false);
 			}
 		});
 		pbotoneraAcciones.add(btnExpedientes);

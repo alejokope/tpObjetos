@@ -26,6 +26,7 @@ public class PaginaDeInicio extends JFrame {
 
 	private JPanel contentPane;
 	private String nombreJugador;
+	private PaginaDeInicio paginaActual = this;
 	
 	public void setNombreJugador(String nombreDetective) {
 		nombreJugador = nombreDetective;
@@ -98,8 +99,6 @@ public class PaginaDeInicio extends JFrame {
 				Expedientes pantallaExpedientes = new Expedientes();
 				pantallaExpedientes.setNombreJugador(nombreJugador);
 				pantallaExpedientes.setVisible(true);
-				setVisible(false);
-				dispose();
 			}
 		});
 		panel_1.add(btnExpedientes);
