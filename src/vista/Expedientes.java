@@ -114,7 +114,7 @@ public class Expedientes extends JFrame {
 			lblAquiNombre.setText(villano.getNombre());
 			lblAquiSexo.setText(villano.getSexo());
 			listSenia.setModel(new VillanosController(modelo).getCaracteristicasVillanoSeleccionado());
-			listHobbies.setModel(new VillanosController(modelo).getHobbiessVillanoSeleccionado());
+			listHobbies.setModel(new VillanosController(modelo).getHobbiesVillanoSeleccionado());
 			//pfoto.set
 			
 			

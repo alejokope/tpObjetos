@@ -12,12 +12,12 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class LugarInteresVista extends JFrame {
-  /*  private JPanel contentPane;
+public class  LugaresInteresVista extends JFrame {
+  private JPanel contentPane;
     private Caso caso;
     private DataDummy dataDummy = SingletonDataDummy.getInstance();
 
-    public LugarInteresVista(LugarInteres lugarInteresVisitado){
+    public  LugaresInteresVista(LugarInteres lugarInteresVisitado){
         this.caso = dataDummy.getCasoAsignado();
 
         setTitle(caso.getObjeto());
@@ -28,13 +28,13 @@ public class LugarInteresVista extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        Label estasEn = new Label("Estás visitando: " + lugarInteresVisitado.informacion());
+        Label estasEn = new Label("Estas visitando:  " + lugarInteresVisitado.informacion());
         estasEn.setFont(new Font("Arial",Font.PLAIN, 14));
         estasEn.setBounds(20, 20, 200, 22);
         contentPane.add(estasEn);
 
-        Ayuda ayuda = lugarInteresVisitado.darPista(SingletonDataDummy.getInstance().getJugadorAsignado());
-        List<String> pistas =
+      /*  Ayuda ayuda = lugarInteresVisitado.darPista(SingletonDataDummy.getInstance().getJugadorAsignado());
+        List<String> pistas;
         int y = 70;
         if(villano.getPlanEscape().get(villano.getPlanEscape().size()-1).equals(jugador.getPaisActual()) && !villano.estoyEnElMismoLugarDeInteresQueJugador(jugador)){
             JLabel noPaso = new JLabel("<html>CUIDADO DETECTIVE!! Ha estado a punto de caer en una trampa... La persona que busca está en la ciudad!</html>");
@@ -68,10 +68,10 @@ public class LugarInteresVista extends JFrame {
                 perdiste.setBounds(100, y, 200, 22);
                 contentPane.add(perdiste);
             }
-        }
+        }*/
 
         JButton continuar = new JButton("Continuar");
-        continuar.setBounds(200, y+120,180,50);
+        continuar.setBounds(200,120,180,50);
         continuar.setFont(new Font("Arial",Font.BOLD,12));
         continuar.setHorizontalAlignment(SwingConstants.CENTER);
         continuar.setVerticalAlignment(SwingConstants.CENTER);
@@ -85,5 +85,5 @@ public class LugarInteresVista extends JFrame {
         });
 
         contentPane.add(continuar);
-    }*/
+    }
 }

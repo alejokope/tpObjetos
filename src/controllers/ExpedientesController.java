@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -18,6 +19,15 @@ public class ExpedientesController {
 	public ListModel<Persona> getVillanos(){
 		DefaultListModel<Persona> lista= new DefaultListModel<Persona>();
 		List<Persona> villanos= modelo.getVillanos();
+		for(int i = 0; i<villanos.size();i++) {
+			lista.add(i,villanos.get(i));
+		}
+		return lista;	
+	}
+	
+	public List<Persona> getVillanos2(){
+		List<Persona> lista = new ArrayList<Persona>();
+		ArrayList<Persona> villanos= modelo.getVillanos();
 		for(int i = 0; i<villanos.size();i++) {
 			lista.add(i,villanos.get(i));
 		}

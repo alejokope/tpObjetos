@@ -89,4 +89,8 @@ public class ResolviendoElCasoViewModel {
 		this.caso=caso;
 		
 	}
+
+	public boolean hayVillanoCapturado() {
+		return dataDummy.getJugadorAsignado().getSospechoso()!=null;
+	}
 }

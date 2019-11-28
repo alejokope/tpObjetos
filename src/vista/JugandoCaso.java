@@ -150,9 +150,26 @@ public class JugandoCaso extends JFrame {
 		
 		JButton btnEmitirOrdenArresto = new JButton("Emitir Orden Arresto");
 		pbotoneraAcciones.add(btnEmitirOrdenArresto);
+		btnEmitirOrdenArresto.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				OrdenDeArresto siguienteVista = new OrdenDeArresto();
+				siguienteVista.setVisible(true);
+				setVisible(false);
+				dispose();
+				
+			}
+		});
 		
 		JLabel lOrdenDeArresto = new JLabel("");
+		if(modelo.hayVillanoCapturado()) {
+			String nombreVillano= modelo.getDataDummy().getJugadorAsignado().getSospechoso().getNombre();
+			lOrdenDeArresto.setText("Se emitio orden de arresto contra: " +nombreVillano);
+			
+		}
 		pbotoneraAcciones.add(lOrdenDeArresto);
+		
 		
 		JButton btnViajar = new JButton("Viajar");
         btnViajar.addActionListener(new ActionListener() {

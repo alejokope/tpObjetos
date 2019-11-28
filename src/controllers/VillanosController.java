@@ -26,14 +26,16 @@ public class VillanosController {
 		return lista;
 		
 	}
-	public ListModel<String> getHobbiessVillanoSeleccionado(){
+
+	public ListModel<String> getHobbiesVillanoSeleccionado(){
 		DefaultListModel<String> lista=new DefaultListModel<String>();
-		List <String> hobbies=villanoSeleccionado.getHobbies();
-		for(int i =0; i<hobbies.size();i++) {
-			lista.add(i, hobbies.get(i));;
+		List <String> hobbie=villanoSeleccionado.getHobbies();
+		for(int i =0; i<hobbie.size();i++) {
+			lista.add(i, hobbie.get(i));;
 		}
 		return lista;
 		
 	}
+
 
 }
