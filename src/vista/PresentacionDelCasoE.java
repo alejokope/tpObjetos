@@ -31,7 +31,7 @@ import javax.swing.JTextArea;
 public class PresentacionDelCasoE extends JDialog {
 	private final JPanel detalleDelCasoPanel = new JPanel();
 	private JTextArea relatoText;
-	private JLabel SaludoLabel = new JLabel();
+	private JLabel SaludoLabel;
 	
 	private SingletonDataDummy dataDummy;
 	private Caso casoActual;
@@ -83,6 +83,11 @@ public class PresentacionDelCasoE extends JDialog {
 		detalleDelCasoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(detalleDelCasoPanel, BorderLayout.CENTER);
 		detalleDelCasoPanel.setLayout(null);		
+		{
+			SaludoLabel = new JLabel();
+			SaludoLabel.setBounds(28, 11, 434, 34);
+			detalleDelCasoPanel.add(SaludoLabel);
+		}
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(28, 56, 434, 349);
@@ -93,10 +98,6 @@ public class PresentacionDelCasoE extends JDialog {
 		relatoText.setBounds(0, 0, 434, 349);
 		panel.add(relatoText);
 		relatoText.setColumns(10);
-		{
-			SaludoLabel.setBounds(28, 11, 434, 34);
-			detalleDelCasoPanel.add(SaludoLabel);
-		}
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));

@@ -26,6 +26,8 @@ import viewmodel.ExpedientesViewModel;
 
 import java.awt.Color;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Expedientes extends JFrame {
 
@@ -36,6 +38,11 @@ public class Expedientes extends JFrame {
 	private JList<String> listSenia= new JList<String>();
 	private JList<String> listHobbies= new JList<String>();
 	private JPanel pfoto;
+	private String nombreDetective;
+	
+	public void setNombreJugador(String nombreDetective) {
+		this.nombreDetective = nombreDetective;
+	}
 	
 
 	/**
@@ -172,7 +179,16 @@ public class Expedientes extends JFrame {
 		listHobbies.setBounds(0, 55, 342, 237);
 		pHobbies.add(listHobbies);
 		
-		JButton btnAtras = new JButton("atras");
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PaginaDeInicio pantallaDeInicio = new PaginaDeInicio();
+                pantallaDeInicio.setVisible(true);
+                pantallaDeInicio.setNombreJugador(nombreDetective);
+                setVisible(false);
+                dispose();
+			}
+		});
 		btnAtras.setBounds(209, 305, 97, 25);
 		pHobbies.add(btnAtras);
 		

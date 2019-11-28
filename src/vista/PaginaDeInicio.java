@@ -96,6 +96,7 @@ public class PaginaDeInicio extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Expedientes pantallaExpedientes = new Expedientes();
+				pantallaExpedientes.setNombreJugador(nombreJugador);
 				pantallaExpedientes.setVisible(true);
 				setVisible(false);
 				dispose();
