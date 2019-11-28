@@ -33,12 +33,11 @@ import javax.swing.JScrollBar;
 public class JugandoCaso extends JFrame {
 
 	private JPanel contentPane;
-	private Caso caso;
 	private ResolviendoElCasoViewModel modelo;
 	
 	
-	public void setCaso(Caso caso) {
-		this.caso=caso;
+	public void agregarCasoAlmodelo(Caso caso) {
+		modelo.setCaso(caso);
 	}
 	
 	
@@ -50,6 +49,7 @@ public class JugandoCaso extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					JugandoCaso frame = new JugandoCaso();
 					frame.setVisible(true);
 				} catch (Exception e) {

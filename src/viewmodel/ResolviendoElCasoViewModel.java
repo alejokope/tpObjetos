@@ -11,6 +11,8 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 import viewmodel.SingletonDataDummy;
 
 public class ResolviendoElCasoViewModel {
+	
+	private Caso caso;
    
     private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
     private List<Pais> paisesDondeNoPasoElCriminal = new ArrayList<Pais>();
@@ -72,4 +74,8 @@ public class ResolviendoElCasoViewModel {
     public void setCarmenSanDiegoMaster(SingletonDataDummy dataDummy) {
         this.dataDummy = dataDummy;
     }
+	public void setCaso(Caso caso) {
+		this.caso=caso;
+		
+	}
 }
