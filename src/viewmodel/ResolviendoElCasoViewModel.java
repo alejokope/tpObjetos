@@ -16,6 +16,10 @@ public class ResolviendoElCasoViewModel {
    
     private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
     private List<Pais> paisesDondeNoPasoElCriminal = new ArrayList<Pais>();
+
+    private List<String> recorridoAcertado = new ArrayList<>();
+    private List<String> recorridoNoAcertado = new ArrayList<>();
+
     private List<LugarInteres> lugaresDeInteres= new ArrayList<LugarInteres>();
     private DataDummy dataDummy = SingletonDataDummy.getInstance();
 
@@ -40,7 +44,35 @@ public class ResolviendoElCasoViewModel {
         return paisesDondeNoPasoElCriminal;
     }
 
+    public List<String> getRecorridoAcertado(){
+        List<String> paisesCaso = dataDummy.obtenerListaPaisesCaso();
+        List<String> paisesJugador = dataDummy.getPaisesVisitados();
 
+        List<String> listaDevolver = new ArrayList<>();
+
+        for(String pais: paisesJugador){
+            for(String paisCaso : paisesCaso){
+                if(pais.equalsIgnoreCase(paisCaso) && !listaDevolver.contains(pais)){
+                    listaDevolver.add(pais);
+                }
+            }
+        }
+        return listaDevolver;
+    }
+
+    public List<String> getRecorridoNoAcertado(){
+        List<String> paisesCaso = dataDummy.obtenerListaPaisesCaso();
+        List<String> paisesJugador = dataDummy.getPaisesVisitados();
+
+        List<String> listaDevolver = new ArrayList<>();
+
+        for(String pais: paisesJugador){
+            if(!paisesCaso.contains(pais)){
+                listaDevolver.add(pais);
+            }
+        }
+        return listaDevolver;
+    }
 
     public Jugador getJugador() {
         return SingletonDataDummy.getInstance().getJugadorAsignado();

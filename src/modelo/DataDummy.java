@@ -14,6 +14,7 @@ public class DataDummy {
     private Caso casoAsignado;
     private Jugador jugadorAsignado;
     private CarmenSanDiegoMaster carmenSanDiegoMaster;
+    private List<String> paisesVisitados = new ArrayList<>();
 
     private Jugador jugadorA = new Jugador("cosme fulanito");
     private Jugador jugadorB = new Jugador("perez garcia");
@@ -45,6 +46,13 @@ public class DataDummy {
                 .getJugador();
     }
 
+    public List<String> getPaisesVisitados() {
+        return paisesVisitados;
+    }
+
+    public void addPaisVisitado(String pais){
+        this.paisesVisitados.add(pais);
+    }
 
     public CarmenSanDiegoMaster getCarmenSanDiegoMaster() {
         return carmenSanDiegoMaster;
@@ -352,6 +360,7 @@ public class DataDummy {
 
         private ArrayList<Pais> generarCasos (Pais pais){
             ArrayList <Pais> caso = new ArrayList<Pais>();
+            caso.add(pais);
             return devolverListaPaisesAzar(pais,caso);
 
 
@@ -359,7 +368,6 @@ public class DataDummy {
 
         private ArrayList<Pais> devolverListaPaisesAzar (Pais pais, ArrayList<Pais> caso){
             ArrayList <Pais> caso2 = caso;
-            caso2.add(pais); //el pais de origen tambien se debe incluir en el plan de escape!!!!!!
             Pais proximo = obtenerConexionAleatoria(pais);
             if(caso.size() == 7){ //aumento la cantidad de paises en la lista despues de la modificacion de arriba
                 return caso2;
@@ -382,6 +390,8 @@ public class DataDummy {
 			return jugadorAsignado.getPaisActual();
 		}
 
-
+        public List<String> obtenerListaPaisesCaso(){
+            return this.casoAsignado.getPlanEscape().stream().map(pais -> pais.getNombre()).collect(Collectors.toList());
+        }
 }
 

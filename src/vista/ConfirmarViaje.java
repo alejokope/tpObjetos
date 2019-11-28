@@ -42,9 +42,9 @@ public class ConfirmarViaje extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
                 SingletonDataDummy.getInstance().getJugadorAsignado().setPaisActual(utils.obtenerPais(paisProximo));
-               JugandoCaso jugandoCaso = new JugandoCaso();
-               setVisible(false);
-               jugandoCaso.setVisible(true);
+                JugandoCaso jugandoCaso = new JugandoCaso();
+                setVisible(false);
+                jugandoCaso.setVisible(true);
             }
         });
         bAceptar.setBounds(129, 61, 97, 25);

@@ -3,6 +3,7 @@ package modelo;
 import excepciones.NoHayLugarDeInteresEnEstePais;
 import modelo.lugarInteres.LugarInteres;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarmenSanDiegoMaster {
@@ -10,9 +11,10 @@ public class CarmenSanDiegoMaster {
     private Jugador jugador;
     private Villano villano;
     private EstadoDeMensaje estadoDeMensaje;
-
+    private List<String> paisesCorrectos;
 	public CarmenSanDiegoMaster() {
 		this.estadoDeMensaje = new NoPasoPorEstePaisMensaje();
+		paisesCorrectos = new ArrayList<>();
 	}
 
 	public CarmenSanDiegoMaster(Caso caso, Jugador jugador, Villano villano) {

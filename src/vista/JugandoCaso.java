@@ -3,6 +3,7 @@ package vista;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -55,7 +56,7 @@ public class JugandoCaso extends JFrame {
 	 */
 	public JugandoCaso() {
 		modelo=new ResolviendoElCasoViewModel();
-		
+		SingletonDataDummy.getInstance().addPaisVisitado(SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getNombre());
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 634);
@@ -195,6 +196,22 @@ public class JugandoCaso extends JFrame {
 		
 		JScrollPane spRecorrido = new JScrollPane();
 		spRecorrido.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+        List<String> paises = SingletonDataDummy.getInstance().obtenerListaPaisesCaso();
+
+
+
+
+        if(modelo.getRecorridoAcertado().size() > 0){
+            int x = 20;
+		    for(String pais: modelo.getRecorridoAcertado()){
+		        Label _pais = new Label(pais);
+                _pais.setFont(new Font("Arial",Font.PLAIN, 14));
+                _pais.setBounds(20,x, 70, 22);
+                x += 20;
+		        spRecorrido.add(_pais);
+
+            }
+        }
 		panel.add(spRecorrido);
 		
 		JList lstRecorridoAcertado = new JList();
@@ -205,6 +222,19 @@ public class JugandoCaso extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBorder(new TitledBorder(null, "Recorrido incorrecto", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+//TODO AGREGAR BIEN
+        if(modelo.getRecorridoNoAcertado().size() > 0){
+            int x = 20;
+            for(String pais: modelo.getRecorridoNoAcertado()){
+                Label _pais = new Label(pais);
+                _pais.setFont(new Font("Arial",Font.PLAIN, 14));
+                _pais.setBounds(20,x, 70, 22);
+                x += 20;
+                scrollPane.add(_pais);
+
+            }
+        }
+
 		panel.add(scrollPane);
 		
 		JList listRecorridoErroneo = new JList();
