@@ -1,5 +1,7 @@
 package vista;
 
+import modelo.Jugador;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -25,33 +27,11 @@ import java.awt.event.WindowEvent;
 public class PaginaDeInicio extends JFrame {
 
 	private JPanel contentPane;
-	private String nombreJugador;
-	private PaginaDeInicio paginaActual = this;
-	
-	public void setNombreJugador(String nombreDetective) {
-		nombreJugador = nombreDetective;
-	}
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PaginaDeInicio frame = new PaginaDeInicio();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public PaginaDeInicio() {
+	public PaginaDeInicio(Jugador jugador) {
 		
 		setTitle("\u00BFDonde esta CarmenSanDiego?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
@@ -77,8 +57,7 @@ public class PaginaDeInicio extends JFrame {
 		btnInvestigar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PresentacionDelCasoE pantallaPresentacionCaso= new PresentacionDelCasoE();
-				pantallaPresentacionCaso.iniciarPresentacionDelCaso(nombreJugador);
+                PresentacionDelCasoE pantallaPresentacionCaso= new PresentacionDelCasoE(jugador);
 				setVisible(false);
 				dispose();
 			}
@@ -97,7 +76,7 @@ public class PaginaDeInicio extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Expedientes pantallaExpedientes = new Expedientes();
-				pantallaExpedientes.setNombreJugador(nombreJugador);
+				pantallaExpedientes.setNombreJugador(jugador.getNombre());
 				pantallaExpedientes.setVisible(true);
 			}
 		});
@@ -107,7 +86,7 @@ public class PaginaDeInicio extends JFrame {
 			@Override
 			public void windowActivated(WindowEvent arg0) {
 				JLabel jEnc= new JLabel();
-				jEnc.setText("¿Que haremos hoy detective "+nombreJugador+"?");
+				jEnc.setText("ï¿½Que haremos hoy detective "+jugador.getNombre()+"?");
 				jEnc.setHorizontalAlignment(SwingConstants.CENTER);
 				jEnc.setHorizontalTextPosition(SwingConstants.CENTER);
 				jEnc.setFont(new Font("Tahoma", Font.PLAIN, 23));

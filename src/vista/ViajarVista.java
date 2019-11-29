@@ -1,6 +1,5 @@
 package vista;
 
-import modelo.CarmenSanDiegoMaster;
 import modelo.Pais;
 import viewmodel.SingletonDataDummy;
 
@@ -51,7 +50,6 @@ public class ViajarVista extends JFrame {
         viajar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ConfirmarViaje confirmarViaje = new ConfirmarViaje(comboBox.getSelectedItem().toString());
-                setVisible(false);
                 confirmarViaje.setVisible(true);
             }
         });
@@ -65,9 +63,7 @@ public class ViajarVista extends JFrame {
         cancelar.setVerticalAlignment(SwingConstants.CENTER);
         cancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JugandoCaso jugandoCaso = new JugandoCaso();
                 setVisible(false);
-                jugandoCaso.setVisible(true);
             }
         });
         contentPane.add(cancelar);

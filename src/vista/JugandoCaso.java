@@ -1,62 +1,28 @@
 package vista;
 
+import modelo.CasoAJugar;
+import modelo.lugarInteres.LugarInteres;
+import viewmodel.ResolviendoElCasoViewModel;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
-
-import modelo.Caso;
-import modelo.DataDummy;
-import modelo.lugarInteres.LugarInteres;
-import viewmodel.ResolviendoElCasoViewModel;
-import viewmodel.SingletonDataDummy;
-
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.MatteBorder;
-
 public class JugandoCaso extends JFrame {
 
 	private JPanel contentPane;
-	private ResolviendoElCasoViewModel modelo;
-	
-	
-	public void agregarCasoAlmodelo(Caso caso) {
-		modelo.setCaso(caso);
-	}
-	
-	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					
-					JugandoCaso frame = new JugandoCaso();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
 
 	/**
 	 * Create the frame.
 	 */
-	public JugandoCaso() {
-		modelo=new ResolviendoElCasoViewModel();
-		SingletonDataDummy.getInstance().addPaisVisitado(SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getNombre());
-		setResizable(false);
+	public JugandoCaso(CasoAJugar caso) {
+        modelo.setCasoAJugar(caso);
+        setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 634);
 		contentPane = new JPanel();
@@ -73,8 +39,8 @@ public class JugandoCaso extends JFrame {
 		pArriba.add(lblEstasEn);
 		
 		JLabel lblPais = new JLabel();
-		lblPais.setText(SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getNombre());
-		
+		lblPais.setText(modelo.getNombrePaisActual());
+
 		pArriba.add(lblPais);
 		
 		JPanel pCentro = new JPanel();
@@ -97,18 +63,15 @@ public class JugandoCaso extends JFrame {
 
 
         int y = 70;
-        for(final LugarInteres lugarInteres : SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getLugaresInteres()){
+        for(final LugarInteres lugarInteres : modelo.getLugaresDeInteres()){
             final JButton _lugarInteres = new JButton(lugarInteres.informacion().toUpperCase());
             _lugarInteres.setBounds(20, y,120,50);
             _lugarInteres.setFont(new Font("Arial",Font.BOLD,12));
             _lugarInteres.setHorizontalAlignment(SwingConstants.CENTER);
             _lugarInteres.setVerticalAlignment(SwingConstants.CENTER);
-            _lugarInteres.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    LugaresInteresVista lugarInteresVista = new LugaresInteresVista(lugarInteres);
-                    setVisible(false);
-                    lugarInteresVista.setVisible(true);
-                }
+            _lugarInteres.addActionListener(e -> {
+                LugaresInteresVista lugarInteresVista = new LugaresInteresVista(lugarInteres);
+                lugarInteresVista.setVisible(true);
             });
            pBotonera.add(_lugarInteres);
             y += 70;
@@ -142,7 +105,7 @@ public class JugandoCaso extends JFrame {
 		
 		JLabel lOrdenDeArresto = new JLabel("");
 		if(modelo.hayVillanoCapturado()) {
-			String nombreVillano= modelo.getDataDummy().getJugadorAsignado().getSospechoso().getNombre();
+			String nombreVillano= modelo.getNombreDelVillanoACapturar();
 			lOrdenDeArresto.setText("Se emitio orden de arresto contra: " +nombreVillano);
 			
 		}
@@ -155,7 +118,6 @@ public class JugandoCaso extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ViajarVista viajarVista = new ViajarVista();
                 viajarVista.setVisible(true);
-                setVisible(false);
             }
         });
 		pbotoneraAcciones.add(btnViajar);
@@ -179,7 +141,7 @@ public class JugandoCaso extends JFrame {
 		
 		JScrollPane spRecorrido = new JScrollPane();
 		spRecorrido.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
-        List<String> paises = SingletonDataDummy.getInstance().obtenerListaPaisesCaso();
+        List<String> paises = modelo.getRecorridoAcertado();
 
 
 

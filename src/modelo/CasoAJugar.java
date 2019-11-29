@@ -6,10 +6,9 @@ import modelo.lugarInteres.LugarInteres;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarmenSanDiegoMaster {
+public class CasoAJugar {
     private Caso caso;
     private Jugador jugador;
-    private Villano villano;
     private EstadoDeMensaje estadoDeMensaje;
     private List<String> paisesCorrectos;
     private boolean termino = false;
@@ -22,24 +21,24 @@ public class CarmenSanDiegoMaster {
     public void setTermino(boolean termino) {
         this.termino = termino;
     }
-	public CarmenSanDiegoMaster() {
+	public CasoAJugar() {
 		this.estadoDeMensaje = new NoPasoPorEstePaisMensaje();
 		paisesCorrectos = new ArrayList<>();
+
 	}
 
-	public CarmenSanDiegoMaster(Caso caso, Jugador jugador, Villano villano) {
+	public CasoAJugar(Caso caso, Jugador jugador, Villano villano) {
 		this.estadoDeMensaje = new NoPasoPorEstePaisMensaje();
 		this.caso = caso;
 		this.jugador = jugador;
-		this.villano = villano;
 	}
 
 	public boolean estanEnElMismoPais(){
-		return villano.getPaisActual().getNombre().equalsIgnoreCase(jugador.getPaisActual().getNombre());
+		return caso.getResponsable().getPaisActual().getNombre().equalsIgnoreCase(jugador.getPaisActual().getNombre());
 	}
 
 	public boolean estanEnElMismoLugar(){
-		return villano.getLugarInteresActual().informacion().equalsIgnoreCase(
+		return caso.getResponsable().getLugarInteresActual().informacion().equalsIgnoreCase(
 		        jugador.getLugarInteresActual().informacion());
 	}
 
@@ -52,8 +51,8 @@ public class CarmenSanDiegoMaster {
     }
 	
 	public void viajar(Pais pais){
-        if(villano.tienePaisProximo()){
-            villano.viajar();
+        if(caso.getResponsable().tienePaisProximo()){
+            caso.getResponsable().viajar();
             jugador.viajar(pais);
         }
         else{
@@ -65,12 +64,8 @@ public class CarmenSanDiegoMaster {
 		this.caso = caso;
 	}
 
-	public void setJugador(Jugador jugador) {
+    public void setJugador(Jugador jugador) {
 		this.jugador = jugador;
-	}
-
-	public void setVillano(Villano villano) {
-		this.villano = villano;
 	}
 
 	public void ubicacionDeJugadorOVillano(LugarInteres lugarInteres, Persona persona) {
@@ -95,7 +90,7 @@ public class CarmenSanDiegoMaster {
 	}
 
 	public Villano getVillano() {
-		return villano;
+		return caso.getResponsable();
 	}
 
 	public EstadoDeMensaje getEstadoDeMensaje() {
@@ -111,6 +106,6 @@ public class CarmenSanDiegoMaster {
 	}
 
 	public boolean pasoPorElPais(){
-		return this.getJugador().getPaisActual().elVillanoPasoPorEstePais(villano);
+		return this.getJugador().getPaisActual().elVillanoPasoPorEstePais(getVillano());
 	}
 }

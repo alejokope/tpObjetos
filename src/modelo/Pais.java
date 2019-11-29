@@ -107,4 +107,14 @@ public class Pais {
 	public void setTitulo(Titulo titulo) {
 		this.titulo = titulo;
 	}
+
+    public boolean estanConectadoCon(Pais paisHasta) {
+ 	    for(Pais pais: getConexiones()){
+                if(pais.getNombre().equalsIgnoreCase(paisHasta.getNombre())){
+                    return true;
+                }
+ 	    }
+ 	    return false;
+
+    }
 }

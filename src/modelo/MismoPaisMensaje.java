@@ -3,22 +3,22 @@ package modelo;
 public class MismoPaisMensaje implements EstadoDeMensaje {
 
     @Override
-    public void actualizarEstadoDeMensaje(CarmenSanDiegoMaster carmenSanDiegoMaster) {
-        if(carmenSanDiegoMaster.seEncuentranAmbos()){
-            carmenSanDiegoMaster.setEstadoDeMensaje(new GameOverMensaje());
+    public void actualizarEstadoDeMensaje(CasoAJugar casoAJugar) {
+        if(casoAJugar.seEncuentranAmbos()){
+            casoAJugar.setEstadoDeMensaje(new GameOverMensaje());
         }
 
-        else if(!carmenSanDiegoMaster.estanEnElMismoPais() && carmenSanDiegoMaster.pasoPorElPais()){
-            carmenSanDiegoMaster.setEstadoDeMensaje(new DarPistaMensaje());
+        else if(!casoAJugar.estanEnElMismoPais() && casoAJugar.pasoPorElPais()){
+            casoAJugar.setEstadoDeMensaje(new DarPistaMensaje());
         }
 
-        else if(!carmenSanDiegoMaster.pasoPorElPais()){
-            carmenSanDiegoMaster.setEstadoDeMensaje(new NoPasoPorEstePaisMensaje());
+        else if(!casoAJugar.pasoPorElPais()){
+            casoAJugar.setEstadoDeMensaje(new NoPasoPorEstePaisMensaje());
         }
     }
 
     @Override
-    public String mostrarMensaje(CarmenSanDiegoMaster carmenSanDiegoMaster, Ayuda ayuda) {
+    public String mostrarMensaje(CasoAJugar casoAJugar, Ayuda ayuda) {
         return ayuda.mismoPaisMensaje();
     }
 

@@ -1,6 +1,6 @@
 package vista;
 
-import modelo.CarmenSanDiegoMaster;
+import modelo.CasoAJugar;
 import modelo.Caso;
 import modelo.Utils;
 import viewmodel.SingletonDataDummy;
@@ -15,13 +15,12 @@ public class ConfirmarViaje extends JFrame {
     private JPanel contentPane;
     private Caso caso;
     private Utils utils;
-    private CarmenSanDiegoMaster carmenSanDiegoMaster;
+    private CasoAJugar casoAJugar;
 
     public ConfirmarViaje(final String paisProximo){
-        //setIconImage(Toolkit.getDefaultToolkit().getImage(PresentacionCaso.class.getResource("/imagenes/iconosombrero.png")));
         setResizable(false);
         utils = new Utils();
-        carmenSanDiegoMaster = SingletonDataDummy.getInstance().getCarmenSanDiegoMaster();
+        casoAJugar = SingletonDataDummy.getInstance().getCasoAJugar();
         setTitle("CONFIRMAR VIAJE");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
         setBounds(500, 500, 383, 221);
@@ -52,15 +51,15 @@ public class ConfirmarViaje extends JFrame {
                 panel_2.add(lblSeHaViajado);
                 bAceptar.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent arg0) {
-                        carmenSanDiegoMaster.viajar(utils.obtenerPais(paisProximo));
+                        casoAJugar.viajar(utils.obtenerPais(paisProximo));
                         SingletonDataDummy.getInstance().getJugadorAsignado().setPaisActual(utils.obtenerPais(paisProximo));
-                        if(carmenSanDiegoMaster.isTermino()){
-                            FinalDelJuego finalDelJuego = new FinalDelJuego(carmenSanDiegoMaster);
+                        if(casoAJugar.isTermino()){
+                            FinalDelJuego finalDelJuego = new FinalDelJuego(casoAJugar);
                             setVisible(false);
                             finalDelJuego.setVisible(true);
                         }
                         else{
-                            JugandoCaso jugandoCaso = new JugandoCaso();
+                            JugandoCaso jugandoCaso = new JugandoCaso(casoAJugar);
                             setVisible(false);
                             jugandoCaso.setVisible(true);
                         }

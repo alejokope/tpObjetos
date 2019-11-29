@@ -119,8 +119,6 @@ public class OrdenDeArresto extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JugandoCaso vistaAtras= new JugandoCaso();
-				vistaAtras.setVisible(true);
 				setVisible(false);
 				
 			}
@@ -140,8 +138,6 @@ public class OrdenDeArresto extends JFrame {
 					}
 					villano = listaVillanos.get(i);
 					data.getJugadorAsignado().pedirOrdenDeArresto(villano);
-					JugandoCaso vistaAtras= new JugandoCaso();
-					vistaAtras.setVisible(true);
 					setVisible(false);
 				}
 				else {

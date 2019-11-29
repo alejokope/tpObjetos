@@ -12,7 +12,7 @@ import viewmodel.SingletonDataDummy;
 
 public class ResolviendoElCasoViewModel {
 	
-	private Caso caso;
+	private CasoAJugar casoAJugar;
    
     private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
     private List<Pais> paisesDondeNoPasoElCriminal = new ArrayList<Pais>();
@@ -31,10 +31,10 @@ public class ResolviendoElCasoViewModel {
     public Pais getPaisDeOrigen() {
     	return SingletonDataDummy.getInstance().obtenerPaisOrigen();
     }
-    public List<LugarInteres> getLugaresDeInteres(){
-    	return SingletonDataDummy.getInstance().getPaisActual().getLugaresInteres();
-    }
 
+    public List<LugarInteres> getLugaresDeInteres(){
+    	return casoAJugar.getJugador().getPaisActual().getLugaresInteres();
+    }
 
     public List<Pais> getPaisesDondePasoElCriminal() {
         return paisesDondePasoElCriminal;
@@ -94,35 +94,24 @@ public class ResolviendoElCasoViewModel {
         return getPaisDeInicio().getConexiones();
     }
 
-    public List<LugarInteres> getLugaresInteres() {
-        return getPaisDeInicio().getLugaresInteres();
-    }
-
-    public LugarInteres obtenerLugarDeInteres(LugarInteres otroLugarInteres) {
-        LugarInteres lugarInteresNuevo = new LugarInteres();
-        for(LugarInteres lugarInteres : getLugaresInteres()){
-            if(lugarInteres.esElMismoLugarInteres(otroLugarInteres)){
-                lugarInteresNuevo = lugarInteres;
-            }
-        }
-        return lugarInteresNuevo;
-    }
-
-    public void jugadorIngresarA(LugarInteres lugarInteres){
-        getJugador().setLugarInteresActual(obtenerLugarDeInteres(lugarInteres));
-    }
-
     public String obtenerTituloDelCaso(){
         return getCaso().getTitulo();
     }
 
 
-	public void setCaso(Caso caso) {
-		this.caso=caso;
-		
+	public boolean hayVillanoCapturado() {
+		return casoAJugar.getJugador().hayOrdenDeArresto();
 	}
 
-	public boolean hayVillanoCapturado() {
-		return dataDummy.getJugadorAsignado().getSospechoso()!=null;
-	}
+    public void setCasoAJugar(CasoAJugar casoAJugar) {
+        this.casoAJugar = casoAJugar;
+    }
+
+    public String getNombrePaisActual() {
+        return casoAJugar.getJugador().getPaisActual().getNombre();
+    }
+
+    public String getNombreDelVillanoACapturar() {
+        return casoAJugar.getVillano().getNombre();
+    }
 }

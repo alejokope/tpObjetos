@@ -2,6 +2,7 @@ package vista;
 
 import modelo.*;
 import modelo.lugarInteres.LugarInteres;
+import viewmodel.LugarInteresVM;
 import viewmodel.SingletonDataDummy;
 
 import javax.swing.*;
@@ -17,14 +18,10 @@ public class  LugaresInteresVista extends JFrame {
     private Caso caso;
     private Villano villano;
     private Jugador jugador;
-    private DataDummy dataDummy = SingletonDataDummy.getInstance();
     private Utils utils = new Utils();
     private String pista;
 
-    public  LugaresInteresVista(LugarInteres lugarInteresVisitado){
-        this.caso = dataDummy.getCasoAsignado();
-        this.villano = dataDummy.getVillanoAsignado();
-        this.jugador = dataDummy.getJugadorAsignado();
+    public  LugaresInteresVista(LugarInteresVM modelo){
         setTitle(caso.getTitulo());
         setBounds(500, 500, 700, 400);
         contentPane = new JPanel();
@@ -32,26 +29,12 @@ public class  LugaresInteresVista extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        lugarInteresVisitado.darPista(dataDummy.getJugadorAsignado());
-        Ayuda ayuda = lugarInteresVisitado.getAyuda();
-        Label estasEn = new Label("Estas visitando: " + lugarInteresVisitado.informacion());
+        modelo.getAyuda().darPistaMensaje();
+
+        Label estasEn = new Label("Estas visitando: " + modelo.getLugarInteres().informacion());
         estasEn.setFont(new Font("Arial",Font.PLAIN, 14));
         estasEn.setBounds(20, 20, 200, 22);
         contentPane.add(estasEn);
-
-        if(!villano.tienePaisProximo() && jugador.getPaisActual().getNombre().equalsIgnoreCase(villano.getPaisActual().getNombre())
-        && !lugarInteresVisitado.informacion().equalsIgnoreCase(villano.getLugarInteresActual().informacion())){
-            pista = "CUIDADO DETECTIVE!! Ha estado a punto de caer en una trampa. La persona que busca esta en esta ciudad";
-        }
-        else if(!utils.paisEstaEnElCaso(caso.getPlanEscape(),jugador.getPaisActual())){
-            pista = "Lo siento, creo que se ha equivocado de ciudad, no hay nadie con esas caracteristicas";
-        }
-        else if (!jugador.getPaisActual().getNombre().equalsIgnoreCase(caso.getPaisOrigen().getNombre()) &&jugador.getPaisActual().getNombre().equalsIgnoreCase(villano.getPaisActual().getNombre()) && lugarInteresVisitado.informacion().equalsIgnoreCase(villano.getLugarInteresActual().informacion())){
-            if(jugador.getSospechoso() != null && jugador.getSospechoso().getNombre().equalsIgnoreCase(villano.getNombre())){
-                pista = "ALTO DETENGASE!! " + dataDummy.getJugadorAsignado().getSospechoso().getNombre();
-            }
-        }
-        else{ pista = ayuda.darPistaMensaje(); }
 
         JLabel pistaText = new JLabel();
         pistaText.setText(pista);
@@ -67,9 +50,7 @@ public class  LugaresInteresVista extends JFrame {
 
         continuar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JugandoCaso resolviendoCaso = new JugandoCaso();
                 setVisible(false);
-                resolviendoCaso.setVisible(true);
             }
         });
 

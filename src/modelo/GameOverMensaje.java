@@ -3,23 +3,23 @@ package modelo;
 public class GameOverMensaje implements EstadoDeMensaje {
 
     @Override
-    public void actualizarEstadoDeMensaje(CarmenSanDiegoMaster carmenSanDiegoMaster) {
-        if(!carmenSanDiegoMaster.seEncuentranAmbos() && carmenSanDiegoMaster.estanEnElMismoPais()){
-            carmenSanDiegoMaster.setEstadoDeMensaje(new MismoPaisMensaje());
+    public void actualizarEstadoDeMensaje(CasoAJugar casoAJugar) {
+        if(!casoAJugar.seEncuentranAmbos() && casoAJugar.estanEnElMismoPais()){
+            casoAJugar.setEstadoDeMensaje(new MismoPaisMensaje());
         }
 
-        else if(!carmenSanDiegoMaster.estanEnElMismoPais() && carmenSanDiegoMaster.pasoPorElPais()){
-            carmenSanDiegoMaster.setEstadoDeMensaje(new DarPistaMensaje());
+        else if(!casoAJugar.estanEnElMismoPais() && casoAJugar.pasoPorElPais()){
+            casoAJugar.setEstadoDeMensaje(new DarPistaMensaje());
         }
 
-        else if(!carmenSanDiegoMaster.pasoPorElPais()){
-            carmenSanDiegoMaster.setEstadoDeMensaje(new NoPasoPorEstePaisMensaje());
+        else if(!casoAJugar.pasoPorElPais()){
+            casoAJugar.setEstadoDeMensaje(new NoPasoPorEstePaisMensaje());
         }
     }
 
     @Override
-    public String mostrarMensaje(CarmenSanDiegoMaster carmenSanDiegoMaster, Ayuda ayuda) {
-        return ayuda.gameOverMensaje(carmenSanDiegoMaster.getVillano());
+    public String mostrarMensaje(CasoAJugar casoAJugar, Ayuda ayuda) {
+        return ayuda.gameOverMensaje(casoAJugar.getVillano());
     }
 
     //condicion: villano y jugador estan en el mismo lugar y pais, carmenSanDiego sabe seEncontraronAmbos.

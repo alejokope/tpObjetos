@@ -1,10 +1,6 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import modelo.CarmenSanDiegoMaster;
-import modelo.Caso;
+import modelo.CasoAJugar;
 import viewmodel.SingletonDataDummy;
 
 import javax.swing.JFrame;
@@ -12,12 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
-import java.awt.CardLayout;
 import java.awt.Color;
 
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
 
 public class FinalDelJuego extends JFrame {
 
@@ -28,7 +21,7 @@ public class FinalDelJuego extends JFrame {
     JLabel terceraOracionLabel = new JLabel("");
     JButton victoriaODerrotaButton = new JButton("");
 
-    public FinalDelJuego(CarmenSanDiegoMaster carmenSanDiegoMaster) {
+    public FinalDelJuego(CasoAJugar casoAJugar) {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
@@ -53,31 +46,31 @@ public class FinalDelJuego extends JFrame {
         victoriaODerrotaButton.setBounds(279, 92, 149, 25);
         botonFinalPanel.add(victoriaODerrotaButton);
 
-        condicionDeVictoriaODerrota(carmenSanDiegoMaster);
+        condicionDeVictoriaODerrota(casoAJugar);
     }
 
 
-    private void condicionDeVictoriaODerrota(CarmenSanDiegoMaster carmenSanDiegoMaster) {
-        if(carmenSanDiegoMaster.gano(SingletonDataDummy.getInstance().getVillanoAsignado(),SingletonDataDummy.getInstance().getJugadorAsignado())) {
-            textoDeVictoria(carmenSanDiegoMaster);
+    private void condicionDeVictoriaODerrota(CasoAJugar casoAJugar) {
+        if(casoAJugar.gano(SingletonDataDummy.getInstance().getVillanoAsignado(),SingletonDataDummy.getInstance().getJugadorAsignado())) {
+            textoDeVictoria(casoAJugar);
         }
         else {
-            textoDeDerrota(carmenSanDiegoMaster);
+            textoDeDerrota(casoAJugar);
         }
     }
 
-    private void textoDeVictoria(CarmenSanDiegoMaster carmenSanDiegoMaster) {
+    private void textoDeVictoria(CasoAJugar casoAJugar) {
         primeraOracionLabel.setText("Enhorabuena!");
-        segundaOracionLabel.setText("Ha detenido a Carmen Sandiego y recuperado la "+ carmenSanDiegoMaster.getCaso().getObjeto());
+        segundaOracionLabel.setText("Ha detenido a Carmen Sandiego y recuperado la "+ casoAJugar.getCaso().getObjeto());
         terceraOracionLabel.setForeground(Color.GREEN);
         terceraOracionLabel.setText("Felicitaciones!!!!!");
         victoriaODerrotaButton.setText("Disfrutar de la victoria");
     }
 
-    private void textoDeDerrota(CarmenSanDiegoMaster carmenSanDiegoMaster) {
+    private void textoDeDerrota(CasoAJugar casoAJugar) {
         primeraOracionLabel.setForeground(Color.RED);
         primeraOracionLabel.setText("Malas noticias.....");
-        segundaOracionLabel.setText("Ha detenido a " + carmenSanDiegoMaster.getVillano().getNombre() + ", pero usted tenia una orden contra "+ carmenSanDiegoMaster.getJugador().getSospechoso().getNombre());
+        segundaOracionLabel.setText("Ha detenido a " + casoAJugar.getVillano().getNombre() + ", pero usted tenia una orden contra "+ casoAJugar.getJugador().getSospechoso().getNombre());
         terceraOracionLabel.setText("Lamentablemente este crimen quedara impune");
         victoriaODerrotaButton.setText("Aceptar");
     }

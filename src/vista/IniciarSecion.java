@@ -153,10 +153,8 @@ public class IniciarSecion extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(dataDummy.esUnUsuarioValido(textUsuario,textContrasenia)) {
 					nombreDetective = textUsuario.getText().toString();
-	                dataDummy.setJugadorAsignado(dataDummy.obtenerJugadorAsignado(textUsuario));
-	                PaginaDeInicio pantallaDeInicio = new PaginaDeInicio();
+	                PaginaDeInicio pantallaDeInicio = new PaginaDeInicio(dataDummy.obtenerJugadorAsignado(textUsuario));
 	                pantallaDeInicio.setVisible(true);
-	                pantallaDeInicio.setNombreJugador(nombreDetective);
 	                setVisible(false);
 	                dispose();
 				}

@@ -1,7 +1,6 @@
 package modelo;
 
 import modelo.lugarInteres.*;
-import viewmodel.ResolviendoElCasoViewModel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class DataDummy {
     private Villano villanoAsignado;
     private Caso casoAsignado;
     private Jugador jugadorAsignado;
-    private CarmenSanDiegoMaster carmenSanDiegoMaster;
+    private CasoAJugar casoAJugar;
     private List<String> paisesVisitados = new ArrayList<>();
 
     private Jugador jugadorA = new Jugador("cosme fulanito");
@@ -30,8 +29,8 @@ public class DataDummy {
         return (int) (Math.random() * maximo);
     }
 
-    public void setearCarmenSanDiego(CarmenSanDiegoMaster carmenSanDiegoMaster){
-        this.carmenSanDiegoMaster = carmenSanDiegoMaster;
+    public void setearCarmenSanDiego(CasoAJugar casoAJugar){
+        this.casoAJugar = casoAJugar;
     }
     public boolean esUnUsuarioValido(JTextField nombreIngresadoTextField, JPasswordField contraseniaIngresadaTextField) {
         return usuarios.stream()
@@ -54,8 +53,8 @@ public class DataDummy {
         this.paisesVisitados.add(pais);
     }
 
-    public CarmenSanDiegoMaster getCarmenSanDiegoMaster() {
-        return carmenSanDiegoMaster;
+    public CasoAJugar getCasoAJugar() {
+        return casoAJugar;
     }
 
     public void setearPaisJugadorAsignado(Pais pais){

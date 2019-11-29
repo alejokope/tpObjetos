@@ -2,43 +2,20 @@ package modelo;
 
 import excepciones.NoEsPaisProximoException;
 
-import java.util.List;
-
 public class Jugador extends Persona{
-    private Caso caso;
-    private Pais paisOrigen;
     private Persona sospechoso;
 
     public Jugador(String nombre){
         this.nombre = nombre;
     }
-
-    public Jugador(Caso caso) {
-        this.caso = caso;
-        this.paisOrigen = caso.getPaisOrigen();
-        this.paisActual = caso.getPaisOrigen();
-    }
     
-    public void viajar(Pais pais){
-        if(estaEstePaisConectadoAMiPaisActual(pais)){
-            this.paisActual = pais;
+    public void viajar(Pais paisHasta){
+        if(this.paisActual.estanConectadoCon(paisHasta)){
+            this.paisActual = paisHasta;
         }
         else{
             throw new NoEsPaisProximoException();
         }
-    }
-
-    public boolean estaEstePaisConectadoAMiPaisActual(Pais pais) {
-        for(Pais pais1: obtenerConexionesDeMiPaisActual()){
-            if(pais1.getNombre().equalsIgnoreCase(pais.getNombre())){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public List<Pais> obtenerConexionesDeMiPaisActual() {
-        return paisActual.getConexiones();
     }
 
 	public Persona getSospechoso() {
@@ -53,8 +30,7 @@ public class Jugador extends Persona{
         return sospechoso == villano;
     }
 
-    public void asignarPaisDelCaso(Caso caso) {
-        this.paisOrigen = caso.getPaisOrigen();
-        this.paisActual = caso.getPaisOrigen();
+    public boolean hayOrdenDeArresto() {
+        return sospechoso != null;
     }
 }

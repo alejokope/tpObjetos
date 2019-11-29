@@ -9,19 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modelo.*;
+import viewmodel.PresentacionCasoViewModel;
 import viewmodel.SingletonDataDummy;
 
-import javax.swing.JTextPane;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JTextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JTextArea;
@@ -30,45 +25,25 @@ public class PresentacionDelCasoE extends JDialog {
 	private final JPanel detalleDelCasoPanel = new JPanel();
 	private JTextArea relatoText;
 	private JLabel SaludoLabel;
+
+	private PresentacionCasoViewModel modelo = new PresentacionCasoViewModel();
 	
-	private Caso casoActual;
-	private String nombreDetective;
-	
-	
-	public void iniciarPresentacionDelCaso(String nombreDetective) {
-		this.nombreDetective = nombreDetective;
-    	mostrarCaso();
+	public void iniciarPresentacionDelCaso(Jugador jugador) {
+		modelo.setJugador(jugador);
     	this.setVisible(true);
 	}
 	
 	private void mostrarCaso() {
-    	casoActual = SingletonDataDummy.getInstance().obtenerCasoAlAzar();
-    	this.relatoText.setText(casoActual.getReporte());
-    	this.setTitle(casoActual.getTitulo());
-    	this.SaludoLabel.setText("Detective " + nombreDetective + ", tenemos unos casos para ti.");
-	}
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PresentacionDelCasoE frame = new PresentacionDelCasoE();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+    	this.relatoText.setText(modelo.getReporte());
+    	this.setTitle(modelo.getTitulo());
+    	this.SaludoLabel.setText("Detective " + modelo.getNombreDetective() + ", tenemos unos casos para ti.");
 	}
 	
 	/**
 	 * Create the dialog.
 	 */
-	public PresentacionDelCasoE() {
+	public PresentacionDelCasoE(Jugador jugador) {
+	    iniciarPresentacionDelCaso(jugador);
         System.out.println("----------------------------------");
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -117,32 +92,10 @@ public class PresentacionDelCasoE extends JDialog {
 				JButton aceptarElCasoButton = new JButton("Aceptar el caso");
 				aceptarElCasoButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-					    //TODO CAMBIAR ESTO, LO HICE PARA ZAFAR
-                        CarmenSanDiegoMaster carmenSanDiegoMaster = new CarmenSanDiegoMaster();
-                        carmenSanDiegoMaster.setCaso(casoActual);
-                        carmenSanDiegoMaster.setVillano(casoActual.getResponsable());
-                        SingletonDataDummy.getInstance().setearPaisJugadorAsignado(casoActual.getPaisOrigen());
-                        carmenSanDiegoMaster.setJugador(SingletonDataDummy.getInstance().getJugadorAsignado());
 
-                        SingletonDataDummy.getInstance().setearCarmenSanDiego(carmenSanDiegoMaster);
-
-
-                        System.out.println("----------------------------------");
-                        for(Pais pais: casoActual.getPlanEscape()){
-                            System.out.println(pais.getNombre());
-                        }
-
-                        System.out.println(casoActual.getResponsable().getNombre());;
-                        System.out.println("----------------------------------");
-
-
-
-                        JugandoCaso siguienteVista= new JugandoCaso();
+                        JugandoCaso siguienteVista= new JugandoCaso(modelo.getCasoAJugar());
                         siguienteVista.setVisible(true);
-                        siguienteVista.agregarCasoAlmodelo(casoActual);
 						setVisible(false);
-						dispose();
-
 					}
 				});
 				aceptarElCasoButton.setActionCommand("OK");
@@ -151,5 +104,7 @@ public class PresentacionDelCasoE extends JDialog {
 					
 			}
 		}
-	}
+
+        mostrarCaso();
+    }
 }
