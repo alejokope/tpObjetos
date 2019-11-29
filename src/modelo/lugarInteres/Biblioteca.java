@@ -1,6 +1,6 @@
 package modelo.lugarInteres;
 
-import modelo.Jugador;
+import modelo.CasoAJugar;
 
 public class Biblioteca extends LugarInteres {
 
@@ -8,15 +8,15 @@ public class Biblioteca extends LugarInteres {
 	public static final int PORCENTAJE_EVALUADO = 50;
 
 	@Override
-	public void darPista(Jugador jugador) {
-		if (pasoElVillano && chanceDeObtenerPistaExtra()) {
-			ayuda.setPista(obtenerPistas(villano.getHobbies()) + "\n" +
-					       obtenerPistas(villano.getSeniasParticulares()) + "\n" +
-					       obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo(jugador)));
+	public String pasoPorElPais(CasoAJugar casoAJugar) {
+		if (chanceDeObtenerPistaExtra()) {
+			return ayuda.pasoPorElPais(obtenerPistas(casoAJugar.getVillano().getHobbies()) + "\n" +
+					       obtenerPistas(casoAJugar.getVillano().getSeniasParticulares()) + "\n" +
+					       obtenerPistas(casoAJugar.getVillano().obtenerCaracteristicasDelPaisProximo(casoAJugar.getJugador())));
 		}
-		else if(pasoElVillano){
-			ayuda.setPista(obtenerPistas(villano.getSeniasParticulares()) + "\n" +
-					       obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo(jugador)));
+		else{
+			return ayuda.pasoPorElPais(obtenerPistas(casoAJugar.getVillano().getSeniasParticulares()) + "\n" +
+					       obtenerPistas(casoAJugar.getVillano().obtenerCaracteristicasDelPaisProximo(casoAJugar.getJugador())));
 		}
 	}
 

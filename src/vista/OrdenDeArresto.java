@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import controllers.ExpedientesController;
 import jdk.nashorn.internal.runtime.ListAdapter;
-import modelo.DataDummy;import modelo.EstadoDeMensaje;
+import modelo.DataDummy;
 import modelo.Persona;
 import viewmodel.ExpedientesViewModel;
 import viewmodel.ResolviendoElCasoViewModel;

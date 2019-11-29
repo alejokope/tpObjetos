@@ -9,7 +9,6 @@ import java.util.List;
 public class CasoAJugar {
     private Caso caso;
     private Jugador jugador;
-    private EstadoDeMensaje estadoDeMensaje;
     private List<String> paisesCorrectos;
     private boolean termino = false;
 
@@ -22,13 +21,11 @@ public class CasoAJugar {
         this.termino = termino;
     }
 	public CasoAJugar() {
-		this.estadoDeMensaje = new NoPasoPorEstePaisMensaje();
 		paisesCorrectos = new ArrayList<>();
 
 	}
 
 	public CasoAJugar(Caso caso, Jugador jugador, Villano villano) {
-		this.estadoDeMensaje = new NoPasoPorEstePaisMensaje();
 		this.caso = caso;
 		this.jugador = jugador;
 	}
@@ -91,18 +88,6 @@ public class CasoAJugar {
 
 	public Villano getVillano() {
 		return caso.getResponsable();
-	}
-
-	public EstadoDeMensaje getEstadoDeMensaje() {
-		return estadoDeMensaje;
-	}
-
-	public void setEstadoDeMensaje(EstadoDeMensaje estadoDeMensaje) {
-		this.estadoDeMensaje = estadoDeMensaje;
-	}
-
-	public void actualizarEstadoDeMensaje(){
-		estadoDeMensaje.actualizarEstadoDeMensaje(this);
 	}
 
 	public boolean pasoPorElPais(){

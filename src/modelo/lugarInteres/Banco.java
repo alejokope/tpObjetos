@@ -1,15 +1,14 @@
 package modelo.lugarInteres;
 
-import modelo.Jugador;
+import modelo.CasoAJugar;
+
 
 public class Banco extends LugarInteres {
 
 	@Override
-	public void darPista(Jugador jugador) {
-		if (pasoElVillano) {
-			ayuda.setPista(obtenerPistas(villano.obtenerCaracteristicasDelPaisProximo(jugador)) + "\n" +
-						   obtenerPistas(villano.getSeniasParticulares()));
-		}
+	public String pasoPorElPais(CasoAJugar casoAJugar){
+		return ayuda.pasoPorElPais(obtenerPistas(casoAJugar.getVillano().obtenerCaracteristicasDelPaisProximo(casoAJugar.getJugador())) + "\n" +
+				                   obtenerPistas(casoAJugar.getVillano().getSeniasParticulares()));
 	}
 
 	@Override
