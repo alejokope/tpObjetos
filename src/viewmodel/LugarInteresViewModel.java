@@ -28,6 +28,10 @@ public class LugarInteresViewModel {
 	public Caso getCaso() {
 		return casoAJugar.getCaso();
 	}
+
+	public void setLugarDeInteresDelJugador() {
+		casoAJugar.getJugador().setLugarInteresActual(lugarInteres);
+	}
     
     
 }

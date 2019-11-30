@@ -17,6 +17,8 @@ public class LugarInteresVista extends JFrame {
     private JPanel contentPane;
 
     public LugarInteresVista(LugarInteresViewModel modelo){
+    	modelo.setLugarDeInteresDelJugador();
+    	
         setTitle(modelo.getCaso().getTitulo());
         setBounds(500, 500, 700, 400);
         contentPane = new JPanel();
