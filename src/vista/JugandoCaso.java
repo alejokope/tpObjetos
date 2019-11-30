@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class JugandoCaso extends JFrame {
+	//blablabla
 
 	private JPanel contentPane;
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
