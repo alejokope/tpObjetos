@@ -1,0 +1,33 @@
+package viewmodel;
+
+import modelo.Caso;
+import modelo.CasoAJugar;
+import modelo.lugarInteres.LugarInteres;
+
+public class LugarInteresViewModel {
+    private CasoAJugar casoAJugar;
+    private LugarInteres lugarInteres;
+    
+    public LugarInteresViewModel(CasoAJugar casoAJugar, LugarInteres lugarInteres) {
+    	this.casoAJugar = casoAJugar;
+    	this.lugarInteres = lugarInteres;
+    }
+
+    public LugarInteres getLugarInteres() {
+            return lugarInteres;
+    }
+
+	public CasoAJugar getCasoAJugar() {
+		return casoAJugar;
+	}
+
+	public String darPista() {
+		return lugarInteres.darPista(casoAJugar);
+	}
+	
+	public Caso getCaso() {
+		return casoAJugar.getCaso();
+	}
+    
+    
+}

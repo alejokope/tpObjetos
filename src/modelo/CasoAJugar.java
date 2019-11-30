@@ -25,7 +25,7 @@ public class CasoAJugar {
 
 	}
 
-	public CasoAJugar(Caso caso, Jugador jugador, Villano villano) {
+	public CasoAJugar(Caso caso, Jugador jugador) {
 		this.caso = caso;
 		this.jugador = jugador;
 	}

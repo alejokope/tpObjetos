@@ -14,6 +14,7 @@ import java.util.List;
 public class ViajarVista extends JFrame {
     private JPanel contentPane;
     private JComboBox comboBox;
+    
     public ViajarVista(){
         setTitle("Viajar");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
@@ -23,7 +24,7 @@ public class ViajarVista extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        Label estasEn = new Label("Estás en:");
+        Label estasEn = new Label("Estas en:");
         estasEn.setFont(new Font("Arial",Font.PLAIN, 14));
         estasEn.setBounds(20, 20, 70, 22);
         contentPane.add(estasEn);

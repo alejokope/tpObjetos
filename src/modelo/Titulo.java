@@ -6,7 +6,7 @@ public enum Titulo {
     TITULO3("Orquidias chinas"),
     TITULO4("Medallas y trofeos"),
     TITULO5("Contrabando de organos"),
-    TITULO6("Muñequitas suiza"),
+    TITULO6("Muniequitas suiza"),
     TITULO7("Llave egipcia"),
     TITULO8("Fuentes electricas"),
     TITULO9("Pic magico");

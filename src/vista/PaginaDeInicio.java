@@ -28,13 +28,10 @@ public class PaginaDeInicio extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Create the frame.
-	 */
 	public PaginaDeInicio(Jugador jugador) {
 		
 		setTitle("\u00BFDonde esta CarmenSanDiego?");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 599,353);
@@ -86,7 +83,7 @@ public class PaginaDeInicio extends JFrame {
 			@Override
 			public void windowActivated(WindowEvent arg0) {
 				JLabel jEnc= new JLabel();
-				jEnc.setText("�Que haremos hoy detective "+jugador.getNombre()+"?");
+				jEnc.setText("Que haremos hoy detective "+jugador.getNombre()+"?");
 				jEnc.setHorizontalAlignment(SwingConstants.CENTER);
 				jEnc.setHorizontalTextPosition(SwingConstants.CENTER);
 				jEnc.setFont(new Font("Tahoma", Font.PLAIN, 23));

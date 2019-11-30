@@ -2,6 +2,7 @@ package vista;
 
 import modelo.CasoAJugar;
 import modelo.lugarInteres.LugarInteres;
+import viewmodel.LugarInteresViewModel;
 import viewmodel.ResolviendoElCasoViewModel;
 
 import javax.swing.*;
@@ -17,9 +18,6 @@ public class JugandoCaso extends JFrame {
 	private JPanel contentPane;
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
 
-	/**
-	 * Create the frame.
-	 */
 	public JugandoCaso(CasoAJugar caso) {
         modelo.setCasoAJugar(caso);
         setResizable(false);
@@ -70,7 +68,7 @@ public class JugandoCaso extends JFrame {
             _lugarInteres.setHorizontalAlignment(SwingConstants.CENTER);
             _lugarInteres.setVerticalAlignment(SwingConstants.CENTER);
             _lugarInteres.addActionListener(e -> {
-                LugaresInteresVista lugarInteresVista = new LugaresInteresVista(lugarInteres);
+                LugarInteresVista lugarInteresVista = new LugarInteresVista(new LugarInteresViewModel(caso,lugarInteres));
                 lugarInteresVista.setVisible(true);
             });
            pBotonera.add(_lugarInteres);

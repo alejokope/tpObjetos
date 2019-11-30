@@ -26,7 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class IniciarSecion extends JFrame {
+public class IniciarSesion extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textUsuario;
@@ -34,34 +34,10 @@ public class IniciarSecion extends JFrame {
 	private DataDummy dataDummy = SingletonDataDummy.getInstance();
 	private String nombreDetective;
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		
-		
-		
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IniciarSecion frame = new IniciarSecion();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public IniciarSecion() {
+	public IniciarSesion() {
 		setResizable(false);
 		setTitle("Bienvenid@");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSecion.class.getResource("/imagenes/iconosombrero.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
 		contentPane = new JPanel();
@@ -146,7 +122,7 @@ public class IniciarSecion extends JFrame {
 		JButton btnJugar = new JButton("");
 		btnJugar.setBorder(new EmptyBorder(10, 10, 10, 10));
 		btnJugar.setBounds(225, 5, 184, 82);
-		btnJugar.setIcon(new ImageIcon(IniciarSecion.class.getResource("/imagenes/botonJugarGrande.png")));
+		btnJugar.setIcon(new ImageIcon(IniciarSesion.class.getResource("/imagenes/botonJugarGrande.png")));
 		panel.add(btnJugar);
 		btnJugar.addActionListener(new ActionListener() {			
 			@Override

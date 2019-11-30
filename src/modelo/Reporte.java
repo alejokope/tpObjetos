@@ -22,9 +22,9 @@ public enum Reporte {
         		"el banco de organos mas famoso del mundo\n" + 
         		"Cada organo por separado esta muy bien cotizado\n" + 
         		"en el mercado negro"),
-        REPORTE6("muñecas suisa hechas de circon y diamante, expuestas en \n" + 
+        REPORTE6("muniecas suisa hechas de circon y diamante, expuestas en \n" +
         		"las vitrinas de famos joyeria fueron robadas la noche anterior\n" + 
-        		"cada muñequita vale mas de medio millon de euros"),
+        		"cada muniequita vale mas de medio millon de euros"),
         REPORTE7("llave del antiguo egipto, encontrada en la rivera del \n" + 
         		"mismo nilo es robado por un misterioso ladron.\n" + 
         		"era exhibida en el museo de historia . dicen que tiene\n" + 

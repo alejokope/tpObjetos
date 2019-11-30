@@ -47,26 +47,6 @@ public class Expedientes extends JFrame {
 		this.nombreDetective = nombreDetective;
 	}
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Expedientes frame = new Expedientes();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Expedientes() {
 		modelo = new ExpedientesViewModel();
 		setResizable(false);
