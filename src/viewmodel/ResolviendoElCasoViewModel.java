@@ -114,7 +114,8 @@ public class ResolviendoElCasoViewModel {
     }
 
     public String getNombreDelVillanoACapturar() {
-        return casoAJugar.getVillano().getNombre();
+        //return casoAJugar.getVillano().getNombre();
+    	return casoAJugar.getJugador().getSospechoso().getNombre();
     }
     
     public List<String> obtenerNombresDePaises(){
@@ -127,5 +128,5 @@ public class ResolviendoElCasoViewModel {
     public CasoAJugar getCasoAJugar() {
 		return casoAJugar;
 	}
-    
+
 }

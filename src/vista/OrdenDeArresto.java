@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import controllers.ExpedientesController;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import modelo.DataDummy;
+import modelo.Jugador;
 import modelo.Persona;
 import viewmodel.ExpedientesViewModel;
 import viewmodel.ResolviendoElCasoViewModel;
@@ -39,41 +40,24 @@ public class OrdenDeArresto extends JFrame {
 	
 	private JComboBox <Persona>comboBox;
 	
-	private DataDummy data = SingletonDataDummy.getInstance();
 	
-	private ResolviendoElCasoViewModel modelo;
+	//private DataDummy data = SingletonDataDummy.getInstance();
+	
+	private ExpedientesViewModel modelo = new ExpedientesViewModel();
 	
 
 	private Choice choice;
 	
 	private ArrayList<Persona> listaVillanos;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					OrdenDeArresto frame = new OrdenDeArresto();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public OrdenDeArresto() {
+	public OrdenDeArresto(Jugador jugador) {
 		addWindowListener(new WindowAdapter() {
 			
 
 			@Override
 			public void windowActivated(WindowEvent arg0) {
-				listaVillanos = data.obtenerVillanos();
+				listaVillanos=modelo.getVillanos();
 				for(int i=0; i<listaVillanos.size(); i++	) {
 					choice.add(listaVillanos.get(i).getNombre());
 				}
@@ -119,6 +103,7 @@ public class OrdenDeArresto extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				setVisible(false);
 				
 			}
@@ -128,22 +113,27 @@ public class OrdenDeArresto extends JFrame {
 		JButton btnNewButton_1 = new JButton("aceptar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(data.getJugadorAsignado().getSospechoso()==null) {
-					int indiceVillano = choice.getSelectedIndex();
-					String nombreVillano = choice.getItem(indiceVillano);
-					Persona villano;
-					int i=0;
-					while(nombreVillano!=listaVillanos.get(i).getNombre()) {
-						i++;
-					}
-					villano = listaVillanos.get(i);
-					data.getJugadorAsignado().pedirOrdenDeArresto(villano);
+				if(jugador.getSospechoso()==null) {
+					String nombreVillano = choice.getItem(choice.getSelectedIndex());
+					Persona villano = buscarVillanoEnLaListaDeVillanos(nombreVillano);
+					jugador.pedirOrdenDeArresto(villano);
+					//falta refrescar la ventana para que se actualice la info en JugandoCaso
 					setVisible(false);
 				}
 				else {
 					JOptionPane.showMessageDialog(contentPane,"No puede volver a emitir otra orden de arresto");
 				}
 
+			}
+
+			private Persona buscarVillanoEnLaListaDeVillanos(String nombreVillano) {
+				Persona villano;
+				int i=0;
+				while(nombreVillano!=listaVillanos.get(i).getNombre()) {
+					i++;
+				}
+				villano = listaVillanos.get(i);
+				return villano;
 			}
 			
 			

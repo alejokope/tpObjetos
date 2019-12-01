@@ -4,6 +4,9 @@ import viewmodel.ResolviendoElCasoViewModel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import modelo.Jugador;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +15,7 @@ public class ViajarVista extends JFrame {
     private JPanel contentPane;
     private JComboBox comboBox;
     
-    public ViajarVista(ResolviendoElCasoViewModel modelo){
+    public ViajarVista(ResolviendoElCasoViewModel modelo, Jugador jugador){
         setTitle("Viajar");
         
         setBounds(500, 500, 700, 400);
@@ -22,6 +25,7 @@ public class ViajarVista extends JFrame {
         contentPane.setLayout(null);
 
         Label estasEn = new Label("Estas en:");
+        
         estasEn.setFont(new Font("Arial",Font.PLAIN, 14));
         estasEn.setBounds(20, 20, 70, 22);
         contentPane.add(estasEn);
@@ -47,7 +51,7 @@ public class ViajarVista extends JFrame {
         viajar.setVerticalAlignment(SwingConstants.CENTER);
         viajar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ConfirmarViaje confirmarViaje = new ConfirmarViaje(comboBox.getSelectedItem().toString(),modelo);
+                ConfirmarViaje confirmarViaje = new ConfirmarViaje(comboBox.getSelectedItem().toString(),modelo,jugador);
                 confirmarViaje.setVisible(true);
             }
         });

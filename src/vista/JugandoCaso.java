@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.CasoAJugar;
+import modelo.Jugador;
 import modelo.lugarInteres.LugarInteres;
 import viewmodel.LugarInteresViewModel;
 import viewmodel.ResolviendoElCasoViewModel;
@@ -21,7 +22,7 @@ public class JugandoCaso extends JFrame {
 	 */
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
 
-	public JugandoCaso(CasoAJugar caso) {
+	public JugandoCaso(CasoAJugar caso, Jugador jugador) {
         modelo.setCasoAJugar(caso);
         setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,7 +97,7 @@ public class JugandoCaso extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				OrdenDeArresto siguienteVista = new OrdenDeArresto();
+				OrdenDeArresto siguienteVista = new OrdenDeArresto(jugador);
 				siguienteVista.setVisible(true);
 				setVisible(false);
 				dispose();
@@ -106,7 +107,7 @@ public class JugandoCaso extends JFrame {
 		
 		JLabel lOrdenDeArresto = new JLabel("");
 		if(modelo.hayVillanoCapturado()) {
-			String nombreVillano= modelo.getNombreDelVillanoACapturar();
+			String nombreVillano= jugador.getSospechoso().getNombre();
 			lOrdenDeArresto.setText("Se emitio orden de arresto contra: " +nombreVillano);
 			
 		}
@@ -117,7 +118,7 @@ public class JugandoCaso extends JFrame {
         btnViajar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViajarVista viajarVista = new ViajarVista(modelo);
+                ViajarVista viajarVista = new ViajarVista(modelo,jugador);
                 viajarVista.setVisible(true);
             }
         });
@@ -143,9 +144,6 @@ public class JugandoCaso extends JFrame {
 		JScrollPane spRecorrido = new JScrollPane();
 		spRecorrido.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
         List<String> paises = modelo.getRecorridoAcertado();
-
-
-
 
         if(modelo.getRecorridoAcertado().size() > 0){
             int x = 20;

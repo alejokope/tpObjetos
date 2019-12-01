@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.CasoAJugar;
+import modelo.Jugador;
 import modelo.Caso;
 import modelo.Utils;
 import viewmodel.ResolviendoElCasoViewModel;
@@ -18,7 +19,7 @@ public class ConfirmarViaje extends JFrame {
     private Utils utils;
 
 
-    public ConfirmarViaje(final String paisProximo,ResolviendoElCasoViewModel modelo){
+    public ConfirmarViaje(final String paisProximo,ResolviendoElCasoViewModel modelo, Jugador jugador){
     	
         setResizable(false);
         utils = new Utils();
@@ -52,7 +53,6 @@ public class ConfirmarViaje extends JFrame {
                 panel_2.add(lblSeHaViajado);
                 bAceptar.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent arg0) {
-                    	
                     	modelo.getCasoAJugar().viajar(utils.obtenerPais(paisProximo));
                         if(modelo.getCasoAJugar().isTermino()){
                             FinalDelJuego finalDelJuego = new FinalDelJuego(modelo.getCasoAJugar());
@@ -60,9 +60,10 @@ public class ConfirmarViaje extends JFrame {
                             finalDelJuego.setVisible(true);
                         }
                         else{
-                            JugandoCaso jugandoCaso = new JugandoCaso(modelo.getCasoAJugar());
-                            setVisible(false);
+                            JugandoCaso jugandoCaso = new JugandoCaso(modelo.getCasoAJugar(),jugador);
                             jugandoCaso.setVisible(true);
+                            setVisible(false);
+                            
                         }
                     }
                 });
