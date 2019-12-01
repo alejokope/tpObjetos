@@ -3,6 +3,7 @@ package vista;
 import modelo.CasoAJugar;
 import modelo.Caso;
 import modelo.Utils;
+import viewmodel.ResolviendoElCasoViewModel;
 import viewmodel.SingletonDataDummy;
 
 import javax.swing.*;
@@ -13,14 +14,14 @@ import java.awt.event.ActionListener;
 
 public class ConfirmarViaje extends JFrame {
     private JPanel contentPane;
-    private Caso caso;
-    private Utils utils;
-    private CasoAJugar casoAJugar;
 
-    public ConfirmarViaje(final String paisProximo){
+    private Utils utils;
+
+
+    public ConfirmarViaje(final String paisProximo,ResolviendoElCasoViewModel modelo){
+    	
         setResizable(false);
         utils = new Utils();
-        casoAJugar = SingletonDataDummy.getInstance().getCasoAJugar();
         setTitle("CONFIRMAR VIAJE");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
         setBounds(500, 500, 383, 221);
@@ -51,15 +52,15 @@ public class ConfirmarViaje extends JFrame {
                 panel_2.add(lblSeHaViajado);
                 bAceptar.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent arg0) {
-                        casoAJugar.viajar(utils.obtenerPais(paisProximo));
-                        SingletonDataDummy.getInstance().getJugadorAsignado().setPaisActual(utils.obtenerPais(paisProximo));
-                        if(casoAJugar.isTermino()){
-                            FinalDelJuego finalDelJuego = new FinalDelJuego(casoAJugar);
+                    	
+                    	modelo.getCasoAJugar().viajar(utils.obtenerPais(paisProximo));
+                        if(modelo.getCasoAJugar().isTermino()){
+                            FinalDelJuego finalDelJuego = new FinalDelJuego(modelo.getCasoAJugar());
                             setVisible(false);
                             finalDelJuego.setVisible(true);
                         }
                         else{
-                            JugandoCaso jugandoCaso = new JugandoCaso(casoAJugar);
+                            JugandoCaso jugandoCaso = new JugandoCaso(modelo.getCasoAJugar());
                             setVisible(false);
                             jugandoCaso.setVisible(true);
                         }

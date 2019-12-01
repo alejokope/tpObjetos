@@ -16,6 +16,9 @@ import java.util.List;
 public class JugandoCaso extends JFrame {
 
 	private JPanel contentPane;
+	/*
+	 * se crea el segundo modelview 
+	 */
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
 
 	public JugandoCaso(CasoAJugar caso) {

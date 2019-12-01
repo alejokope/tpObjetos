@@ -11,8 +11,8 @@ import viewmodel.SingletonDataDummy;
 public class ResolviendoElCasoViewModel {
 	
 	private CasoAJugar casoAJugar;
-   
-    private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
+
+	private List<Pais> paisesDondePasoElCriminal = new ArrayList<Pais>();
     private List<Pais> paisesDondeNoPasoElCriminal = new ArrayList<Pais>();
 
     private List<String> recorridoAcertado = new ArrayList<>();
@@ -124,4 +124,8 @@ public class ResolviendoElCasoViewModel {
         }
         return paises;
     }
+    public CasoAJugar getCasoAJugar() {
+		return casoAJugar;
+	}
+    
 }

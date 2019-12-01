@@ -25,7 +25,9 @@ public class PresentacionDelCasoE extends JDialog {
 	private final JPanel detalleDelCasoPanel = new JPanel();
 	private JTextArea relatoText;
 	private JLabel SaludoLabel;
-
+/*
+ * le creamos el primer modelview
+ */
 	private PresentacionCasoViewModel modelo = new PresentacionCasoViewModel();
 	
 	public void iniciarPresentacionDelCaso(Jugador jugador) {
@@ -44,7 +46,7 @@ public class PresentacionDelCasoE extends JDialog {
 	 */
 	public PresentacionDelCasoE(Jugador jugador) {
 	    iniciarPresentacionDelCaso(jugador);
-        System.out.println("----------------------------------");
+       // System.out.println("----------------------------------");
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {

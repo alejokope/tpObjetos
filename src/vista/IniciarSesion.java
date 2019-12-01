@@ -129,6 +129,12 @@ public class IniciarSesion extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(dataDummy.esUnUsuarioValido(textUsuario,textContrasenia)) {
 					nombreDetective = textUsuario.getText().toString();
+					/// aca le pasamos el jugador asignado 
+					/*del data dummy que creamos arriba
+					 * 
+					 * 
+					 * 
+					 * */
 	                PaginaDeInicio pantallaDeInicio = new PaginaDeInicio(dataDummy.obtenerJugadorAsignado(textUsuario));
 	                pantallaDeInicio.setVisible(true);
 	                setVisible(false);

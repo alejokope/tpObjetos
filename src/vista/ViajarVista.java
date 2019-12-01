@@ -47,7 +47,7 @@ public class ViajarVista extends JFrame {
         viajar.setVerticalAlignment(SwingConstants.CENTER);
         viajar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ConfirmarViaje confirmarViaje = new ConfirmarViaje(comboBox.getSelectedItem().toString());
+                ConfirmarViaje confirmarViaje = new ConfirmarViaje(comboBox.getSelectedItem().toString(),modelo);
                 confirmarViaje.setVisible(true);
             }
         });
