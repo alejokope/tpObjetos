@@ -70,8 +70,19 @@ public class FinalDelJuego extends JFrame {
     private void textoDeDerrota(CasoAJugar casoAJugar) {
         primeraOracionLabel.setForeground(Color.RED);
         primeraOracionLabel.setText("Malas noticias.....");
-        segundaOracionLabel.setText("Ha detenido a " + casoAJugar.getVillano().getNombre() + ", pero usted tenia una orden contra "+ casoAJugar.getJugador().getSospechoso().getNombre());
+        segundaOracionLabel.setText("Ha detenido a " + casoAJugar.getVillano().getNombre() + ", pero usted tenia una orden contra " + esSospechosoNulo(casoAJugar));
         terceraOracionLabel.setText("Lamentablemente este crimen quedara impune");
         victoriaODerrotaButton.setText("Aceptar");
     }
+
+
+	private String esSospechosoNulo(CasoAJugar casoAJugar) {
+		if(casoAJugar.getJugador().hayOrdenDeArresto()) {
+			return casoAJugar.getJugador().getSospechoso().getNombre();
+		}
+		else {
+			return "nadie.";
+		}
+		
+	}
 }
