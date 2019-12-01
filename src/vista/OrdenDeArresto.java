@@ -39,9 +39,7 @@ public class OrdenDeArresto extends JFrame {
 	private JPanel contentPane;
 	
 	private JComboBox <Persona>comboBox;
-	
-	
-	//private DataDummy data = SingletonDataDummy.getInstance();
+
 	
 	private ExpedientesViewModel modelo = new ExpedientesViewModel();
 	
@@ -103,7 +101,6 @@ public class OrdenDeArresto extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				setVisible(false);
 				
 			}
@@ -117,29 +114,25 @@ public class OrdenDeArresto extends JFrame {
 					String nombreVillano = choice.getItem(choice.getSelectedIndex());
 					Persona villano = buscarVillanoEnLaListaDeVillanos(nombreVillano);
 					jugador.pedirOrdenDeArresto(villano);
-					//falta refrescar la ventana para que se actualice la info en JugandoCaso
 					setVisible(false);
 				}
 				else {
 					JOptionPane.showMessageDialog(contentPane,"No puede volver a emitir otra orden de arresto");
 				}
 
-			}
-
-			private Persona buscarVillanoEnLaListaDeVillanos(String nombreVillano) {
-				Persona villano;
-				int i=0;
-				while(nombreVillano!=listaVillanos.get(i).getNombre()) {
-					i++;
-				}
-				villano = listaVillanos.get(i);
-				return villano;
-			}
-			
-			
+			}			
 		});
 		btnNewButton_1.setPreferredSize(new Dimension(170, 25));
 		pCentro.add(btnNewButton_1);
+	}
+	private Persona buscarVillanoEnLaListaDeVillanos(String nombreVillano) {
+		Persona villano;
+		int i=0;
+		while(nombreVillano!=listaVillanos.get(i).getNombre()) {
+			i++;
+		}
+		villano = listaVillanos.get(i);
+		return villano;
 	}
 
 }

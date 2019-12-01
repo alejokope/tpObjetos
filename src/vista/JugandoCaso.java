@@ -98,10 +98,10 @@ public class JugandoCaso extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				OrdenDeArresto siguienteVista = new OrdenDeArresto(jugador);
+				OrdenDeArresto siguienteVista = new OrdenDeArresto(jugador);	
 				siguienteVista.setVisible(true);
-				setVisible(false);
-				dispose();
+//				setVisible(false);
+//				dispose();
 				
 			}
 		});
