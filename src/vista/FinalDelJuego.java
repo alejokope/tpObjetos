@@ -47,6 +47,7 @@ public class FinalDelJuego extends JFrame {
         victoriaODerrotaButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		PaginaDeInicio paginaDeInicio = new PaginaDeInicio(casoAJugar.getJugador());
+        		paginaDeInicio.setVisible(true);
         		dispose();
         	}
         });
