@@ -51,7 +51,7 @@ public class FinalDelJuego extends JFrame {
 
 
     private void condicionDeVictoriaODerrota(CasoAJugar casoAJugar) {
-        if(casoAJugar.gano(SingletonDataDummy.getInstance().getVillanoAsignado(),SingletonDataDummy.getInstance().getJugadorAsignado())) {
+        if(casoAJugar.gano()){
             textoDeVictoria(casoAJugar);
         }
         else {

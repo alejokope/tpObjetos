@@ -43,8 +43,8 @@ public class CasoAJugar {
 		return estanEnElMismoPais() && estanEnElMismoLugar();
 	}
 
-	public boolean gano(Villano villano, Jugador jugador){
-        return jugador.esLaOrdenDeArrestoCorrecta(villano) && seEncuentranAmbos();
+	public boolean gano(){
+        return jugador.esLaOrdenDeArrestoCorrecta(caso.getResponsable()) && seEncuentranAmbos();
     }
 	
 	public void viajar(Pais pais){
