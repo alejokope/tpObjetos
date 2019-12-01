@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FinalDelJuego extends JFrame {
 
@@ -42,6 +44,12 @@ public class FinalDelJuego extends JFrame {
         JPanel botonFinalPanel = new JPanel();
         finalDelJuegoPanel.add(botonFinalPanel);
         botonFinalPanel.setLayout(null);
+        victoriaODerrotaButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		PaginaDeInicio paginaDeInicio = new PaginaDeInicio(casoAJugar.getJugador());
+        		dispose();
+        	}
+        });
 
         victoriaODerrotaButton.setBounds(279, 92, 149, 25);
         botonFinalPanel.add(victoriaODerrotaButton);
