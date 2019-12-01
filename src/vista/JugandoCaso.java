@@ -12,6 +12,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.List;
 
 public class JugandoCaso extends JFrame {
@@ -120,6 +121,15 @@ public class JugandoCaso extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ViajarVista viajarVista = new ViajarVista(modelo,jugador);
                 viajarVista.setVisible(true);
+                viajarVista.addWindowListener(new VentanaSeCierraListener() {
+					@Override
+					public void windowClosed(WindowEvent arg0) {
+						SwingUtilities.updateComponentTreeUI(contentPane);
+						lblPais.setText(jugador.getPaisActual().getNombre());
+					}
+
+		
+				});
             }
         });
 		pbotoneraAcciones.add(btnViajar);

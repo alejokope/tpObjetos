@@ -6,14 +6,26 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import modelo.Jugador;
+import modelo.Pais;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class ViajarVista extends JFrame {
     private JPanel contentPane;
     private JComboBox comboBox;
+    private Pais paisDelConfirmarViaje;
+    
+    
+    public void setPaisDelConfirmarViaje(Pais pais) {
+    	this.paisDelConfirmarViaje = pais;
+    }
+    
+    public Pais getPaisDelConfirmarViaje() {
+    	return paisDelConfirmarViaje;
+    }
     
     public ViajarVista(ResolviendoElCasoViewModel modelo, Jugador jugador){
         setTitle("Viajar");
@@ -24,12 +36,11 @@ public class ViajarVista extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        Label estasEn = new Label("Estas en:");
-        
+        Label estasEn = new Label("Estas En: ");
         estasEn.setFont(new Font("Arial",Font.PLAIN, 14));
         estasEn.setBounds(20, 20, 70, 22);
         contentPane.add(estasEn);
-
+        
         Label paisOrigen = new Label(modelo.getNombrePaisActual().toUpperCase());
         paisOrigen.setFont(new Font("Arial",Font.BOLD, 14));
         paisOrigen.setBounds(100, 20, 100, 22);
@@ -53,6 +64,12 @@ public class ViajarVista extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ConfirmarViaje confirmarViaje = new ConfirmarViaje(comboBox.getSelectedItem().toString(),modelo,jugador);
                 confirmarViaje.setVisible(true);
+                confirmarViaje.addWindowListener(new VentanaSeCierraListener() {
+                	@Override
+                	public void windowClosed(WindowEvent arg0) {	
+                		dispose();
+                	}
+                });
             }
         });
 
