@@ -27,7 +27,7 @@ public class ResolviendoElCasoViewModel {
     }
 
     public Pais getPaisDeOrigen() {
-    	return SingletonDataDummy.getInstance().obtenerPaisOrigen();
+    	return getCaso().getPaisOrigen();
     }
 
     public List<LugarInteres> getLugaresDeInteres(){
@@ -73,23 +73,27 @@ public class ResolviendoElCasoViewModel {
     }
 
     public Jugador getJugador() {
-        return SingletonDataDummy.getInstance().getJugadorAsignado();
+        return casoAJugar.getJugador();
     }
 
     public Caso getCaso() {
-        return SingletonDataDummy.getInstance().getCasoAsignado();
+        return casoAJugar.getCaso();
     }
 
     public Villano getVillano() {
-        return SingletonDataDummy.getInstance().getVillanoAsignado();
+        return casoAJugar.getVillano();
     }
 
     public Pais getPaisDeInicio() {
         return getCaso().getPaisOrigen();
     }
+    
+    public Pais getPaisActual() {
+    	return getJugador().getPaisActual();
+    }
 
     public List<Pais> getConexiones() {
-        return getPaisDeInicio().getConexiones();
+        return getPaisActual().getConexiones();
     }
 
     public String obtenerTituloDelCaso(){
@@ -111,5 +115,13 @@ public class ResolviendoElCasoViewModel {
 
     public String getNombreDelVillanoACapturar() {
         return casoAJugar.getVillano().getNombre();
+    }
+    
+    public List<String> obtenerNombresDePaises(){
+        List<String> paises = new ArrayList<>();
+        for(Pais pais: getConexiones()){
+            paises.add(pais.getNombre());
+        }
+        return paises;
     }
 }

@@ -14,7 +14,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class JugandoCaso extends JFrame {
-	//blablabla
 
 	private JPanel contentPane;
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
@@ -115,7 +114,7 @@ public class JugandoCaso extends JFrame {
         btnViajar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViajarVista viajarVista = new ViajarVista();
+                ViajarVista viajarVista = new ViajarVista(modelo);
                 viajarVista.setVisible(true);
             }
         });

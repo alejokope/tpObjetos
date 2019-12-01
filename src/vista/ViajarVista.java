@@ -1,23 +1,20 @@
 package vista;
 
-import modelo.Pais;
-import viewmodel.SingletonDataDummy;
+import viewmodel.ResolviendoElCasoViewModel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ViajarVista extends JFrame {
     private JPanel contentPane;
     private JComboBox comboBox;
     
-    public ViajarVista(){
+    public ViajarVista(ResolviendoElCasoViewModel modelo){
         setTitle("Viajar");
-        //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
+        
         setBounds(500, 500, 700, 400);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -29,7 +26,7 @@ public class ViajarVista extends JFrame {
         estasEn.setBounds(20, 20, 70, 22);
         contentPane.add(estasEn);
 
-        Label paisOrigen = new Label(SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getNombre().toUpperCase());
+        Label paisOrigen = new Label(modelo.getNombrePaisActual().toUpperCase());
         paisOrigen.setFont(new Font("Arial",Font.BOLD, 14));
         paisOrigen.setBounds(100, 20, 100, 22);
         contentPane.add(paisOrigen);
@@ -37,7 +34,7 @@ public class ViajarVista extends JFrame {
         comboBox = new JComboBox();
         comboBox.setBounds(20,70,230,50);
         comboBox.addItem("Posibles destinos");
-        for(String destino :paises()){
+        for(String destino : modelo.obtenerNombresDePaises()){
             comboBox.addItem(destino);
         }
 
@@ -70,11 +67,4 @@ public class ViajarVista extends JFrame {
         contentPane.add(cancelar);
     }
 
-    public List<String> paises(){
-        List<String> paises = new ArrayList<>();
-        for(Pais pais: SingletonDataDummy.getInstance().getJugadorAsignado().getPaisActual().getConexiones()){
-            paises.add(pais.getNombre());
-        }
-        return paises;
-    }
 }
