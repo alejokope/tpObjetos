@@ -11,7 +11,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import controllers.RecorridoExitosoController;
+import Cell.PaisCell;
+import controllers.RecorridoController;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -163,12 +164,31 @@ public class JugandoCaso extends JFrame {
 		JScrollPane spRecorridoCorrecto = new JScrollPane();
 		panel.add(spRecorridoCorrecto);
 		
-		listaRecorridoExitoso = new JList();
-		listaRecorridoExitoso.setModel(new RecorridoExitosoController(modelo).getRecorridoCorrecto());
-		listaRecorridoExitoso.setCellRenderer(new PaisCell());
+		
+		JList<Pais> listaRecorridoExitoso = new JList<Pais>();
 		spRecorridoCorrecto.setViewportView(listaRecorridoExitoso);
+		
+		JScrollPane spRecorridoIncorrecto = new JScrollPane();
+		panel.add(spRecorridoIncorrecto);
+		
+		JList<Pais> listaREcorridoIncorrecto = new JList<Pais>();
+
+		spRecorridoIncorrecto.setViewportView(listaREcorridoIncorrecto);
+		
+		
+		for(Pais pais:modelo.getRecorridoAcertado()) {
+			if(modelo.getCasoAJugar().getCaso().getPlanEscape().contains(jugador.getPaisActual())) {
+				listaRecorridoExitoso.setModel(new RecorridoController(modelo).agregarAlREcorrido(jugador.getPaisActual()));
+				listaRecorridoExitoso.setCellRenderer(new PaisCell());
+			}
+			/*else {
+				listaREcorridoIncorrecto.setModel(new RecorridoController(modelo).agregarAlREcorrido(jugador.getPaisActual()));
+				listaREcorridoIncorrecto.setCellRenderer(new PaisCell());
+			}*/
+		}
 
 	}
+
 	
 	private void seEncuentranAmbosOGano(ResolviendoElCasoViewModel modelo) {
 		if(modelo.getCasoAJugar().estaElCasoCerrado()) {

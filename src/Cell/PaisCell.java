@@ -1,4 +1,4 @@
-package vista;
+package Cell;
 
 import java.awt.Color;
 import java.awt.Component;
