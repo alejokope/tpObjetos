@@ -39,4 +39,8 @@ public class Jugador extends Persona{
     public boolean hayOrdenDeArresto() {
         return sospechoso != null;
     }
+
+	public void limpiarOrdenDeArrestoParaElNuevoJuego() {
+		this.sospechoso = null;
+	}
 }

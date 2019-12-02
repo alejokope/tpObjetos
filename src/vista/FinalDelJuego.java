@@ -46,6 +46,7 @@ public class FinalDelJuego extends JFrame {
         botonFinalPanel.setLayout(null);
         victoriaODerrotaButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
+        		casoAJugar.getJugador().limpiarOrdenDeArrestoParaElNuevoJuego();
         		PaginaDeInicio paginaDeInicio = new PaginaDeInicio(casoAJugar.getJugador());
         		paginaDeInicio.setVisible(true);
         		dispose();
