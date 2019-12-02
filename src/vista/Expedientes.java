@@ -20,7 +20,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import Cell.VillanosCell;
+import cell.VillanosCell;
 import controllers.ExpedientesController;
 import controllers.VillanosController;
 import modelo.Persona;

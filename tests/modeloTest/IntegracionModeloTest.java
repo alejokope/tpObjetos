@@ -1,4 +1,4 @@
-package test;
+package modeloTest;
 
 import modelo.*;
 import modelo.lugarInteres.*;

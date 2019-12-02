@@ -1,4 +1,4 @@
-package test;
+package modeloTest;
 
 import modelo.Villano;
 import modelo.lugarInteres.Banco;
