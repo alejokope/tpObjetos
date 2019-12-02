@@ -28,7 +28,7 @@ public class IniciarSesionTest {
 		iniciarSesion.setTextUsuario(nombre);
 		iniciarSesion.setTextContrasenia(contrasenia);
 		
-		assertTrue(dataDummy.esUnUsuarioValido(nombre, contrasenia));
+		assertTrue(dataDummy.esUnUsuarioValido(iniciarSesion.getTextUsuario(), iniciarSesion.getTextContrasenia()));
 		
 	}
 	
@@ -45,7 +45,7 @@ public class IniciarSesionTest {
 		iniciarSesion.setTextUsuario(nombre);
 		iniciarSesion.setTextContrasenia(contrasenia);
 		
-		assertFalse(dataDummy.esUnUsuarioValido(nombre, contrasenia));
+		assertFalse(dataDummy.esUnUsuarioValido(iniciarSesion.getTextUsuario(), iniciarSesion.getTextContrasenia()));
 		
 	}
 }
