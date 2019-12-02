@@ -148,4 +148,24 @@ public class IniciarSesion extends JFrame {
 			}
 		});
 	}
+
+	public JTextField getTextUsuario() {
+		return textUsuario;
+	}
+
+	public JPasswordField getTextContrasenia() {
+		return textContrasenia;
+	}
+
+	public void setTextUsuario(JTextField textUsuario) {
+		this.textUsuario = textUsuario;
+	}
+
+	public void setTextContrasenia(JPasswordField textContrasenia) {
+		this.textContrasenia = textContrasenia;
+	}
+	
+	
+	
+	
 }
