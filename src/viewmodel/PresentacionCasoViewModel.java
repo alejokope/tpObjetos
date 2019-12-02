@@ -20,6 +20,9 @@ public class PresentacionCasoViewModel {
         return jugador.getNombre();
     }
 
+    public void obtenerOtroCaso() {
+    	this.casoActual = SingletonDataDummy.getInstance().obtenerCasoAlAzar();
+    }
 
     public String getReporte() {
         return casoActual.getReporte();

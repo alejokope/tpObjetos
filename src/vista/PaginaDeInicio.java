@@ -54,7 +54,7 @@ public class PaginaDeInicio extends JFrame {
 		btnInvestigar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                PresentacionDelCasoE pantallaPresentacionCaso= new PresentacionDelCasoE(jugador);
+                PresentacionDelCaso pantallaPresentacionCaso= new PresentacionDelCaso(jugador);
 				setVisible(false);
 				dispose();
 			}
