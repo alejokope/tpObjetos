@@ -52,17 +52,17 @@ public class LugarInteresVista extends JFrame {
         panel_2.setPreferredSize(new Dimension(400, 50));
         contentPane.add(panel_2);
         
-                JButton continuar = new JButton("Continuar");
-                panel_2.add(continuar);
-                continuar.setFont(new Font("Arial",Font.BOLD,12));
-                continuar.setHorizontalAlignment(SwingConstants.CENTER);
-                continuar.setVerticalAlignment(SwingConstants.CENTER);
+        JButton continuar = new JButton("Continuar");
+        panel_2.add(continuar);
+        continuar.setFont(new Font("Arial",Font.BOLD,12));
+        continuar.setHorizontalAlignment(SwingConstants.CENTER);
+        continuar.setVerticalAlignment(SwingConstants.CENTER);
                 
-                        continuar.addActionListener(new ActionListener() {
-                            public void actionPerformed(ActionEvent e) {
-                                setVisible(false);
-                            }
-                        });
+        continuar.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+        	dispose();
+        	}
+        });
     }
 
 }

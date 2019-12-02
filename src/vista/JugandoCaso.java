@@ -81,6 +81,12 @@ public class JugandoCaso extends JFrame {
             _lugarInteres.addActionListener(e -> {
                 LugarInteresVista lugarInteresVista = new LugarInteresVista(new LugarInteresViewModel(caso,lugarInteres));
                 lugarInteresVista.setVisible(true);
+                lugarInteresVista.addWindowListener(new VentanaSeCierraListener() {
+					@Override
+					public void windowClosed(WindowEvent arg0) {
+						seEncuentranAmbosOGano(modelo);
+					}
+				});
             });
            pBotonera.add(_lugarInteres);
             y += 70;
@@ -164,6 +170,11 @@ public class JugandoCaso extends JFrame {
 
 	}
 	
+	private void seEncuentranAmbosOGano(ResolviendoElCasoViewModel modelo) {
+		if(modelo.getCasoAJugar().estaElCasoCerrado()) {
+			abroVentanaDeFinalDelJuego(modelo);
+		}
+	}
 
 	private boolean escucharSiFinalizaElJuegoYCerrar(ResolviendoElCasoViewModel modelo) {
 		return modelo.getCasoAJugar().isTermino();
@@ -171,12 +182,16 @@ public class JugandoCaso extends JFrame {
 	
 	private void actualizoPaisOFinalizoElJuego(ResolviendoElCasoViewModel modelo, JLabel lblPais) {
 		if(escucharSiFinalizaElJuegoYCerrar(modelo)) {
-			FinalDelJuego finalDelJuego = new FinalDelJuego(modelo.getCasoAJugar());
-			dispose();
+			abroVentanaDeFinalDelJuego(modelo);
 		}
 		else {
 			SwingUtilities.updateComponentTreeUI(contentPane);
 			lblPais.setText(modelo.getJugador().getPaisActual().getNombre());
 		}
+	}
+	
+	private void abroVentanaDeFinalDelJuego(ResolviendoElCasoViewModel modelo) {
+		FinalDelJuego finalDelJuego = new FinalDelJuego(modelo.getCasoAJugar());
+		dispose();
 	}
 }

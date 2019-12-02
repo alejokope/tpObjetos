@@ -29,6 +29,10 @@ public class CasoAJugar {
 		this.caso = caso;
 		this.jugador = jugador;
 	}
+	
+	public boolean estaElCasoCerrado() {
+		return seEncuentranAmbos() || gano();
+	}
 
 	public boolean estanEnElMismoPais(){
 		return caso.getResponsable().getPaisActual().getNombre().equalsIgnoreCase(jugador.getPaisActual().getNombre());
