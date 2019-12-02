@@ -23,7 +23,7 @@ public class Jugador extends Persona{
 	}
 
 	public void pedirOrdenDeArresto(Persona persona) {
-		sospechoso = persona;
+		sospechoso.getNombre().equalsIgnoreCase(persona.getNombre());
 	}
 
     public boolean esLaOrdenDeArrestoCorrecta(Persona villano){

@@ -61,23 +61,37 @@ public class Villano extends Persona {
 
     public int obtenerSiguientePaisDeMiPlanDeEscape(Jugador jugador) {
         if (miPlanDeEscapeContieneAlPaisActualDelJugadorYNoEsElUltimoPais(jugador)) {
-            return planEscape.indexOf(jugador.getPaisActual()) + OBTENER_PROXIMO_INDICE;
+            return planDeEscapeEnNombresDePaises().indexOf(jugador.getPaisActual().getNombre()) + OBTENER_PROXIMO_INDICE;
         } else if (miPlanDeEscapeContieneAlPaisActualDelJugadorYEsElUltimoPais(jugador)) {
-            return planEscape.indexOf(jugador.getPaisActual());
+            return planDeEscapeEnNombresDePaises().indexOf(jugador.getPaisActual().getNombre());
         } else {
             throw new NoHayPaisProximoException();
         }
     }
 
     public boolean miPlanDeEscapeContieneAlPaisActualDelJugadorYNoEsElUltimoPais(Jugador jugador) {
-        return planEscape.contains(jugador.getPaisActual())
-                && planEscape.indexOf(jugador.getPaisActual()) < planEscape.size() - OBTENER_ULTIMO_INDICE;
+        return existeElNombreDelPaisActualDelJugadorEnMiPlanDeEscape(jugador)
+                && indiceDelNombreDelPaisActualEnElPlanDeEscape(jugador) < planEscape.size() - OBTENER_ULTIMO_INDICE;
     }
 
     public boolean miPlanDeEscapeContieneAlPaisActualDelJugadorYEsElUltimoPais(Jugador jugador) {
-        return planEscape.contains(jugador.getPaisActual())
-                && planEscape.indexOf(jugador.getPaisActual()) == planEscape.size() - OBTENER_ULTIMO_INDICE;
+        return existeElNombreDelPaisActualDelJugadorEnMiPlanDeEscape(jugador)
+                && indiceDelNombreDelPaisActualEnElPlanDeEscape(jugador) == planEscape.size() - OBTENER_ULTIMO_INDICE;
     }
+    
+    private int indiceDelNombreDelPaisActualEnElPlanDeEscape(Jugador jugador) {
+		return planDeEscapeEnNombresDePaises().indexOf(jugador.getPaisActual().getNombre());
+	}
+    
+    private boolean existeElNombreDelPaisActualDelJugadorEnMiPlanDeEscape(Jugador jugador) {
+		return planDeEscapeEnNombresDePaises().contains(jugador.getPaisActual().getNombre());
+	}
+
+	private List<String> planDeEscapeEnNombresDePaises() {
+		return planEscape.stream()
+				.map(pais -> pais.getNombre())
+				.collect(Collectors.toList());
+	}
 
     public void viajar() {
         this.paisActual = paisSiguiente();

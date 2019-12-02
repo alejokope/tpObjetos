@@ -26,7 +26,7 @@ public class Pais {
 	}
 
 	public boolean elVillanoPasoPorEstePais(Villano villano) {
-		return villano.getPlanEscape().stream().anyMatch(pais -> pais.equals(this));
+		return villano.getPlanEscape().stream().anyMatch(pais -> pais.getNombre().equalsIgnoreCase(villano.getPaisActual().getNombre()));
 	}
 
 
