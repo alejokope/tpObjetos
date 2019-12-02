@@ -49,7 +49,7 @@ public class FinalDelJuegoTest {
 		
 		FinalDelJuego finalDelJuego = new FinalDelJuego(casoAJugar);
 		
-	//	assertEquals(finalDelJuego.obtenerPrimerOracion(), "Malas noticias.....");
+		assertEquals(finalDelJuego.obtenerPrimerOracion(), "Malas noticias.....");
 		
 	}
 	
@@ -85,7 +85,7 @@ public class FinalDelJuegoTest {
 		FinalDelJuego finalDelJuego = new FinalDelJuego(casoAJugar);
 		
 		
-		//assertEquals(finalDelJuego.obtenerPrimerOracion(), "Enhorabuena!");
+		assertEquals(finalDelJuego.obtenerPrimerOracion(), "Enhorabuena!");
 		
 	}
 }

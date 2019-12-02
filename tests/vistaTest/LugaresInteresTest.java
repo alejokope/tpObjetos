@@ -48,13 +48,12 @@ public class LugaresInteresTest {
 	        jugador.setPaisActual(pais);
 	        casoAJugar.setJugador(jugador);
 	        casoAJugar.setCaso(caso);
-
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = club.darPista(casoAJugar);
 	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, club));
-	        assertNotNull(visitandoLugar.obtenerPista()); //aca los mensajes enviados son random.
 
+	        assertNotNull(visitandoLugar.obtenerPista()); //aca los mensajes enviados son random.
 	    }
 
 	    @Test
@@ -140,7 +139,6 @@ public class LugaresInteresTest {
 	        jugador.setLugarInteresActual(lugarInteresVillano2);
 	        casoAJugar.setJugador(jugador);
 	        casoAJugar.setCaso(caso);
-
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = lugarInteresVillano2.darPista(casoAJugar);
@@ -148,7 +146,6 @@ public class LugaresInteresTest {
 
 
 	        assertEquals(pista, visitandoLugar.obtenerPista());
-
 	    }
 
 	    @Test
@@ -189,14 +186,11 @@ public class LugaresInteresTest {
 	        
 	        casoAJugar.setJugador(jugador);
 	        casoAJugar.setCaso(caso);
-
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = lugarInteresVillano2.darPista(casoAJugar);
 	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteres2));
 
 	        assertEquals(pista, visitandoLugar.obtenerPista());
-
 	    }
 	}
-
