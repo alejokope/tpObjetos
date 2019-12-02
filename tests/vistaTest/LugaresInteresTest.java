@@ -4,12 +4,14 @@ import modelo.*;
 import modelo.lugarInteres.Club;
 import modelo.lugarInteres.Embajada;
 import modelo.lugarInteres.LugarInteres;
+import viewmodel.LugarInteresViewModel;
 import vista.LugarInteresVista;
 
 import org.junit.Test;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class LugaresInteresTest {
 	
@@ -27,10 +29,12 @@ public class LugaresInteresTest {
 	        Caso caso = new Caso();
 	        caso.setTitulo("Tomatelas flaco");
 
+	        pais.setNombre("Alemania");
 	        pais.setLugaresInteres(Arrays.asList(club, lugarInteres2, lugarInteres3));
+	        pais2.setNombre("Francia");
 	        pais2.setLugaresInteres(Arrays.asList(lugarInteresVillano, lugarInteresVillano2));
 	        Villano villano = new Villano();
-	        villano.setPaisActual(pais2);
+	        villano.setPaisActual(pais);
 	        villano.setPlanEscape(Arrays.asList(pais,pais2));
 
 	        villano.setSeniasParticulares(Arrays.asList("con anteojos", "alto"));
@@ -43,13 +47,13 @@ public class LugaresInteresTest {
 
 	        jugador.setPaisActual(pais);
 	        casoAJugar.setJugador(jugador);
-	        casoAJugar.getCaso().setResponsable(villano);
 	        casoAJugar.setCaso(caso);
-	        casoAJugar.actualizarEstadoDeMensaje();
-	        club.darPista(jugador);
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(club);
+	        casoAJugar.getCaso().setResponsable(villano);
+	        
+	        String pista = club.darPista(casoAJugar);
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, club));
 
-	        assertEquals(casoAJugar.getEstadoDeMensaje().mostrarMensaje(casoAJugar,club.getAyuda()), visitandoLugar.obtenerPista());
+	        assertNotNull(visitandoLugar.obtenerPista()); //aca los mensajes enviados son random.
 	    }
 
 	    @Test
@@ -69,11 +73,14 @@ public class LugaresInteresTest {
 	        Caso caso = new Caso();
 	        caso.setTitulo("Tomatelas flaco");
 
+	        pais.setNombre("Portugal");
 	        pais.setLugaresInteres(Arrays.asList(embajada, lugarInteres2, lugarInteres3));
+	        pais2.setNombre("España");
 	        pais2.setLugaresInteres(Arrays.asList(lugarInteresVillano, lugarInteresVillano2));
+	        paisFallido.setNombre("China");
 	        paisFallido.setLugaresInteres(Arrays.asList(lugarInteresFallido, lugarInteresFallido2));
 	        Villano villano = new Villano();
-	        villano.setPaisActual(pais2);
+	        villano.setPaisActual(pais);
 	        villano.setPlanEscape(Arrays.asList(pais,pais2));
 
 	        pais2.setCaracteristicas(Arrays.asList("tiene mar", "muy limpio"));
@@ -87,13 +94,14 @@ public class LugaresInteresTest {
 
 	        jugador.setPaisActual(paisFallido);
 	        casoAJugar.setJugador(jugador);
-	        casoAJugar.getCaso().setResponsable(villano);
+	        
 	        casoAJugar.setCaso(caso);
-	        casoAJugar.actualizarEstadoDeMensaje();
-	        lugarInteresFallido2.darPista(jugador);
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(lugarInteresFallido2);
+	        casoAJugar.getCaso().setResponsable(villano);
+	        
+	        String pista = lugarInteresFallido2.darPista(casoAJugar);
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresFallido2));
 
-	        assertEquals(casoAJugar.getEstadoDeMensaje().mostrarMensaje(casoAJugar,lugarInteresFallido2.getAyuda()), visitandoLugar.obtenerPista());
+	        assertEquals(pista, visitandoLugar.obtenerPista());
 	    }
 
 	    @Test
@@ -110,30 +118,34 @@ public class LugaresInteresTest {
 	        Caso caso = new Caso();
 	        caso.setTitulo("Tomatelas flaco");
 
+	        pais.setNombre("Estados Unidos");
 	        pais.setLugaresInteres(Arrays.asList(club, lugarInteres2, lugarInteres3));
+	        pais2.setNombre("Mexico");
 	        pais2.setLugaresInteres(Arrays.asList(lugarInteresVillano, lugarInteresVillano2));
 	        Villano villano = new Villano();
-	        villano.setPaisActual(pais2);
+	        villano.setPaisActual(pais);
 	        villano.setPlanEscape(Arrays.asList(pais,pais2));
 
 	        villano.setSeniasParticulares(Arrays.asList("con anteojos", "alto"));
 	        villano.setHobbies(Arrays.asList("surfear", "tomar sol"));
 
 	        villano.viajar();
-	        villano.setLugarInteresActual(lugarInteresVillano); //esta cerca del villano
+	        villano.setLugarInteresActual(lugarInteresVillano); 
 	        caso.setResponsable(villano);
 	        caso.setPlanEscape(villano.getPlanEscape());
 	        caso.pasarVillanoPorPaises();
 
 	        jugador.setPaisActual(pais2);
+	        jugador.setLugarInteresActual(lugarInteresVillano2);
 	        casoAJugar.setJugador(jugador);
-	        casoAJugar.getCaso().setResponsable(villano);;
 	        casoAJugar.setCaso(caso);
-	        casoAJugar.actualizarEstadoDeMensaje();
-	        lugarInteresVillano2.darPista(jugador); //esta cerca del villano
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(club);
+	        casoAJugar.getCaso().setResponsable(villano);
+	        
+	        String pista = lugarInteresVillano2.darPista(casoAJugar);
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresVillano2));
 
-	        assertEquals(casoAJugar.getEstadoDeMensaje().mostrarMensaje(casoAJugar,club.getAyuda()), visitandoLugar.obtenerPista());
+
+	        assertEquals(pista, visitandoLugar.obtenerPista());
 	    }
 
 	    @Test
@@ -150,32 +162,36 @@ public class LugaresInteresTest {
 	        Caso caso = new Caso();
 	        caso.setTitulo("Tomatelas flaco");
 
+	        pais.setNombre("Peru");
 	        pais.setLugaresInteres(Arrays.asList(club, lugarInteres2, lugarInteres3));
+	        pais2.setNombre("Brasil");
 	        pais2.setLugaresInteres(Arrays.asList(lugarInteresVillano, lugarInteresVillano2));
 	        Villano villano = new Villano();
-	        villano.setPaisActual(pais2);
+	        villano.setNombre("el flaco");
+	        villano.setPaisActual(pais);
 	        villano.setPlanEscape(Arrays.asList(pais,pais2));
 
 	        villano.setSeniasParticulares(Arrays.asList("con anteojos", "alto"));
 	        villano.setHobbies(Arrays.asList("surfear", "tomar sol"));
 
 	        villano.viajar();
-	        villano.setLugarInteresActual(lugarInteresVillano2); // se encuentran
+	        villano.setLugarInteresActual(lugarInteresVillano2); 
 	        caso.setResponsable(villano);
 	        caso.setPlanEscape(villano.getPlanEscape());
 	        caso.pasarVillanoPorPaises();
 
 	        jugador.setPaisActual(pais2);
+	        jugador.pedirOrdenDeArresto(villano);
 	        jugador.setLugarInteresActual(lugarInteresVillano2);
+	        
 	        casoAJugar.setJugador(jugador);
-	        casoAJugar.getCaso().setResponsable(villano);
 	        casoAJugar.setCaso(caso);
-	        casoAJugar.actualizarEstadoDeMensaje();
-	        lugarInteresVillano2.darPista(jugador); // se encuentran
-	        villano.setNombre("el flaco");
-	        LugarInteresVista visitandoLugar = new LugaresInterVista(lugarInteres2);
+	        casoAJugar.getCaso().setResponsable(villano);
+	        
+	        String pista = lugarInteresVillano2.darPista(casoAJugar);
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteres2));
 
-	        assertEquals(casoAJugar.getEstadoDeMensaje().mostrarMensaje(casoAJugar,lugarInteresVillano2.getAyuda()), visitandoLugar.obtenerPista());
+	        assertEquals(pista, visitandoLugar.obtenerPista());
 	    }
 	}
 

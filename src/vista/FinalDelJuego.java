@@ -95,4 +95,9 @@ public class FinalDelJuego extends JFrame {
 		}
 		
 	}
+
+
+	public String obtenerPrimerOracion() {
+		return primeraOracionLabel.getText();
+	}
 }

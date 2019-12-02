@@ -42,7 +42,10 @@ public class FinalDelJuegoTest {
 		dataDummy.setVillanoAsignado(villano);
 		dataDummy.setCasoAsignado(caso);
 		dataDummy.setearCarmenSanDiego(casoAJugar);
-		jugador.pedirOrdenDeArresto(new Villano());
+		
+		Villano villano2 = new Villano();
+		villano2.setNombre("bart");
+		jugador.pedirOrdenDeArresto(villano2);
 		
 		FinalDelJuego finalDelJuego = new FinalDelJuego(casoAJugar);
 		
