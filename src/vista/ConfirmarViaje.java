@@ -63,16 +63,9 @@ public class ConfirmarViaje extends JFrame {
                 bAceptar.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent arg0) {
                     	modelo.getCasoAJugar().viajar(utils.obtenerPais(paisProximo));
-                        if(modelo.getCasoAJugar().isTermino()){
-                            FinalDelJuego finalDelJuego = new FinalDelJuego(modelo.getCasoAJugar());
-                            setVisible(false);
-                            finalDelJuego.setVisible(true);
-                        }
-                        else{
-                            //setPaisElegido(modelo.getJugador().getPaisActual());
-                            dispose();
-                        }
+                    	dispose();
                     }
                 });
     }
+    
 }

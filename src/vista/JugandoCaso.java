@@ -25,6 +25,7 @@ public class JugandoCaso extends JFrame {
 
 	public JugandoCaso(CasoAJugar caso, Jugador jugador) {
         modelo.setCasoAJugar(caso);
+        
         setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 634);
@@ -124,11 +125,8 @@ public class JugandoCaso extends JFrame {
                 viajarVista.addWindowListener(new VentanaSeCierraListener() {
 					@Override
 					public void windowClosed(WindowEvent arg0) {
-						SwingUtilities.updateComponentTreeUI(contentPane);
-						lblPais.setText(jugador.getPaisActual().getNombre());
+						actualizoPaisOFinalizoElJuego(modelo, lblPais);
 					}
-
-		
 				});
             }
         });
@@ -190,5 +188,20 @@ public class JugandoCaso extends JFrame {
 		
 		JList listRecorridoErroneo = new JList();
 		scrollPane.setRowHeaderView(listRecorridoErroneo);
+	}
+
+	private boolean escucharSiFinalizaElJuegoYCerrar(ResolviendoElCasoViewModel modelo) {
+		return modelo.getCasoAJugar().isTermino();
+	}
+	
+	private void actualizoPaisOFinalizoElJuego(ResolviendoElCasoViewModel modelo, JLabel lblPais) {
+		if(escucharSiFinalizaElJuegoYCerrar(modelo)) {
+			FinalDelJuego finalDelJuego = new FinalDelJuego(modelo.getCasoAJugar());
+			dispose();
+		}
+		else {
+			SwingUtilities.updateComponentTreeUI(contentPane);
+			lblPais.setText(modelo.getJugador().getPaisActual().getNombre());
+		}
 	}
 }
