@@ -61,10 +61,9 @@ public class JugandoCaso extends JFrame {
 		pBotonera.setBorder(new EmptyBorder(30, 30, 30, 30));
 		pLugares.add(pBotonera, BorderLayout.CENTER);
 		pBotonera.setLayout(new GridLayout(5, 0, 0, 3));
-
-
-
-
+		
+		JLabel lOrdenDeArresto = new JLabel();
+		lOrdenDeArresto.setText("No se ha emitido orden de arresto.");
 
         int y = 70;
         for(final LugarInteres lugarInteres : modelo.getLugaresDeInteres()){
@@ -94,25 +93,25 @@ public class JugandoCaso extends JFrame {
 		pbotoneraAcciones.setLayout(new GridLayout(5, 0, 0, 3));
 		
 		JButton btnEmitirOrdenArresto = new JButton("Emitir Orden Arresto");
-		pbotoneraAcciones.add(btnEmitirOrdenArresto);
 		btnEmitirOrdenArresto.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				OrdenDeArresto siguienteVista = new OrdenDeArresto(jugador);	
-				siguienteVista.setVisible(true);
-//				setVisible(false);
-//				dispose();
-				
-			}
-		});
-		
-		JLabel lOrdenDeArresto = new JLabel("");
-		if(modelo.hayVillanoCapturado()) {
-			String nombreVillano= jugador.getSospechoso().getNombre();
-			lOrdenDeArresto.setText("Se emitio orden de arresto contra: " +nombreVillano);
-			
-		}
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	OrdenDeArresto ordenArrestoVista = new OrdenDeArresto(modelo);	
+				ordenArrestoVista.setVisible(true);
+				ordenArrestoVista.addWindowListener(new VentanaSeCierraListener() {
+					@Override
+					public void windowClosed(WindowEvent arg0) {
+						SwingUtilities.updateComponentTreeUI(contentPane);
+						if(modelo.hayVillanoCapturado()) {
+							String nombreVillano= jugador.getSospechoso().getNombre();
+							lOrdenDeArresto.setText("Se emitio orden de arresto contra: " +nombreVillano);
+							
+						}
+					}
+				});
+            }
+        });
+		pbotoneraAcciones.add(btnEmitirOrdenArresto);
 		pbotoneraAcciones.add(lOrdenDeArresto);
 		
 		

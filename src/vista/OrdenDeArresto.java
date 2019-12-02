@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import controllers.ExpedientesController;
 import jdk.nashorn.internal.runtime.ListAdapter;
+import modelo.CasoAJugar;
 import modelo.DataDummy;
 import modelo.Jugador;
 import modelo.Persona;
@@ -41,7 +42,7 @@ public class OrdenDeArresto extends JFrame {
 	private JComboBox <Persona>comboBox;
 
 	
-	private ExpedientesViewModel modelo = new ExpedientesViewModel();
+	private ExpedientesViewModel modeloExpedientes = new ExpedientesViewModel();
 	
 
 	private Choice choice;
@@ -49,13 +50,13 @@ public class OrdenDeArresto extends JFrame {
 	private ArrayList<Persona> listaVillanos;
 
 
-	public OrdenDeArresto(Jugador jugador) {
+	public OrdenDeArresto(ResolviendoElCasoViewModel modeloResolviendoElCaso) {
 		addWindowListener(new WindowAdapter() {
 			
 
 			@Override
 			public void windowActivated(WindowEvent arg0) {
-				listaVillanos=modelo.getVillanos();
+				listaVillanos=modeloExpedientes.getVillanos();
 				for(int i=0; i<listaVillanos.size(); i++	) {
 					choice.add(listaVillanos.get(i).getNombre());
 				}
@@ -110,11 +111,11 @@ public class OrdenDeArresto extends JFrame {
 		JButton btnNewButton_1 = new JButton("aceptar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(jugador.getSospechoso()==null) {
+				if(modeloResolviendoElCaso.getJugador().getSospechoso()==null) {
 					String nombreVillano = choice.getItem(choice.getSelectedIndex());
 					Persona villano = buscarVillanoEnLaListaDeVillanos(nombreVillano);
-					jugador.pedirOrdenDeArresto(villano);
-					setVisible(false);
+					modeloResolviendoElCaso.getJugador().pedirOrdenDeArresto(villano);
+	                dispose();
 				}
 				else {
 					JOptionPane.showMessageDialog(contentPane,"No puede volver a emitir otra orden de arresto");
