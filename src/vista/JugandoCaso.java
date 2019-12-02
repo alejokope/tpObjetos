@@ -19,18 +19,46 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.util.List;
+import java.awt.event.WindowAdapter;
 
 public class JugandoCaso extends JFrame {
 
 	private JPanel contentPane;
+	
+	
 	/*
 	 * se crea el segundo modelview 
 	 */
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
-	private List<String> paisesRecorridosConExito;
-	private JList<Pais> listaRecorridoExitoso;
+	//private List<String> paisesRecorridosConExito;
+	private JLabel lblPais;
+	
+	RecorridoController controlador=new RecorridoController(modelo);
+
+	private JList<Pais> list;
+
+
+	private JList<Pais> listM;
 
 	public JugandoCaso(CasoAJugar caso, Jugador jugador) {
+		addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				if(modelo.estaPaisActualEnPlanEscape()) {
+					list.setModel(controlador.paisesCorrectos());
+					
+					list.setCellRenderer(new PaisCell());
+				}
+				else {
+					listM.setModel(controlador.paisesIncorrectos());
+					listM.setCellRenderer(new PaisCell());
+					
+				}
+				
+
+			}
+		});
         modelo.setCasoAJugar(caso);
         
         setResizable(false);
@@ -39,7 +67,8 @@ public class JugandoCaso extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		//contentPane.setFlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JPanel pArriba = new JPanel();
 		pArriba.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -49,7 +78,7 @@ public class JugandoCaso extends JFrame {
 		JLabel lblEstasEn = new JLabel("Estas En :");
 		pArriba.add(lblEstasEn);
 		
-		JLabel lblPais = new JLabel();
+		lblPais = new JLabel();
 		lblPais.setText(modelo.getNombrePaisActual());
 
 		pArriba.add(lblPais);
@@ -157,39 +186,25 @@ public class JugandoCaso extends JFrame {
 		pbotoneraAcciones.add(btnExpedientes);
 		
 		JPanel panel = new JPanel();
-		panel.setPreferredSize(new Dimension(600, 125));
+		panel.setPreferredSize(new Dimension(600, 120));
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
-		
-		JScrollPane spRecorridoCorrecto = new JScrollPane();
-		panel.add(spRecorridoCorrecto);
-		
-		
-		JList<Pais> listaRecorridoExitoso = new JList<Pais>();
-		spRecorridoCorrecto.setViewportView(listaRecorridoExitoso);
-		
-		JScrollPane spRecorridoIncorrecto = new JScrollPane();
-		panel.add(spRecorridoIncorrecto);
-		
-		JList<Pais> listaREcorridoIncorrecto = new JList<Pais>();
 
-		spRecorridoIncorrecto.setViewportView(listaREcorridoIncorrecto);
+		list = new JList<Pais>();
+		panel.add(list);
 		
+		listM = new JList<Pais>();
+		panel.add(listM);
 		
-		for(Pais pais:modelo.getRecorridoAcertado()) {
-			if(modelo.getCasoAJugar().getCaso().getPlanEscape().contains(jugador.getPaisActual())) {
-				listaRecorridoExitoso.setModel(new RecorridoController(modelo).agregarAlREcorrido(jugador.getPaisActual()));
-				listaRecorridoExitoso.setCellRenderer(new PaisCell());
-			}
 			/*else {
 				listaREcorridoIncorrecto.setModel(new RecorridoController(modelo).agregarAlREcorrido(jugador.getPaisActual()));
 				listaREcorridoIncorrecto.setCellRenderer(new PaisCell());
-			}*/
-		}
+			}
+		}*/
 
 	}
 
-	
+
 	private void seEncuentranAmbosOGano(ResolviendoElCasoViewModel modelo) {
 		if(modelo.getCasoAJugar().estaElCasoCerrado()) {
 			abroVentanaDeFinalDelJuego(modelo);

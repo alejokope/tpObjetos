@@ -19,20 +19,19 @@ public class ResolviendoElCasoViewModel {
     private List<String> recorridoNoAcertado = new ArrayList<>();
 
     private List<LugarInteres> lugaresDeInteres= new ArrayList<LugarInteres>();
-   // private DataDummy dataDummy = SingletonDataDummy.getInstance();
 
-
-/*
-    public DataDummy getDataDummy() {
-        return dataDummy;
-    }
-*/
     public Pais getPaisDeOrigen() {
     	return getCaso().getPaisOrigen();
     }
 
     public List<LugarInteres> getLugaresDeInteres(){
     	return casoAJugar.getJugador().getPaisActual().getLugaresInteres();
+    }
+    
+    public boolean estaPaisActualEnPlanEscape() {
+    	List<String> paises = new ArrayList<String>();
+    	casoAJugar.getCaso().getPlanEscape().stream().forEach(pais -> paises.add(pais.getNombre()));
+    	return paises.contains(casoAJugar.getJugador().getPaisActual().getNombre());
     }
 
     public List<Pais> getPaisesDondePasoElCriminal() {
