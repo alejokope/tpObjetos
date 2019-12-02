@@ -41,7 +41,9 @@ public class LugarInteresVista extends JFrame {
         panel_1.setPreferredSize(new Dimension(350, 250));
         contentPane.add(panel_1);
 
-        JLabel pistaText = new JLabel();
+        JTextArea pistaText = new JTextArea();
+        pistaText.setBackground(SystemColor.menu);
+        pistaText.setEditable(false);
         panel_1.add(pistaText);
         pistaText.setText(modelo.darPista());
         pistaText.setFont(new Font("Tahoma", Font.PLAIN, 14));
