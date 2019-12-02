@@ -2,6 +2,7 @@ package vista;
 
 import modelo.CasoAJugar;
 import modelo.Jugador;
+import modelo.Pais;
 import modelo.lugarInteres.LugarInteres;
 import viewmodel.LugarInteresViewModel;
 import viewmodel.ResolviendoElCasoViewModel;
@@ -9,6 +10,9 @@ import viewmodel.ResolviendoElCasoViewModel;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+
+import controllers.RecorridoExitosoController;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +26,8 @@ public class JugandoCaso extends JFrame {
 	 * se crea el segundo modelview 
 	 */
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
+	private List<String> paisesRecorridosConExito;
+	private JList<Pais> listaRecorridoExitoso;
 
 	public JugandoCaso(CasoAJugar caso, Jugador jugador) {
         modelo.setCasoAJugar(caso);
@@ -148,46 +154,16 @@ public class JugandoCaso extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JScrollPane spRecorrido = new JScrollPane();
-		spRecorrido.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
-        List<String> paises = modelo.getRecorridoAcertado();
-
-        if(modelo.getRecorridoAcertado().size() > 0){
-            int x = 20;
-		    for(String pais: modelo.getRecorridoAcertado()){
-		        Label _pais = new Label(pais);
-                _pais.setFont(new Font("Arial",Font.PLAIN, 14));
-                _pais.setBounds(20,x, 70, 22);
-                x += 20;
-		        spRecorrido.add(_pais);
-
-            }
-        }
-		panel.add(spRecorrido);
+		JScrollPane spRecorridoCorrecto = new JScrollPane();
+		panel.add(spRecorridoCorrecto);
 		
-		JList lstRecorridoAcertado = new JList();
-		spRecorrido.setRowHeaderView(lstRecorridoAcertado);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new TitledBorder(null, "Recorrido incorrecto", TitledBorder.CENTER, TitledBorder.TOP, null, null));
-//TODO AGREGAR BIEN
-        if(modelo.getRecorridoNoAcertado().size() > 0){
-            int x = 20;
-            for(String pais: modelo.getRecorridoNoAcertado()){
-                Label _pais = new Label(pais);
-                _pais.setFont(new Font("Arial",Font.PLAIN, 14));
-                _pais.setBounds(20,x, 70, 22);
-                x += 20;
-                scrollPane.add(_pais);
+		listaRecorridoExitoso = new JList();
+		listaRecorridoExitoso.setModel(new RecorridoExitosoController(modelo).getRecorridoCorrecto());
+		listaRecorridoExitoso.setCellRenderer(new PaisCell());
+		spRecorridoCorrecto.setViewportView(listaRecorridoExitoso);
 
-            }
-        }
-
-		panel.add(scrollPane);
-		
-		JList listRecorridoErroneo = new JList();
-		scrollPane.setRowHeaderView(listRecorridoErroneo);
 	}
+	
 
 	private boolean escucharSiFinalizaElJuegoYCerrar(ResolviendoElCasoViewModel modelo) {
 		return modelo.getCasoAJugar().isTermino();

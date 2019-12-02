@@ -25,13 +25,4 @@ public class ExpedientesController {
 		return lista;	
 	}
 	
-	public List<Persona> getVillanos2(){
-		List<Persona> lista = new ArrayList<Persona>();
-		ArrayList<Persona> villanos= modelo.getVillanos();
-		for(int i = 0; i<villanos.size();i++) {
-			lista.add(i,villanos.get(i));
-		}
-		return lista;	
-	}
-
 }

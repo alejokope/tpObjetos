@@ -64,7 +64,7 @@ public class Expedientes extends JFrame {
 		 * 
 		 * 
 		 * SE TIENE QUE CAMBIAR EN VES DE PERSONA POR VILLANO
-		 * 
+		 *  ACA EMPIZA LO DE LA LISTA	
 		 * */
 		 
 		JList<Persona> listVillano = new JList<Persona>();
@@ -91,9 +91,6 @@ public class Expedientes extends JFrame {
 			lblAquiSexo.setText(villano.getSexo());
 			listSenia.setModel(new VillanosController(modelo).getCaracteristicasVillanoSeleccionado());
 			listHobbies.setModel(new VillanosController(modelo).getHobbiesVillanoSeleccionado());
-			//pfoto.set
-			
-			
 		}
 		});
 		
