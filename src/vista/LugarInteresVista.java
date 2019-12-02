@@ -15,6 +15,8 @@ import java.util.List;
 
 public class LugarInteresVista extends JFrame {
     private JPanel contentPane;
+    private JTextArea pistaText = new JTextArea();
+    
 
     public LugarInteresVista(LugarInteresViewModel modelo){
     	setResizable(false);
@@ -41,7 +43,6 @@ public class LugarInteresVista extends JFrame {
         panel_1.setPreferredSize(new Dimension(350, 250));
         contentPane.add(panel_1);
 
-        JTextArea pistaText = new JTextArea();
         pistaText.setBackground(SystemColor.menu);
         pistaText.setEditable(false);
         panel_1.add(pistaText);
@@ -64,5 +65,9 @@ public class LugarInteresVista extends JFrame {
         	}
         });
     }
+
+	public String obtenerPista() {
+		return pistaText.getText();
+	}
 
 }

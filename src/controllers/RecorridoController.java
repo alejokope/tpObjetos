@@ -34,6 +34,7 @@ public class RecorridoController {
 			listaCorrectos.addElement(modelo.getCasoAJugar().getJugador().getPaisActual());
 		}
 		return listaCorrectos;
+
 		
 	}
 
