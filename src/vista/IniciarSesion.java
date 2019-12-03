@@ -39,7 +39,7 @@ public class IniciarSesion extends JFrame {
 		setTitle("Bienvenid@");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 600);
+		setBounds(550, 280, 700, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -163,9 +163,5 @@ public class IniciarSesion extends JFrame {
 
 	public void setTextContrasenia(JPasswordField textContrasenia) {
 		this.textContrasenia = textContrasenia;
-	}
-	
-	
-	
-	
+	}	
 }

@@ -49,8 +49,7 @@ public class ResolviendoElCasoViewModel {
         	if(paisesCaso.contains(paisDondeEstaElJugador)) {
         		Pais paisCorrecto=paisesCaso.get(i);
         		recorridoAcertado.add(paisCorrecto);
-        	}
-        	
+        	}	
         }
         return recorridoAcertado;
     }
@@ -110,5 +109,4 @@ public class ResolviendoElCasoViewModel {
     public CasoAJugar getCasoAJugar() {
 		return casoAJugar;
 	}
-
 }

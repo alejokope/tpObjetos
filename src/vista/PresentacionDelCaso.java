@@ -31,7 +31,7 @@ public class PresentacionDelCaso extends JDialog {
 	    
 	    setVisible(true);
 		setResizable(false);
-		setBounds(100, 100, 500, 500);
+		setBounds(550, 280, 500, 500);
 		getContentPane().setLayout(new BorderLayout());
 		detalleDelCasoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(detalleDelCasoPanel, BorderLayout.CENTER);

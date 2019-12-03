@@ -55,7 +55,7 @@ public class Expedientes extends JFrame {
 		modelo = new ExpedientesViewModel();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 778, 599);
+		setBounds(550, 280, 778, 599);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
@@ -65,12 +65,6 @@ public class Expedientes extends JFrame {
 		JPanel pLista = new JPanel();
 		contentPane.add(pLista);
 		pLista.setLayout(null);
-		/*
-		 * 
-		 * 
-		 * SE TIENE QUE CAMBIAR EN VES DE PERSONA POR VILLANO
-		 *  ACA EMPIZA LO DE LA LISTA	
-		 * */
 		 
 		JList<Persona> listVillano = new JList<Persona>();
 		listVillano.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "villanos", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLACK));
@@ -81,14 +75,12 @@ public class Expedientes extends JFrame {
 		pLista.add(listVillano);
 		
 		listVillano.addListSelectionListener(new ListSelectionListener() {
-			
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				Persona villano = listVillano.getSelectedValue();
 				if(villano!= null) {
 					seSelecciona(villano);
 				}
-				
 			}
 			private void seSelecciona(Persona villano) {
 			modelo.setVillanoSeleccionado(villano);
@@ -99,7 +91,6 @@ public class Expedientes extends JFrame {
 		}
 		});
 		
-
 		pfoto = new JPanel();
 		contentPane.add(pfoto);
 		pfoto.setLayout(new GridLayout(2, 0, 0, 0));
@@ -161,6 +152,7 @@ public class Expedientes extends JFrame {
                 dispose();
 			}
 		});
+		
 		btnAtras.setBounds(75, 231, 97, 25);
 		pHobbies.add(btnAtras);
 	}

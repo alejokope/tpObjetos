@@ -23,7 +23,7 @@ public class LugarInteresVista extends JFrame {
     	modelo.setLugarDeInteresDelJugador();
     	
         setTitle(modelo.getCaso().getTitulo());
-        setBounds(500, 500, 523, 410);
+        setBounds(550, 280, 523, 410);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
@@ -74,5 +74,4 @@ public class LugarInteresVista extends JFrame {
 	public void setLugarInteres() {
 		
 	}
-
 }

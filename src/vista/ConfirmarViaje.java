@@ -27,14 +27,13 @@ public class ConfirmarViaje extends JFrame {
     	return paisElegido;
     }
 
-
     public ConfirmarViaje(final String paisProximo,ResolviendoElCasoViewModel modelo, Jugador jugador){
     	
         setResizable(false);
         utils = new Utils();
         setTitle("CONFIRMAR VIAJE");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
-        setBounds(500, 500, 383, 221);
+        setBounds(550, 280, 383, 221);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
@@ -51,23 +50,20 @@ public class ConfirmarViaje extends JFrame {
         panel_1.setPreferredSize(new Dimension(100, 100));
         panel.add(panel_1, BorderLayout.SOUTH);
         
-        
-        
-                JButton bAceptar = new JButton("Aceptar");
-                panel_1.add(bAceptar);
-                
-                JPanel panel_2 = new JPanel();
-                panel_2.setBorder(new EmptyBorder(50, 0, 0, 0));
-                panel.add(panel_2, BorderLayout.CENTER);
-                
-                JLabel lblSeHaViajado = new JLabel("Viajar a un nuevo destino");
-                panel_2.add(lblSeHaViajado);
-                bAceptar.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent arg0) {
-                    	modelo.getCasoAJugar().viajar(utils.obtenerPais(paisProximo));
-                    	dispose();
-                    }
-                });
-    }
-    
+		JButton bAceptar = new JButton("Aceptar");
+		panel_1.add(bAceptar);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new EmptyBorder(50, 0, 0, 0));
+		panel.add(panel_2, BorderLayout.CENTER);
+		
+		JLabel lblSeHaViajado = new JLabel("Viajar a un nuevo destino");
+		panel_2.add(lblSeHaViajado);
+		bAceptar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent arg0) {
+		    	modelo.getCasoAJugar().viajar(utils.obtenerPais(paisProximo));
+		    	dispose();
+		    }
+		});
+    }   
 }

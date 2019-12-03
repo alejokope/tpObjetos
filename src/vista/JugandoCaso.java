@@ -26,19 +26,13 @@ import javax.swing.border.LineBorder;
 public class JugandoCaso extends JFrame {
 
 	private JPanel contentPane;
-	
-	
-	/*
-	 * se crea el segundo modelview 
-	 */
+
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
 	private JLabel lblPais;
 	
 	RecorridoController controlador=new RecorridoController(modelo);
 
 	private JList<String> RecorridoVillanoList;
-
-
 	private JList<String> DestinosFallidosList;
 
 	public JugandoCaso(CasoAJugar caso, Jugador jugador) {
@@ -51,18 +45,15 @@ public class JugandoCaso extends JFrame {
 					RecorridoVillanoList.setModel(controlador.paisesCorrectos());
 				}
 				else {
-					DestinosFallidosList.setModel(controlador.paisesIncorrectos());
-					
+					DestinosFallidosList.setModel(controlador.paisesIncorrectos());	
 				}
-				
-
 			}
 		});
         modelo.setCasoAJugar(caso);
         
         setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 815, 634);
+		setBounds(550, 280, 815, 634);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
@@ -213,7 +204,6 @@ public class JugandoCaso extends JFrame {
 		panel.add(DestinosFallidosList);
 	}
 
-
 	protected List<LugarInteres> obtenerLugaresDeInteres(CasoAJugar caso) {
 		return caso.getJugador().obtenerLugaresDeInteresDelPaisActual();
 	}
@@ -223,6 +213,7 @@ public class JugandoCaso extends JFrame {
 				.map(lugar -> lugar.informacion())
 				.collect(Collectors.toList());
 	}
+	
 	protected void abroVentanaDeLugarInteres(CasoAJugar caso, String lugarDeInteres) {
 		if(obtenerLugaresDeInteres(caso).stream().anyMatch(lugar -> lugar.informacion().equalsIgnoreCase(lugarDeInteres))) {
 			LugarInteresVista lugarInteresVista = new LugarInteresVista(new LugarInteresViewModel(caso, obtenerUnLugarDeInteres(caso,lugarDeInteres)));
@@ -247,7 +238,6 @@ public class JugandoCaso extends JFrame {
 	        }
 		return null;
 	}
-
 
 	private void seEncuentranAmbosOGano(ResolviendoElCasoViewModel modelo) {
 		if(modelo.getCasoAJugar().estaElCasoCerrado()) {

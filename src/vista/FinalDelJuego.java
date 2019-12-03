@@ -29,7 +29,7 @@ public class FinalDelJuego extends JFrame {
     	setTitle("Es el final del Juego!");
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(550, 280, 450, 300);
         finalDelJuegoPanel = new JPanel();
         finalDelJuegoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
@@ -62,7 +62,6 @@ public class FinalDelJuego extends JFrame {
 
         condicionDeVictoriaODerrota(casoAJugar);
     }
-
 
     private void condicionDeVictoriaODerrota(CasoAJugar casoAJugar) {
         if(casoAJugar.gano()){
@@ -99,7 +98,6 @@ public class FinalDelJuego extends JFrame {
 		}
 		
 	}
-
 
 	public String obtenerPrimerOracion() {
 		return primeraOracionLabel.getText();

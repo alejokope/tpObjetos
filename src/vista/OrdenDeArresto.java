@@ -61,7 +61,7 @@ public class OrdenDeArresto extends JFrame {
 		});
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 501, 278);
+		setBounds(550, 280, 501, 278);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -143,5 +143,4 @@ public class OrdenDeArresto extends JFrame {
 		villano = listaVillanos.get(i);
 		return villano;
 	}
-
 }

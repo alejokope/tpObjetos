@@ -7,7 +7,5 @@ public class IniciarVista {
 	public static void main(String[] args) {
 		IniciarSesion iniciar = new IniciarSesion();
 		iniciar.setVisible(true);
-		
 	}
-
 }

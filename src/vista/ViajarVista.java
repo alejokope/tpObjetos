@@ -30,7 +30,7 @@ public class ViajarVista extends JFrame {
     public ViajarVista(ResolviendoElCasoViewModel modelo, Jugador jugador){
         setTitle("Viajar");
         
-        setBounds(500, 500, 700, 400);
+        setBounds(550, 280, 700, 400);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -88,5 +88,4 @@ public class ViajarVista extends JFrame {
         });
         contentPane.add(cancelar);
     }
-
 }
