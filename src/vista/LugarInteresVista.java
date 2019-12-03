@@ -26,6 +26,7 @@ public class LugarInteresVista extends JFrame {
         setBounds(500, 500, 523, 410);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
         setContentPane(contentPane);
         contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
         
@@ -68,6 +69,10 @@ public class LugarInteresVista extends JFrame {
 
 	public String obtenerPista() {
 		return pistaText.getText();
+	}
+	
+	public void setLugarInteres() {
+		
 	}
 
 }

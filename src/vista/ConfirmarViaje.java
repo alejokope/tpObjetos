@@ -37,6 +37,8 @@ public class ConfirmarViaje extends JFrame {
         setBounds(500, 500, 383, 221);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
+
         setContentPane(contentPane);
         contentPane.setLayout(new BorderLayout(0, 0));
 

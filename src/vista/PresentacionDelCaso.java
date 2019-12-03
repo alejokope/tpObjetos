@@ -2,6 +2,7 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -34,6 +35,8 @@ public class PresentacionDelCaso extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		detalleDelCasoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(detalleDelCasoPanel, BorderLayout.CENTER);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
+
 		detalleDelCasoPanel.setLayout(null);
 		
 		saludoLabel = new JLabel();

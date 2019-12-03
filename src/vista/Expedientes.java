@@ -10,6 +10,8 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+
 import javax.swing.JList;
 import java.awt.Dimension;
 import javax.swing.border.BevelBorder;
@@ -49,12 +51,14 @@ public class Expedientes extends JFrame {
 	}
 	
 	public Expedientes() {
+		setTitle("Expepedientes! puedes ver a los criminales mas peligrosos!");
 		modelo = new ExpedientesViewModel();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 599);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 3, 0, 0));
 		

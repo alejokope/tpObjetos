@@ -23,6 +23,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JScrollPane;
@@ -46,6 +47,7 @@ public class OrdenDeArresto extends JFrame {
 	private String nombreVillano;
 
 	public OrdenDeArresto(ResolviendoElCasoViewModel modeloResolviendoElCaso) {
+		setTitle("Elige un villano y emite una orden de arresto!");
 		addWindowListener(new WindowAdapter() {
 			
 
@@ -63,6 +65,7 @@ public class OrdenDeArresto extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
 		setContentPane(contentPane);
 		
 		JPanel pArriba = new JPanel();

@@ -21,6 +21,7 @@ import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.awt.event.WindowAdapter;
+import javax.swing.border.LineBorder;
 
 public class JugandoCaso extends JFrame {
 
@@ -41,6 +42,7 @@ public class JugandoCaso extends JFrame {
 	private JList<String> DestinosFallidosList;
 
 	public JugandoCaso(CasoAJugar caso, Jugador jugador) {
+		setTitle("A resolver el caso :D ");
 		addWindowListener(new WindowAdapter() {
 
 			@Override
@@ -63,6 +65,8 @@ public class JugandoCaso extends JFrame {
 		setBounds(100, 100, 815, 634);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
+
 		setContentPane(contentPane);
 				
 		JPanel pArriba = new JPanel();
@@ -84,7 +88,7 @@ public class JugandoCaso extends JFrame {
 		pCentro.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel pLugares = new JPanel();
-		pLugares.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Lugares a visitar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pLugares.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Lugares a visitar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 128)));
 		pCentro.add(pLugares);
 		pLugares.setLayout(new BorderLayout(0, 0));
 		
@@ -134,7 +138,7 @@ public class JugandoCaso extends JFrame {
 
 		
 		JPanel pAcionesArealizar = new JPanel();
-		pAcionesArealizar.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Acciones para realizar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pAcionesArealizar.setBorder(new TitledBorder(new LineBorder(new Color(128, 128, 128), 2), "Acciones para realizar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 128)));
 		pCentro.add(pAcionesArealizar);
 		pAcionesArealizar.setLayout(new BorderLayout(0, 0));
 		
@@ -201,11 +205,11 @@ public class JugandoCaso extends JFrame {
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 
 		RecorridoVillanoList = new JList<String>();
-		RecorridoVillanoList.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		RecorridoVillanoList.setBorder(new TitledBorder(new LineBorder(new Color(154, 205, 50)), "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(154, 205, 50)));
 		panel.add(RecorridoVillanoList);
 		
 		DestinosFallidosList = new JList<String>();
-		DestinosFallidosList.setBorder(new TitledBorder(null, "Destinos Fallidos", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		DestinosFallidosList.setBorder(new TitledBorder(new LineBorder(new Color(255, 69, 0)), "Destinos Fallidos", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(255, 69, 0)));
 		panel.add(DestinosFallidosList);
 	}
 

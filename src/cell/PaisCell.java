@@ -20,14 +20,8 @@ public class PaisCell extends JLabel implements ListCellRenderer<Pais> {
 	public Component getListCellRendererComponent(JList<? extends Pais> list, Pais value, int index,
 			boolean isSelected, boolean cellHasFocus) {
 		setFont(new Font("Tahoma",Font.PLAIN,20));
+		setForeground(Color.RED);
 		setText(value.getNombre());
-		if (isSelected) {
-			setForeground(Color.MAGENTA);
-		}
-		else {
-			setForeground(Color.BLACK);
-		}
-	
 		return this;
 	}
 }

@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+
 import javax.swing.JLabel;
 import java.awt.Color;
 
@@ -24,11 +26,13 @@ public class FinalDelJuego extends JFrame {
     JButton victoriaODerrotaButton = new JButton("");
 
     public FinalDelJuego(CasoAJugar casoAJugar) {
+    	setTitle("Es el final del Juego!");
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         finalDelJuegoPanel = new JPanel();
         finalDelJuegoPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
         setContentPane(finalDelJuegoPanel);
         finalDelJuegoPanel.setLayout(new GridLayout(2, 0, 0, 0));
 

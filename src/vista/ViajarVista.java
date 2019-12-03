@@ -34,6 +34,7 @@ public class ViajarVista extends JFrame {
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
         contentPane.setLayout(null);
 
         Label estasEn = new Label("Estas En: ");
