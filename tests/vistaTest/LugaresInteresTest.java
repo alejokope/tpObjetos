@@ -97,7 +97,7 @@ public class LugaresInteresTest {
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = lugarInteresFallido2.darPista(casoAJugar);
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresFallido2,true));
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresFallido2,false));
 
 	        assertEquals(pista, visitandoLugar.obtenerPista());
 	    }
