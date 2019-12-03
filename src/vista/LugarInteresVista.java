@@ -23,7 +23,7 @@ public class LugarInteresVista extends JFrame {
     	modelo.setLugarDeInteresDelJugador();
     	
         setTitle(modelo.getCaso().getTitulo());
-        setBounds(550, 280, 523, 410);
+        setBounds(550, 280, 519, 264);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IniciarSesion.class.getResource("/imagenes/iconosombrero.png")));
@@ -36,19 +36,20 @@ public class LugarInteresVista extends JFrame {
 
         Label estasEn = new Label("Estas visitando: " + modelo.getLugarInteres().informacion());
         panel.add(estasEn);
-        estasEn.setFont(new Font("Arial",Font.PLAIN, 14));
+        estasEn.setFont(new Font("Arial", Font.PLAIN, 21));
         
         JPanel panel_1 = new JPanel();
+        panel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
         FlowLayout flowLayout = (FlowLayout) panel_1.getLayout();
         flowLayout.setHgap(10);
-        panel_1.setPreferredSize(new Dimension(350, 250));
+        panel_1.setPreferredSize(new Dimension(350, 100));
         contentPane.add(panel_1);
 
         pistaText.setBackground(SystemColor.menu);
         pistaText.setEditable(false);
         panel_1.add(pistaText);
         pistaText.setText(modelo.darPista());
-        pistaText.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        pistaText.setFont(new Font("Arial", Font.PLAIN, 19));
         
         JPanel panel_2 = new JPanel();
         panel_2.setPreferredSize(new Dimension(400, 50));

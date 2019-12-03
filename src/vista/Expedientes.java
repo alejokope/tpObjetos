@@ -103,22 +103,28 @@ public class Expedientes extends JFrame {
 		pfoto.add(pNombreSexo);
 		pNombreSexo.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JLabel lblNombre = new JLabel("nombre");
+		JLabel lblNombre = new JLabel("Nombre: ");
+		lblNombre.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		pNombreSexo.add(lblNombre);
 		
-		lblAquiNombre = new JLabel("aqui nombre");
+		lblAquiNombre = new JLabel("Aqui nombre:");
+		lblAquiNombre.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblAquiNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblAquiNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAquiNombre.setHorizontalTextPosition(SwingConstants.CENTER);
 		pNombreSexo.add(lblAquiNombre);
 		
-		JLabel lblSexo = new JLabel("sexo");
+		JLabel lblSexo = new JLabel("Sexo: ");
+		lblSexo.setVerticalAlignment(SwingConstants.TOP);
 		lblSexo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSexo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pNombreSexo.add(lblSexo);
 		
-		lblAquiSexo = new JLabel("aqui sexo");
+		lblAquiSexo = new JLabel("Aqui sexo: ");
+		lblAquiSexo.setVerticalAlignment(SwingConstants.TOP);
+		lblAquiSexo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblAquiSexo.setHorizontalAlignment(SwingConstants.CENTER);
 		pNombreSexo.add(lblAquiSexo);
 		
