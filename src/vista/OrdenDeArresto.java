@@ -38,17 +38,12 @@ import java.awt.Choice;
 public class OrdenDeArresto extends JFrame {
 
 	private JPanel contentPane;
-	
 	private JComboBox <Persona>comboBox;
-
-	
 	private ExpedientesViewModel modeloExpedientes = new ExpedientesViewModel();
-	
-
 	private Choice choice;
-	
 	private ArrayList<Persona> listaVillanos;
-
+	
+	private String nombreVillano;
 
 	public OrdenDeArresto(ResolviendoElCasoViewModel modeloResolviendoElCaso) {
 		addWindowListener(new WindowAdapter() {
@@ -115,6 +110,7 @@ public class OrdenDeArresto extends JFrame {
 					String nombreVillano = choice.getItem(choice.getSelectedIndex());
 					Persona villano = buscarVillanoEnLaListaDeVillanos(nombreVillano);
 					modeloResolviendoElCaso.getJugador().pedirOrdenDeArresto(villano);
+					setNombreVillano(nombreVillano);
 	                dispose();
 				}
 				else {
@@ -126,6 +122,15 @@ public class OrdenDeArresto extends JFrame {
 		btnNewButton_1.setPreferredSize(new Dimension(170, 25));
 		pCentro.add(btnNewButton_1);
 	}
+	
+	public String getNombreVillano() {
+		return nombreVillano;
+	}
+	
+	public void setNombreVillano(String nombreVillano) {
+		this.nombreVillano = nombreVillano;
+	}
+	
 	private Persona buscarVillanoEnLaListaDeVillanos(String nombreVillano) {
 		Persona villano;
 		int i=0;
