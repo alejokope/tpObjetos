@@ -37,7 +37,7 @@ public class RecorridoController {
 	}
 
 	public ListModel<String> paisesIncorrectos() {
-		if(!listaIncorrectos.contains(modelo.getCasoAJugar().getJugador().getPaisActual().getNombre())) {
+		if(!listaIncorrectos.contains(modelo.getCasoAJugar().getJugador().getPaisActual().getNombre()) && !modelo.getCasoAJugar().getJugador().getPaisActual().getNombre().equalsIgnoreCase(modelo.getCasoAJugar().getCaso().getPaisOrigen().getNombre())) {
 			listaIncorrectos.addElement(modelo.getCasoAJugar().getJugador().getPaisActual().getNombre());
 		}
 		return listaIncorrectos;

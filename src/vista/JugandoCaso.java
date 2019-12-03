@@ -50,7 +50,12 @@ public class JugandoCaso extends JFrame {
 			}
 		});
         modelo.setCasoAJugar(caso);
-        
+        for(Pais pais: modelo.getVillano().getPlanEscape()){
+            System.out.println(pais.getNombre());
+        }
+        System.out.println(modelo.getVillano().tienePaisProximo());
+        modelo.getCasoAJugar().setTermino(!modelo.getVillano().tienePaisProximo());
+
         setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(550, 280, 815, 634);
@@ -72,7 +77,6 @@ public class JugandoCaso extends JFrame {
 		lblPais.setText(modelo.getNombrePaisActual());
 
 		pArriba.add(lblPais);
-		
 		JPanel pCentro = new JPanel();
 		pCentro.setPreferredSize(new Dimension(700, 400));
 		contentPane.add(pCentro);

@@ -56,7 +56,7 @@ public class Villano extends Persona {
     }
 
     public Pais getPaisProximo(Jugador jugador) {
-        return planEscape.get(obtenerSiguientePaisDeMiPlanDeEscape(jugador));
+        return paisSiguiente();
     }
 
     public int obtenerSiguientePaisDeMiPlanDeEscape(Jugador jugador) {

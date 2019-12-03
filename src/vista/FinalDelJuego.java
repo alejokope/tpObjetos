@@ -74,7 +74,7 @@ public class FinalDelJuego extends JFrame {
 
     private void textoDeVictoria(CasoAJugar casoAJugar) {
         primeraOracionLabel.setText("Enhorabuena!");
-        segundaOracionLabel.setText("Ha detenido a Carmen Sandiego y recuperado la "+ casoAJugar.getCaso().getObjeto());
+        segundaOracionLabel.setText("Ha detenido a "+ casoAJugar.getVillano().getNombre() +" y recuperado la "+ casoAJugar.getCaso().getObjeto());
         terceraOracionLabel.setForeground(Color.GREEN);
         terceraOracionLabel.setText("Felicitaciones!!!!!");
         victoriaODerrotaButton.setText("Disfrutar de la victoria");

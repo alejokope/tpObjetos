@@ -377,7 +377,7 @@ public class DataDummy {
             if(caso.size() == 5){ //aumento la cantidad de paises en la lista despues de la modificacion de arriba
                 return caso2;
             }
-            while(caso.contains(proximo)){
+            while(caso.contains(proximo) && !proximo.getNombre().equalsIgnoreCase(pais.getNombre())){
                 proximo = obtenerConexionAleatoria(pais);
             }
 

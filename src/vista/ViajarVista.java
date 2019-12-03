@@ -29,7 +29,7 @@ public class ViajarVista extends JFrame {
     
     public ViajarVista(ResolviendoElCasoViewModel modelo, Jugador jugador){
         setTitle("Viajar");
-        
+        modelo.getCasoAJugar().setTermino(!modelo.getVillano().tienePaisProximo());
         setBounds(550, 280, 700, 400);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,6 +63,7 @@ public class ViajarVista extends JFrame {
         viajar.setVerticalAlignment(SwingConstants.CENTER);
         viajar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 ConfirmarViaje confirmarViaje = new ConfirmarViaje(comboBox.getSelectedItem().toString(),modelo,jugador);
                 confirmarViaje.setVisible(true);
                 confirmarViaje.addWindowListener(new VentanaSeCierraListener() {
