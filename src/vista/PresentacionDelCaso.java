@@ -84,14 +84,25 @@ public class PresentacionDelCaso extends JDialog {
 		modelo.setJugador(jugador);
 	}
 	
-	private void mostrarCaso(PresentacionCasoViewModel modelo) {
+	public void mostrarCaso(PresentacionCasoViewModel modelo) {
 		setTitle(modelo.getTitulo());
 		saludoLabel.setText("Detective " + modelo.getNombreDetective() + ", tenemos unos casos para ti.");
     	relatoText.setText(modelo.getReporte());
 	}
 	
-	private void pedirOtroCaso(PresentacionCasoViewModel modelo) {
+	public void pedirOtroCaso(PresentacionCasoViewModel modelo) {
 		modelo.obtenerOtroCaso();
 	}
 	
+	public String mostrarTitulo() {
+		return getTitle();
+	}
+	
+	public String mostrarSaludo() {
+		return saludoLabel.getText();
+	}
+	
+	public String mostrarRelato() {
+		return relatoText.getText();
+	}
 }
