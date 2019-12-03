@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.awt.event.WindowAdapter;
 
 public class JugandoCaso extends JFrame {
@@ -92,31 +93,46 @@ public class JugandoCaso extends JFrame {
 		pLugares.add(pBotonera, BorderLayout.CENTER);
 		pBotonera.setLayout(new GridLayout(5, 0, 0, 3));
 		
+		JButton embajadaButton = new JButton("EMBAJADA");
+		pBotonera.add(embajadaButton);
+		embajadaButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				abroVentanaDeLugarInteres(caso, "EMBAJADA");
+			}
+		});
+		
+		JButton clubButton = new JButton("CLUB");
+		pBotonera.add(clubButton);
+		clubButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				abroVentanaDeLugarInteres(caso, "CLUB");
+			}
+		});
+		
+		JButton bancoButton = new JButton("BANCO");
+		pBotonera.add(bancoButton);
+		bancoButton.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				abroVentanaDeLugarInteres(caso, "BANCO");
+			}
+		});
+		
+		JButton bibliotecaButton = new JButton("BIBLIOTECA");
+		pBotonera.add(bibliotecaButton);
+		bibliotecaButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				abroVentanaDeLugarInteres(caso, "BIBLIOTECA");
+			}
+		});
+		
 		JLabel lOrdenDeArresto = new JLabel();
 		lOrdenDeArresto.setText("No se ha emitido orden de arresto.");
 
-        int y = 70;
-        for(final LugarInteres lugarInteres : modelo.getLugaresDeInteres()){
-            final JButton _lugarInteres = new JButton(lugarInteres.informacion().toUpperCase());
-            _lugarInteres.setBounds(20, y,120,50);
-            _lugarInteres.setFont(new Font("Arial",Font.BOLD,12));
-            _lugarInteres.setHorizontalAlignment(SwingConstants.CENTER);
-            _lugarInteres.setVerticalAlignment(SwingConstants.CENTER);
-            _lugarInteres.addActionListener(e -> {
-                LugarInteresVista lugarInteresVista = new LugarInteresVista(new LugarInteresViewModel(caso,lugarInteres));
-                lugarInteresVista.setVisible(true);
-                lugarInteresVista.addWindowListener(new VentanaSeCierraListener() {
-					@Override
-					public void windowClosed(WindowEvent arg0) {
-						seEncuentranAmbosOGano(modelo);
-					}
-				});
-            });
-           pBotonera.add(_lugarInteres);
-            y += 70;
-        }
-
-
+		
 		JPanel pAcionesArealizar = new JPanel();
 		pAcionesArealizar.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Acciones para realizar", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pCentro.add(pAcionesArealizar);
@@ -191,6 +207,41 @@ public class JugandoCaso extends JFrame {
 		DestinosFallidosList = new JList<String>();
 		DestinosFallidosList.setBorder(new TitledBorder(null, "Destinos Fallidos", TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		panel.add(DestinosFallidosList);
+	}
+
+
+	protected List<LugarInteres> obtenerLugaresDeInteres(CasoAJugar caso) {
+		return caso.getJugador().obtenerLugaresDeInteresDelPaisActual();
+	}
+	
+	protected List<String> obtenerNombresLugaresDeInteres(CasoAJugar caso) {
+		return obtenerLugaresDeInteres(caso).stream()
+				.map(lugar -> lugar.informacion())
+				.collect(Collectors.toList());
+	}
+	protected void abroVentanaDeLugarInteres(CasoAJugar caso, String lugarDeInteres) {
+		if(obtenerLugaresDeInteres(caso).stream().anyMatch(lugar -> lugar.informacion().equalsIgnoreCase(lugarDeInteres))) {
+			LugarInteresVista lugarInteresVista = new LugarInteresVista(new LugarInteresViewModel(caso, obtenerUnLugarDeInteres(caso,lugarDeInteres)));
+			lugarInteresVista.setVisible(true);
+			lugarInteresVista.addWindowListener(new VentanaSeCierraListener() {
+				@Override
+				public void windowClosed(WindowEvent arg0) {
+					seEncuentranAmbosOGano(modelo);
+				}
+			});
+		}
+		else {
+			JOptionPane.showMessageDialog(contentPane,"No existe este lugar de interes en este pais, prueba otro!");
+		}
+	}
+	
+	protected LugarInteres obtenerUnLugarDeInteres(CasoAJugar caso, String lugarDeInteres) {
+		for(LugarInteres lugarInteres: obtenerLugaresDeInteres(caso)){
+	            if(lugarInteres.informacion().equalsIgnoreCase(lugarDeInteres)){
+	                return lugarInteres;
+	            }
+	        }
+		return null;
 	}
 
 
