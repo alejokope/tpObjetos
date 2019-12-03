@@ -216,7 +216,7 @@ public class JugandoCaso extends JFrame {
 	
 	protected void abroVentanaDeLugarInteres(CasoAJugar caso, String lugarDeInteres) {
 		if(obtenerLugaresDeInteres(caso).stream().anyMatch(lugar -> lugar.informacion().equalsIgnoreCase(lugarDeInteres))) {
-			LugarInteresVista lugarInteresVista = new LugarInteresVista(new LugarInteresViewModel(caso, obtenerUnLugarDeInteres(caso,lugarDeInteres)));
+			LugarInteresVista lugarInteresVista = new LugarInteresVista(new LugarInteresViewModel(caso, obtenerUnLugarDeInteres(caso,lugarDeInteres), modelo.pasoPorAcaElVillano()));
 			lugarInteresVista.setVisible(true);
 			lugarInteresVista.addWindowListener(new VentanaSeCierraListener() {
 				@Override

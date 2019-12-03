@@ -50,7 +50,7 @@ public class LugaresInteresTest {
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = club.darPista(casoAJugar);
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, club));
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, club,true));
 
 	        assertNotNull(visitandoLugar.obtenerPista()); //aca los mensajes enviados son random.
 	    }
@@ -97,7 +97,7 @@ public class LugaresInteresTest {
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = lugarInteresFallido2.darPista(casoAJugar);
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresFallido2));
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresFallido2,true));
 
 	        assertEquals(pista, visitandoLugar.obtenerPista());
 	    }
@@ -139,7 +139,7 @@ public class LugaresInteresTest {
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = lugarInteresVillano2.darPista(casoAJugar);
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresVillano2));
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteresVillano2,true));
 
 
 	        assertEquals(pista, visitandoLugar.obtenerPista());
@@ -185,7 +185,7 @@ public class LugaresInteresTest {
 	        casoAJugar.getCaso().setResponsable(villano);
 	        
 	        String pista = lugarInteresVillano2.darPista(casoAJugar);
-	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteres2));
+	        LugarInteresVista visitandoLugar = new LugarInteresVista(new LugarInteresViewModel(casoAJugar, lugarInteres2,true));
 
 	        assertEquals(pista, visitandoLugar.obtenerPista());
 	    }

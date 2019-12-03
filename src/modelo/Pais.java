@@ -10,6 +10,7 @@ public class Pais {
 	private List<String> caracteristicas;
 	private List<LugarInteres> lugaresInteres;
 	private List<Pais> conexiones = new ArrayList<Pais>();
+	private boolean pasoVillano;
 
 	private Objeto objeto;
 	private Reporte reporte;
@@ -25,7 +26,15 @@ public class Pais {
 		this.lugaresInteres = lugaresInteres;
 	}
 
-	public boolean elVillanoPasoPorEstePais(Villano villano) {
+    public boolean isPasoVillano() {
+        return pasoVillano;
+    }
+
+    public void setPasoVillano(boolean pasoVillano) {
+        this.pasoVillano = pasoVillano;
+    }
+
+    public boolean elVillanoPasoPorEstePais(Villano villano) {
 
 
 		return villano.getPlanEscape().stream().anyMatch(pais -> pais.getNombre().equalsIgnoreCase(villano.getPaisActual().getNombre()));

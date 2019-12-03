@@ -15,12 +15,13 @@ public class LugarInteres {
             return ayuda.gameOverMensaje(casoAJugar.getVillano());
         } else if (casoAJugar.estanEnElMismoPais()) {
             return ayuda.mismoPaisMensaje();
-        } else if (this.pasoElVillano) {
+        } else if (pasoElVillano) {
             return pasoPorElPais(casoAJugar);
         } else {
             return ayuda.noPasoPorEstePaisMensaje();
         }
     }
+
 
     public String pasoPorElPais(CasoAJugar casoAJugar){
         return "Estas en un LugarInteres. Algo anda mal!";

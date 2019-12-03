@@ -8,10 +8,10 @@ public class LugarInteresViewModel {
     private CasoAJugar casoAJugar;
     private LugarInteres lugarInteres;
     
-    public LugarInteresViewModel(CasoAJugar casoAJugar, LugarInteres lugarInteres) {
+    public LugarInteresViewModel(CasoAJugar casoAJugar, LugarInteres lugarInteres, boolean pasoVillano) {
     	this.casoAJugar = casoAJugar;
     	this.lugarInteres = lugarInteres;
-        System.out.println("alejoskfosa");
+    	lugarInteres.setPasoVillano(pasoVillano);
     }
 
     public LugarInteres getLugarInteres() {

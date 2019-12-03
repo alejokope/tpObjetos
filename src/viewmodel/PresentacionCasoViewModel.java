@@ -37,7 +37,7 @@ public class PresentacionCasoViewModel {
         casoAJugar.setCaso(casoActual);
         casoAJugar.setJugador(jugador);
         jugador.setPaisActual(casoActual.getPaisOrigen());
-        casoAJugar.getVillano().viajar();
+        //casoAJugar.getVillano().viajar();
         return casoAJugar;
     }
 }

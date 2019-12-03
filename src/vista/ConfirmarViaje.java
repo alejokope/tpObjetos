@@ -61,7 +61,8 @@ public class ConfirmarViaje extends JFrame {
 		panel_2.add(lblSeHaViajado);
 		bAceptar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent arg0) {
-		    	modelo.getCasoAJugar().viajar(utils.obtenerPais(paisProximo));
+                modelo.agregarPaisALaLista(modelo.getVillano().paisSiguiente());
+                modelo.getCasoAJugar().viajar(utils.obtenerPais(paisProximo));
 		    	dispose();
 		    }
 		});

@@ -44,6 +44,20 @@ public class ResolviendoElCasoViewModel {
         return paisesDondePasoElCriminal;
     }
 
+    public void agregarPaisALaLista(Pais pais){
+        paisesDondePasoElCriminal.add(pais);
+    }
+
+
+
+    public boolean pasoPorAcaElVillano(){
+        for(Pais pais: paisesDondePasoElCriminal){
+            if(pais.getNombre().equalsIgnoreCase(this.getJugador().getPaisActual().getNombre())){
+                return true;
+            }
+        }
+        return false;
+    }
     public List<Pais> getPaisesDondeNoPasoElCriminal() {
         return paisesDondeNoPasoElCriminal;
     }

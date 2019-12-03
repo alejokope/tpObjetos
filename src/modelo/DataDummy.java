@@ -188,7 +188,7 @@ public class DataDummy {
             seniasBelen.add("De minifalda y zapatos de tacon.");
             seniasBelen.add("Es muy bella ");
 
-            seniasMaria.add("Tiene pelo castaño claro.");
+            seniasMaria.add("Tiene pelo castaï¿½o claro.");
             seniasMaria.add("Se viste de vestido largo y con lentejuelas");
             seniasMaria.add("Usa lentes de contacto");
             seniasMaria.add("Su comida favorita son los camarones");
@@ -196,7 +196,7 @@ public class DataDummy {
             seniasMaria.add("Tiene boca grande");
 
 
-            seniasNicolas.add("Tiene pelo castaño oscuro.");
+            seniasNicolas.add("Tiene pelo castaï¿½o oscuro.");
             seniasNicolas.add("Tiene los ojos uno marron y otro azul.");
             seniasNicolas.add("Tiene un pircing en la ceja");
             seniasNicolas.add("Su color favorito es el azul cobalto.");
@@ -322,7 +322,7 @@ public class DataDummy {
             francia.setLugaresInteres(Arrays.asList(new Biblioteca(), new Embajada(), new Club()));
 
             colombia.setNombre("Colombia");
-            colombia.setCaracteristicas(Arrays.asList("Barranquilla","su color de bandera es roja, azul, amarillo","mayor mente montañoso","tiene selva tropical","muchas frutas","mayor indice de desigual"));
+            colombia.setCaracteristicas(Arrays.asList("Barranquilla","su color de bandera es roja, azul, amarillo","mayor mente montaï¿½oso","tiene selva tropical","muchas frutas","mayor indice de desigual"));
             colombia.setLugaresInteres(Arrays.asList(new Banco(), new Club(), new Biblioteca()));
 
             india.setNombre("India");
@@ -366,7 +366,6 @@ public class DataDummy {
 
         private ArrayList<Pais> generarCasos (Pais pais){
             ArrayList <Pais> caso = new ArrayList<Pais>();
-            caso.add(pais);
             return devolverListaPaisesAzar(pais,caso);
 
 

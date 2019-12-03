@@ -95,6 +95,7 @@ public class Villano extends Persona {
 
     public void viajar() {
         this.paisActual = paisSiguiente();
+        this.paisActual.setPasoVillano(true);
         for(LugarInteres lugarInteres : paisActual.getLugaresInteres()){
             lugarInteres.setPasoVillano(true);
         }
@@ -102,9 +103,7 @@ public class Villano extends Persona {
 
 
     public boolean tienePaisProximo(){
-        for(Pais pais: planEscape){
-            System.out.println(pais.getNombre());
-        }
+
         for(int i = 0 ; i < planEscape.size(); i++){
             if(planEscape.get(i).getNombre().equalsIgnoreCase(paisActual.getNombre()) && i+1 < planEscape.size()){
                 return true;
