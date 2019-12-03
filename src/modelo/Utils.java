@@ -1,10 +1,16 @@
 package modelo;
 
+import viewmodel.ResolviendoElCasoViewModel;
 import viewmodel.SingletonDataDummy;
 
 import java.util.List;
 
 public class Utils {
+    private ResolviendoElCasoViewModel modelo;
+    public Utils(ResolviendoElCasoViewModel modelo) {
+        this.modelo = modelo;
+    }
+
     public int obtenerNumeroAleotorio (int maximo){
         return (int) (Math.random() * maximo);
     }

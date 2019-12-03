@@ -26,6 +26,8 @@ public class Pais {
 	}
 
 	public boolean elVillanoPasoPorEstePais(Villano villano) {
+
+
 		return villano.getPlanEscape().stream().anyMatch(pais -> pais.getNombre().equalsIgnoreCase(villano.getPaisActual().getNombre()));
 	}
 
@@ -110,9 +112,9 @@ public class Pais {
 
     public boolean estanConectadoCon(Pais paisHasta) {
  	    for(Pais pais: getConexiones()){
-                if(pais.getNombre().equalsIgnoreCase(paisHasta.getNombre())){
-                    return true;
-                }
+            if(pais.getNombre().equalsIgnoreCase(paisHasta.getNombre())){
+                return true;
+            }
  	    }
  	    return false;
 

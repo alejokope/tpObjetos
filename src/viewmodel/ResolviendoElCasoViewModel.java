@@ -31,7 +31,13 @@ public class ResolviendoElCasoViewModel {
     public boolean estaPaisActualEnPlanEscape() {
     	List<String> paises = new ArrayList<String>();
     	casoAJugar.getCaso().getResponsable().getPlanEscape().stream().forEach(pais -> paises.add(pais.getNombre()));
-    	return paises.contains(casoAJugar.getJugador().getPaisActual().getNombre());
+
+    	for(String pais: paises){
+    	    if(casoAJugar.getJugador().getPaisActual().getNombre().equalsIgnoreCase(pais)){
+    	        return true;
+            }
+        }
+    	return false;
     }
 
     public List<Pais> getPaisesDondePasoElCriminal() {

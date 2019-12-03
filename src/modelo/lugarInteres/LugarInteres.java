@@ -15,7 +15,7 @@ public class LugarInteres {
             return ayuda.gameOverMensaje(casoAJugar.getVillano());
         } else if (casoAJugar.estanEnElMismoPais()) {
             return ayuda.mismoPaisMensaje();
-        } else if (casoAJugar.pasoPorElPais()) {
+        } else if (this.pasoElVillano) {
             return pasoPorElPais(casoAJugar);
         } else {
             return ayuda.noPasoPorEstePaisMensaje();

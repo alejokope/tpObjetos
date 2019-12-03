@@ -95,6 +95,9 @@ public class Villano extends Persona {
 
     public void viajar() {
         this.paisActual = paisSiguiente();
+        for(LugarInteres lugarInteres : paisActual.getLugaresInteres()){
+            lugarInteres.setPasoVillano(true);
+        }
     }
 
 

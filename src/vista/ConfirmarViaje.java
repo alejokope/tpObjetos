@@ -30,7 +30,7 @@ public class ConfirmarViaje extends JFrame {
     public ConfirmarViaje(final String paisProximo,ResolviendoElCasoViewModel modelo, Jugador jugador){
     	
         setResizable(false);
-        utils = new Utils();
+        utils = new Utils(modelo);
         setTitle("CONFIRMAR VIAJE");
         //TODO FIJARSE FORMA DE CENTRAR EN EL MEDIO DE LA PANTALLA
         setBounds(550, 280, 383, 221);

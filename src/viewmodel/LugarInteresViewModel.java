@@ -11,6 +11,7 @@ public class LugarInteresViewModel {
     public LugarInteresViewModel(CasoAJugar casoAJugar, LugarInteres lugarInteres) {
     	this.casoAJugar = casoAJugar;
     	this.lugarInteres = lugarInteres;
+        System.out.println("alejoskfosa");
     }
 
     public LugarInteres getLugarInteres() {
