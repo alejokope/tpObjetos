@@ -32,7 +32,6 @@ public class ResolviendoElCasoViewModelTest {
 		ven.setNombre("venezuela");
 		villano.setPlanEscape(Arrays.asList(arg, ven));
 		caso.setResponsable(villano);
-		caso.setPlanEscape(villano.getPlanEscape());
 		jugador.setPaisActual(arg);
 		casoAJugar.setCaso(caso);
 		casoAJugar.setJugador(jugador);
@@ -57,7 +56,6 @@ public class ResolviendoElCasoViewModelTest {
 		otro.setNombre("inglaterra");
 		villano.setPlanEscape(Arrays.asList(arg, ven));
 		caso.setResponsable(villano);
-		caso.setPlanEscape(villano.getPlanEscape());
 		jugador.setPaisActual(otro);
 		casoAJugar.setCaso(caso);
 		casoAJugar.setJugador(jugador);

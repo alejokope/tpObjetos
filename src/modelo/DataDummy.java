@@ -397,7 +397,7 @@ public class DataDummy {
 		}
 
         public List<String> obtenerListaPaisesCaso(){
-            return this.casoAsignado.getPlanEscape().stream().map(pais -> pais.getNombre()).collect(Collectors.toList());
+            return this.casoAsignado.getResponsable().getPlanEscape().stream().map(pais -> pais.getNombre()).collect(Collectors.toList());
         }
 }
 

@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Caso {
     private Villano responsable;
-    private List<Pais> planEscape;
     private String titulo;
     private String reporte;
     private String objetoRobado;
@@ -14,9 +13,8 @@ public class Caso {
 
 	}
 
-	public Caso(Villano responsable, List<Pais> planEscape, String reporte, String objetoRobado, Pais paisOrigen) {
+	public Caso(Villano responsable, String reporte, String objetoRobado, Pais paisOrigen) {
 		this.responsable = responsable;
-		this.planEscape = planEscape;
 		this.reporte = reporte;
 		this.objetoRobado = objetoRobado;
 		this.paisOrigen = paisOrigen;
@@ -24,10 +22,6 @@ public class Caso {
 
 	public void setResponsable(Villano responsable) {
 		this.responsable = responsable;
-	}
-    
-	public void setPlanEscape(List<Pais> planEscape) {
-		this.planEscape = planEscape;
 	}
 	
 	public void setReporte(String reporte) {
@@ -58,10 +52,6 @@ public class Caso {
     	return responsable;
 	}
 
-    public List<Pais> getPlanEscape() {
-    	return planEscape;
-    }
-
 	public String getTitulo() {
 		return titulo;
 	}
@@ -71,7 +61,7 @@ public class Caso {
 	}
 
 	public void pasarVillanoPorPaises(){
-		for (Pais pais : planEscape){
+		for (Pais pais : getResponsable().getPlanEscape()){
 			pais.ingresoVillano(responsable);
 		}
 	}

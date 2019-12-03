@@ -53,22 +53,4 @@ public class CasoTest {
         assertEquals(caso.getPaisOrigen(), argentina);
 
     }
-
-    @Test
-    public void setPlanEscape_seteoUnPlanEscapeParaElCasoYObtengoUnoTambien(){
-        Caso caso = new Caso();
-        Pais argentina = new Pais();
-        Pais ecuador = new Pais();
-        Pais chile = new Pais();
-        List<Pais> planEscape = Arrays.asList(argentina, chile, ecuador);
-
-        caso.setPlanEscape(planEscape);
-
-        assertEquals(caso.getPlanEscape(), planEscape);
-
-
-    }
-
-
-
 }

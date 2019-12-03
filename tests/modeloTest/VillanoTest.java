@@ -32,21 +32,6 @@ public class VillanoTest {
 	}
 
 	@Test
-	public void getPaisProximo_ElVillanoNoTieneUnPaisProximoQueElJugadorDebeSeguirPorqueEsElUltimoSegunElPlanDeEscape() {
-		Villano villano = new Villano();
-		Jugador jugador = mock(Jugador.class);
-		Pais argentina = new Pais();
-		Pais chile = new Pais();
-		Pais brasil = new Pais();
-		villano.setPlanEscape(Arrays.asList(argentina, brasil, chile));
-		
-		villano.setPaisActual(chile);
-		when(jugador.getPaisActual()).thenReturn(chile);
-		
-		assertEquals(chile, villano.getPaisProximo(jugador));
-	}
-
-	@Test
 	public void obtenerCaracteristicasDelPaisProximo_obtenerListaDeCaracteristicasDelPaisProximo(){
 		Villano villano = new Villano();
 		Jugador jugador = mock(Jugador.class);

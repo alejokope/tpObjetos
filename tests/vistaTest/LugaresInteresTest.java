@@ -42,7 +42,6 @@ public class LugaresInteresTest {
 
 	        villano.viajar();
 	        caso.setResponsable(villano);
-	        caso.setPlanEscape(villano.getPlanEscape());
 	        caso.pasarVillanoPorPaises();
 
 	        jugador.setPaisActual(pais);
@@ -89,7 +88,6 @@ public class LugaresInteresTest {
 
 	        villano.viajar();
 	        caso.setResponsable(villano);
-	        caso.setPlanEscape(villano.getPlanEscape());
 	        caso.pasarVillanoPorPaises();
 
 	        jugador.setPaisActual(paisFallido);
@@ -132,7 +130,6 @@ public class LugaresInteresTest {
 	        villano.viajar();
 	        villano.setLugarInteresActual(lugarInteresVillano); 
 	        caso.setResponsable(villano);
-	        caso.setPlanEscape(villano.getPlanEscape());
 	        caso.pasarVillanoPorPaises();
 
 	        jugador.setPaisActual(pais2);
@@ -177,7 +174,6 @@ public class LugaresInteresTest {
 	        villano.viajar();
 	        villano.setLugarInteresActual(lugarInteresVillano2); 
 	        caso.setResponsable(villano);
-	        caso.setPlanEscape(villano.getPlanEscape());
 	        caso.pasarVillanoPorPaises();
 
 	        jugador.setPaisActual(pais2);

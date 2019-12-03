@@ -30,7 +30,7 @@ public class ResolviendoElCasoViewModel {
     
     public boolean estaPaisActualEnPlanEscape() {
     	List<String> paises = new ArrayList<String>();
-    	casoAJugar.getCaso().getPlanEscape().stream().forEach(pais -> paises.add(pais.getNombre()));
+    	casoAJugar.getCaso().getResponsable().getPlanEscape().stream().forEach(pais -> paises.add(pais.getNombre()));
     	return paises.contains(casoAJugar.getJugador().getPaisActual().getNombre());
     }
 
@@ -43,7 +43,7 @@ public class ResolviendoElCasoViewModel {
     }
 
    public List<Pais> getRecorridoAcertado(){
-	    List<Pais> paisesCaso = casoAJugar.getCaso().getPlanEscape();
+	    List<Pais> paisesCaso = casoAJugar.getCaso().getResponsable().getPlanEscape();
 	    Pais paisDondeEstaElJugador=casoAJugar.getJugador().getPaisActual();
         for(int i=0; i<paisesCaso.size();i++) {
         	if(paisesCaso.contains(paisDondeEstaElJugador)) {
