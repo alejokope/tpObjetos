@@ -61,9 +61,9 @@ public class Villano extends Persona {
 
     public int obtenerSiguientePaisDeMiPlanDeEscape(Jugador jugador) {
         if (miPlanDeEscapeContieneAlPaisActualDelJugadorYNoEsElUltimoPais(jugador)) {
-            return planDeEscapeEnNombresDePaises().indexOf(jugador.getPaisActual().getNombre()) + OBTENER_PROXIMO_INDICE;
+            return planDeEscapeEnNombresDePaises().indexOf(getPaisActual().getNombre()) + OBTENER_PROXIMO_INDICE;
         } else if (miPlanDeEscapeContieneAlPaisActualDelJugadorYEsElUltimoPais(jugador)) {
-            return planDeEscapeEnNombresDePaises().indexOf(jugador.getPaisActual().getNombre());
+            return planDeEscapeEnNombresDePaises().indexOf(getPaisActual().getNombre());
         } else {
             throw new NoHayPaisProximoException();
         }
