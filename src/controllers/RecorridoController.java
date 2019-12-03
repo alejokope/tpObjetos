@@ -14,8 +14,8 @@ public class RecorridoController {
 	
 	ResolviendoElCasoViewModel modelo;
 	
-	private DefaultListModel<Pais> listaCorrectos= new DefaultListModel<Pais>();
-	private DefaultListModel<Pais> listaIncorrectos= new DefaultListModel<Pais>();
+	private DefaultListModel<String> listaCorrectos= new DefaultListModel<String>();
+	private DefaultListModel<String> listaIncorrectos= new DefaultListModel<String>();
 	
 	
 	public RecorridoController( ResolviendoElCasoViewModel modelo) {
@@ -23,30 +23,23 @@ public class RecorridoController {
 	}
 	
 
-	public ListModel<Pais> agregarAlREcorrido(Pais paisActual) {
+	public ListModel<Pais> agregarAlRecorrido(Pais paisActual) {
 		DefaultListModel<Pais> lista= new DefaultListModel<Pais>();
 		lista.addElement(paisActual);
 		return lista;
 	}
 	
-	public ListModel<Pais> paisesCorrectos(){
-		if(!listaCorrectos.contains(modelo.getCasoAJugar().getJugador().getPaisActual())) {
-			listaCorrectos.addElement(modelo.getCasoAJugar().getJugador().getPaisActual());
+	public ListModel<String> paisesCorrectos(){
+		if(!listaCorrectos.contains(modelo.getCasoAJugar().getJugador().getPaisActual().getNombre())) {
+			listaCorrectos.addElement(modelo.getCasoAJugar().getJugador().getPaisActual().getNombre());
 		}
 		return listaCorrectos;
-
-		
 	}
 
-
-	public ListModel<Pais> getRecorridoCorrecto() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public ListModel<Pais> paisesIncorrectos() {
-		listaIncorrectos.addElement(modelo.getCasoAJugar().getJugador().getPaisActual());
+	public ListModel<String> paisesIncorrectos() {
+		if(!listaIncorrectos.contains(modelo.getCasoAJugar().getJugador().getPaisActual().getNombre())) {
+			listaIncorrectos.addElement(modelo.getCasoAJugar().getJugador().getPaisActual().getNombre());
+		}
 		return listaIncorrectos;
 	}
 }

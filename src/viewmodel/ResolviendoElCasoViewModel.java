@@ -55,20 +55,6 @@ public class ResolviendoElCasoViewModel {
         return recorridoAcertado;
     }
 
-   /* public List<String> getRecorridoNoAcertado(){
-        List<String> paisesCaso = dataDummy.obtenerListaPaisesCaso();
-        List<String> paisesJugador = dataDummy.getPaisesVisitados();
-
-        List<String> listaDevolver = new ArrayList<>();
-
-        for(String pais: paisesJugador){
-            if(!paisesCaso.contains(pais) && !listaDevolver.contains(pais)){
-                listaDevolver.add(pais);
-            }
-        }
-        return listaDevolver;
-    }
-*/
     public Jugador getJugador() {
         return casoAJugar.getJugador();
     }
@@ -111,7 +97,6 @@ public class ResolviendoElCasoViewModel {
     }
 
     public String getNombreDelVillanoACapturar() {
-        //return casoAJugar.getVillano().getNombre();
     	return casoAJugar.getJugador().getSospechoso().getNombre();
     }
     

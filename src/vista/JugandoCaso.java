@@ -30,15 +30,14 @@ public class JugandoCaso extends JFrame {
 	 * se crea el segundo modelview 
 	 */
 	private ResolviendoElCasoViewModel modelo = new ResolviendoElCasoViewModel();
-	//private List<String> paisesRecorridosConExito;
 	private JLabel lblPais;
 	
 	RecorridoController controlador=new RecorridoController(modelo);
 
-	private JList<Pais> list;
+	private JList<String> RecorridoVillanoList;
 
 
-	private JList<Pais> listM;
+	private JList<String> DestinosFallidosList;
 
 	public JugandoCaso(CasoAJugar caso, Jugador jugador) {
 		addWindowListener(new WindowAdapter() {
@@ -46,13 +45,10 @@ public class JugandoCaso extends JFrame {
 			@Override
 			public void windowActivated(WindowEvent arg0) {
 				if(modelo.estaPaisActualEnPlanEscape()) {
-					list.setModel(controlador.paisesCorrectos());
-					
-					list.setCellRenderer(new PaisCell());
+					RecorridoVillanoList.setModel(controlador.paisesCorrectos());
 				}
 				else {
-					listM.setModel(controlador.paisesIncorrectos());
-					listM.setCellRenderer(new PaisCell());
+					DestinosFallidosList.setModel(controlador.paisesIncorrectos());
 					
 				}
 				
@@ -67,9 +63,7 @@ public class JugandoCaso extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		//contentPane.setFlowLayout(FlowLayout.CENTER, 5, 5));
-		
+				
 		JPanel pArriba = new JPanel();
 		pArriba.setBorder(new EmptyBorder(10, 10, 10, 10));
 		pArriba.setPreferredSize(new Dimension(450, 50));
@@ -190,18 +184,13 @@ public class JugandoCaso extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
 
-		list = new JList<Pais>();
-		panel.add(list);
+		RecorridoVillanoList = new JList<String>();
+		RecorridoVillanoList.setBorder(new TitledBorder(null, "Recorrido acertado", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		panel.add(RecorridoVillanoList);
 		
-		listM = new JList<Pais>();
-		panel.add(listM);
-		
-			/*else {
-				listaREcorridoIncorrecto.setModel(new RecorridoController(modelo).agregarAlREcorrido(jugador.getPaisActual()));
-				listaREcorridoIncorrecto.setCellRenderer(new PaisCell());
-			}
-		}*/
-
+		DestinosFallidosList = new JList<String>();
+		DestinosFallidosList.setBorder(new TitledBorder(null, "Destinos Fallidos", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		panel.add(DestinosFallidosList);
 	}
 
 
