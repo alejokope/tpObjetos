@@ -112,8 +112,6 @@ public class DataDummy {
             Pais origen = obtenerPaisOrigen();
             ArrayList<Pais> planEscape = generarCasos(origen);
             caso.setPaisOrigen(origen);
-            caso.setPlanEscape(planEscape);
-            //caso.setPlanEscape(listaPaises);
             caso.setResponsable(obtenerVillanoAlAzar(planEscape));
             caso.setObjeto(origen.getObjeto().getValue());
             caso.setReporte(origen.getReporte().getValue());
@@ -153,49 +151,57 @@ public class DataDummy {
             hobbiesNicolas.add("Toca la guitarra.");
             hobbiesNicolas.add("Juega al futbol.");
             hobbiesNicolas.add("Juega a la play.");
-            hobbiesNicolas.add("Toca el charango.");
+            hobbiesNicolas.add("Toca la trompeta.");
             hobbiesNicolas.add("Anda en bicicleta.");
             hobbiesNicolas.add("Le gusta viajar.");
-            hobbiesNicolas.add("Juega al rugby.");
+            hobbiesNicolas.add("Juega al football.");
 
-            hobbiesBelen.add("Toca el acordeon.");
-            hobbiesBelen.add("Hace danza clasica.");
-            hobbiesBelen.add("Hace natacion.");
-            hobbiesBelen.add("Le gusta salir a bailar.");
-            hobbiesBelen.add("Le gusta viajar.");
-            hobbiesBelen.add("Anda skate.");
-            hobbiesBelen.add("Le gusta las fiestas electronicas.");
+            hobbiesBelen.add("No toca ningun instrumento.");
+            hobbiesBelen.add("Hace danza contemporanea.");
+            hobbiesBelen.add("Hace Hip hop.");
+            hobbiesBelen.add("Misteriosa ella bailaba.");
+            hobbiesBelen.add("No le gusta quedarse en casa.");
+            hobbiesBelen.add("Le gusta pintar.");
+            hobbiesBelen.add("Le gusta ver peliculas");
 
-            hobbiesMaria.add("Le gusta nadar.");
-            hobbiesMaria.add("Anda en rollers.");
-            hobbiesMaria.add("Le gusta viajar.");
-            hobbiesMaria.add("Toca la guitarra.");
-            hobbiesMaria.add("Toca el acordeon.");
-            hobbiesBelen.add("Le gusta las fiestas electronicas.");
-            hobbiesBelen.add("Le gusta salir a bailar.");
+            hobbiesMaria.add("Se cansa facilmente.");
+            hobbiesMaria.add("No le gusta hacer deportes.");
+            hobbiesMaria.add("Le gusta quedarse en casa-");
+            hobbiesMaria.add("Tocar el violin.");
+            hobbiesMaria.add("Escucha musica clasica");
+            hobbiesBelen.add("Tiene callos en los dedos.");
+            hobbiesBelen.add("Toca en la orquesta sinfonica.");
 
-            seniasTomas.add("Tiene pelo rubio.");
-            seniasTomas.add("Lleva consigo una pulsera de oro blanco.");
+            seniasTomas.add("Tiene pelo oscuro.");
+            seniasTomas.add("Lleva anteojos de sol.");
             seniasTomas.add("Su comida favorita son los varenikes.");
             seniasTomas.add("Usa zapatillas de distinto color.");
-            seniasTomas.add("Tiene anteojos.");
-            seniasTomas.add("Tiene aritos en la oreja.");
+            seniasTomas.add("Es daltonico.");
+            seniasTomas.add("Tiene poca barba.");
+            seniasTomas.add("No tiene arito.");
 
             seniasBelen.add("Tiene pelo rubio.");
             seniasBelen.add("Tiene anteojos.");
             seniasBelen.add("Su color favorito es el negro.");
             seniasBelen.add("Su comida favorita son las pastas.");
+            seniasBelen.add("Tiene un tatuaje en la espalda.");
+            seniasBelen.add("De minifalda y zapatos de tacon.");
+            seniasBelen.add("Es muy bella ");
 
-            seniasMaria.add("Tiene pelo negro.");
-            seniasMaria.add("Su color favorito es el negro.");
-            seniasMaria.add("Tiene anteojos.");
-            seniasMaria.add("Su comida favorita son los varenikes.");
-            seniasMaria.add("Tiene aritos en la oreja.");
+            seniasMaria.add("Tiene pelo castaño claro.");
+            seniasMaria.add("Se viste de vestido largo y con lentejuelas");
+            seniasMaria.add("Usa lentes de contacto");
+            seniasMaria.add("Su comida favorita son los camarones");
+            seniasMaria.add("Tiene los ojos verdes");
+            seniasMaria.add("Tiene boca grande");
 
-            seniasNicolas.add("Tiene pelo negro.");
-            seniasNicolas.add("Su comida favorita son las pastas.");
-            seniasNicolas.add("Tiene aritos en la oreja.");
-            seniasNicolas.add("Su color favorito es el violeta.");
+
+            seniasNicolas.add("Tiene pelo castaño oscuro.");
+            seniasNicolas.add("Tiene los ojos uno marron y otro azul.");
+            seniasNicolas.add("Tiene un pircing en la ceja");
+            seniasNicolas.add("Su color favorito es el azul cobalto.");
+            seniasNicolas.add("Tiene un lunar en forma de mancha en la espalda");
+            seniasNicolas.add("Es muy guapo");
 
             tomas.setNombre("Tomas");
             tomas.setSexo("Masculino");
@@ -292,40 +298,40 @@ public class DataDummy {
             india.setTitulo(Titulo.TITULO9);
 
             argentina.setNombre("Argentina");
-            argentina.setCaracteristicas(Arrays.asList("toman mate","bailan tango"));
-            argentina.setLugaresInteres(Arrays.asList(new Banco(), new Club()));
+            argentina.setCaracteristicas(Arrays.asList("toman mate","bailan tango","el rio mas ancho del mundo","dulce de leche , jummy!","bandera celeste y blanca, con un solcito","'FUTBOL'"));
+            argentina.setLugaresInteres(Arrays.asList(new Banco(), new Club(),new Embajada()));
 
             brasil.setNombre("Brasil");
-            brasil.setCaracteristicas(Arrays.asList("toman caipirinha","juegan volley-beach"));
-            brasil.setLugaresInteres(Arrays.asList(new Banco(), new Biblioteca()));
+            brasil.setCaracteristicas(Arrays.asList("toman caipirinha","juegan volley-beach","Bandera verde amarilla y azul","CARNAVAAAL WIII","feishoada jummy","a pesar de todo, siempre estan felices"));
+            brasil.setLugaresInteres(Arrays.asList(new Banco(), new Biblioteca(),new Embajada()));
 
             chile.setNombre("Chile");
-            chile.setCaracteristicas(Arrays.asList("visitan la nieve","tienen terremotos"));
+            chile.setCaracteristicas(Arrays.asList("visitan la nieve","tienen terremotos","hay veces que no se entiende que estan hablando","bandera con colores azul roja y blanca","WEOOON, LA WEA FOME..","se come el "," tienen vicunias"));
             chile.setLugaresInteres(Arrays.asList(new Club(), new Biblioteca(), new Embajada()));
 
             uruguay.setNombre("Uruguay");
-            uruguay.setCaracteristicas(Arrays.asList("toman mate","comen alfajores"));
-            uruguay.setLugaresInteres(Arrays.asList(new Banco(), new Embajada()));
+            uruguay.setCaracteristicas(Arrays.asList("toman mate","EX PROVINCIA ARGENTINA","peniarol y nacional","comen chivitooo, jummy","fubool en ves de futbool"));
+            uruguay.setLugaresInteres(Arrays.asList(new Banco(), new Embajada(), new Club()));
 
             mexico.setNombre("Mexico");
-            mexico.setCaracteristicas(Arrays.asList("asesinan gente","venden droga"));
-            mexico.setLugaresInteres(Arrays.asList(new Embajada(), new Club()));
+            mexico.setCaracteristicas(Arrays.asList("MANGO PICANTE","agua ardiente","las ruinas de los antiguos mayas y aztecas","comen tacos y enchiladas, jummy!","MARIACHIIIIIII AYAYAYAAYY","chapulin colorado"));
+            mexico.setLugaresInteres(Arrays.asList(new Embajada(), new Club(),new Banco()));
 
             francia.setNombre("Francia");
-            francia.setCaracteristicas(Arrays.asList("van a la cancha","corren maratones", "bandera de color azul, roja, blanca"));
+            francia.setCaracteristicas(Arrays.asList("Torre eifell", "bandera de color azul, roja0, blanca","la GUILLOTINA","Comen caracoles, diugh!","Lenwiniii","macarron y baggette"));
             francia.setLugaresInteres(Arrays.asList(new Biblioteca(), new Embajada(), new Club()));
 
             colombia.setNombre("Colombia");
-            colombia.setCaracteristicas(Arrays.asList("venden droga","su color de bandera es roja, azul, amarillo"));
-            colombia.setLugaresInteres(Arrays.asList(new Banco(), new Club()));
+            colombia.setCaracteristicas(Arrays.asList("Barranquilla","su color de bandera es roja, azul, amarillo","mayor mente montañoso","tiene selva tropical","muchas frutas","mayor indice de desigual"));
+            colombia.setLugaresInteres(Arrays.asList(new Banco(), new Club(), new Biblioteca()));
 
             india.setNombre("India");
-            india.setCaracteristicas(Arrays.asList("su bandera es blanca, verde y amarillo","adoran a las vacas","flotan"));
+            india.setCaracteristicas(Arrays.asList("su bandera es blanca, verde y amarillo","adoran a las vacas","flotan","muchos tempos de animales","hay muchas selvas","GANESHAAA","Boliwood","peliculas de accion con bailes"));
             india.setLugaresInteres(Arrays.asList(new Banco(),new Embajada(),new Biblioteca()));
 
             egipto.setNombre("Egipto");
-            egipto.setCaracteristicas(Arrays.asList("tienen el rio mas largo","tienen piramides","trabajan mucho","tienen mucha historia"));
-            egipto.setLugaresInteres(Arrays.asList(new Banco(), new Club()));
+            egipto.setCaracteristicas(Arrays.asList("tienen el rio mas largo","tienen piramides","trabajan mucho","tienen mucha historia","faraones y dioses","bailes raros","adoran a los gatos","comen carne podrida","momiaaaas"));
+            egipto.setLugaresInteres(Arrays.asList(new Banco(), new Club(),new Biblioteca()));
 
 
 
@@ -369,7 +375,7 @@ public class DataDummy {
         private ArrayList<Pais> devolverListaPaisesAzar (Pais pais, ArrayList<Pais> caso){
             ArrayList <Pais> caso2 = caso;
             Pais proximo = obtenerConexionAleatoria(pais);
-            if(caso.size() == 7){ //aumento la cantidad de paises en la lista despues de la modificacion de arriba
+            if(caso.size() == 5){ //aumento la cantidad de paises en la lista despues de la modificacion de arriba
                 return caso2;
             }
             while(caso.contains(proximo)){
