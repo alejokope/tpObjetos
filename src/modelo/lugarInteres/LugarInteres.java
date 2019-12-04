@@ -10,15 +10,22 @@ public class LugarInteres {
     protected Villano villano;
     protected Ayuda ayuda = new Ayuda();
 
+
     public String darPista(CasoAJugar casoAJugar) {
-        if (casoAJugar.seEncuentranAmbos()) {
-            return ayuda.gameOverMensaje(casoAJugar.getVillano());
-        } else if (casoAJugar.estanEnElMismoPais()) {
-            return ayuda.mismoPaisMensaje();
-        } else if (pasoElVillano) {
+        if(casoAJugar.getJugador().getPaisActual().getNombre().equalsIgnoreCase(casoAJugar.getCaso().getPaisOrigen().getNombre())) {
             return pasoPorElPais(casoAJugar);
-        } else {
-            return ayuda.noPasoPorEstePaisMensaje();
+        }
+        else{
+            if (casoAJugar.seEncuentranAmbos()) {
+                return ayuda.gameOverMensaje(casoAJugar.getVillano());
+            } else if (casoAJugar.estanEnElMismoPais()) {
+                return ayuda.mismoPaisMensaje();
+            } else if (pasoElVillano) {
+                return pasoPorElPais(casoAJugar);
+            }else{
+                return ayuda.noPasoPorEstePaisMensaje();
+            }
+
         }
     }
 
